@@ -1,7 +1,7 @@
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   color: #fff;
   background: #000;
   scroll-behavior: smooth;
@@ -65,7 +65,138 @@ nav#hero-nav a:hover {
   background: #fff;
   color: #000;
 }
+.imagePoster {
+  max-width: 40%;
+}
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #1a1a1a; /* Tamsus fonas */
+    color: #eee;
+}
+
+.header-text {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 1.1rem;
+    color: #bbb;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.video-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.video-card {
+    position: relative;
+    cursor: pointer;
+    background: #111;
+    padding: 0;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.video-card:hover {
+    transform: scale(1.02);
+}
+
+/* Konteineris, kuriame bus ir nuotrauka, ir overlay, ir iframe */
+.video-player-container {
+    position: relative;
+    width: 100%;
+    /* Išlaiko 16:9 proporciją (YouTube standartas) */
+    padding-bottom: 56.25%; /* (9 / 16) * 100% */
+    background-color: black; /* Pagrindinė spalva, kol kraunasi */
+}
+
+.video-player-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1; /* Miniatiūra viršuje */
+    display: block; /* Užtikrina, kad matoma pradžioje */
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Pusiau permatomas fonas */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2; /* Overlay virš miniatiūros */
+    transition: background-color 0.3s ease;
+}
+
+.video-card:hover .play-overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Tamsesnis hover efektas */
+}
+
+.play-button-icon {
+    font-size: 60px; /* Didelė "play" ikona */
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Šešėlis, kad geriau matytųsi */
+}
+
+/* iframe stilius, kuris paslėptas kol nepaspausta */
+.video-iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: none; /* Pradžioje paslėptas */
+    z-index: 3; /* iframe virš visų */
+}
+
+.video-description {
+    padding: 1rem;
+    font-size: 0.9rem;
+    background-color: #222;
+    color: #fff;
+    /* NAUJA: nustato minimalų aukštį ir naudoja flexbox */
+    min-height: 120px; /* Eksperimentuokite su šia reikšme, kad pasiektumėte norimą aukštį */
+    display: flex;
+    flex-direction: column; /* Išdėsto elementus stulpeliu */
+    justify-content: flex-start; /* Pradeda turinį nuo viršaus */
+}
+
+.video-description strong {
+    display: block; /* Kad būtų atskiroje eilutėje */
+    margin-bottom: 0.5rem; /* Šiek tiek erdvės tarp pavadinimo ir aprašymo */
+}
+
+.video-description p {
+    margin-top: 0.75rem;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #eee;
+    flex-grow: 1; /* Leidžia pastraipai užimti likusią erdvę */
+}
+
 .text-box {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.picture-box {
+  display: flex;
+  flex-direction: row;
   max-width: 700px;
   margin: auto;
   background: rgba(255,255,255,0.05);
@@ -80,6 +211,7 @@ input[type="email"] {
   border-radius: 4px;
   margin-top: 1rem;
 }
+
 button {
   padding: 10px 20px;
   margin-left: 1rem;
