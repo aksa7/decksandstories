@@ -1,0 +1,97 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #fff;
+  background: #000;
+  scroll-behavior: smooth;
+}
+.is-preload {
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+#about {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  object-fit: cover;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+h1 {
+  font-size: 100px;
+  margin: 2rem;
+}
+.main {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+.inner.center {
+  max-width: 800px;
+  margin: auto;
+}
+.logo {
+  max-width: 160px;
+  padding-top: 3rem;
+
+}
+nav#hero-nav {
+  text-align: center;
+  margin-top: 2rem;
+}
+nav#hero-nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 3rem;
+}
+nav#hero-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+nav#hero-nav a:hover {
+  background: #fff;
+  color: #000;
+}
+.text-box {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 8px;
+}
+input[type="email"] {
+  padding: 10px;
+  width: 70%;
+  max-width: 300px;
+  border: none;
+  border-radius: 4px;
+  margin-top: 1rem;
+}
+button {
+  padding: 10px 20px;
+  margin-left: 1rem;
+  background: #fff;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.fade-in { animation: fadeIn 2s ease forwards; }
+.fade-in.alt { background: rgba(255,255,255,0.02); }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
