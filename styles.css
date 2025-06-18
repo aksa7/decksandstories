@@ -67,6 +67,7 @@ nav#hero-nav a:hover {
 }
 .imagePoster {
   max-width: 40%;
+  border: 2px solid white;
 }
 body {
     font-family: sans-serif;
@@ -193,6 +194,12 @@ body {
   padding: 2rem;
   border-radius: 8px;
 }
+.aboutText {
+  max-width: 500px;
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 8px;
+}
 
 .picture-box {
   display: flex;
@@ -233,7 +240,6 @@ button {
   h1 {
     font-size: 2rem;
   }
-
   #about {
     flex-direction: column;
     padding: 1rem;
@@ -245,7 +251,8 @@ button {
   }
 
   .imagePoster {
-    max-width: 100%;
+    max-width: 80%;
+
   }
 
   nav#hero-nav ul {
