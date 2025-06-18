@@ -1,4 +1,3 @@
-
 body {
   margin: 0;
   font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -39,7 +38,6 @@ h1 {
 .logo {
   max-width: 160px;
   padding-top: 3rem;
-
 }
 nav#hero-nav {
   text-align: center;
@@ -72,10 +70,9 @@ nav#hero-nav a:hover {
 body {
     font-family: sans-serif;
     margin: 0;
-    background-color: #1a1a1a; /* Tamsus fonas */
+    background-color: #1a1a1a;
     color: #eee;
 }
-
 .header-text {
     text-align: center;
     padding: 30px 20px;
@@ -84,14 +81,12 @@ body {
     max-width: 800px;
     margin: 0 auto;
 }
-
 .video-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
     padding: 2rem;
 }
-
 .video-card {
     position: relative;
     cursor: pointer;
@@ -101,20 +96,14 @@ body {
     overflow: hidden;
     transition: transform 0.3s ease;
 }
-
-.video-card:hover {
-    transform: scale(1.02);
-}
-
+.video-card:hover {transform: scale(1.02);}
 /* Konteineris, kuriame bus ir nuotrauka, ir overlay, ir iframe */
 .video-player-container {
     position: relative;
     width: 100%;
-    /* Išlaiko 16:9 proporciją (YouTube standartas) */
     padding-bottom: 56.25%; /* (9 / 16) * 100% */
-    background-color: black; /* Pagrindinė spalva, kol kraunasi */
+    background-color: black;
 }
-
 .video-player-container img {
     position: absolute;
     top: 0;
@@ -122,35 +111,28 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 1; /* Miniatiūra viršuje */
-    display: block; /* Užtikrina, kad matoma pradžioje */
+    z-index: 1;
+    display: block;
 }
-
 .play-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); /* Pusiau permatomas fonas */
+    background-color: rgba(0, 0, 0, 0.4);
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2; /* Overlay virš miniatiūros */
+    z-index: 2;
     transition: background-color 0.3s ease;
 }
-
-.video-card:hover .play-overlay {
-    background-color: rgba(0, 0, 0, 0.6); /* Tamsesnis hover efektas */
-}
-
+.video-card:hover .play-overlay {background-color: rgba(0, 0, 0, 0.6);}
 .play-button-icon {
-    font-size: 60px; /* Didelė "play" ikona */
+    font-size: 60px;
     color: white;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Šešėlis, kad geriau matytųsi */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
-
-/* iframe stilius, kuris paslėptas kol nepaspausta */
 .video-iframe {
     position: absolute;
     top: 0;
@@ -158,35 +140,30 @@ body {
     width: 100%;
     height: 100%;
     border: none;
-    display: none; /* Pradžioje paslėptas */
-    z-index: 3; /* iframe virš visų */
+    display: none; 
+    z-index: 3;
 }
-
 .video-description {
     padding: 1rem;
     font-size: 0.9rem;
     background-color: #222;
     color: #fff;
-    /* NAUJA: nustato minimalų aukštį ir naudoja flexbox */
-    min-height: 120px; /* Eksperimentuokite su šia reikšme, kad pasiektumėte norimą aukštį */
+    min-height: 120px;
     display: flex;
-    flex-direction: column; /* Išdėsto elementus stulpeliu */
-    justify-content: flex-start; /* Pradeda turinį nuo viršaus */
+    flex-direction: column;
+    justify-content: flex-start;
 }
-
 .video-description strong {
-    display: block; /* Kad būtų atskiroje eilutėje */
-    margin-bottom: 0.5rem; /* Šiek tiek erdvės tarp pavadinimo ir aprašymo */
+    display: block;
+    margin-bottom: 0.5rem;
 }
-
 .video-description p {
     margin-top: 0.75rem;
     font-size: 0.95rem;
     line-height: 1.4;
     color: #eee;
-    flex-grow: 1; /* Leidžia pastraipai užimti likusią erdvę */
+    flex-grow: 1;
 }
-
 .text-box {
   max-width: 700px;
   margin: auto;
@@ -195,12 +172,11 @@ body {
   border-radius: 8px;
 }
 .aboutText {
-  max-width: 500px;
+  width: 100%;
   background: rgba(255,255,255,0.05);
   padding: 2rem;
   border-radius: 8px;
 }
-
 .picture-box {
   display: flex;
   flex-direction: row;
@@ -234,33 +210,29 @@ button {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
 /* Iki 400px – mobile */
 @media screen and (max-width: 400px) {
-  h1 {
-    font-size: 2rem;
-  }
+  h1 {font-size: 2rem;}
   #about {
     flex-direction: column;
     padding: 1rem;
   }
-
+  .aboutText {
+  width: 80%;
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 8px;
+}
   .picture-box {
     flex-direction: column;
     align-items: center;
   }
-
-  .imagePoster {
-    max-width: 80%;
-
-  }
-
+  .imagePoster {max-width: 80%;}
   nav#hero-nav ul {
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem;
   }
-
   nav#hero-nav a {
     display: block;
     width: 100%;
@@ -272,55 +244,42 @@ button {
     margin-left: 0;
     margin-top: 1rem;
   }
-
   .video-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 1rem;
   }
-
   .video-description {
     font-size: 0.6rem;
     padding: 0.4rem;
   }
-  .video-description p {
-    font-size: 0.6rem;
-  }
-
-  .play-button-icon {
-    font-size: 40px;
-  }
+  .video-description p {font-size: 0.6rem;}
+  .play-button-icon {font-size: 40px;}
 }
-
 /* 401px–800px – tablets */
 @media screen and (min-width: 401px) and (max-width: 800px) {
-  h1 {
-    font-size: 2.5rem;
-  }
+  h1 {font-size: 2.5rem;}
   .formSubmit {
     margin-left: 0;
     margin-top: 1rem;
   }
-
-  #about {
-    flex-direction: column;
-  }
-
+  .aboutText {
+  width: 90%;
+  background: rgba(255,255,255,0.05);
+  padding: 2rem;
+  border-radius: 8px;
+}
+  #about {flex-direction: column;}
   .picture-box {
     flex-direction: column;
     align-items: center;
   }
-
-  .imagePoster {
-    max-width: 80%;
-  }
-
+  .imagePoster {max-width: 80%;}
   nav#hero-nav ul {
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem;
   }
-
   nav#hero-nav a {
     display: block;
     width: 100%;
@@ -328,25 +287,21 @@ button {
     margin: auto;
     text-align: center;
   }
-
   .video-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1.5rem;
   }
-
   .video-description {
     font-size: 0.4rem;
     padding: 0.4rem;
   }
 }
-
 /* 801px–1200px – small laptops */
 @media screen and (min-width: 801px) and (max-width: 1200px) {
   .video-grid {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
   }
-
   .imagePoster {
     max-width: 60%;
   }
