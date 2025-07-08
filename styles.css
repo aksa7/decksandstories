@@ -16,10 +16,8 @@ body {
 }
 #bg-video {
   position: fixed;
-  top: 0;
-  left: 0;
   object-fit: cover;
-  min-width: 100%;
+  width: 100%;
   min-height: 100%;
   z-index: -1;
 }
@@ -36,8 +34,8 @@ h1 {
   margin: auto;
 }
 .logo {
-  max-width: 160px;
-  padding-top: 3rem;
+  width: 80%;
+
 }
 nav#hero-nav {
   text-align: center;
@@ -64,8 +62,27 @@ nav#hero-nav a:hover {
   color: #000;
 }
 .imagePoster {
-  max-width: 40%;
+  max-width: 60%;
   border: 2px solid white;
+}
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr 2px 1fr;
+  gap: 2rem;
+  max-width: 1000px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+.event-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.divider {
+  background-color: white;
+  width: 2px;
+  height: 100%;
 }
 body {
     font-family: sans-serif;
@@ -96,6 +113,13 @@ body {
     overflow: hidden;
     transition: transform 0.3s ease;
 }
+.mission-text {
+  font-size: 1rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
 .video-card:hover {transform: scale(1.02);}
 /* Konteineris, kuriame bus ir nuotrauka, ir overlay, ir iframe */
 .video-player-container {
@@ -194,6 +218,32 @@ input[type="email"] {
   border-radius: 4px;
   margin-top: 1rem;
 }
+.social-fixed-bar {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  padding: 8px 20px;
+  display: flex;
+  gap: 20px;
+  z-index: 9999;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.social-fixed-bar a img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.social-fixed-bar a img:hover {
+  transform: scale(1.15);
+  opacity: 0.9;
+}
 
 button {
   padding: 10px 20px;
@@ -217,6 +267,7 @@ button {
     flex-direction: column;
     padding: 1rem;
   }
+  
   .aboutText {
   width: 80%;
   background: rgba(255,255,255,0.05);
@@ -227,7 +278,7 @@ button {
     flex-direction: column;
     align-items: center;
   }
-  .imagePoster {max-width: 80%;}
+  .imagePoster {max-width: 100%;}
   nav#hero-nav ul {
     flex-direction: column;
     gap: 0.75rem;
@@ -274,7 +325,7 @@ button {
     flex-direction: column;
     align-items: center;
   }
-  .imagePoster {max-width: 80%;}
+  .imagePoster {max-width: 100%;}
   nav#hero-nav ul {
     flex-direction: column;
     gap: 0.75rem;
