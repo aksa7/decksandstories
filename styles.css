@@ -113,6 +113,11 @@ body {
     overflow: hidden;
     transition: transform 0.3s ease;
 }
+.video-grid > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .mission-text {
   font-size: 1rem;
   color: #ffffff;
@@ -157,6 +162,28 @@ body {
     color: white;
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
+.view-more-container {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.view-more-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #fff;
+  color: #000;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.view-more-button:hover {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
 .video-iframe {
     position: absolute;
     top: 0;
@@ -194,6 +221,12 @@ body {
   background: rgba(255,255,255,0.05);
   padding: 2rem;
   border-radius: 8px;
+}
+.collab-box {
+  max-width: 2000px;
+  margin: auto;
+  padding: 2rem;
+
 }
 .aboutText {
   width: 100%;
