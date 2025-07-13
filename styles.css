@@ -277,6 +277,32 @@ input[type="email"] {
   transform: scale(1.15);
   opacity: 0.9;
 }
+.back-to-top-center {
+  position: relative;
+  height: 100px;
+}
+
+.back-to-top-center a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 12px 24px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 50px;
+  backdrop-filter: blur(4px);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.back-to-top-center a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  border-color: #fff;
+}
 
 button {
   padding: 10px 20px;
