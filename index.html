@@ -53,13 +53,16 @@
     <div class="yt-track-title" id="yt-track-title">Loading...</div>
   </div>
 
-  <div class="yt-controls">
-    <button onclick="prevTrack()">⏮</button>
-    <button onclick="togglePlayPause()" id="playPauseBtn">▶</button>
-    <button onclick="nextTrack()">⏭</button>
-    <input type="range" min="0" max="100" value="40" id="volumeSlider" onchange="setVolume(this.value)">
-    <button onclick="closePlayer()">❌</button>
-  </div>
+<div class="yt-controls">
+  <button onclick="prevTrack()" class="control-btn"><img src="icons/prev.svg" alt="Previous"></button>
+  <button onclick="togglePlayPause()" id="playPauseBtn" class="control-btn">
+    <img id="playPauseIcon" src="icons/play.svg" alt="Play">
+  </button>
+  <button onclick="nextTrack()" class="control-btn"><img src="icons/next.svg" alt="Next"></button>
+  <input type="range" min="0" max="100" value="40" id="volumeSlider" onchange="setVolume(this.value)">
+  <button onclick="closePlayer()" class="control-btn"><img src="icons/close.svg" alt="Close"></button>
+</div>
+
 
   <div id="yt-bar-player" style="display: none;"></div>
 </div>

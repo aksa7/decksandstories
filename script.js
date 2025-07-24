@@ -40,6 +40,7 @@ const playlistId = 'PLpO5SCIZiofW3wdYBluol3nICkDQRxrP3'; // tavo grojaraščio I
   function initYTPlaylistPlayer() {
     if (!ytReady || ytStarted) return;
 
+    const randomIndex = Math.floor(Math.random() * 50); // max = grojaraščio dainų skaičius
     ytPlayer = new YT.Player('yt-bar-player', {
       height: '0',
       width: '0',
@@ -47,6 +48,7 @@ const playlistId = 'PLpO5SCIZiofW3wdYBluol3nICkDQRxrP3'; // tavo grojaraščio I
         listType: 'playlist',
         list: playlistId,
         autoplay: 1,
+        index: randomIndex,
         controls: 0,
         modestbranding: 1,
         rel: 0
@@ -91,9 +93,12 @@ const playlistId = 'PLpO5SCIZiofW3wdYBluol3nICkDQRxrP3'; // tavo grojaraščio I
     updatePlayBtn();
   }
 
-  function updatePlayBtn() {
-    document.getElementById("playPauseBtn").textContent = isPlaying ? "⏸" : "▶";
-  }
+function updatePlayBtn() {
+  const icon = document.getElementById("playPauseIcon");
+  if (!icon) return;
+  icon.src = isPlaying ? "icons/pause.svg" : "icons/play.svg";
+}
+
 
   function prevTrack() {
     if (ytPlayer) ytPlayer.previousVideo();
