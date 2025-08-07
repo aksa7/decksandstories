@@ -138,3 +138,14 @@ function updatePlayBtn() {
 
     }, 300);
   }
+  // Inicijuojam Utopija galeriją
+lightGallery(document.getElementById('utopija-gallery'), {
+  plugins: [lgZoom, lgThumbnail],
+  speed: 400,
+  thumbnail: true,
+  zoom: true,
+  hideControls: false
+});
+
+// Jei įkelsi IPANEMA nuotraukas vėliau, tiesiog inicijuok ją irgi:
+// lightGallery(document.getElementById('ipanema-gallery'), { plugins: [lgZoom, lgThumbnail], speed: 400 });
