@@ -1,0 +1,84 @@
+body {
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* Bendras konteineris */
+.gallery-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Kiekvienas renginys (kolona) */
+.gallery-column {
+  background-color: #222;
+  border-radius: 10px;
+  padding: 1.5rem;
+  color: white;
+  margin: 1rem;
+  flex: 1 1 100%;
+  max-width: 750px;
+  margin: 1rem auto;
+  width: 100%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+}
+
+/* Renginio antraštė */
+.gallery-column h3 {
+  text-align: center;
+  font-size: 1.8rem;
+  background-color: #222;
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0;
+}
+
+/* Grotelinis išdėstymas */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+/* Nuotraukos viduje tinklelio */
+.gallery-grid img {
+  width: 100%;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-grid img:hover {
+  transform: scale(1.02);
+  filter: brightness(1.1);
+  cursor: pointer;
+}
+
+/* ✅ RESPONSIVE */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+  }
+
+  .gallery-column {
+    max-width: 100%;
+    width: 100%;
+    margin: 1rem auto;
+    padding: 0;
+  }
+
+  .gallery-wrapper {
+    padding: 0.5rem;
+  }
+}
