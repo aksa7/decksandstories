@@ -68,12 +68,9 @@
 
   <div id="yt-bar-player" style="display: none;"></div>
 </div>
-
-
-<!-- Background Video -->
-<video autoplay muted loop playsinline id="bg-video">
-  <source src="assets/Bgvd_compressed_1.mp4" type="video/mp4" />
-</video>
+  <div class="bg-video">
+    <div id="yt-bg"></div>
+  </div>
 <!-- Hero Section -->
 <section id="intro" class="main fullscreen fade-up">
   <div class="inner center">
@@ -180,6 +177,41 @@ Every set holds a moment, a memory, a truth shared through sound.</p>
 </div>
     <div class="video-grid">
       <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('mo3lBD9nE20', this)">
+          <img src="https://i.ytimg.com/vi/mo3lBD9nE20/hqdefault.jpg" alt="Episode 23 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #36 · Ilyrojus</strong>
+          <p>A message from Ilyrojus to the people: <br>
+          “May this mix take you back to the better days and fill your heart with love, happiness, and inner peace”
+        </p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('5mLw-BPfM2U', this)">
+          <img src="https://i.ytimg.com/vi/5mLw-BPfM2U/hqdefault.jpg" alt="Episode 23 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #35 · IGO</strong>
+          <p>"For him, music brings energy, freedom, and pure joy. Before each set, he visualizes the crowd going crazy — and it works. Have you ever tried that?"</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('Loi5LeLFofA', this)">
+          <img src="https://i.ytimg.com/vi/Loi5LeLFofA/hqdefault.jpg" alt="Episode 23 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #34 · Frost</strong>
+          <p>"Coming from Denmark, her mission is to inspire and help people fall in love with hard techno."</p>
+        </div>
+      </div>
+      <div class="video-card">
         <div class="video-player-container" onclick="loadAndPlayVideo('OQNM_rndVNs', this)">
           <img src="https://i.ytimg.com/vi/OQNM_rndVNs/hqdefault.jpg" alt="Episode 23 thumbnail">
           <div class="play-overlay"><span class="play-button-icon">►</span></div>
@@ -212,41 +244,6 @@ Every set holds a moment, a memory, a truth shared through sound.</p>
           <p>"We met Destiny at the Atradimai Festival and told him that this story has to be written in our history. With his mission, he delivers an emotionally memorable mix that goes beyond a single genre."</p>
         </div>
       </div>
-                  <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('PXK38CgUt8Q', this)">
-          <img src="https://i.ytimg.com/vi/PXK38CgUt8Q/hqdefault.jpg" alt="Episode 23 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #30 · Mi Jon</strong>
-          <p>"A message from Mi Jon to the people: <br>
-"I want my listeners to feel the strength to keep going, even if life pulls them a few steps back. Every setback is just another beat leading us forward to something bigger.""</p>
-        </div>
-      </div>
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('5MDDlxu-irg', this)">
-          <img src="https://i.ytimg.com/vi/5MDDlxu-irg/hqdefault.jpg" alt="Episode 23 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #29 · Psyberfunk</strong>
-          <p>"A message from PsyberFunk to the people:
-"If something gives you purpose, keep doing it.""</p>
-        </div>
-      </div>
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('LiYD7j2f3lo', this)">
-          <img src="https://i.ytimg.com/vi/LiYD7j2f3lo/hqdefault.jpg" alt="Episode 23 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #28 · RizzΔr  </strong>
-          <p>"Have you ever felt that special moment when music connects people without a single word? That’s what RizzΔr is all about. He is the energy that unites people through music — beyond boundaries, politics, beliefs, and religions."</p>
-        </div>
-      </div>
     </div>
      <div class="view-more-container">
   <a href="https://www.youtube.com/@decksandstories" target="_blank" class="view-more-button">
@@ -269,6 +266,61 @@ Every set holds a moment, a memory, a truth shared through sound.</p>
 </div>
     <div class="video-grid">
       <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('tDyn7xndE-U', this)">
+          <img src="https://i.ytimg.com/vi/tDyn7xndE-U/hqdefault.jpg" alt="Episode 7 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #21 · Hades</strong>
+          <p>"Chill guy with a groovy and cozy mix. Hades is known for his deep digging track selection, sharing his emotions through every tune."</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('Ra37ikBTR28', this)">
+          <img src="https://i.ytimg.com/vi/Ra37ikBTR28/hqdefault.jpg" alt="Episode 7 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #20 · Halloween Special</strong>
+          <p>"Enjoy the dark and spooky vibe of this scary night! Before diving into the darkness, we spent the evening carving pumpkins and jamming together in the studio – setting the perfect mood for this episode."</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('MljQ9KBOXDY', this)">
+          <img src="https://i.ytimg.com/vi/MljQ9KBOXDY/hqdefault.jpg" alt="Episode 7 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #19 · Mi Jon</strong>
+          <p>"We met Mi Jon at the Atradimai Festival — he came out of nowhere and started to play. After a couple of tracks, we realized he knew exactly what he was doing. After his set, we invited him to our studio, and here we are with Episode #19, filled with Afro and House rhythms, deep grooves, and pure energy."</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('Q2fzpgtyWxg', this)">
+          <img src="https://i.ytimg.com/vi/Q2fzpgtyWxg/hqdefault.jpg" alt="Episode 7 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #18 · Suduiko</strong>
+          <p>"We witnessed that her story and her connection to music are on a completely different level. We wish for all our audience to feel the same passion and energy for their gigs as she does."</p>
+        </div>
+      </div>
+      <div class="video-card">
+        <div class="video-player-container" onclick="loadAndPlayVideo('3MJhk_R-yIw', this)">
+          <img src="https://i.ytimg.com/vi/3MJhk_R-yIw/hqdefault.jpg" alt="Episode 7 thumbnail">
+          <div class="play-overlay"><span class="play-button-icon">►</span></div>
+          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="video-description">
+          <strong>Episode #17 · Lucas Keoro</strong>
+          <p>"With pure energy, Lucas Keoro brings us a heartfelt selection, beautifully blending Afro House with timeless Deep House gems. Each track feels like a gift, carefully chosen from his personal playlist and shared with the audience."</p>
+        </div>
+      </div>
+      <div class="video-card">
         <div class="video-player-container" onclick="loadAndPlayVideo('5gHWpzqLk00', this)">
           <img src="https://i.ytimg.com/vi/5gHWpzqLk00/hqdefault.jpg" alt="Episode 7 thumbnail">
           <div class="play-overlay"><span class="play-button-icon">►</span></div>
@@ -279,60 +331,6 @@ Every set holds a moment, a memory, a truth shared through sound.</p>
           <p>"Vosy — known as a dark techno DJ and producer, he is a resident in @auditorija, and his performances can be seen in many places across Lithuania. By inviting him, we knew that this mix was going to be a stunning journey of dark emotions and hypnotic energy"</p>
         </div>
       </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('pCSRMuI_OVo', this)">
-          <img src="https://i.ytimg.com/vi/pCSRMuI_OVo/hqdefault.jpg" alt="Episode 7 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #15 · Liuska</strong>
-          <p>"Coozy, chill, and warm set from Liuska In this session, he brings us his own style, mixing a hip hop and RnB story while also sharing his own production. Watching his technique playing is truly inspiring You can often see him at @backyard.eu warming up Lithuanian rap singers with his DJ sets."</p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('NNzW9NTqThQ', this)">
-          <img src="https://i.ytimg.com/vi/NNzW9NTqThQ/hqdefault.jpg" alt="Episode 7 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #14 · Aksendo</strong>
-          <p>"We can clearly see AKSENDO behind the decks, in his element, relaxed and excited at the same time as he makes the most out of this mix. As this set moves on, he makes an incredible atmosphere with constantly lifting the beats per minute up precisely"</p>
-        </div>
-      </div>
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('08mNWBlYtA0', this)">
-          <img src="https://i.ytimg.com/vi/08mNWBlYtA0/hqdefault.jpg" alt="Episode 7 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #13 · Topuma</strong>
-          <p>"Topuma – a young, fired-up talent with a hunger to grow and create. Passion, drive, and pure creativity are what fuel his music. A little pre-session nerves didn’t hold him back – the result is a mix full of energy, hype, and raw love for the craft. Every beat shows he’s not just making music, he’s living it."</p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('1TKaA9kC5nI', this)">
-          <img src="https://i.ytimg.com/vi/1TKaA9kC5nI/hqdefault.jpg" alt="Episode 7 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #12 · Račkaitis</strong>
-          <p>"For this session, our colleague shares his story with Disco and House grooves, preparing his set with care and building a playlist with passion. Račkaitis, known as a resident DJ at @naktis.festival, brings his energy and dedication to create a smooth and enjoyable musical journey."</p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('vLj0JhGSnAM', this)">
-          <img src="https://i.ytimg.com/vi/vLj0JhGSnAM/hqdefault.jpg" alt="Episode 7 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #11 · Monty Burns</strong>
-          <p>”Monty Burns delivers his infectious disco grooves, pure feel-good energy that lifts the vibe and gets you moving. Watching his technique is truly inspiring, showing how improvisation can fuel your energy, unlock creativity, and boost self-confidence."</p>
-        </div>
       </div>
     </div>
   </div>

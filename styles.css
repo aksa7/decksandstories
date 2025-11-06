@@ -14,12 +14,32 @@ body {
   flex-direction: row;
   gap: 1rem;
 }
-#bg-video {
+.bg-video {
   position: fixed;
   object-fit: cover;
   width: 100%;
   min-height: 100%;
   z-index: -1;
+  background: #000;
+}
+.bg-video #yt-bg,
+.bg-video iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 177.78vh;   /* 100 * 16/9 – kad dengtų aukštį */
+  height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none; /* fone nespaudomas */
+}
+
+/* Jei ekranas labai platus – dengiam pagal plotį */
+@media (min-aspect-ratio: 16/9) {
+  .bg-video #yt-bg,
+  .bg-video iframe {
+    width: 100vw;
+    height: 56.25vw; /* 100 * 9/16 */
+  }
 }
 h1 {
   font-size: 80px;
