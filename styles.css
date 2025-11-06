@@ -136,7 +136,6 @@ body {
     display: flex;              /* nauja */
     flex-direction: column;     /* nauja */
     height: 100%;               /* nauja */
-    gap: 0.6rem;                /* nauja – stabilus tarpas vietoj „skylės“ */
 }
 
 .mission-text {
