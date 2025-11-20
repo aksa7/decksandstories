@@ -13,6 +13,12 @@ body.submit-page {
     url("assets/herovisual.png") center top / cover no-repeat fixed;
 }
 
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
 
 /* Overlay su gradientu: viršuje tamsiau / labiau „užblurrinta“, apačioj skaidriau */
 body.submit-page::before {
