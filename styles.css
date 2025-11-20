@@ -1,96 +1,523 @@
+/* ===========================
+   BAZĖ
+=========================== */
+
+:root {
+  --bg-dark: #020202;
+  --bg-dark-soft: #080808;
+  --bg-section-dark: #050505;
+  --bg-section-soft: #0c0c0c;
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+  --accent-white: #ffffff;
+  --border-soft: rgba(255, 255, 255, 0.12);
+}
+
+html,
 body {
   margin: 0;
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  color: #fff;
-  background: #000;
+  padding: 0;
   scroll-behavior: smooth;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background: radial-gradient(circle at top, #111111 0, #050505 45%, #000 100%);
+  color: var(--text-main);
 }
+
+body {
+  min-height: 100vh;
+}
+
 .is-preload {
   opacity: 0;
   transition: opacity 2s ease;
 }
-#about {
+
+/* ===========================
+   HERO / INTRO
+=========================== */
+
+/* Hero – juodas fonas + patamsinta nuotrauka (fonas dabar ant .intro-about-bg) */
+#intro {
+  position: relative;
+  min-height: 80vh;
   display: flex;
-  flex-direction: row;
-  gap: 1rem;
-}
-.bg-video {
-  position: fixed;
-  object-fit: cover;
-  width: 100%;
-  min-height: 100%;
-  z-index: -1;
-  background: #000;
-}
-.bg-video #yt-bg,
-.bg-video iframe {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 177.78vh;   /* 100 * 16/9 – kad dengtų aukštį */
-  height: 100vh;
-  transform: translate(-50%, -50%);
-  pointer-events: none; /* fone nespaudomas */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #ffffff;
+  overflow: hidden;
 }
 
-/* Jei ekranas labai platus – dengiam pagal plotį */
-@media (min-aspect-ratio: 16/9) {
-  .bg-video #yt-bg,
-  .bg-video iframe {
-    width: 100vw;
-    height: 56.25vw; /* 100 * 9/16 */
-  }
+/* Visas turinys virš background */
+#intro > * {
+  position: relative;
+  z-index: 1;
 }
-h1 {
-  font-size: 80px;
-  margin: 2rem;
-}
-.main {
-  padding: 6rem 2rem;
-  text-align: center;
-}
+
 .inner.center {
   max-width: 800px;
   margin: auto;
 }
-.logo {
-  width: 60%;
 
+.logo {
+  width: 100%;
+  max-width: 480px;
 }
+/* =========================================
+   REACH OUT / CONNECT SECTION
+========================================= */
+
+.collab-box-extended {
+  background: transparent;
+  border-radius: 18px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.85);
+  text-align: left;
+}
+
+.collab-box-extended h2 {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.collab-box-extended p {
+  margin: 0.4rem 0;
+}
+
+.collab-note {
+  margin-top: 0.8rem;
+  font-size: 0.9rem;
+  color: #dddddd;
+}
+
+/* CTA mygtukai apatinėje sekcijoje */
+
+.collab-cta-row {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.collab-cta-primary,
+.collab-cta-secondary {
+  padding-inline: 26px;
+  font-size: 0.9rem;
+}
+
+/* Primary – pilnas baltas */
+.collab-cta-primary {
+  background: #ffffff;
+  color: #000000;
+  border-color: #ffffff;
+}
+
+/* Secondary – permatomas, tik kontūras */
+.collab-cta-secondary {
+  background: transparent;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.65);
+}
+
+.collab-cta-primary:hover {
+  background: transparent;
+  color: #ffffff;
+}
+
+.collab-cta-secondary:hover {
+  background: #ffffff;
+  color: #000000;
+}
+
+.collab-email {
+  margin-top: 1.2rem;
+  font-size: 0.85rem;
+  color: #bbbbbb;
+}
+
+/* Mobile: kad CTA gražiai lūžtų */
+@media (max-width: 600px) {
+  .collab-box-extended {
+    padding-inline: 1.25rem;
+  }
+
+  .collab-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .collab-cta-primary,
+  .collab-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+.biggerText {
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+/* ===========================
+   NAVIGACIJA HERO VIDUJE
+=========================== */
+
+nav#hero.nav {
+  justify-content: center;
+}
+
 nav#hero-nav {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
+}
+nav#hero-nav a {
+  padding: 12px 34px;   /* daugiau “mėsos” iš šonų */
+  font-size: 0.6rem;
+  min-width: 80px;     /* kad būtų vizualiai platesni */
 }
 nav#hero-nav ul {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
   list-style: none;
-  padding: 3rem;
+  padding: 0;
+  margin: 0;
 }
-nav#hero-nav a {
-  color: #fff;
+
+/* Baltos pill formos – globaliai */
+nav#hero-nav a,
+button,
+.view-more-button,
+.back-to-top-center a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--accent-white);
+  background: transparent;
+  color: var(--accent-white);
   text-decoration: none;
-  padding: 10px 20px;
-  border: 1px solid #fff;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.25s ease;
 }
-nav#hero-nav a:hover {
-  background: #fff;
+
+nav#hero-nav a:hover,
+button:hover,
+.view-more-button:hover,
+.back-to-top-center a:hover {
+  background: var(--accent-white);
+  color: #000000;
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.15);
+}
+
+/* Default button (jei naudoji kitur) */
+button {
+  margin-left: 1rem;
+}
+
+/* ===========================
+   BENDRI SEKCIJŲ STILIAI
+=========================== */
+
+.main {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* BENDRAS BACKGROUND INTRO + ABOUT BLOKUI */
+.intro-about-bg {
+  background-image:
+    linear-gradient(
+      to bottom,
+      rgba(19, 2, 2, 0.85) 20%,
+      rgba(0, 0, 0, 0.9) 60%,
+      #0a0000 100%
+    ),
+    url("assets/herovisual.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/* Sekcijos eina juoda → tamsiai pilka (likusios) */
+section.main:nth-of-type(odd) {
+  background-color: var(--bg-section-dark);
+}
+
+section.main:nth-of-type(even) {
+  background-color: var(--bg-section-soft);
+}
+
+/* ABOUT – tekstas kortelėje */
+#about {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: center;
+  min-height: 100vh; /* sekcija užima visą ekrano aukštį */
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* ============================
+   COLLAB / REACH OUT SECTION
+   ============================ */
+
+#collab {
+  background: transparent;
+  padding: 4rem 1.5rem 5rem;
+  display: flex;
+  justify-content: center;
+}
+
+
+.collab-box {
+  max-width: 850px;
+  margin: auto;
+  padding: 2.5rem 2rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+}
+
+/* Title */
+#collab h2 {
+  font-size: 2.1rem;
+  font-weight: 600;
+  margin-bottom: 1.4rem;
+  color: #ffffff;
+  letter-spacing: 0.03em;
+}
+
+/* Paragraphs */
+#collab p {
+  font-size: 1rem;
+  color: #d8d8d8;
+  line-height: 1.65;
+  margin-bottom: 1.1rem;
+}
+
+#collab strong {
+  color: #ffffff;
+}
+
+/* CTA Buttons */
+#collab .submit-cta-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+#collab .submit-cta,
+#collab .submit-cta-outline {
+  padding: 12px 30px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+/* Filled CTA */
+#collab .submit-cta {
+  background: #ffffff;
+  color: #000;
+  border: 1px solid #ffffff;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.07);
+}
+
+#collab .submit-cta:hover {
+  background: transparent;
+  color: #fff;
+}
+
+/* Outline CTA */
+#collab .submit-cta-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#collab .submit-cta-outline:hover {
+  background: #ffffff;
   color: #000;
 }
+
+/* Email note */
+#collab .submit-small-note {
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: #cfcfcf;
+  text-align: center;
+}
+
+/* Responsive tweaks */
+@media (max-width: 600px) {
+  .collab-box {
+    padding: 1.8rem 1.3rem;
+  }
+
+  #collab h2 {
+    font-size: 1.7rem;
+  }
+
+  #collab p {
+    font-size: 0.95rem;
+  }
+
+  #collab .submit-cta,
+  #collab .submit-cta-outline {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
+/* labai svarbu: ir #intro, ir #about permatomi, kad matytųsi .intro-about-bg fonas */
+#intro,
+#about {
+  background-color: transparent;
+}
+
+.aboutText {
+  width: 100%;
+  padding: 1rem;
+  max-width: 900px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.02);
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.75);
+}
+
+/* ===========================
+   FONAI SEKCIJOMS (jei nori paveiksliukų)
+=========================== */
+
+/* Jei nenori fono paveiksliuko – palik tik background-color iš nth-of-type */
+
+#events {
+  min-height: 100vh;          /* kad sekcija turėtų oro, bet nekarpytų fono */
+  background: transparent;    /* svarbu: kad matytųsi .intro-about-bg fonas */
+}
+
+
+#episodes {
+  min-height: 100vh;
+  background: transparent; /* fonas ateina iš .episodes-studio-bg */
+}
+
+.social-fixed-bar {
+  background-color: transparent;
+}
+
+#studio {
+  min-height: 100vh;
+  background: transparent; /* fonas ateina iš .episodes-studio-bg */
+}
+
+#gallery {
+  background: transparent;
+}
+#reachout {
+  background: transparent;
+}
+/* Galerijos gridas */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Kiekvienos nuotraukos „tile“ */
+.gallery-grid a {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #222;        /* kad nebūtų tuščia jei foto lėčiau užsikrauna */
+  display: block;
+}
+
+/* Visos fotkės vienodo dydžio */
+.gallery-grid img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 3 / 4;     /* pakeisk į 1/1, 4/5 ir pan., jei nori kitokios proporcijos */
+  object-fit: cover;       /* apkerpa fotkę, kad pilnai užpildytų rėmą */
+  display: block;
+}
+
+/* BENDRAS BACKGROUND GALLERY + REACH OUT (APAČIOJE) */
+/* BENDRAS BACKGROUND GALLERY + REACH OUT (APAČIOJE) */
+.gallery-reachout-bg {
+  background-image:
+    /* nuo labai tamsaus viršuje iki šviesesnio apačioje */
+    linear-gradient(to bottom, rgba(1, 0, 0, 0.7), #260c0c),
+    url("assets/fourPeople.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+/* BENDRAS BACKGROUND EPISODES + STUDIO */
+.episodes-studio-bg {
+  background-image:
+    linear-gradient(to bottom, rgba(1, 0, 0, 0.7), #110505),
+    url("assets/fourPeople.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* ===========================
+   ANTRAŠTĖS IR TEKSTAS
+=========================== */
+
+h1 {
+  font-size: 2.7rem;
+  margin: 0 0 1rem;
+  letter-spacing: 0.06em;
+}
+
+h2,
+h3 {
+  letter-spacing: 0.06em;
+}
+
+p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ===========================
+   EVENTS GRID
+=========================== */
+
 .imagePoster {
   max-width: 60%;
-  border: 2px solid white;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.8);
 }
+
 .events-grid {
   display: grid;
   grid-template-columns: 1fr 2px 1fr;
   gap: 2rem;
   max-width: 1000px;
-  margin: auto;
+  margin: 2rem auto;
   padding: 2rem 0;
 }
 
@@ -99,195 +526,179 @@ nav#hero-nav a:hover {
   justify-content: center;
   align-items: center;
 }
+
 .divider {
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.25);
   width: 2px;
   height: 100%;
 }
-body {
-    font-family: sans-serif;
-    margin: 0;
-    background-color: #1a1a1a;
-    color: #eee;
+
+.text-box {
+  max-width: 700px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.65);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-soft);
 }
+
+/* ===========================
+   VIDEO GRID (EPISODES / STUDIO)
+=========================== */
+
 .header-text {
-    text-align: center;
-    padding: 30px 20px;
-    font-size: 1.1rem;
-    color: #bbb;
-    max-width: 800px;
-    margin: 0 auto;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: 1.1rem;
+  color: #bbbbbb;
+  max-width: 800px;
+  margin: 0 auto;
 }
+
 .video-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 2rem;
-    padding: 2rem;
-    align-items: stretch;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem;
+  align-items: stretch;
 }
+
 .video-card {
-    position: relative;
-    cursor: pointer;
-    background: #111;
-    padding: 0;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-    display: flex;              /* nauja */
-    flex-direction: column;     /* nauja */
-    height: 100%;               /* nauja */
+  position: relative;
+  cursor: pointer;
+  background: #111111;
+  padding: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--border-soft);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.8);
 }
 
-.mission-text {
-  font-size: 1.3rem;
-  color: #ffffff;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
+.video-card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
 }
 
-.video-card:hover {transform: scale(1.02);}
-/* Konteineris, kuriame bus ir nuotrauka, ir overlay, ir iframe */
+/* Thumbnail + play overlay */
 .video-player-container {
-    position: relative;
-    width: 100%;
-    padding-bottom: 56.25%; /* (9 / 16) * 100% */
-    background-color: black;
-    flex: 0 0 auto;
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background-color: black;
+  flex: 0 0 auto;
 }
+
 .video-player-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
 }
+
 .play-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    transition: background-color 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: background-color 0.3s ease;
 }
-.video-card:hover .play-overlay {background-color: rgba(0, 0, 0, 0.6);}
+
+.video-card:hover .play-overlay {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
 .play-button-icon {
-    font-size: 60px;
-    color: white;
-    text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  font-size: 60px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
 }
+
+.video-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: none;
+  z-index: 3;
+}
+
+.video-description {
+  padding: 1rem;
+  font-size: 0.9rem;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  flex: 1;
+  min-height: 0;
+}
+
+.video-description strong {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.video-description p {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #eeeeee;
+  flex-grow: 1;
+}
+
+/* View more */
 .view-more-container {
   margin-top: 2rem;
   text-align: center;
 }
 
 .view-more-button {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #fff;
-  color: #000;
-  text-decoration: none;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: all 0.3s ease;
+  background: transparent;
 }
 
-.view-more-button:hover {
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #fff;
-}
+/* ===========================
+   GALLERY & COLLAB
+=========================== */
 
-.video-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: none; 
-    z-index: 3;
-}
-.video-description {
-  padding: 1rem;
-  font-size: 0.9rem;
-  background-color: #222;
-  color: #fff;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  flex: 1;        /* <- Svarbiausia: aprašymas išsitempia iki likusio aukščio */
-  min-height: 0;  /* atšaukiam prievartinį 120px, kad neliktų „juodų skylių“ */
-}
-
-.video-description strong {
-    display: block;
-    margin-bottom: 0.5rem;
-}
-.video-description p {
-    margin-top: 0.75rem;
-    font-size: 0.95rem;
-    line-height: 1.4;
-    color: #eee;
-    flex-grow: 1;
-}
-.text-box {
-  max-width: 700px;
-  margin: auto;
-  background: rgba(255,255,255,0.05);
-  padding: 2rem;
-  border-radius: 8px;
-}
 .collab-box {
-  max-width: 2000px;
+  max-width: 1000px;
   margin: auto;
   padding: 2rem;
+}
 
-}
-.aboutText {
-  width: 100%;
-  background: rgba(255,255,255,0.05);
-  padding: 2rem;
-  border-radius: 8px;
-}
-.picture-box {
-  display: flex;
-  flex-direction: row;
-  max-width: 700px;
-  margin: auto;
-  background: rgba(255,255,255,0.05);
-  padding: 2rem;
-  border-radius: 8px;
-}
-input[type="email"] {
-  padding: 10px;
-  width: 70%;
-  max-width: 300px;
-  border: none;
-  border-radius: 4px;
-  margin-top: 1rem;
-}
+/* ===========================
+   SOCIAL BAR
+=========================== */
+
 .social-fixed-bar {
-  position: fixed;
-  bottom: 70px;
+  position: relative;
+  justify-content: center;
+  bottom: 60px; /* šiek tiek aukščiau nei baras */
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(0, 0, 0, 0.5);
   padding: 8px 20px;
   display: flex;
   gap: 20px;
-  z-index: 9999;
+  z-index: 9999; /* virš player bar */
   border-radius: 16px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6);
 }
 
 .social-fixed-bar a img {
@@ -301,58 +712,56 @@ input[type="email"] {
   transform: scale(1.15);
   opacity: 0.9;
 }
+
+/* ===========================
+   BACK TO TOP
+=========================== */
+
 .back-to-top-center {
   position: relative;
-  height: 100px;
+  height: 90px;
+  background-color: transparent;
 }
 
 .back-to-top-center a {
   position: absolute;
+  background-color: transparent;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 12px 24px;
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: 50px;
-  backdrop-filter: blur(4px);
-  transition: all 0.3s ease;
-  z-index: 10;
 }
 
-.back-to-top-center a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-  color: #fff;
-  border-color: #fff;
-}
+/* ===========================
+   YT PLAYER BAR APAČIOJE
+=========================== */
+
 #yt-bar-player-container {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background: transparent; /* permatomas */
+  height: 52px; /* mažesnis baras */
+  background: transparent;
   color: white;
   display: flex;
   align-items: center;
-  padding: 2px;
-  gap: 10px;
-  z-index: 9999;
-  backdrop-filter: none; /* jei nori blur, galima įjungti */
+  padding: 4px 8px;
+  gap: 8px;
+  z-index: 9998; /* kad social bar galėtų būti viršuje */
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 /* Cover */
 #yt-cover {
-  height: 42px;
-  width: 42px;
+  height: 40px;
+  width: 40px;
   border-radius: 4px;
   object-fit: cover;
-  box-shadow: 0 0 6px rgba(255, 255, 255, 0.2); /* optional glow */
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.25);
 }
 
-/* Track info (slankus pavadinimas) */
+/* Track info (scrolling) */
 .yt-track-info {
   flex: 1;
   overflow: hidden;
@@ -364,14 +773,18 @@ input[type="email"] {
   display: inline-block;
   white-space: nowrap;
   animation: scrollText 10s linear infinite;
-  font-size: 0.95rem;
-  padding-left: 10px;
-  color: #ccc;
+  font-size: 0.85rem;
+  padding-left: 8px;
+  color: #cccccc;
 }
 
 @keyframes scrollText {
-  from { transform: translateX(100%); }
-  to   { transform: translateX(-100%); }
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 /* Controls */
@@ -381,198 +794,193 @@ input[type="email"] {
   align-items: center;
 }
 
-.yt-controls button {
-  background: rgb(255, 255, 255);  /* no background */
-  color: white;              /* white icon/text */
-  border: none;
-  margin: 0.5rem;
-  font-size: 1.2rem;
-  cursor: pointer;
-  padding: 6px;
-  outline: none;
-  box-shadow: none;
-  appearance: none;
-}
-
-.yt-controls button:hover {
-  color: #ccc; /* švelnus hover efektas */
-}
-
-.yt-controls button:focus,
-.yt-controls button:active {
-  outline: none;
-  box-shadow: none;
-}
-
-
-#volumeSlider {
-  accent-color: white;
-  background: transparent;
-}
 .control-btn {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.12);
   border: none;
   border-radius: 50%;
-  padding: 8px;
-  width: 40px;
-  height: 40px;
+  padding: 6px;
+  width: 34px;
+  height: 34px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.18s ease;
+}
+
+.control-btn img {
+  width: 18px;
+  height: 18px;
+  pointer-events: none;
+  filter: invert(1);
 }
 
 .control-btn:hover {
-  background: rgba(255, 255, 255, 0.25);
-  transform: scale(1.1);
+  background: rgba(255, 255, 255, 0.28);
+  transform: scale(1.05);
 }
 
 .control-btn:active {
   transform: scale(0.95);
 }
 
-.control-btn img {
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
+/* Volume */
+#volumeSlider {
+  accent-color: #ffffff;
+  background: transparent;
+  width: 90px;
 }
 
-button {
-  padding: 10px 20px;
-  margin-left: 1rem;
-  background: #fff;
-  color: #000;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+/* ===========================
+   ANIMACIJOS
+=========================== */
+
+.fade-in {
+  animation: fadeIn 2s ease forwards;
 }
-.fade-in { animation: fadeIn 2s ease forwards; }
-.fade-in.alt { background: rgba(255,255,255,0.02); }
+
+.fade-in.alt {
+  background: rgb(17, 16, 16);
+}
+
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
 /* Iki 400px – mobile */
-@media screen and (max-width: 400px) {
-  h1 {font-size: 2rem;}
+@media (max-width: 400px) {
+  h1 {
+    font-size: 2rem;
+  }
+
   #about {
     flex-direction: column;
     padding: 1rem;
   }
-    #yt-bar-player-container {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 2px;
-    gap: 8px;
-  }
 
-  #yt-cover {
-    height: 50px;
-    width: 50px;
-  }
-.yt-controls button {
-  padding: 12px;
-}
-
-  #volumeSlider {
+  nav#hero-nav {
     width: 100%;
+    display: flex;
+    justify-content: center;
   }
 
-  .yt-controls {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .yt-track-title {
-    font-size: 0.8rem;
-  }
-  
-  .aboutText {
-  width: 80%;
-  background: rgba(255,255,255,0.05);
-  padding: 2rem;
-  border-radius: 8px;
-}
-  .picture-box {
-    flex-direction: column;
-    align-items: center;
-  }
-  .imagePoster {max-width: 100%;}
   nav#hero-nav ul {
     flex-direction: column;
     gap: 0.75rem;
-    padding: 1rem;
+    padding: 1rem 0;
+    align-items: center; /* labai svarbu: centras */
   }
-  nav#hero-nav a {
-    display: block;
+
+  nav#hero-nav li {
     width: 100%;
-    max-width: 200px;
-    margin: auto;
-    text-align: center;
+    display: flex;
+    justify-content: center; /* kad pats mygtukas sėdėtų per vidurį */
   }
-  .formSubmit {
-    margin-left: 0;
-    margin-top: 1rem;
+
+  nav#hero-nav a {
+    width: 100%;
+    max-width: 220px;
+    margin: 0 auto;
+    padding: 12px 70px;
   }
+
   .video-grid {
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     padding: 1rem;
   }
+
   .video-description {
-    font-size: 0.6rem;
-    padding: 0.4rem;
+    font-size: 0.7rem;
+    padding: 0.5rem;
   }
-  .video-description p {font-size: 0.6rem;}
-  .play-button-icon {font-size: 40px;}
+
+  .video-description p {
+    font-size: 0.7rem;
+  }
+
+  .play-button-icon {
+    font-size: 40px;
+  }
+
+  #yt-bar-player-container {
+    flex-wrap: nowrap;
+    height: 52px;
+    padding: 4px 6px;
+  }
+
+  #yt-cover {
+    height: 36px;
+    width: 36px;
+  }
+
+  .yt-track-title {
+    font-size: 0.75rem;
+  }
+
+  .yt-controls .control-btn:nth-child(1), /* prev */
+  .yt-controls .control-btn:nth-child(3)  /* next */ {
+    display: none;
+  }
+
+  #volumeSlider {
+    width: 60px;
+  }
+
+  .social-fixed-bar {
+    bottom: 70px;
+  }
 }
+
 /* 401px–800px – tablets */
 @media screen and (min-width: 401px) and (max-width: 800px) {
-  h1 {font-size: 2.5rem;}
-  .formSubmit {
-    margin-left: 0;
-    margin-top: 1rem;
+  h1 {
+    font-size: 2.3rem;
   }
-  .aboutText {
-  width: 90%;
-  background: rgba(255,255,255,0.05);
-  padding: 2rem;
-  border-radius: 8px;
-}
-  #about {flex-direction: column;}
-  .picture-box {
+
+  #about {
     flex-direction: column;
-    align-items: center;
   }
-  .imagePoster {max-width: 100%;}
+
+  .aboutText {
+    width: 90%;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+  }
+
   nav#hero-nav ul {
     flex-direction: column;
     gap: 0.75rem;
     padding: 1rem;
   }
+
   nav#hero-nav a {
-    display: block;
-    width: 100%;
     max-width: 240px;
     margin: auto;
-    text-align: center;
-  }
-  .video-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
-  }
-  .video-description {
-    font-size: 0.4rem;
-    padding: 0.4rem;
   }
 }
+
 /* 801px–1200px – small laptops */
 @media screen and (min-width: 801px) and (max-width: 1200px) {
   .video-grid {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 2rem;
   }
+
   .imagePoster {
     max-width: 60%;
   }

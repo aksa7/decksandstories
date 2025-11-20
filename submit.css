@@ -1,0 +1,443 @@
+/* ===========================
+   SUBMIT PAGE – GLOBAL
+   =========================== */
+
+/* Visas submit puslapis: heroVisual kaip fonas nuo viršaus iki apačios,
+   su lengvu gradientu ir blur, kuris po truputį dingsta žemyn. */
+body.submit-page {
+  position: relative;
+  min-height: 100vh;
+  color: #ffffff;
+
+  background:
+    url("assets/herovisual.png") center top / cover no-repeat fixed;
+}
+
+
+/* Overlay su gradientu: viršuje tamsiau / labiau „užblurrinta“, apačioj skaidriau */
+body.submit-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.78) 25%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.28) 80%,
+    rgba(0, 0, 0, 0.00) 100%
+  )
+  ;
+  backdrop-filter: blur(14px);
+}
+
+/* Turiniui uždedam z-index, kad viskas būtų virš overlay */
+body.submit-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Panaikinam default .main backgroundus, kad matytųsi bendras fonas */
+body.submit-page section.main {
+  background: transparent !important;
+}
+
+/* ===========================
+   HERO
+   =========================== */
+
+.submit-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+}
+.nav-link.active {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+#nav a.nav-link {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.submit-logo {
+  max-width: 260px;
+  margin-bottom: 1rem;
+  width: 100%;
+  max-width: 480px;
+
+}
+
+.submit-title {
+  font-size: 2.8rem;
+  margin: 0.5rem 0 0.5rem;
+}
+
+.submit-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Mažesni, tvarkingai išsidėstę “pill” mygtukai virš formai */
+.submit-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  max-width: 520px;
+  margin: 0 auto 1.2rem;
+}
+
+.submit-pill {
+  font-size: 0.7rem;
+  letter-spacing: 0.03em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.25rem 0.8rem;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+.guidelines-link {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.guidelines-link:hover {
+  color: #ffffff;
+}
+
+.submit-cta-row {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+.submit-cta.active {
+  background: #fff;
+  color: #000;
+}
+.submit-cta {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #fff;
+  transition: all 0.3s ease;
+}
+
+.submit-cta:hover {
+  background: transparent;
+  color: #fff;
+}
+
+.submit-cta-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.submit-cta-outline:hover {
+  background: #fff;
+  color: #000;
+}
+
+.submit-small-note {
+  font-size: 0.8rem;
+  color: #ccc;
+  margin-top: 0.5rem;
+}
+
+/* ===========================
+   BENDRAS CONTENT LAYOUT
+   =========================== */
+
+.submit-section {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* HOW IT WORKS */
+
+.submit-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.submit-step-card {
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: left;
+}
+
+.step-number {
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
+.submit-step-card h3 {
+  margin: 0.5rem 0 0.6rem;
+  font-size: 1.1rem;
+}
+
+/* ===========================
+   TABS + FORM WRAPPER
+   =========================== */
+
+.submit-switch {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin: 2rem auto 1.5rem;
+}
+
+.submit-tab {
+  border-radius: 999px;
+  border: none;
+  padding: 0.5rem 1.4rem;
+  font-size: 0.9rem;
+  background: transparent;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: all 0.25s ease;
+}
+
+.submit-tab.active {
+  background: #fff;
+  color: #000;
+  opacity: 1;
+}
+
+.submit-forms {
+  margin-top: 1rem;
+}
+
+.submit-form {
+  display: none;
+}
+
+.submit-form.active {
+  display: block;
+}
+
+/* ===========================
+   FORM CARD & FIELDS
+   =========================== */
+
+.form-card {
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+}
+
+.form-intro {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1.5rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field-group.field-full {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.field-input,
+.field-textarea {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.6rem 0.75rem;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  border-color: #fff;
+}
+
+.field-textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* CONSENT / CHECKBOXES */
+
+.form-consent {
+  margin-top: 1.4rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.checkbox-row input[type="checkbox"] {
+  margin-top: 0.2rem;
+}
+
+/* SUBMIT BUTTON */
+
+.formSubmit {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.formSubmit:hover {
+  background: transparent;
+  color: #fff;
+}
+
+.form-footnote {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* ===========================
+   LABELS SECTION
+   =========================== */
+
+.labels-section {
+  text-align: left;
+}
+
+.labels-text {
+  max-width: 720px;
+  margin-bottom: 1.5rem;
+}
+
+.labels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.label-card {
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.label-tag {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  opacity: 0.6;
+}
+
+.label-card h3 {
+  margin: 0.5rem 0 0.4rem;
+}
+
+.label-card p {
+  font-size: 0.85rem;
+  color: #ddd;
+}
+
+.labels-note {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media screen and (max-width: 800px) {
+  .submit-title {
+    font-size: 2rem;
+  }
+
+  .submit-subtitle {
+    font-size: 0.95rem;
+    padding: 0 1rem;
+  }
+
+  .submit-steps {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .labels-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-card {
+    padding: 1.5rem 1.25rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .submit-cta-row {
+    flex-direction: column;
+  }
+
+  .submit-hero {
+    padding: 2.5rem 1.2rem;
+  }
+}

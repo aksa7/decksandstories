@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Submit Your Mix, Demo or Event – Decks & Stories</title>
+
+  <meta name="description" content="Submit your 60-minute mix and story or send unreleased demos to Decks & Stories. Be part of our global movement of DJs and storytellers.">
+  <link rel="canonical" href="https://decksandstories.com/submit" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256x256.png">
+  <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="submit.css" />
+</head>
+<body class="is-preload submit-page">
+
+  <!-- HERO -->
+  <section id="submit-hero" class="main fullscreen fade-up submit-hero">
+    <div class="inner center">
+      <img src="assets/1920x1080DCKS_transparent.png" alt="Decks and Stories Logo" class="logo submit-logo"/>
+
+      <h1 class="submit-title">What is your message to the world?</h1>
+      <p class="submit-subtitle">
+        Send us your <strong>60-minute mix + story</strong> for a digital episode<br>
+        or share your <strong>unreleased tracks</strong> for demo consideration.
+      </p>
+
+      <div class="submit-pill-row">
+        <span class="submit-pill">Global, independent movement.</span>
+        <span class="submit-pill">All genres welcome.</span>
+        <span class="submit-pill">We listen to every submission.</span>
+      </div>
+
+      <div class="submit-cta-row">
+        <a href="#submissions" class="scrolly submit-cta active" data-target="mix-form">
+          Submit a Mix Episode
+        </a>
+        <a href="#submissions" class="scrolly submit-cta" data-target="demo-form">
+          Submit a Demo Track
+        </a>
+        <a href="#submissions" class="scrolly submit-cta" data-target="event-form">
+          Submit an Event
+        </a>
+      </div>
+
+      <p class="submit-small-note">
+        You can write in <strong>English</strong> or <strong>Lithuanian</strong> – your story means the most.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="main fade-in alt">
+    <div class="submit-section">
+      <h2>How It Works</h2>
+
+      <div class="submit-steps">
+        <div class="submit-step-card">
+          <span class="step-number">01</span>
+          <h3>Share your sound</h3>
+          <p>
+            Send us a <strong>60 min mix</strong> or <strong>unreleased demo</strong> that reflects who you are as an artist.
+          </p>
+        </div>
+
+        <div class="submit-step-card">
+          <span class="step-number">02</span>
+          <h3>We listen & read</h3>
+          <p>
+            We go through every submission – focusing on <strong>identity</strong>, <strong>emotion</strong> and the story behind it.
+          </p>
+        </div>
+
+        <div class="submit-step-card">
+          <span class="step-number">03</span>
+          <h3>Feature & connect</h3>
+          <p>
+            If selected, your work is <strong>promoted by Decks & Stories</strong> across our channels and community.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBMISSION FORMS -->
+  <section id="submissions" class="main fade-up">
+    <div class="inner boxed submit-section">
+      <header class="major">
+        <h1>Submit Your Mix, Demo or Event</h1>
+        <p>
+          One hub for <strong>digital episodes</strong>, <strong>demo tracks</strong> and
+          <strong>event ideas</strong>.<br>
+          Choose what you want to send us.
+        </p>
+      </header>
+
+      <!-- Tabs -->
+      <div class="submit-switch">
+        <button class="submit-tab active" data-target="mix-form">Mix Episode</button>
+        <button class="submit-tab" data-target="demo-form">Demo Track</button>
+        <button class="submit-tab" data-target="event-form">Event / Venue</button>
+      </div>
+
+      <div class="submit-forms">
+
+        <!-- MIX FORM -->
+        <form
+          id="mix-form"
+          class="submit-form active"
+          action="https://formspree.io/f/myzolenn?redirect=https://decksandstories.com/thank-you.html"
+          method="POST"
+        >
+          <input type="hidden" name="form-type" value="mix-episode">
+          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you.html">
+
+          <div class="form-card">
+            <h2 id="mix-submit">Mix Episode Submission</h2>
+
+            <!-- MUST READ link to guidelines -->
+            <p class="form-intro">
+              <strong>MUST READ:</strong>
+              <a
+                href="assets/Guest Mix Submission Guidelines.pdf"
+                class="guidelines-link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >Guest Mix Submission Guidelines (PDF)</a>
+            </p>
+
+            <p class="form-intro">
+              Your mix must be at least <strong>60 minutes long</strong> (plus 60&nbsp;sec intro for our voiceover)
+              and showcase your sound. Please follow the guidelines above before submitting.
+            </p>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="mix-artist" class="field-label">Artist / DJ Name*</label>
+                <input type="text" id="mix-artist" name="artist" class="field-input" required>
+              </div>
+
+              <div class="field-group">
+                <label for="mix-email" class="field-label">Email*</label>
+                <input type="email" id="mix-email" name="email" class="field-input" required>
+              </div>
+
+              <div class="field-group">
+                <label for="mix-location" class="field-label">City & Country</label>
+                <input type="text" id="mix-location" name="location" class="field-input" placeholder="Kaunas, Lithuania">
+              </div>
+
+              <div class="field-group">
+                <label for="demo-instagram" class="field-label">Instagram / Social</label>
+                <input
+                  type="text"
+                  id="demo-instagram"
+                  name="instagram"
+                  class="field-input"
+                  placeholder="@username or profile link"
+                >
+              </div>
+
+              <div class="field-group field-full">
+                <label for="mix-link" class="field-label">Mix link (60+ min)*</label>
+                <input
+                  type="url"
+                  id="mix-link"
+                  name="mix-link"
+                  class="field-input"
+                  required
+                  placeholder="WeTransfer / Transfernow link (.wav or .mp3). Name file: Decks&Stories mix – [Your DJ Name]"
+                >
+              </div>
+
+              <div class="field-group field-full">
+                <label for="photo-links" class="field-label">Promo photo links (4–10)*</label>
+                <textarea
+                  id="photo-links"
+                  name="photo-links"
+                  class="field-textarea"
+                  required
+                  placeholder="Paste links to at least 4 promo photos (You can send up to 10). Transfernow, WeTransfer, Google Drive, etc."
+                ></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="story-letter" class="field-label">Your story / letter (max 100 words)*</label>
+                <textarea
+                  id="story-letter"
+                  name="story-letter"
+                  class="field-textarea"
+                  required
+                  placeholder="Write a short letter to your listeners (up to 100 words) OR paste a link to a PDF file with your letter."
+                ></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="quiz" class="field-label">Quiz about you (optional)</label>
+                <textarea
+                  id="quiz"
+                  name="quiz"
+                  class="field-textarea"
+                  placeholder="Answer any of these questions: What does music mean to you? What do you do differently than most DJs? Any weird habits or rituals? Funniest DJ moment? Most memorable set & why? Your biggest inspiration?"
+                ></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="mix-genre" class="field-label">Genres / mood</label>
+                <input
+                  type="text"
+                  id="mix-genre"
+                  name="genre"
+                  class="field-input"
+                  placeholder="Techno, house, trance... (no pop music)"
+                >
+              </div>
+            </div>
+
+            <div class="form-consent">
+              <label class="checkbox-row">
+                <input type="checkbox" name="mix-length" required>
+                <span>My mix is at least 60 minutes long and contains no unreleased tracks (unless my own).</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="promo-photos" required>
+                <span>I will provide at least 4 promo photos (up to 10) for the episode.</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="ig-collab" required>
+                <span>I agree to participate in the mandatory Instagram collab post (Facebook/IG stories optional).</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="rights-confirm" required>
+                <span>I have the right to use all tracks in this mix.</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="guidelines-read" required>
+                <span>I have read and agree to the Guest Mix Submission Guidelines.</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="publish-consent" required>
+                <span>I agree that Decks & Stories may publish this mix on their channels if accepted.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="formSubmit">Send Mix Episode</button>
+
+            <p class="form-footnote">
+              We try to respond to every submission – if we feel your story fits the movement, we’ll contact you personally.
+            </p>
+          </div>
+        </form>
+
+        <!-- DEMO FORM -->
+        <form
+          id="demo-form"
+          class="submit-form"
+          action="https://formspree.io/f/mqanwpjl?redirect=https://decksandstories.com/thank-you.html"
+          method="POST"
+        >
+          <input type="hidden" name="form-type" value="demo-track">
+          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you.html">
+
+          <div class="form-card">
+            <h2 id="demo-submit">Demo / Unreleased Track Submission</h2>
+            <p class="form-intro">
+              Share your <strong>unreleased originals, edits or remixes</strong>.<br>
+              Please use <strong>streamable/downloadable links</strong> (no direct file uploads).
+            </p>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="demo-artist" class="field-label">Artist Name*</label>
+                <input type="text" id="demo-artist" name="artist" class="field-input" required>
+              </div>
+
+              <div class="field-group">
+                <label for="demo-email" class="field-label">Email*</label>
+                <input type="email" id="demo-email" name="email" class="field-input" required>
+              </div>
+
+              <div class="field-group">
+                <label for="demo-instagram" class="field-label">Instagram / Social</label>
+                <input
+                  type="text"
+                  id="demo-instagram"
+                  name="instagram"
+                  class="field-input"
+                  placeholder="@username or profile link"
+                >
+              </div>
+
+              <div class="field-group">
+                <label for="demo-project" class="field-label">Project / label (optional)</label>
+                <input type="text" id="demo-project" name="project-label" class="field-input" placeholder="Label name / crew / collective">
+              </div>
+
+              <div class="field-group field-full">
+                <label for="demo-track-title" class="field-label">Track title*</label>
+                <input type="text" id="demo-track-title" name="track-title" class="field-input" required>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="demo-link" class="field-label">Demo link*</label>
+                <input
+                  type="url"
+                  id="demo-link"
+                  name="demo-link"
+                  class="field-input"
+                  required
+                  placeholder="Private SoundCloud, Google Drive, Dropbox, WeTransfer, etc."
+                >
+              </div>
+
+              <div class="field-group field-full">
+                <label for="demo-genre" class="field-label">Genre / vibe</label>
+                <input type="text" id="demo-genre" name="genre" class="field-input" placeholder="Melodic techno, deep house, breaks, experimental...">
+              </div>
+
+              <div class="field-group field-full">
+                <label for="demo-notes" class="field-label">Anything we should know?</label>
+                <textarea
+                  id="demo-notes"
+                  name="notes"
+                  class="field-textarea"
+                  placeholder="Is this part of an EP? Unsigned? Ready for release? Still in progress?"
+                ></textarea>
+              </div>
+            </div>
+
+            <div class="form-consent">
+              <label class="checkbox-row">
+                <input type="checkbox" name="demo-rights" required>
+                <span>I confirm I am the creator / rights holder of this demo.</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="demo-share" required>
+                <span>
+                  I agree that Decks & Stories may review this demo and consider it for future opportunities.
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="formSubmit">Send Demo</button>
+
+            <p class="form-footnote">
+              If your track clicks with our curation, we’ll get in touch and discuss the next steps.
+            </p>
+          </div>
+        </form>
+
+        <!-- EVENT / VENUE FORM -->
+        <form
+          id="event-form"
+          class="submit-form"
+          action="https://formspree.io/f/meonvabr?redirect=https://decksandstories.com/thank-you.html"
+          method="POST"
+        >
+          <input type="hidden" name="form-type" value="event-venue">
+          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you.html">
+
+          <div class="form-card">
+            <h2 id="event-submit">Event / Venue Proposal</h2>
+            <p class="form-intro">
+              Have a venue or event idea that feels like Decks & Stories?<br>
+              Tell us the basics – we’ll take it from there.
+            </p>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="event-name" class="field-label">Your name / role*</label>
+                <input
+                  type="text"
+                  id="event-name"
+                  name="contact-name"
+                  class="field-input"
+                  required
+                  placeholder="Organizer, promoter, venue owner..."
+                >
+              </div>
+
+              <div class="field-group">
+                <label for="event-email" class="field-label">Email*</label>
+                <input
+                  type="email"
+                  id="event-email"
+                  name="email"
+                  class="field-input"
+                  required
+                >
+              </div>
+
+              <div class="field-group">
+                <label for="event-location" class="field-label">City & country</label>
+                <input
+                  type="text"
+                  id="event-location"
+                  name="location"
+                  class="field-input"
+                  placeholder="Kaunas, Lithuania"
+                >
+              </div>
+
+              <div class="field-group field-full">
+                <label for="event-concept" class="field-label">Event idea / concept*</label>
+                <textarea
+                  id="event-concept"
+                  name="concept"
+                  class="field-textarea"
+                  required
+                  placeholder="Short description of the night, vibe, people."
+                ></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="event-links" class="field-label">Links (optional)</label>
+                <input
+                  type="text"
+                  id="event-links"
+                  name="links"
+                  class="field-input"
+                  placeholder="Venue / IG / previous events..."
+                >
+              </div>
+            </div>
+
+            <div class="form-consent">
+              <label class="checkbox-row">
+                <input type="checkbox" name="venue-permission" required>
+                <span>
+                  I confirm I am involved with this idea / venue and allowed to start this conversation.
+                </span>
+              </label>
+            </div>
+
+            <button type="submit" class="formSubmit">Submit Event Idea</button>
+
+            <p class="form-footnote">
+              We’ll review your proposal and get back to you if it feels like a good fit.
+            </p>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FUTURE LABELS INFO -->
+  <section id="future-labels" class="main fade-in">
+    <div class="submit-section">
+      <h2>Looking ahead</h2>
+      <p>
+        In the future, Decks & Stories plans to collaborate with carefully selected independent
+        labels. This means that the music you send today can be promoted even more tomorrow –
+        across new channels, cities and communities.
+      </p>
+      <p><strong>You mean more than you imagine.</strong></p>
+    </div>
+  </section>
+
+  <div class="back-to-top-center">
+    <a href="#submit-hero" class="scrolly">↑ Back to Top</a>
+  </div>
+
+  <!-- Shared JS -->
+  <script src="script.js"></script>
+  <!-- Submit page JS -->
+  <script src="submit.js"></script>
+</body>
+</html>
