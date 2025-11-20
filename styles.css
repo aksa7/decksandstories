@@ -869,7 +869,6 @@ p {
   }
 
   #about {
-    flex-direction: column;
     padding: 1rem;
   }
 
