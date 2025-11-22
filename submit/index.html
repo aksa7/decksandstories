@@ -179,24 +179,41 @@
               </div>
 
               <!-- STORY FIELD -->
-              <div class="field-group field-full">
-                <div class="field-label-row">
-                  <label for="story-letter" class="field-label">
-                    Your story / message to the people in first person (max 100 words)*
-                  </label>
-                  <a href="#letter-example-modal" class="story-example-link">
-                    Read letter example
-                  </a>
-                </div>
+<!-- STORY FIELD – 2 fixed questions + inline answers -->
+<div class="field-group field-full">
+  <div class="field-label-row">
+    <label class="field-label">Your story / message (max 100 words)*</label>
+    <a href="#letter-example-modal" class="story-example-link">Read letter example</a>
+  </div>
 
-                <textarea
-                  id="story-letter"
-                  name="story-letter"
-                  class="field-textarea"
-                  required
-                  placeholder="Write a short letter to your listeners (up to 100 words) OR paste a link to a PDF file with your letter."
-                ></textarea>
-              </div>
+  <div class="story-block">
+    <div class="story-row">
+      <span class="story-question">1. What is your story?</span>
+      <span class="story-sep"> – </span>
+      <textarea
+        class="story-answer"
+        data-question="1. What is your story?"
+        placeholder="Write a short letter to your listeners (up to 100 words) OR paste a link to a PDF file with your letter."
+        required
+      ></textarea>
+    </div>
+
+    <div class="story-row">
+      <span class="story-question">2. What is your message to the people?</span>
+      <span class="story-sep"> – </span>
+      <textarea
+        class="story-answer"
+        data-question="2. What is your message to the people?"
+        placeholder="Write a short message to the people (1-2 sentences)"
+        required
+      ></textarea>
+    </div>
+  </div>
+
+  <!-- Hidden field sent to Formspree -->
+  <textarea id="story-letter" name="story-letter" hidden></textarea>
+</div>
+
 
 <!-- QUIZ FIELD – questions + inline answers, sent as one field -->
 <div class="field-group field-full">
@@ -271,7 +288,7 @@
         class="quiz-answer"
         data-question="6. Your biggest inspiration?"
         placeholder="Your answer..."
-        required
+        required  
       />
     </div>
   </div>

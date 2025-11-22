@@ -430,6 +430,61 @@ body.submit-page section.main {
   background: rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(255, 255, 255, 0.15);
 }
+/* STORY layout – questions + inline answers */
+.story-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.story-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+@media (min-width: 620px) {
+  .story-row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.story-question {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  min-width: 260px;
+}
+
+.story-sep {
+  opacity: 0.75;
+  margin-right: 4px;
+}
+
+.story-answer {
+  flex: 1 1 auto;
+  min-height: 70px;
+  background: rgba(0,0,0,0.35);
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.6rem 0.75rem;
+  color: #fff;
+  font-size: 0.9rem;
+  resize: vertical;
+  outline: none;
+}
+
+.story-answer:focus {
+  border-color: #fff;
+}
+
+.story-answer::placeholder {
+  color: rgba(255,255,255,0.35);
+}
 
 .field-input,
 .field-textarea {
