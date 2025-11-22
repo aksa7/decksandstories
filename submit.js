@@ -32,43 +32,62 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // DEFAULT – kai puslapis užsikrauna, aktyvi MIX forma ir mix hero mygtukas
+  // DEFAULT – aktyvi MIX forma
   activateForm("mix-form");
 
-  // Tabs logika
+  // Tabs
   tabs.forEach((tab) => {
     tab.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = tab.getAttribute("data-target");
       if (!targetId) return;
-
       activateForm(targetId);
       scrollToForm(targetId);
     });
   });
 
-  // HERO mygtukai (viršuje)
+  // HERO mygtukai
   heroButtons.forEach((btn) => {
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       const targetId = btn.getAttribute("data-target");
       if (!targetId) return;
-
       activateForm(targetId);
       scrollToForm(targetId);
     });
   });
 
   // -------------------------
+  // Pagalbinė funkcija: surenkam quiz klausimus + atsakymus į vieną lauką
+  // -------------------------
+  function buildQuizFieldForForm(form) {
+    const quizField = form.querySelector("#quiz");
+    if (!quizField) return;
+
+    const answerInputs = form.querySelectorAll(".quiz-answer");
+    if (!answerInputs.length) return;
+
+    const lines = [];
+    answerInputs.forEach((input) => {
+      const question = input.dataset.question || "";
+      const answer = (input.value || "").trim();
+      lines.push(`${question} – ${answer}`);
+    });
+
+    quizField.value = lines.join("\n");
+  }
+
+  // -------------------------
   // Formspree submit + redirect į thank-you
   // -------------------------
-
-  // jei turi /thank-you/index.html – šitas URL yra ok
   const redirectUrl = "https://decksandstories.com/thank-you";
 
   forms.forEach((form) => {
     form.addEventListener("submit", async (event) => {
-      event.preventDefault(); // sustabdom default redirect į Formspree
+      event.preventDefault();
+
+      // prieš siųsdami – surenkam quiz lauką (jei jis yra tame form)
+      buildQuizFieldForForm(form);
 
       const formData = new FormData(form);
 
@@ -82,7 +101,6 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (response.ok) {
-          // Formspree priėmė – varom į savo thank-you puslapį
           window.location.href = redirectUrl;
         } else {
           console.error("Formspree error:", await response.text());
@@ -98,23 +116,22 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-// NAV linkų logika (palikta iš tavo esamo kodo)
+// NAV linkų logika (jei naudoji globalų nav)
 document.addEventListener("DOMContentLoaded", () => {
   const navLinks = document.querySelectorAll("#nav .nav-link");
+  if (!navLinks.length) return;
 
   function setActiveLink(element) {
     navLinks.forEach((link) => link.classList.remove("active"));
     if (element) element.classList.add("active");
   }
 
-  // CLICK — nustato active iškart
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       setActiveLink(link);
     });
   });
 
-  // SCROLL — highlight’ina pagal tai, kuri sekcija šiuo metu matosi
   const sectionIds = [...navLinks]
     .filter((link) => link.getAttribute("href").startsWith("#"))
     .map((link) => link.getAttribute("href"));

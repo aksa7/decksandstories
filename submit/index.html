@@ -33,12 +33,6 @@
         or share your <strong>unreleased tracks</strong> for demo consideration.
       </p>
 
-      <div class="submit-pill-row">
-        <span class="submit-pill">Global, independent movement.</span>
-        <span class="submit-pill">All genres welcome.</span>
-        <span class="submit-pill">We listen to every submission.</span>
-      </div>
-
       <div class="submit-cta-row">
         <a href="#submissions" class="scrolly submit-cta active" data-target="mix-form">
           Submit a Mix Episode
@@ -52,7 +46,7 @@
       </div>
 
       <p class="submit-small-note">
-        You can write in <strong>English</strong> or <strong>Lithuanian</strong> – your story means the most.
+        <strong>Your story means the most.</strong>
       </p>
     </div>
   </section>
@@ -167,31 +161,34 @@
                 >
               </div>
 
+              <!-- MIX + PHOTOS WITH EXAMPLE LINK -->
               <div class="field-group field-full">
-                <label for="mix-link" class="field-label">Mix link (60+ min)*</label>
-                <input
-                  type="url"
-                  id="mix-link"
-                  name="mix-link"
-                  class="field-input"
-                  required
-                  placeholder="WeTransfer / Transfernow link (.wav or .mp3). Name file: Decks&Stories mix – [Your DJ Name]"
-                >
-              </div>
-
-              <div class="field-group field-full">
-                <label for="photo-links" class="field-label">Promo photo links (4–10)*</label>
+                <div class="field-label-row">
+                  <label for="photo-links" class="field-label">Mix and Photos Link*</label>
+                  <a href="#photo-example-modal" class="photo-example-link">
+                    See photo example
+                  </a>
+                </div>
                 <textarea
                   id="photo-links"
                   name="photo-links"
                   class="field-textarea"
                   required
-                  placeholder="Paste links to at least 4 promo photos (You can send up to 10). Transfernow, WeTransfer, Google Drive, etc."
+                  placeholder="WeTransfer / Transfernow link (.wav or .mp3). Name file: Decks&Stories mix – [Your DJ Name]. Paste links to at least 4 promo photos (you can send up to 10)."
                 ></textarea>
               </div>
 
+              <!-- STORY FIELD -->
               <div class="field-group field-full">
-                <label for="story-letter" class="field-label">Your story / letter (max 100 words)*</label>
+                <div class="field-label-row">
+                  <label for="story-letter" class="field-label">
+                    Your story / message to the people in first person (max 100 words)*
+                  </label>
+                  <a href="#letter-example-modal" class="story-example-link">
+                    Read letter example
+                  </a>
+                </div>
+
                 <textarea
                   id="story-letter"
                   name="story-letter"
@@ -201,15 +198,89 @@
                 ></textarea>
               </div>
 
-              <div class="field-group field-full">
-                <label for="quiz" class="field-label">Quiz about you (optional)</label>
-                <textarea
-                  id="quiz"
-                  name="quiz"
-                  class="field-textarea"
-                  placeholder="Answer any of these questions: What does music mean to you? What do you do differently than most DJs? Any weird habits or rituals? Funniest DJ moment? Most memorable set & why? Your biggest inspiration?"
-                ></textarea>
-              </div>
+<!-- QUIZ FIELD – questions + inline answers, sent as one field -->
+<div class="field-group field-full">
+  <label class="field-label">Quiz about you (mandatory)</label>
+
+  <div class="quiz-block">
+    <div class="quiz-row">
+      <span class="quiz-question">1. What does music mean to you personally?</span>
+      <span class="quiz-sep"> – </span>
+      <input
+        type="text"
+        class="quiz-answer"
+        data-question="1. What does music mean to you personally?"
+        placeholder="Your answer..."
+        required
+      />
+    </div>
+
+    <div class="quiz-row">
+      <span class="quiz-question">2. What do you do differently than most DJs?</span>
+      <span class="quiz-sep"> – </span>
+      <input
+        type="text"
+        class="quiz-answer"
+        data-question="2. What do you do differently than most DJs?"
+        placeholder="Your answer..."
+        required
+      />
+    </div>
+
+    <div class="quiz-row">
+      <span class="quiz-question">3. Any weird habits or rituals before/during a set?</span>
+      <span class="quiz-sep"> – </span>
+      <input
+        type="text"
+        class="quiz-answer"
+        data-question="3. Any weird habits or rituals before/during a set?"
+        placeholder="Your answer..."
+        required
+      />
+    </div>
+
+    <div class="quiz-row">
+      <span class="quiz-question">4. Funniest or weirdest DJing moment?</span>
+      <span class="quiz-sep"> – </span>
+      <input
+        type="text"
+        class="quiz-answer"
+        data-question="4. Funniest or weirdest DJing moment?"
+        placeholder="Your answer..."
+        required
+      />
+    </div>
+
+    <div class="quiz-row">
+      <span class="quiz-question">5. Most memorable set — and why?</span>
+      <span class="quiz-sep"> – </span>
+      <input
+        type="text"
+        class="quiz-answer"
+        data-question="5. Most memorable set — and why?"
+        placeholder="Your answer..."
+        required
+      />
+    </div>
+
+    <div class="quiz-row">
+      <span class="quiz-question">6. Your biggest inspiration?</span>
+      <span class="quiz-sep"> – </span>
+      <input
+        type="text"
+        class="quiz-answer"
+        data-question="6. Your biggest inspiration?"
+        placeholder="Your answer..."
+        required
+      />
+    </div>
+  </div>
+
+  <!-- Hidden textarea – į Formspree keliaus VIENAS laukas "quiz" -->
+  <textarea id="quiz" name="quiz" class="field-textarea" hidden></textarea>
+</div>
+
+
 
               <div class="field-group field-full">
                 <label for="mix-genre" class="field-label">Genres / mood</label>
@@ -218,7 +289,7 @@
                   id="mix-genre"
                   name="genre"
                   class="field-input"
-                  placeholder="Techno, house, trance... (no pop music)"
+                  placeholder="Techno, house, trance..."
                 >
               </div>
             </div>
@@ -467,6 +538,30 @@
 
   <div class="back-to-top-center">
     <a href="#submit-hero" class="scrolly">↑ Back to Top</a>
+  </div>
+
+  <!-- LETTER EXAMPLE MODAL -->
+  <div id="letter-example-modal" class="story-modal">
+    <a href="#" class="story-modal-backdrop" aria-label="Close letter example"></a>
+    <div class="story-modal-content">
+      <a href="#" class="story-modal-close" aria-label="Close">&times;</a>
+      <img
+        src="/assets/letterExample.jpg"
+        alt="Example of a guest mix story letter"
+      />
+    </div>
+  </div>
+
+  <!-- PHOTO EXAMPLE MODAL -->
+  <div id="photo-example-modal" class="story-modal">
+    <a href="#" class="story-modal-backdrop" aria-label="Close photo example"></a>
+    <div class="story-modal-content">
+      <a href="#" class="story-modal-close" aria-label="Close">&times;</a>
+      <img
+        src="/assets/photoExample.jpg"
+        alt="Example of a promo photo for Decks & Stories"
+      />
+    </div>
   </div>
 
   <!-- Shared JS -->

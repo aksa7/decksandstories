@@ -20,6 +20,10 @@ html, body {
   position: relative;
 }
 
+.field-textarea {
+  white-space: pre-wrap;
+}
+
 /* Overlay su gradientu: viršuje tamsiau / labiau „užblurrinta“, apačioj skaidriau */
 body.submit-page::before {
   content: "";
@@ -34,8 +38,7 @@ body.submit-page::before {
     rgba(0, 0, 0, 0.55) 55%,
     rgba(0, 0, 0, 0.28) 80%,
     rgba(0, 0, 0, 0.00) 100%
-  )
-  ;
+  );
   backdrop-filter: blur(14px);
 }
 
@@ -50,6 +53,99 @@ body.submit-page section.main {
   background: transparent !important;
 }
 
+.nav-link.active {
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+#nav a.nav-link {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* label + mygtukas/link ant vienos eilutės */
+.field-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Mygtukai/nuorodos letter/photo example */
+.field-label-row .story-example-link,
+.field-label-row .photo-example-link,
+.field-label-row .story-example-btn,
+.field-label-row .photo-example-btn {
+  font-size: 0.8rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.field-label-row .story-example-link:hover,
+.field-label-row .photo-example-link:hover,
+.field-label-row .story-example-btn:hover,
+.field-label-row .photo-example-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ===========================
+   MODALAI – :target variantas
+   =========================== */
+
+.story-modal {
+  position: fixed;
+  inset: 0;
+  display: none;              /* slepiam pagal nutylėjimą */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.story-modal:target {
+  display: flex;              /* kai hash = #id, modalas atsiranda */
+}
+
+.story-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: block;
+}
+
+.story-modal-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  padding: 0.5rem;
+  background: rgba(5, 5, 5, 0.9);
+  border-radius: 1rem;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+.story-modal-content img {
+  display: block;
+  max-width: 100%;
+  max-height: 80vh;
+  border-radius: 0.75rem;
+}
+
+.story-modal-close {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.6rem;
+  font-size: 1.8rem;
+  text-decoration: none;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
 /* ===========================
    HERO
    =========================== */
@@ -61,21 +157,12 @@ body.submit-page section.main {
   min-height: 100vh;
   position: relative;
 }
-.nav-link.active {
-  color: #ffffff !important;
-  opacity: 1 !important;
-}
-
-#nav a.nav-link {
-  transition: color 0.2s ease, opacity 0.2s ease;
-}
 
 .submit-logo {
   max-width: 260px;
   margin-bottom: 1rem;
   width: 100%;
   max-width: 480px;
-
 }
 
 .submit-title {
@@ -110,6 +197,7 @@ body.submit-page section.main {
   backdrop-filter: blur(8px);
   white-space: nowrap;
 }
+
 .guidelines-link {
   display: inline-block;
   margin-top: 0.4rem;
@@ -129,10 +217,7 @@ body.submit-page section.main {
   flex-wrap: wrap;
   margin-bottom: 1rem;
 }
-.submit-cta.active {
-  background: #fff;
-  color: #000;
-}
+
 .submit-cta {
   display: inline-block;
   padding: 10px 24px;
@@ -143,6 +228,11 @@ body.submit-page section.main {
   font-weight: bold;
   border: 1px solid #fff;
   transition: all 0.3s ease;
+}
+
+.submit-cta.active {
+  background: #fff;
+  color: #000;
 }
 
 .submit-cta:hover {
@@ -288,6 +378,57 @@ body.submit-page section.main {
   text-transform: uppercase;
   letter-spacing: 0.08em;
   opacity: 0.7;
+}
+/* QUIZ layout – questions + inline answers */
+.quiz-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.quiz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.quiz-question {
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.quiz-sep {
+  opacity: 0.8;
+}
+
+.quiz-answer {
+  flex: 1 1 220px;
+  min-width: 160px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0 0 2px;
+  color: #fff;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.quiz-answer::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.quiz-answer:focus {
+  border-bottom-color: #fff;
+}
+.quiz-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .field-input,
