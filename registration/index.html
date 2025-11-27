@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Decks &amp; Stories – Open Decks | Registration</title>
+
+  <meta name="description" content="Register for the Decks & Stories – Open Decks DJ contest in Vilnius. Fill in the form, share your up to 30-minute mix and introduce yourself. Partners: Bronx Club Vintage, Bronx Pool Club, Balansas, Proevents, Cult.">
+  <link rel="canonical" href="https://decksandstories.com/registration" />
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon-256x256.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+  <!-- Global styles -->
+  <link rel="stylesheet" href="/styles.css" />
+  <!-- Registration page styles -->
+  <link rel="stylesheet" href="/registration.css" />
+</head>
+
+<body class="is-preload registration-page">
+
+  <!-- HERO + REGISTRATION FORM -->
+  <section id="registration-hero" class="main fullscreen fade-up registration-hero">
+    <div class="inner center registration-section">
+      <img
+        src="/assets/1920x1080DCKS_transparent.png"
+        alt="Decks &amp; Stories Logo"
+        class="logo registration-logo"
+      />
+
+      <h1 class="registration-title">
+        <span class="registration-title-top">Decks &amp; Stories presents</span>
+        <span class="registration-title-main">OPEN DECKS</span>
+        <span class="registration-title-tagline">Vilnius · DJ showcase &amp; contest</span>
+      </h1>
+
+      <p class="registration-subtitle">
+        Open call for DJs in Vilnius.<br>
+        Fill in the form, share your <strong>up to 30-minute mix</strong> and tell us who you are.
+      </p>
+
+      <!-- Partners -->
+      <div class="partners-row">
+        <span class="partners-label">Partners:</span>
+        <div class="partners-list">
+          <span>Bronx Club Vintage</span>
+          <span>Bronx Pool Club</span>
+          <span>Balansas</span>
+          <span>Proevents</span>
+          <span>Cult</span>
+        </div>
+      </div>
+
+      <!-- Event info pills -->
+      <div class="event-pill-row">
+        <span class="event-pill">Event: December 11</span>
+        <span class="event-pill">Time: 18:00–00:00</span>
+        <span class="event-pill">Location: Konstitucijos pr. 12, Vilnius</span>
+      </div>
+
+      <!-- Registration form -->
+      <div class="registration-form-wrapper">
+        <form
+          id="open-decks-form"
+          class="registration-form"
+          action="https://formspree.io/f/myzqjekv"
+          method="POST"
+        >
+          <input type="hidden" name="form-type" value="open-decks-registration">
+          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you">
+
+          <div class="form-card">
+            <h2>Open Decks registration</h2>
+            <p class="form-intro">
+              This is the <strong>first stage</strong> of the contest and happens online.
+              Registration is open until <strong>December 2</strong>. From all submissions,
+              <strong>5 DJs</strong> will be selected to play live at the event.
+            </p>
+
+            <div class="form-grid">
+              <!-- First & last name -->
+              <div class="field-group">
+                <label for="full-name" class="field-label">First &amp; last name*</label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="full-name"
+                  class="field-input"
+                  required
+                  placeholder="Your full name"
+                >
+              </div>
+
+              <!-- Artist / DJ name -->
+              <div class="field-group">
+                <label for="artist-name" class="field-label">Artist / DJ name</label>
+                <input
+                  type="text"
+                  id="artist-name"
+                  name="artist-name"
+                  class="field-input"
+                  placeholder="If different from your real name"
+                >
+              </div>
+
+              <!-- Instagram mandatory -->
+              <div class="field-group">
+                <label for="instagram" class="field-label">Instagram / Social*</label>
+                <input
+                  type="text"
+                  id="instagram"
+                  name="instagram"
+                  class="field-input"
+                  required
+                  placeholder="@username or profile link"
+                >
+              </div>
+
+              <!-- Email -->
+              <div class="field-group">
+                <label for="email" class="field-label">Email*</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="field-input"
+                  required
+                  placeholder="your@email.com"
+                >
+              </div>
+
+              <!-- Age -->
+              <div class="field-group">
+                <label for="age" class="field-label">How old are you?*</label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  class="field-input"
+                  min="16"
+                  max="99"
+                  required
+                  placeholder="E.g. 23"
+                >
+              </div>
+
+              <!-- City / country -->
+              <div class="field-group">
+                <label for="city" class="field-label">City &amp; country</label>
+                <input
+                  type="text"
+                  id="city"
+                  name="city"
+                  class="field-input"
+                  placeholder="Vilnius, Lithuania"
+                >
+              </div>
+
+              <!-- What do you play -->
+              <div class="field-group field-full">
+                <label for="what-you-play" class="field-label">What do you play? (genres / vibe)</label>
+                <input
+                  type="text"
+                  id="what-you-play"
+                  name="what-you-play"
+                  class="field-input"
+                  placeholder="Techno, house, breaks, experimental..."
+                >
+              </div>
+
+              <!-- Mix link -->
+              <div class="field-group field-full">
+                <label for="mix-link" class="field-label">Mix link (up to 30 minutes)*</label>
+                <input
+                  type="url"
+                  id="mix-link"
+                  name="mix-link"
+                  class="field-input"
+                  required
+                  placeholder="Private SoundCloud, Google Drive, Dropbox, WeTransfer, etc."
+                >
+              </div>
+
+              <!-- About you (100 words) -->
+              <div class="field-group field-full">
+                <label for="about" class="field-label">Short intro about you (max 100 words)*</label>
+                <textarea
+                  id="about"
+                  name="about"
+                  class="field-textarea"
+                  required
+                  placeholder="Who are you as a person and as a DJ? Where does your sound come from? Tell us your story in up to 100 words."
+                ></textarea>
+              </div>
+
+              <!-- Message to the people -->
+              <div class="field-group field-full">
+                <label for="message" class="field-label">What is your message to the people?*</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="field-textarea"
+                  required
+                  placeholder="Write a short message to the people who will listen to your set (1–3 sentences)."
+                ></textarea>
+              </div>
+
+              <!-- Extra info -->
+              <div class="field-group field-full">
+                <label for="extra" class="field-label">Anything else we should know? (optional)</label>
+                <textarea
+                  id="extra"
+                  name="extra"
+                  class="field-textarea"
+                  placeholder="Experience, equipment, special needs, crew/collective, label info – anything that feels important."
+                ></textarea>
+              </div>
+            </div>
+
+            <!-- Consents -->
+            <div class="form-consent">
+              <label class="checkbox-row">
+                <input type="checkbox" name="mix-rules" required>
+                <span>I confirm my mix is no longer than 30 minutes and I have the right to use all tracks in this set.</span>
+              </label>
+
+              <label class="checkbox-row">
+                <input type="checkbox" name="can-play-live" required>
+                <span>If selected, I can play live at the Open Decks event in Vilnius on December 11.</span>
+              </label>
+
+              <label class="checkbox-row">
+                <input type="checkbox" name="media-consent" required>
+                <span>I agree that Decks &amp; Stories may film and photograph my performance and publish this content on YouTube, Instagram and other channels.</span>
+              </label>
+            </div>
+
+            <button type="submit" class="formSubmit">Submit registration</button>
+
+            <p class="form-footnote">
+              Registration is open until <strong>December 2</strong>.
+              Selected DJs will be contacted personally via email and social media.
+            </p>
+          </div>
+        </form>
+      </div>
+
+      <div class="back-to-top-center">
+        <a href="#open-decks-info" class="scrolly">Learn more about the contest ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN DECKS CONTEST INFO -->
+<section id="open-decks-info" class="main fade-in">
+  <div class="registration-section event-info">
+    <h2>What is Decks &amp; Stories: Open Decks?</h2>
+    <p>
+      <strong>Open Decks</strong> is a DJ showcase and contest in Vilnius.
+      You register online, we listen to your mix, select a few DJs for the event,
+      record the sets and share them online so the community can discover you.
+    </p>
+    <h3>How it works</h3>
+    <ol class="event-steps">
+      <li>
+        <strong>Stage 1 – Online registration (until December 2)</strong><br>
+        Fill in the registration form, write a short intro about yourself,
+        share your social links and an <strong>up to 30-minute mix</strong>.
+        We listen to every submission and select <strong>5 DJs</strong> that best fit
+        the sound and energy of the event.
+      </li>
+
+      <li>
+        <strong>Stage 2 – Live night in Vilnius (December 11)</strong><br>
+        The selected DJs play their sets at the venue on
+        <strong>December 11, 18:00–00:00, Konstitucijos pr. 12, Vilnius</strong>.
+        All performances are recorded by the Decks &amp; Stories team.
+      </li>
+
+      <li>
+        <strong>Stage 3 – Release on YouTube &amp; Instagram (December 16)</strong><br>
+        The recorded sets are released as a series on the Decks &amp; Stories
+        <strong>YouTube channel</strong>. On Instagram, each DJ gets a separate post
+        with performance clips and tags for the partners. All posts go live at the same time.
+      </li>
+
+      <li>
+        <strong>Stage 4 – Community voting (until December 20, 18:00)</strong><br>
+        Voting happens on Instagram. The community supports their favorite DJ by liking the posts.
+        The contest winner is the DJ whose post receives the most likes after
+        <strong>December 20, 18:00</strong>.
+      </li>
+    </ol>
+
+    <div class="back-to-top-center">
+      <a href="#registration-hero" class="scrolly">↑ Back to registration form</a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Shared JS (smooth scroll etc.) -->
+  <script src="/script.js"></script>
+</body>
+</html>

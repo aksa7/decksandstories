@@ -1,0 +1,383 @@
+/* ===========================
+   REGISTRATION PAGE – GLOBAL
+   =========================== */
+
+body.registration-page {
+  position: relative;
+  min-height: 100vh;
+  color: #ffffff;
+  background:
+    url("assets/herovisual.png") center top / cover no-repeat fixed;
+}
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+}
+
+/* Gradient overlay over the hero visual */
+body.registration-page::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.88) 0%,
+    rgba(0, 0, 0, 0.78) 25%,
+    rgba(0, 0, 0, 0.55) 55%,
+    rgba(0, 0, 0, 0.28) 80%,
+    rgba(0, 0, 0, 0.00) 100%
+  );
+  backdrop-filter: blur(14px);
+}
+
+/* Content must stay above the overlay */
+body.registration-page > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Remove default .main background so global backdrop is visible */
+body.registration-page section.main {
+  background: transparent !important;
+}
+
+/* General section max width */
+.registration-section {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+/* ===========================
+   HERO + FORM
+   =========================== */
+
+.registration-hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  position: relative;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.registration-logo {
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto 1.5rem;
+}
+
+.registration-title {
+  margin: 0.5rem 0 0.75rem;
+}
+
+.registration-title-top {
+  display: block;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.registration-title-main {
+  display: block;
+  font-size: 2.8rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 0.2rem;
+}
+
+.registration-title-tagline {
+  display: block;
+  font-size: 0.9rem;
+  margin-top: 0.4rem;
+  opacity: 0.9;
+}
+
+.registration-subtitle {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  max-width: 640px;
+  margin: 0 auto 1.5rem;
+}
+
+/* Partners row */
+.partners-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.partners-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  opacity: 0.8;
+}
+
+.partners-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+}
+
+.partners-list span {
+  opacity: 0.95;
+}
+
+/* Event info pills */
+.event-pill-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+.event-pill {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.25rem 0.9rem;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+/* Registration form wrapper */
+.registration-form-wrapper {
+  margin-top: 0.5rem;
+}
+
+/* ===========================
+   FORM CARD & FIELDS
+   =========================== */
+
+.form-card {
+  background: rgba(0, 0, 0, 0.78);
+  border-radius: 18px;
+  padding: 2rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  text-align: left;
+}
+
+.form-card h2 {
+  margin-top: 0;
+}
+
+.form-intro {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin-bottom: 1.5rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.2rem 1.5rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.field-group.field-full {
+  grid-column: 1 / -1;
+}
+
+.field-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.field-input,
+.field-textarea {
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.6rem 0.75rem;
+  color: #fff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+.field-input:focus,
+.field-textarea:focus {
+  border-color: #fff;
+}
+
+.field-textarea {
+  min-height: 120px;
+  resize: vertical;
+  white-space: pre-wrap;
+}
+
+/* Consents / checkboxes */
+
+.form-consent {
+  margin-top: 1.4rem;
+  margin-bottom: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.checkbox-row input[type="checkbox"] {
+  margin-top: 0.2rem;
+}
+
+/* Submit button */
+
+.formSubmit {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 999px;
+  background: #fff;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  border: 1px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.formSubmit:hover {
+  background: transparent;
+  color: #fff;
+}
+
+.form-footnote {
+  margin-top: 0.9rem;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+#about {
+    min-height: 0 !important;
+}
+/* Scroll links */
+
+.back-to-top-center {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.back-to-top-center a {
+  font-size: 0.85rem;
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.back-to-top-center a:hover {
+  color: #ffffff;
+}
+
+/* ===========================
+   EVENT INFO SECTION
+   =========================== */
+
+.event-info {
+  padding: 3rem 1.5rem 4rem;
+  text-align: left;
+  background: radial-gradient(circle at top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9));
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.event-info h2 {
+  margin-top: 0;
+}
+
+.event-steps {
+  margin-left: 1.2rem;
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.event-steps li {
+  padding-left: 0.4rem;
+}
+
+.event-steps ul {
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  padding-left: 1.1rem;
+}
+
+.event-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+
+@media screen and (max-width: 900px) {
+  .registration-title-main {
+    font-size: 2.2rem;
+  }
+
+  .registration-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .form-card {
+    padding: 1.7rem 1.35rem;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .event-pill-row {
+    justify-content: center;
+  }
+
+  .event-pill {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .partners-row {
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .registration-hero {
+    padding: 2.5rem 1.1rem;
+  }
+
+  .registration-title-main {
+    font-size: 1.9rem;
+  }
+}
