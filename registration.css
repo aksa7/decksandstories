@@ -122,11 +122,113 @@ body.registration-page section.main {
   letter-spacing: 0.12em;
   opacity: 0.8;
 }
+.sponsors-section {
+  padding: 32px 0;
+}
+
+.sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-end;   /* visi logai remiasi į vieną apačią */
+  gap: 32px;
+}
+
+/* vienodo dydžio „dėžutės“ logams */
+.sponsor-logo-wrap {
+  height: 80px;            /* pasireguliuok: 60–80px */
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+/* pats logotipas prisitaiko, nesikraipo */
+.sponsor-logo-wrap img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+/* MOBILE: visi logai vienoje linijoje */
+@media (max-width: 600px) {
+  .sponsors {
+    display: flex;
+    flex-wrap: nowrap;          /* NEbeleidžiam lūžti į dvi eilutes */
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .sponsor-logo-wrap {
+    flex: 1 1 0;                /* kiekvienas užima po lygiai vietos */
+    height: 40px;               /* sumažintas aukštis, kad tilptų */
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+  }
+
+  .sponsor-logo-wrap img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+/* MOBILE: aiškesni "How it works" punktai */
+@media screen and (max-width: 600px) {
+  .event-info {
+    padding: 2.4rem 1.2rem 3rem;
+  }
+
+  .event-steps {
+    margin-left: 0;           /* nebebus papildomo įtraukimo iš kairės */
+    margin-top: 1.5rem;
+    gap: 1.4rem;              /* daugiau tarpo tarp punktų */
+  }
+
+  .event-steps li {
+    padding-left: 0;
+    font-size: 0.95rem;
+    line-height: 1.7;         /* lengviau skaityti mažam ekrane */
+  }
+
+  /* švelni linija tarp punktų */
+  .event-steps li + li {
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-top: 1rem;
+  }
+
+  /* pavadinimas "Stage X..." ant atskiros eilutės */
+  .event-steps li strong {
+    display: block;
+    margin-bottom: 0.35rem;
+    font-size: 1rem;
+  }
+}
+
+/* Balansas – pvz. truputį sumažinam ir kilstelim aukščiau */
+.sponsor-balansas img {
+  max-height: 90%;              /* ~45px vietoj 50px */
+}
+.sponsor-balansas {
+  transform: translateY(-2px);  /* šiek tiek aukščiau */
+}
+
+/* CULT – paliekam standartą, jei tinka */
+
+/* BRONX – pvz. truputį padidinam */
+.sponsor-bronx img {
+  max-height: 100%;             /* pilnas aukštis */
+}
+
+/* Proevents – labai platus logas, galima šiek tiek mažinti plotį */
+.sponsor-proevents img {
+  max-width: 110px;
+}
 
 .partners-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem 0.8rem;
+  justify-content: center;
   font-size: 0.85rem;
 }
 
