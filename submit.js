@@ -58,7 +58,30 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // -------------------------
-  // Pagalbinė funkcija: surenkam quiz klausimus + atsakymus į vieną lauką
+  // STORY: surenkam 2 story textarea į vieną paslėptą "story-letter"
+  // -------------------------
+  function buildStoryFieldForForm(form) {
+    const hiddenStoryField = form.querySelector("#story-letter");
+    if (!hiddenStoryField) return; // šito formoje nėra – skipinam
+
+    const storyAnswers = form.querySelectorAll(".story-answer");
+    if (!storyAnswers.length) return;
+
+    const parts = [];
+
+    storyAnswers.forEach((field) => {
+      const question = field.dataset.question || "";
+      const answer = (field.value || "").trim();
+      if (answer) {
+        parts.push(`${question} – ${answer}`);
+      }
+    });
+
+    hiddenStoryField.value = parts.join("\n\n");
+  }
+
+  // -------------------------
+  // QUIZ: surenkam quiz klausimus + atsakymus į vieną paslėptą "quiz"
   // -------------------------
   function buildQuizFieldForForm(form) {
     const quizField = form.querySelector("#quiz");
@@ -86,7 +109,8 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
 
-      // prieš siųsdami – surenkam quiz lauką (jei jis yra tame form)
+      // prieš siųsdami – surenkam STORY + QUIZ laukus (jei jie yra tame forme)
+      buildStoryFieldForForm(form);
       buildQuizFieldForForm(form);
 
       const formData = new FormData(form);
