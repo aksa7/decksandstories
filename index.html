@@ -5,29 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Decks & Stories – Global DJs & Authentic Stories Through Sound</title>
   <meta name="description" content="Decks & Stories is an independent global music collective uniting DJs from every country. Dive into mixes and stories where music connects us beyond borders.">
-
-  <!-- Canonical URL -->
   <link rel="canonical" href="https://decksandstories.com/" />
 
-  <!-- Open Graph for Facebook & Social Sharing -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://decksandstories.com/">
   <meta property="og:title" content="Decks & Stories – Global DJs & Authentic Stories Through Sound">
   <meta property="og:description" content="Independent music collective uniting DJs and artists worldwide. Experience live sets and personal stories behind the sound.">
   <meta property="og:image" content="https://decksandstories.com/assets/og-image.png">
 
-  <!-- Twitter Card for better social sharing -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@decksandstories">
   <meta name="twitter:title" content="Decks & Stories – Global DJs & Authentic Stories Through Sound">
   <meta name="twitter:description" content="Independent music collective uniting DJs and artists worldwide. Experience live sets and personal stories behind the sound.">
   <meta name="twitter:image" content="https://decksandstories.com/assets/og-image.png">
 
-  <!-- Robots -->
   <meta name="robots" content="index, follow">
   <meta name="author" content="Decks & Stories">
 
-  <!-- Structured Data for Website -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -38,7 +32,6 @@
   }
   </script>
 
-  <!-- Structured Data for Music Group -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -65,272 +58,344 @@
   <link rel="icon" type="image/png" sizes="256x256" href="assets/favicon-256x256.png">
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon">
 
-  <!-- Stylesheets -->
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css">
   <link rel="stylesheet" href="gallery.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body class="is-preload">
 
+<!-- Bottom Music Bar -->
 <div id="yt-bar-player-container">
   <img id="yt-cover" src="" alt="Track Cover" onerror="this.onerror=null; this.src='assets/DECKS&STORIES.png';"/>
 
   <div class="yt-track-info">
-    
     <div class="yt-track-title" id="yt-track-title">Loading...</div>
   </div>
 
-<div class="yt-controls">
-  <button onclick="prevTrack()" class="control-btn"><img src="icons/prev.svg" alt="Previous"></button>
-  <button onclick="togglePlayPause()" id="playPauseBtn" class="control-btn">
-    <img id="playPauseIcon" src="icons/play.svg" alt="Play">
-  </button>
-  <button onclick="nextTrack()" class="control-btn"><img src="icons/next.svg" alt="Next"></button>
-  <input type="range" min="0" max="100" value="40" id="volumeSlider" onchange="setVolume(this.value)">
-  <button onclick="closePlayer()" class="control-btn"><img src="icons/close.svg" alt="Close"></button>
-</div>
+  <div class="yt-controls">
+    <button type="button" onclick="prevTrack()" class="control-btn" aria-label="Previous">
+      <img src="icons/prev.svg" alt="">
+    </button>
 
-  <div id="yt-bar-player" style="display: none;"></div>
-  
-</div>
+    <button type="button" onclick="togglePlayPause()" id="playPauseBtn" class="control-btn" aria-label="Play/Pause">
+      <img id="playPauseIcon" src="icons/play.svg" alt="">
+    </button>
 
-<!-- Hero Section -->
- <div class="intro-about-bg">
-<section id="intro" class="main fullscreen fade-up">
-  
-  
-  <div class="inner center">
-    
-    <img src="assets/1920x1080DCKS_transparent.png" alt="Decks and Stories  Logo" class="logo"/>
-    <!-- <p class="mission-text">Welcome to <strong>Decks and Stories</strong> – a global music movement connecting DJs and stories worldwide. <br>
-    13 out of 195 countries so far — still a long way to go!
-     -->
-    <!-- <h1>Decks & Stories</h1> -->
-    <p class="biggerText">Where music reveals identity</p>
+    <button type="button" onclick="nextTrack()" class="control-btn" aria-label="Next">
+      <img src="icons/next.svg" alt="">
+    </button>
+
+    <input type="range" min="0" max="100" value="40" id="volumeSlider" onchange="setVolume(this.value)" aria-label="Volume">
+
+    <button type="button" onclick="closePlayer()" class="control-btn" aria-label="Close">
+      <img src="icons/close.svg" alt="">
+    </button>
   </div>
-  <!-- Bottom Navigation Style -->
-  <nav id="hero-nav">
-    
-    <ul>
-      <li><a href="#about" class="scrolly">About</a></li>
-      <li><a href="#episodes" class="scrolly">Episodes</a></li>
-      <li><a href="#studio" class="scrolly">Studio Sessions</a></li>
-      <li><a href="#gallery" class="scrolly">Gallery</a></li>
-      <li><a href="submit/">Submit your Mix/Episode/Event</a></li>
-    </ul>
-  </nav>
-</section>
 
-
-<!-- About Section -->
-<section id="about" class="main fade-in split">
-<div class="aboutText">
-  <h2>About Us</h2>
-
-  <p><strong>Decks&Stories is a movement born in Kaunas, Lithuania – a platform where electronic music, identity and real stories meet.</strong></p>
-
-  <p>Our mission is simple: grow internationally through genuine connections – collaborating and learning together instead of competing. We are building a reliable, free space where any DJ can present themselves, no matter their status or follower count.</p>
-
-  <p>Through digital episodes and events we aim to create honest, welcoming experiences where people feel seen, not judged – and where every set reveals who the DJ truly is. We want our nights and recordings to feel like chapters in a bigger, shared story.</p>
-
-  <p><strong>Long term, Decks&Stories aims to host international events and feature DJs from as many countries as possible – we’re already at 14/195 worldwide and 8/44 in Europe, with Amsterdam as a vital next step in this journey.</strong></p>
-  
-</div>
-</section>
-
-
-
-
-</section>
+  <div id="yt-bar-player" style="display:none;"></div>
 </div>
 
-<!-- Episodes -->
- <div class="episodes-studio-bg">
-<section id="episodes" class="main fade-up">
-  <div class="inner boxed">
-    <header class="major">
-      <h1>Decks&Stories Episodes</h1>
-      <p>Decks & Stories isn’t about the past — it’s about living stories, still echoing today. <br>
-Every set holds a moment, a memory, a truth shared through sound.</p>
-    </header>
-<div class="back-to-top-center">
-  <a href="#intro" class="scrolly">↑ Back to Top</a>
-</div>
-    <div class="video-grid">
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('gawWw01LI7k', this)">
-          <img src="https://i.ytimg.com/vi/gawWw01LI7k/hqdefault.jpg" alt="Episode 43 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #43 · Soulvybes</strong>
-          <p>A sound rising from Málaga, shaped by emotion and contrast. Where the energy of electronic music meets the elegance of classical piano. What began as therapy became a language - turning pain into melody and feeling into rhythm.
-          </p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('t6NL-CuuEbM', this)">
-          <img src="https://i.ytimg.com/vi/t6NL-CuuEbM/hqdefault.jpg" alt="Episode 42 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #42 · TAINARA BUNN</strong>
-          <p>Tainara Bunn delivers another powerful journey—deep tech, minimal tech and tech house blended with her signature elegance and infectious energy.
-          </p>
-        </div>
-      </div>
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('ys5rtmsx0B8', this)">
-          <img src="https://i.ytimg.com/vi/ys5rtmsx0B8/hqdefault.jpg" alt="Episode 41 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #41 · Vanagas</strong>
-          <p>A message from Vanagas to the people: <br>
-            “Age is never a barrier to joy. Don’t let anyone tell you you’re too old to go out, to dance, to DJ, or to learn a new instrument. Stay true to yourself — and have as much fun as possible.”
-          </p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('USlHNACcM2w', this)">
-          <img src="https://i.ytimg.com/vi/USlHNACcM2w/hqdefault.jpg" alt="Episode 40 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #40 · Daspa</strong>
-          <p>Born in 1988 in Naples, he spent years refining his passion for music while playing in clubs across Italy and making notable appearances throughout Europe. His project emerged from the desire to create a sharp, energetic sound that elevates the dancefloor. 
-          </p>
-        </div>
-      </div>
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('dR-Lox6hG4c', this)">
-          <img src="https://i.ytimg.com/vi/dR-Lox6hG4c/hqdefault.jpg" alt="Episode 39 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #39 · Godski</strong>
-          <p>A message from Godski to the people: <br>
-          “The death of perfection is the birth of momentum”  
-        </p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('Tp_JqH8bGXY', this)">
-          <img src="https://i.ytimg.com/vi/Tp_JqH8bGXY/hqdefault.jpg" alt="Episode 38 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #38 · Raj El Ray</strong>
-          <p>A message from Ilyrojus to the people: <br>
-          “Keep searching for what moves you - and when you find it, let it move you completely.”
-        </p>
+<!-- HERO + TOP SECTIONS BG -->
+<div class="intro-about-bg">
+
+  <!-- Hero -->
+  <section id="intro" class="main fullscreen fade-up">
+    <div class="inner center">
+      <img src="assets/1920x1080DCKS_transparent.png" alt="Decks and Stories Logo" class="logo"/>
+      <p class="biggerText">Where music reveals identity</p>
+    </div>
+
+    <nav id="hero-nav">
+      <ul>
+        <li><a href="#about" class="scrolly">About</a></li>
+        <li><a href="#episodes" class="scrolly">Episodes</a></li>
+        <li><a href="#studio" class="scrolly">Studio Sessions</a></li>
+        <li><a href="#gallery" class="scrolly">Gallery</a></li>
+        <li><a href="submit/">Submit</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <!-- WHO TRUST US -->
+  <section id="trust" class="main fade-in">
+    <div class="inner boxed">
+      <div class="trust-card">
+        <div class="trust-title">WHO TRUSTS US</div>
+        <div class="trust-logos" aria-label="Trusted by logos">
+          <!-- Tu čia įsidedi savo permatomus logotipus -->
+          <img class="logo-sun" src="assets/sun365logo.avif" alt="SUN365" loading="lazy">
+          <img src="assets/cult_300x300.png" alt="CULT" loading="lazy">
+          <img src="assets/teileLogo.png" alt="TEILE" loading="lazy">
         </div>
       </div>
     </div>
-     <div class="view-more-container">
-  <a href="https://www.youtube.com/@decksandstories" target="_blank" class="view-more-button">
-    View More Episodes
-  </a>
-</div>
-  </div>
-</section>
-<!-- Studio Sessions -->
-<section id="studio" class="main fade-up">
-  <div class="inner boxed">
-    <header class="major">
-      <h1>Studio Sessions</h1>
-  <p>A space in Kaunas where the focus is simple — create, play, and share music without overthinking it. “Studio Sessions” kicks off with no big speeches, just the sound we believe in.</p>
+  </section>
 
+  <!-- Countries Featured (PRIEŠ ABOUT) -->
+  <section id="countries" class="main fade-in">
+    <div class="inner boxed">
+      <div class="countries-card">
+        <div class="countries-head">
+          <h2>Countries Featured on Decks and Stories</h2>
+          <p>Real stories, real places - the journey is growing with every episode.</p>
+        </div>
 
-    </header>
-<div class="back-to-top-center">
-  <a href="#intro" class="scrolly">↑ Back to Top</a>
-</div>
-    <div class="video-grid">
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('Td2-XQurbKI', this)">
-          <img src="https://i.ytimg.com/vi/Td2-XQurbKI/hqdefault.jpg" alt="Episode 31 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="countries-grid" aria-label="Countries featured list">
+          <!-- Tu gali lengvai pildyti šitą listą -->
+          <div class="country-pill"><span class="flag">🇱🇹</span><span class="label">Lithuania</span></div>
+          <div class="country-pill"><span class="flag">🇺🇸</span><span class="label">USA</span></div>
+          <div class="country-pill"><span class="flag">🇿🇼</span><span class="label">Zimbabwe</span></div>
+          <div class="country-pill"><span class="flag">🇮🇹</span><span class="label">Italy</span></div>
+          <div class="country-pill"><span class="flag">🇫🇷</span><span class="label">France</span></div>
+          <div class="country-pill"><span class="flag">🇨🇦</span><span class="label">Canada</span></div>
+          <div class="country-pill"><span class="flag">🇧🇷</span><span class="label">Brazil</span></div>
+          <div class="country-pill"><span class="flag">🇲🇽</span><span class="label">Mexico</span></div>
+          <div class="country-pill"><span class="flag">🇸🇪</span><span class="label">Sweden</span></div>
+          <div class="country-pill"><span class="flag">🇩🇰</span><span class="label">Denmark</span></div>
+          <div class="country-pill"><span class="flag">🇳🇱</span><span class="label">Netherlands</span></div>
+          <div class="country-pill"><span class="flag">🇩🇪</span><span class="label">Germany</span></div>
+          <div class="country-pill"><span class="flag">🇬🇷</span><span class="label">Greece</span></div>
+          <div class="country-pill"><span class="flag">🇲🇦</span><span class="label">Morocco</span></div>
+          <div class="country-pill"><span class="flag">🇸🇾</span><span class="label">Syria</span></div>
+          <div class="country-pill"><span class="flag">🇬🇧</span><span class="label">England</span></div>
         </div>
-        <div class="video-description">
-          <strong>Episode #32 · Sundu</strong>
-          <p>
-            "Meet Sundu - an iconic electronic music duo from Vilnius, formed by @bernis and @mantasstuk. Inspired by sun-soaked landscapes and exotic sounds, they create a world where summer never seems to end.
-            Both are talented producers, creating quality tracks supported and played by well-known artists across the scene. Creating and playing together, they naturally complement one another, sharing a genuinely positive energy both behind the decks and beyond."</p>
+
+        <div class="countries-footnote">
+          Already featured: <strong>16/195</strong> countries and counting..
         </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('Mjjs-YBhm7Y', this)">
-          <img src="https://i.ytimg.com/vi/Mjjs-YBhm7Y/hqdefault.jpg" alt="Episode 31 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #31 · B.Collector</strong>
-          <p>"Shaped by electronic rhythms since childhood, he uploaded house tracks to YouTube at 13 and has been digging deeper ever since. In Klaipėda, he curates Bass Control and hosts Griovelis on Palanga Street Radio, always guided by one truth: no borders, no ego—only pure sonic connection."</p>
-        </div>
-      </div>
-                  <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('Ff9-oQlt9XQ', this)">
-          <img src="https://i.ytimg.com/vi/Ff9-oQlt9XQ/hqdefault.jpg" alt="Episode 30 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #30 · Ilyrojus</strong>
-          <p>"A young DJ whose journey began with guitar sounds and grew into a deep love for electronic music. After exploring parties across Europe, he started playing to share emotions through sound. Music became his way to express love, warmth, and genuine happiness."</p>
-        </div>
-      </div>
-            <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('UT_KuJbzQIs', this)">
-          <img src="https://i.ytimg.com/vi/UT_KuJbzQIs/hqdefault.jpg" alt="Episode 24 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #29 · Mantas T</strong>
-          <p>"Began DJing in 1997 in Kaunas, Lithuania. Since the early nineties, he has been a regular at various rave parties. He has been heavily influenced by Detroit Techno and the likes of Acid House, an experienced veteran of the craft. With over twenty years of experience on vinyl, he has delivered countless unforgettable moments on stage. When people describe his style, they often say: “Once you listen, you feel the journey.”"</p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('guxpmEdk3fQ', this)">
-          <img src="https://i.ytimg.com/vi/guxpmEdk3fQ/hqdefault.jpg" alt="Episode 24 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #28 · Guzdzi</strong>
-          <p>"A young and talented DJ from Kaunas, he has spent the past two years growing, evolving, and learning to hear the world in his own unique way. Every place he visits carries its own sound and atmosphere, shaping his artistic identity piece by piece. For him, DJing is a language—one that speaks through emotion, energy, and movement. "</p>
-        </div>
-      </div>
-      <div class="video-card">
-        <div class="video-player-container" onclick="loadAndPlayVideo('E0f_asi3xX8', this)">
-          <img src="https://i.ytimg.com/vi/E0f_asi3xX8/hqdefault.jpg" alt="Episode 24 thumbnail">
-          <div class="play-overlay"><span class="play-button-icon">►</span></div>
-          <iframe class="video-iframe" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
-        <div class="video-description">
-          <strong>Episode #27 · Uno Mano</strong>
-          <p>"Uno Mano is a DJ who performs without his left arm after a life-threatening car accident in 2023. While still in the        hospital, he took a gig, played it, and returned to continue recovery — his passion proved stronger than the injury.
-            He has years of experience in the music scene, and electronic music brought him back under the name Uno Mano."</p>
-        </div>
-      </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="main fade-in split">
+    <div class="aboutText">
+      <h2>About Us</h2>
+      <p><strong>Decks&Stories is a movement born in Kaunas, Lithuania – a platform where electronic music, identity and real stories meet.</strong></p>
+      <p>Our mission is simple: grow internationally through genuine connections — collaborating and learning together instead of competing. We’re building a reliable, free space where any DJ can present themselves, no matter their status or follower count.</p>
+      <p>Through digital episodes and events we create honest, welcoming experiences where people feel seen, not judged — and where every set reveals who the DJ truly is.</p>
+      <p><strong>Long term, Decks&Stories aims to host international events and feature DJs from as many countries as possible — already at 14/195 worldwide and 8/44 in Europe.</strong></p>
+    </div>
+  </section>
+
 </div>
-<!-- GALLERY + COLLAB (bendras background) -->
+
+<!-- Episodes + Studio BG -->
+<div class="episodes-studio-bg">
+
+  <!-- EPISODES -->
+  <section id="episodes" class="main fade-up">
+    <div class="inner boxed">
+      <header class="major">
+        <h1>Decks&Stories Episodes</h1>
+        <p>Every set holds a moment — a memory, a truth, a piece of identity shared through sound.</p>
+      </header>
+
+      <div class="media-grid">
+        <!-- #46 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=PL5jmByyPLg">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/PL5jmByyPLg/hqdefault.jpg" alt="Episode 46 thumbnail" loading="lazy">
+            <div class="media-badge">Episode #46</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">LUKSVE</h3>
+            <p class="media-text">From a simple laptop setup to a sound that feels sharp and intentional — clean groove, steady pressure, and a proper dancefloor mindset.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=PL5jmByyPLg" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #45 (įrašysi ID, kai turėsi) -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=jDfMoY7K4s4">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/jDfMoY7K4s4/hqdefault.jpg" alt="Episode 45 thumbnail" loading="lazy">
+            <div class="media-badge">Episode #45</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Maksas</h3>
+            <p class="media-text">Deep, patient selection with a steady pull — the kind of mix that locks you in slowly and doesn’t let go.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=jDfMoY7K4s4" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #44 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=y5U8g3lwlts">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/y5U8g3lwlts/hqdefault.jpg" alt="Episode 44 thumbnail" loading="lazy">
+            <div class="media-badge">Episode #44</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Richi</h3>
+            <p class="media-text">From Syria to Amsterdam — music as survival and reset. A set that carries history, but moves forward with purpose.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=y5U8g3lwlts" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #43 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=gawWw01LI7k">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/gawWw01LI7k/hqdefault.jpg" alt="Episode 43 thumbnail" loading="lazy">
+            <div class="media-badge">Episode #43</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Soulvybes</h3>
+            <p class="media-text">A sound rising from Málaga — emotion and contrast, where electronic energy meets the elegance of piano.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=gawWw01LI7k" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #42 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=t6NL-CuuEbM">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/t6NL-CuuEbM/hqdefault.jpg" alt="Episode 42 thumbnail" loading="lazy">
+            <div class="media-badge">Episode #42</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">TAINARA BUNN</h3>
+            <p class="media-text">Deep tech, minimal tech, and tech house with signature elegance — tight grooves, clean pressure, forward motion.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=t6NL-CuuEbM" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #41 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=ys5rtmsx0B8">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/ys5rtmsx0B8/hqdefault.jpg" alt="Episode 41 thumbnail" loading="lazy">
+            <div class="media-badge">Episode #41</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Vanagas</h3>
+            <p class="media-text">Age is never a barrier to joy — stay true, keep learning, and don’t let anyone take the dancefloor from you.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=ys5rtmsx0B8" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="view-more-container">
+        <a href="https://www.youtube.com/@decksandstories" target="_blank" class="view-more-button">View More Episodes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDIO -->
+  <section id="studio" class="main fade-up">
+    <div class="inner boxed">
+      <header class="major">
+        <h1>Studio Sessions</h1>
+        <p>Kaunas studio energy — simple rule: come in, play, create, and share the vibe.</p>
+      </header>
+
+      <div class="media-grid">
+        <!-- #35 (įrašysi ID, kai turėsi) -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=80TZVNxpKdM">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/80TZVNxpKdM/hqdefault.jpg" alt="Studio Session 35 thumbnail" loading="lazy">
+            <div class="media-badge">Studio Session #35</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">H€rm4 b2b VILBØ</h3>
+            <p class="media-text">Husband & wife b2b with real chemistry — started by accident, turned into a shared path, powered by connection.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=80TZVNxpKdM" target="_blank" rel="noopener">Watch Session</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #34 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=2b4rE5ieGCg">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/2b4rE5ieGCg/hqdefault.jpg" alt="Studio Session 34 thumbnail" loading="lazy">
+            <div class="media-badge">Studio Session #34</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Švoba</h3>
+            <p class="media-text">New Year’s special — crisp groove, steady build, clean transitions, and that late-night “one more track” feeling.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=2b4rE5ieGCg" target="_blank" rel="noopener">Watch Session</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #33 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=i0qSeSq1CKw">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/i0qSeSq1CKw/hqdefault.jpg" alt="Studio Session 33 thumbnail" loading="lazy">
+            <div class="media-badge">Studio Session #33</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Noid</h3>
+            <p class="media-text">Built for flow and comfort — warm lows, minimal pressure, and a groove that keeps moving without ever shouting for attention.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=i0qSeSq1CKw" target="_blank" rel="noopener">Watch Session</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #32 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=Td2-XQurbKI">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/Td2-XQurbKI/hqdefault.jpg" alt="Studio Session 32 thumbnail" loading="lazy">
+            <div class="media-badge">Studio Session #32</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Sundu</h3>
+            <p class="media-text">Sun-soaked textures and bright energy — uplifting without being cheesy, always clean and naturally connected.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=Td2-XQurbKI" target="_blank" rel="noopener">Watch Session</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #31 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=Mjjs-YBhm7Y">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/Mjjs-YBhm7Y/hqdefault.jpg" alt="Studio Session 31 thumbnail" loading="lazy">
+            <div class="media-badge">Studio Session #31</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">B.Collector</h3>
+            <p class="media-text">A deep-digger mindset — shaped by years of listening and radio work. No ego, no borders, just sonic connection.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=Mjjs-YBhm7Y" target="_blank" rel="noopener">Watch Session</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- #30 -->
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=Ff9-oQlt9XQ">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/Ff9-oQlt9XQ/hqdefault.jpg" alt="Studio Session 30 thumbnail" loading="lazy">
+            <div class="media-badge">Studio Session #30</div>
+          </div>
+          <div class="media-body">
+            <h3 class="media-title">Ilyrojus</h3>
+            <p class="media-text">Warm and emotional from the first minutes — a smooth journey where feeling comes first, and technique simply supports the story.</p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=Ff9-oQlt9XQ" target="_blank" rel="noopener">Watch Session</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- GALLERY + COLLAB -->
 <div class="gallery-reachout-bg">
 
   <section id="gallery" class="main fade-in">
@@ -338,7 +403,6 @@ Every set holds a moment, a memory, a truth shared through sound.</p>
     <p>Just raw energy, real faces, and stories caught in motion.</p>
 
     <div class="gallery-wrapper">
-      <!-- UTOPIJA -->
       <div class="gallery-column utopija">
         <h3>Decks&Stories</h3>
         <div id="utopija-gallery" class="gallery-grid">
@@ -353,53 +417,28 @@ Every set holds a moment, a memory, a truth shared through sound.</p>
           <a href="gallery/vilboDJKay.JPG"><img src="gallery/vilboDJKay.JPG" alt="VILBØ x DJ Kay in ADE 2025"></a>
           <a href="gallery/messagetotheWorld.JPG"><img src="gallery/messagetotheWorld.JPG" alt="What is your message to the people?"></a>
           <a href="gallery/dcks.PNG"><img src="gallery/dcks.PNG" alt="VILBØ, iPanema 'Sunday Sessions'"></a>
-          <a href="gallery/dcks.PNG"><img src="gallery/dcksbatai.jpg" alt="Utopija x Decks&Stories"></a>
-
+          <a href="gallery/dcksbatai.jpg"><img src="gallery/dcksbatai.jpg" alt="Utopija x Decks&Stories"></a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Newsletter / Collab CTA -->
   <section id="collab" class="main fade-in">
     <div class="collab-box">
       <h2>Let’s build something together</h2>
-
-      <p>
-        Decks&Stories is a movement built on collaboration - between DJs, producers and people
-        who have special spaces or ideas.
-      </p>
-
-      <p>
-        Have a venue or an event idea but not sure how to bring it to life?
-        We can shape the whole experience together - from musical direction and storytelling
-        to the full sound system, DJ setup and atmosphere of the night.
-      </p>
-
-      <p>
-        We can bring our own professional setup (sound system, decks, mixer, lights) or plug
-        into your existing system, so the event feels not only loud, but meaningful.
-      </p>
-
-      <p>
-        If you already have a mix, story or unreleased demo, you can send it through our
-        submit page. If you have a venue or concept in mind, reach out and let’s see if we
-        can turn it into a Decks&Stories night.
-      </p>
+      <p>Decks&Stories is a movement built on collaboration — between DJs, producers, and people who have special spaces or ideas.</p>
+      <p>Have a venue or an event idea but not sure how to bring it to life? We can shape the whole experience together — from musical direction and storytelling to the full sound system, DJ setup and atmosphere of the night.</p>
+      <p>We can bring our own professional setup (sound system, decks, mixer, lights) or plug into your existing system — so the event feels not only loud, but meaningful.</p>
+      <p>If you already have a mix, story or unreleased demo, you can send it through our submit page. If you have a venue or concept in mind, reach out and let’s see if we can turn it into a Decks&Stories night.</p>
 
       <div class="submit-cta-row" style="margin-top: 1.5rem;">
         <a href="submit/" class="submit-cta">Submit mix / demo</a>
-        <a href="submit/" class="submit-cta submit-cta-outline">
-          Propose an event / venue
-        </a>
+        <a href="submit/" class="submit-cta submit-cta-outline">Propose an event / venue</a>
       </div>
     </div>
   </section>
-
-</div> <!-- .gallery-reachout-bg pabaiga -->
-
-
 </div>
+
 <!-- Social Dock Bar -->
 <div class="social-fixed-bar">
   <a href="https://www.facebook.com/profile.php?id=61575745327452" target="_blank" aria-label="Facebook">
@@ -415,11 +454,12 @@ Every set holds a moment, a memory, a truth shared through sound.</p>
     <img src="assets/youtube_500x500.png" alt="YouTube Icon">
   </a>
 </div>
+
 <!-- lightGallery JS -->
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/lightgallery.umd.min.js"></script>
-<!-- Plugins -->
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/zoom/lg-zoom.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/plugins/thumbnail/lg-thumbnail.umd.min.js"></script>
+
 <script src="script.js"></script>
 </body>
 </html>
