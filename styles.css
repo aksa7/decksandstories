@@ -217,7 +217,7 @@ button:hover{
 
 /* optional: extra halo only for SUN365 */
 .trust-logos img.logo-sun{
-  filter: drop-shadow(0 2px 10px rgba(255,255,255,0.28))
+  filter: drop-shadow(0 2px 10px rgba(255, 255, 255, 0.18))
           drop-shadow(0 0 28px rgba(255,255,255,0.18));
 }
 
@@ -387,24 +387,22 @@ header.major p{
 }
 
 
-
 .media-badge{
-  position:absolute;
-  left:12px;
-  bottom:12px;
-  padding:7px 10px;
+  padding: 0.4rem 0;
   border-radius:999px;
   font-size:.82rem;
+  text-align: left;
   font-weight:800;
   letter-spacing:.03em;
   color:rgba(255,255,255,.92);
-  background:rgba(0,0,0,.55);
-  border:1px solid rgba(255,255,255,.16);
   backdrop-filter:blur(8px);
+  white-space:nowrap;
+  flex:0 0 auto;
 }
 
+
 .media-body{
-  padding:1.15rem 1.1rem 1.05rem;
+  padding:1rem 1.1rem 1.05rem;
   display:flex;
   flex-direction:column;
   gap:.55rem;
