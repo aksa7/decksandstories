@@ -186,3 +186,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+/********* SUBMIT: NEWSLETTER OPT-IN -> send email to Formspree mlglprvj *********/
+(function initSubmitNewsletterOptin(){
+  const FORMSPREE_NEWSLETTER = "https://formspree.io/f/mlglprvj";
+
+  // target all 3 forms that contain an email field
+  const forms = [
+    document.getElementById("mix-form"),
+    document.getElementById("demo-form"),
+    document.getElementById("event-form"),
+  ].filter(Boolean);
+
+  if (!forms.length) return;
+
+  function getOptinEl(form){
+    return form.querySelector("#newsletter-optin, input[name='newsletter_optin']");
+  }
+
+  function getEmailValue(form){
+    const emailEl = form.querySelector("input[type='email'][name='email'], input[type='email']");
+    return (emailEl?.value || "").trim();
+  }
+
+  async function sendToNewsletter(email, source){
+    if (!email) return;
+
+    const payload = new FormData();
+    payload.append("email", email);
+    payload.append("source", source);
+    payload.append("page", location.pathname);
+
+    // keepalive helps when page redirects
+    try{
+      await fetch(FORMSPREE_NEWSLETTER, {
+        method: "POST",
+        headers: { "Accept": "application/json" },
+        body: payload,
+        keepalive: true
+      });
+    }catch(_){}
+  }
+
+  forms.forEach((form) => {
+    form.addEventListener("submit", () => {
+      const opt = getOptinEl(form);
+      if (!opt || !opt.checked) return;
+
+      const email = getEmailValue(form);
+      if (!email) return;
+
+      const formType = form.getAttribute("id") || "submit-form";
+      sendToNewsletter(email, `submit-optin-${formType}`);
+    });
+  });
+})();

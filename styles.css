@@ -291,6 +291,138 @@ button:hover{
   font-size:.92rem;
   padding-top:.3rem;
 }
+/* ===========================
+   Newsletter Toast (bottom)
+=========================== */
+.nl-toast{
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 76px; /* virš YT bar jei jis yra; submit page'e tiks */
+  max-width: 520px;
+  margin: 0 auto;
+  z-index: 9999;
+
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 18px;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 18px 60px rgba(0,0,0,0.65);
+
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+
+  transition: opacity .35s ease, transform .35s ease;
+}
+
+.nl-toast.is-open{
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nl-toast.is-closing{
+  opacity: 0;
+  transform: translateY(18px);
+  pointer-events: none;
+}
+
+.nl-toast-content{
+  padding: 14px 14px 12px;
+  text-align: left;
+}
+
+.nl-toast-close{
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.9);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+}
+
+.nl-toast-title{
+  font-weight: 900;
+  letter-spacing: .02em;
+  color: rgba(255,255,255,.95);
+  margin-bottom: 2px;
+}
+
+.nl-toast-text{
+  color: rgba(255,255,255,.72);
+  font-size: .95rem;
+  margin-bottom: 10px;
+}
+
+.nl-toast-form{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+#nl-toast-email{
+  flex: 1;
+  min-width: 0;
+  padding: 12px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.92);
+  outline: none;
+}
+
+#nl-toast-email::placeholder{
+  color: rgba(255,255,255,0.55);
+}
+
+.nl-toast-btn{
+  padding: 12px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.75);
+  background: transparent;
+  color: rgba(255,255,255,0.92);
+  font-weight: 900;
+  cursor: pointer;
+  transition: all .22s ease;
+  white-space: nowrap;
+}
+
+.nl-toast-btn:hover{
+  background: #fff;
+  color: #000;
+}
+
+.nl-toast-msg{
+  margin-top: 10px;
+  min-height: 18px;
+  color: rgba(255,255,255,0.78);
+  font-size: .92rem;
+}
+
+@media (max-width: 520px){
+  .nl-toast{
+    left: 12px;
+    right: 12px;
+    bottom: 16px; /* jei nėra player bar submit puslapy, atrodo gerai */
+    max-width: 100%;
+  }
+  .nl-toast-form{
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .nl-toast-btn{
+    width: 100%;
+  }
+}
 
 /* ===========================
    ABOUT
@@ -349,6 +481,7 @@ header.major p{
 .media-card{
   border-radius:var(--radius);
   overflow:hidden;
+  height: 100%;
   border:1px solid var(--border-soft);
   background:rgba(0,0,0,.18);
   box-shadow:var(--shadow);
@@ -402,12 +535,13 @@ header.major p{
 
 
 .media-body{
-  padding:1rem 1.1rem 1.05rem;
-  display:flex;
-  flex-direction:column;
-  gap:.55rem;
-  background:linear-gradient(to bottom, rgba(18,18,18,.72), rgba(10,10,10,.78));
-  min-height:240px; /* sulygina mygtukus */
+  flex: 1;                 /* <<< svarbiausia */
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  padding: 1rem 1.1rem 1.05rem;
+  background: linear-gradient(to bottom, rgba(18,18,18,.72), rgba(10,10,10,.78));
+  min-height: 0;           /* leidžia flex vaikams normaliai susitraukti */
 }
 
 .media-title{
@@ -418,22 +552,22 @@ header.major p{
 }
 
 .media-text{
-  margin:.2rem 0 0;
-  font-size:.98rem;
-  color:rgba(255,255,255,.76);
-  line-height:1.55;
-
-  display:-webkit-box;
-  -webkit-line-clamp:4;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
+  flex: 1;                 /* <<< tai stumia CTA į apačią */
+  margin: .2rem 0 0;
+  font-size: .98rem;
+  color: rgba(255,255,255,.76);
+  line-height: 1.55;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .media-cta{
-  margin-top:auto;           /* mygtukas visada apačioje */
-  display:flex;
-  justify-content:center;    /* per vidurį */
-  padding-top:.9rem;
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: .9rem;
 }
 
 .media-btn{

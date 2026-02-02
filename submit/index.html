@@ -3,10 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Submit Your Mix, Demo or Event – Decks & Stories</title>
 
-  <meta name="description" content="Submit your 60-minute mix and story or send unreleased demos to Decks & Stories. Be part of our global movement of DJs and storytellers.">
-  <link rel="canonical" href="https://decksandstories.com/submit" />
+  <!-- Primary SEO -->
+  <title>Submit a DJ Mix & Story — Decks&Stories (International DJ Mix Series)</title>
+  <meta name="description" content="Submit your 60-minute DJ mix + story for an international DJ mix series, send unreleased demo tracks, or propose an event. Decks&Stories is an independent global electronic music storytelling platform." />
+  <link rel="canonical" href="https://decksandstories.com/submit/" />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Decks&Stories" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://decksandstories.com/submit/" />
+  <meta property="og:title" content="Submit a DJ Mix & Story — Decks&Stories" />
+  <meta property="og:description" content="Send your 60-minute mix + story for our international DJ mixes series, share unreleased demo tracks, or propose an event / venue." />
+  <meta property="og:image" content="https://decksandstories.com/assets/og-image.png" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@decksandstories" />
+  <meta name="twitter:title" content="Submit a DJ Mix & Story — Decks&Stories" />
+  <meta name="twitter:description" content="International DJ mixes from around the world — submit your mix + story, demos, or event idea to an independent electronic music platform." />
+  <meta name="twitter:image" content="https://decksandstories.com/assets/og-image.png" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Submit — Decks&Stories",
+    "url": "https://decksandstories.com/submit/",
+    "inLanguage": "en",
+    "description": "Submission page for Decks&Stories: international DJ mixes with stories, unreleased demo tracks, and event / venue proposals.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Decks&Stories",
+      "url": "https://decksandstories.com/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Decks&Stories",
+    "url": "https://decksandstories.com/",
+    "logo": "https://decksandstories.com/assets/1920x1080DCKS.png",
+    "sameAs": [
+      "https://www.facebook.com/decksandstories",
+      "https://www.instagram.com/decksandstories/",
+      "https://www.youtube.com/@decksandstories"
+    ],
+    "description": "An independent global electronic music storytelling platform sharing international DJ mixes and the human stories behind each set."
+  }
+  </script>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180x180.png">
@@ -20,12 +71,17 @@
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/submit.css" />
 </head>
+
 <body class="is-preload submit-page">
 
   <!-- HERO -->
   <section id="submit-hero" class="main fullscreen fade-up submit-hero">
     <div class="inner center">
-      <img src="/assets/1920x1080DCKS_transparent.png" alt="Decks and Stories Logo" class="logo submit-logo"/>
+      <img
+        src="/assets/1920x1080DCKS_transparent.png"
+        alt="Decks&Stories logo — international DJ mixes and human stories"
+        class="logo submit-logo"
+      />
 
       <h1 class="submit-title">What is your message to the world?</h1>
       <p class="submit-subtitle">
@@ -61,7 +117,7 @@
           <span class="step-number">01</span>
           <h3>Share your sound</h3>
           <p>
-            Send us a <strong>60 min mix</strong> or <strong>unreleased demo</strong> that reflects who you are as an artist.
+            Send a <strong>60 min mix</strong> (for our international DJ mix series) or an <strong>unreleased demo</strong> that reflects who you are.
           </p>
         </div>
 
@@ -69,7 +125,7 @@
           <span class="step-number">02</span>
           <h3>We listen & read</h3>
           <p>
-            We go through every submission – focusing on <strong>identity</strong>, <strong>emotion</strong> and the story behind it.
+            We go through every submission — focusing on <strong>identity</strong>, <strong>emotion</strong> and the story behind it.
           </p>
         </div>
 
@@ -77,7 +133,7 @@
           <span class="step-number">03</span>
           <h3>Feature & connect</h3>
           <p>
-            If selected, your work is <strong>promoted by Decks & Stories</strong> across our channels and community.
+            If selected, your work is shared across the <strong>Decks&Stories community</strong> — built on collaboration, not competition.
           </p>
         </div>
       </div>
@@ -88,9 +144,9 @@
   <section id="submissions" class="main fade-up">
     <div class="inner boxed submit-section">
       <header class="major">
-        <h1>Submit Your Mix, Demo or Event</h1>
+        <h2>Submit Your Mix, Demo or Event</h2>
         <p>
-          One hub for <strong>digital episodes</strong>, <strong>demo tracks</strong> and
+          One hub for <strong>DJ mix + story episodes</strong>, <strong>demo tracks</strong> and
           <strong>event ideas</strong>.<br>
           Choose what you want to send us.
         </p>
@@ -118,7 +174,6 @@
           <div class="form-card">
             <h2 id="mix-submit">Mix Episode Submission</h2>
 
-            <!-- MUST READ link to guidelines -->
             <p class="form-intro">
               <strong>MUST READ:</strong>
               <a
@@ -146,28 +201,34 @@
               </div>
 
               <div class="field-group">
-                <label for="mix-location" class="field-label">City & Country</label>
+                <label for="mix-location" class="field-label">City & Country (current base)</label>
                 <input type="text" id="mix-location" name="location" class="field-input" placeholder="Kaunas, Lithuania">
               </div>
 
               <div class="field-group">
-                <label for="demo-instagram" class="field-label">Instagram / Social</label>
-                <input
-                  type="text"
-                  id="demo-instagram"
-                  name="instagram"
-                  class="field-input"
-                  placeholder="@username or profile link"
-                >
+                <label for="mix-born" class="field-label">Born in (city & country)*</label>
+                <input type="text" id="mix-born" name="born-in" class="field-input" required placeholder="Lagos, Nigeria">
               </div>
 
-              <!-- MIX + PHOTOS WITH EXAMPLE LINK -->
+              <div class="field-group">
+                <label for="mix-birthday" class="field-label">Birthday*</label>
+                <input type="date" id="mix-birthday" name="birthday" class="field-input" required>
+              </div>
+
+              <div class="field-group">
+                <label for="mix-social" class="field-label">Instagram / Social</label>
+                <input type="text" id="mix-social" name="instagram" class="field-input" placeholder="@username or profile link">
+              </div>
+
+              <div class="field-group field-full">
+                <label for="mix-track-pick" class="field-label">Track pick for the post*</label>
+                <input type="text" id="mix-track-pick" name="track-pick" class="field-input" required placeholder="Artist — Track Title (the song we should feature on the IG/FB post)">
+              </div>
+
               <div class="field-group field-full">
                 <div class="field-label-row">
                   <label for="photo-links" class="field-label">Mix and Photos Link*</label>
-                  <a href="#photo-example-modal" class="photo-example-link">
-                    See photo example
-                  </a>
+                  <a href="#photo-example-modal" class="photo-example-link">See photo example</a>
                 </div>
                 <textarea
                   id="photo-links"
@@ -178,136 +239,76 @@
                 ></textarea>
               </div>
 
-              <!-- STORY FIELD -->
-<!-- STORY FIELD – 2 fixed questions + inline answers -->
-<div class="field-group field-full">
-  <div class="field-label-row">
-    <label class="field-label">Your story / message (max 100 words)*</label>
-    <a href="#letter-example-modal" class="story-example-link">Read letter example</a>
-  </div>
+              <div class="field-group field-full">
+                <div class="field-label-row">
+                  <label class="field-label">Your story / message (max 100 words)*</label>
+                  <a href="#letter-example-modal" class="story-example-link">Read letter example</a>
+                </div>
 
-  <div class="story-block">
-    <div class="story-row">
-      <span class="story-question">1. What is your story?</span>
-      <span class="story-sep"> – </span>
-      <textarea
-        class="story-answer"
-        data-question="1. What is your story?"
-        placeholder="Write a short letter to your listeners (up to 100 words) OR paste a link to a PDF file with your letter."
-        required
-      ></textarea>
-    </div>
+                <div class="story-block">
+                  <div class="story-row">
+                    <span class="story-question">1. What is your story?</span>
+                    <span class="story-sep"> – </span>
+                    <textarea class="story-answer" data-question="1. What is your story?" placeholder="Write a short letter to your listeners (up to 100 words) OR paste a link to a PDF file with your letter." required></textarea>
+                  </div>
 
-    <div class="story-row">
-      <span class="story-question">2. What is your message to the people?</span>
-      <span class="story-sep"> – </span>
-      <textarea
-        class="story-answer"
-        data-question="2. What is your message to the people?"
-        placeholder="Write a short message to the people (1-2 sentences)"
-        required
-      ></textarea>
-    </div>
-  </div>
+                  <div class="story-row">
+                    <span class="story-question">2. What is your message to the people?</span>
+                    <span class="story-sep"> – </span>
+                    <textarea class="story-answer" data-question="2. What is your message to the people?" placeholder="Write a short message to the people (1-2 sentences)" required></textarea>
+                  </div>
+                </div>
 
-  <!-- Hidden field sent to Formspree -->
-  <textarea id="story-letter" name="story-letter" hidden></textarea>
-</div>
+                <textarea id="story-letter" name="story-letter" hidden></textarea>
+              </div>
 
+              <div class="field-group field-full">
+                <label class="field-label">Quiz about you (mandatory)</label>
 
-<!-- QUIZ FIELD – questions + inline answers, sent as one field -->
-<div class="field-group field-full">
-  <label class="field-label">Quiz about you (mandatory)</label>
+                <div class="quiz-block">
+                  <div class="quiz-row">
+                    <span class="quiz-question">1. What does music mean to you personally?</span>
+                    <span class="quiz-sep"> – </span>
+                    <input type="text" class="quiz-answer" data-question="1. What does music mean to you personally?" placeholder="Your answer..." required />
+                  </div>
 
-  <div class="quiz-block">
-    <div class="quiz-row">
-      <span class="quiz-question">1. What does music mean to you personally?</span>
-      <span class="quiz-sep"> – </span>
-      <input
-        type="text"
-        class="quiz-answer"
-        data-question="1. What does music mean to you personally?"
-        placeholder="Your answer..."
-        required
-      />
-    </div>
+                  <div class="quiz-row">
+                    <span class="quiz-question">2. What do you do differently than most DJs?</span>
+                    <span class="quiz-sep"> – </span>
+                    <input type="text" class="quiz-answer" data-question="2. What do you do differently than most DJs?" placeholder="Your answer..." required />
+                  </div>
 
-    <div class="quiz-row">
-      <span class="quiz-question">2. What do you do differently than most DJs?</span>
-      <span class="quiz-sep"> – </span>
-      <input
-        type="text"
-        class="quiz-answer"
-        data-question="2. What do you do differently than most DJs?"
-        placeholder="Your answer..."
-        required
-      />
-    </div>
+                  <div class="quiz-row">
+                    <span class="quiz-question">3. Any weird habits or rituals before/during a set?</span>
+                    <span class="quiz-sep"> – </span>
+                    <input type="text" class="quiz-answer" data-question="3. Any weird habits or rituals before/during a set?" placeholder="Your answer..." required />
+                  </div>
 
-    <div class="quiz-row">
-      <span class="quiz-question">3. Any weird habits or rituals before/during a set?</span>
-      <span class="quiz-sep"> – </span>
-      <input
-        type="text"
-        class="quiz-answer"
-        data-question="3. Any weird habits or rituals before/during a set?"
-        placeholder="Your answer..."
-        required
-      />
-    </div>
+                  <div class="quiz-row">
+                    <span class="quiz-question">4. Funniest or weirdest DJing moment?</span>
+                    <span class="quiz-sep"> – </span>
+                    <input type="text" class="quiz-answer" data-question="4. Funniest or weirdest DJing moment?" placeholder="Your answer..." required />
+                  </div>
 
-    <div class="quiz-row">
-      <span class="quiz-question">4. Funniest or weirdest DJing moment?</span>
-      <span class="quiz-sep"> – </span>
-      <input
-        type="text"
-        class="quiz-answer"
-        data-question="4. Funniest or weirdest DJing moment?"
-        placeholder="Your answer..."
-        required
-      />
-    </div>
+                  <div class="quiz-row">
+                    <span class="quiz-question">5. Most memorable set — and why?</span>
+                    <span class="quiz-sep"> – </span>
+                    <input type="text" class="quiz-answer" data-question="5. Most memorable set — and why?" placeholder="Your answer..." required />
+                  </div>
 
-    <div class="quiz-row">
-      <span class="quiz-question">5. Most memorable set — and why?</span>
-      <span class="quiz-sep"> – </span>
-      <input
-        type="text"
-        class="quiz-answer"
-        data-question="5. Most memorable set — and why?"
-        placeholder="Your answer..."
-        required
-      />
-    </div>
+                  <div class="quiz-row">
+                    <span class="quiz-question">6. Your biggest inspiration?</span>
+                    <span class="quiz-sep"> – </span>
+                    <input type="text" class="quiz-answer" data-question="6. Your biggest inspiration?" placeholder="Your answer..." required />
+                  </div>
+                </div>
 
-    <div class="quiz-row">
-      <span class="quiz-question">6. Your biggest inspiration?</span>
-      <span class="quiz-sep"> – </span>
-      <input
-        type="text"
-        class="quiz-answer"
-        data-question="6. Your biggest inspiration?"
-        placeholder="Your answer..."
-        required  
-      />
-    </div>
-  </div>
-
-  <!-- Hidden textarea – į Formspree keliaus VIENAS laukas "quiz" -->
-  <textarea id="quiz" name="quiz" class="field-textarea" hidden></textarea>
-</div>
-
-
+                <textarea id="quiz" name="quiz" class="field-textarea" hidden></textarea>
+              </div>
 
               <div class="field-group field-full">
                 <label for="mix-genre" class="field-label">Genres / mood</label>
-                <input
-                  type="text"
-                  id="mix-genre"
-                  name="genre"
-                  class="field-input"
-                  placeholder="Techno, house, trance..."
-                >
+                <input type="text" id="mix-genre" name="genre" class="field-input" placeholder="Techno, house, trance...">
               </div>
             </div>
 
@@ -336,12 +337,18 @@
                 <input type="checkbox" name="publish-consent" required>
                 <span>I agree that Decks & Stories may publish this mix on their channels if accepted.</span>
               </label>
+
+              <!-- ✅ NEWSLETTER OPT-IN (optional) -->
+              <label class="checkbox-row">
+                <input type="checkbox" id="newsletter-optin" name="newsletter_optin" value="yes">
+                <span>Send me new episodes & updates by email (optional).</span>
+              </label>
             </div>
 
             <button type="submit" class="formSubmit">Send Mix Episode</button>
 
             <p class="form-footnote">
-              We try to respond to every submission – if we feel your story fits the movement, we’ll contact you personally.
+              We try to respond to every submission — if we feel your story fits the movement, we’ll contact you personally.
             </p>
           </div>
         </form>
@@ -376,13 +383,7 @@
 
               <div class="field-group">
                 <label for="demo-instagram" class="field-label">Instagram / Social</label>
-                <input
-                  type="text"
-                  id="demo-instagram"
-                  name="instagram"
-                  class="field-input"
-                  placeholder="@username or profile link"
-                >
+                <input type="text" id="demo-instagram" name="instagram" class="field-input" placeholder="@username or profile link">
               </div>
 
               <div class="field-group">
@@ -397,14 +398,7 @@
 
               <div class="field-group field-full">
                 <label for="demo-link" class="field-label">Demo link*</label>
-                <input
-                  type="url"
-                  id="demo-link"
-                  name="demo-link"
-                  class="field-input"
-                  required
-                  placeholder="Private SoundCloud, Google Drive, Dropbox, WeTransfer, etc."
-                >
+                <input type="url" id="demo-link" name="demo-link" class="field-input" required placeholder="Private SoundCloud, Google Drive, Dropbox, WeTransfer, etc.">
               </div>
 
               <div class="field-group field-full">
@@ -414,12 +408,7 @@
 
               <div class="field-group field-full">
                 <label for="demo-notes" class="field-label">Anything we should know?</label>
-                <textarea
-                  id="demo-notes"
-                  name="notes"
-                  class="field-textarea"
-                  placeholder="Is this part of an EP? Unsigned? Ready for release? Still in progress?"
-                ></textarea>
+                <textarea id="demo-notes" name="notes" class="field-textarea" placeholder="Is this part of an EP? Unsigned? Ready for release? Still in progress?"></textarea>
               </div>
             </div>
 
@@ -430,9 +419,13 @@
               </label>
               <label class="checkbox-row">
                 <input type="checkbox" name="demo-share" required>
-                <span>
-                  I agree that Decks & Stories may review this demo and consider it for future opportunities.
-                </span>
+                <span>I agree that Decks & Stories may review this demo and consider it for future opportunities.</span>
+              </label>
+
+              <!-- ✅ NEWSLETTER OPT-IN (optional) -->
+              <label class="checkbox-row">
+                <input type="checkbox" name="newsletter_optin" value="yes">
+                <span>Send me new episodes & updates by email (optional).</span>
               </label>
             </div>
 
@@ -458,73 +451,46 @@
             <h2 id="event-submit">Event / Venue Proposal</h2>
             <p class="form-intro">
               Have a venue or event idea that feels like Decks & Stories?<br>
-              Tell us the basics – we’ll take it from there.
+              Tell us the basics — we’ll take it from there.
             </p>
 
             <div class="form-grid">
               <div class="field-group">
                 <label for="event-name" class="field-label">Your name / role*</label>
-                <input
-                  type="text"
-                  id="event-name"
-                  name="contact-name"
-                  class="field-input"
-                  required
-                  placeholder="Organizer, promoter, venue owner..."
-                >
+                <input type="text" id="event-name" name="contact-name" class="field-input" required placeholder="Organizer, promoter, venue owner...">
               </div>
 
               <div class="field-group">
                 <label for="event-email" class="field-label">Email*</label>
-                <input
-                  type="email"
-                  id="event-email"
-                  name="email"
-                  class="field-input"
-                  required
-                >
+                <input type="email" id="event-email" name="email" class="field-input" required>
               </div>
 
               <div class="field-group">
                 <label for="event-location" class="field-label">City & country</label>
-                <input
-                  type="text"
-                  id="event-location"
-                  name="location"
-                  class="field-input"
-                  placeholder="Kaunas, Lithuania"
-                >
+                <input type="text" id="event-location" name="location" class="field-input" placeholder="Kaunas, Lithuania">
               </div>
 
               <div class="field-group field-full">
                 <label for="event-concept" class="field-label">Event idea / concept*</label>
-                <textarea
-                  id="event-concept"
-                  name="concept"
-                  class="field-textarea"
-                  required
-                  placeholder="Short description of the night, vibe, people."
-                ></textarea>
+                <textarea id="event-concept" name="concept" class="field-textarea" required placeholder="Short description of the night, vibe, people."></textarea>
               </div>
 
               <div class="field-group field-full">
                 <label for="event-links" class="field-label">Links (optional)</label>
-                <input
-                  type="text"
-                  id="event-links"
-                  name="links"
-                  class="field-input"
-                  placeholder="Venue / IG / previous events..."
-                >
+                <input type="text" id="event-links" name="links" class="field-input" placeholder="Venue / IG / previous events...">
               </div>
             </div>
 
             <div class="form-consent">
               <label class="checkbox-row">
                 <input type="checkbox" name="venue-permission" required>
-                <span>
-                  I confirm I am involved with this idea / venue and allowed to start this conversation.
-                </span>
+                <span>I confirm I am involved with this idea / venue and allowed to start this conversation.</span>
+              </label>
+
+              <!-- ✅ NEWSLETTER OPT-IN (optional) -->
+              <label class="checkbox-row">
+                <input type="checkbox" name="newsletter_optin" value="yes">
+                <span>Send me new episodes & updates by email (optional).</span>
               </label>
             </div>
 
@@ -546,26 +512,19 @@
       <h2>Looking ahead</h2>
       <p>
         In the future, Decks & Stories plans to collaborate with carefully selected independent
-        labels. This means that the music you send today can be promoted even more tomorrow –
+        labels. This means that the music you send today can be promoted even more tomorrow —
         across new channels, cities and communities.
       </p>
       <p><strong>You mean more than you imagine.</strong></p>
     </div>
   </section>
 
-  <div class="back-to-top-center">
-    <a href="#submit-hero" class="scrolly">↑ Back to Top</a>
-  </div>
-
   <!-- LETTER EXAMPLE MODAL -->
   <div id="letter-example-modal" class="story-modal">
     <a href="#" class="story-modal-backdrop" aria-label="Close letter example"></a>
     <div class="story-modal-content">
       <a href="#" class="story-modal-close" aria-label="Close">&times;</a>
-      <img
-        src="/assets/letterExample.jpg"
-        alt="Example of a guest mix story letter"
-      />
+      <img src="/assets/letterExample.jpg" alt="Example of a guest mix story letter" loading="lazy" />
     </div>
   </div>
 
@@ -574,16 +533,11 @@
     <a href="#" class="story-modal-backdrop" aria-label="Close photo example"></a>
     <div class="story-modal-content">
       <a href="#" class="story-modal-close" aria-label="Close">&times;</a>
-      <img
-        src="/assets/photoExample.jpg"
-        alt="Example of a promo photo for Decks & Stories"
-      />
+      <img src="/assets/photoExample.jpg" alt="Example of a promo photo for Decks&Stories" loading="lazy" />
     </div>
   </div>
 
-  <!-- Shared JS -->
   <script src="/script.js"></script>
-  <!-- Submit page JS -->
   <script src="/submit.js"></script>
 </body>
 </html>
