@@ -477,7 +477,9 @@ body.submit-page section.main {
   resize: vertical;
   outline: none;
 }
-
+.logo-runemark {
+  height: 140px !important;
+}
 .story-answer:focus {
   border-color: #fff;
 }
