@@ -632,7 +632,68 @@ header.major p{
   aspect-ratio:3/4;
   object-fit:cover;
 }
+/* ───────────────────────────────────────────────
+   PICK A QUESTION ─ minimal & consistent
+   ─────────────────────────────────────────────── */
 
+#pick-question {
+  background: transparent;
+  min-height: 100vh;
+  padding: 4rem 2rem;           /* kaip kitos .main sekcijos */
+}
+
+#pick-question .inner.boxed {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+#pick-question header.major {
+  text-align: center;
+  margin-bottom: 2.8rem;
+}
+
+#pick-question h2 {
+  font-size: 2.25rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.7rem;
+}
+
+#pick-question header.major p {
+  max-width: 780px;
+  margin: 0 auto;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* ── Badge specifika Pick a Question ── */
+.media-card.pick-question .media-badge {
+  background: rgba(120, 200, 255, 0.14);     /* švelnus cyan/mėlynas akcentas */
+  border-color: rgba(120, 200, 255, 0.28);
+  color: rgba(200, 240, 255, 0.95);
+}
+
+/* ── Hover stiprinimas būtent šiam section'ui (nebūtina, bet gražiau išsiskiria) ── */
+.media-card.pick-question:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 28px 80px rgba(0,0,0,0.75),
+              0 0 40px rgba(120, 200, 255, 0.12);
+  border-color: rgba(120, 200, 255, 0.35);
+}
+
+
+@media (max-width: 640px) {
+  #pick-question {
+    padding: 3.2rem 1.2rem;
+  }
+  #pick-question h2 {
+    font-size: 1.95rem;
+  }
+  #pick-question header.major {
+    margin-bottom: 2.2rem;
+  }
+}
 /* Collab box */
 #collab{
   padding:4rem 1.5rem 5rem;
