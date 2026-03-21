@@ -632,6 +632,64 @@ header.major p{
   aspect-ratio:3/4;
   object-fit:cover;
 }
+/* ===========================
+   ADE HERO NOTE
+=========================== */
+
+.ade-collab-note{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.ade-collab-link{
+  display: inline-flex;
+  align-items: center;
+  gap: .7rem;
+  padding: 10px 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: rgba(255,255,255,.76);
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+  transition: all .22s ease;
+  font-size: .92rem;
+  font-weight: 600;
+  letter-spacing: .01em;
+}
+
+.ade-collab-link:hover{
+  color: rgba(255,255,255,.96);
+  border-color: rgba(255,255,255,.20);
+  background: rgba(255,255,255,.07);
+  transform: translateY(-1px);
+}
+
+.ade-collab-logo{
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+
+@media (max-width: 640px){
+  .ade-collab-link{
+    max-width: 92vw;
+    padding: 10px 14px;
+    font-size: .86rem;
+    line-height: 1.35;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .ade-collab-logo{
+    width: 20px;
+    height: 20px;
+  }
+}
+
 /* ───────────────────────────────────────────────
    PICK A QUESTION ─ minimal & consistent
    ─────────────────────────────────────────────── */
@@ -665,6 +723,191 @@ header.major p{
   color: var(--text-muted);
   font-size: 1.05rem;
   line-height: 1.6;
+}
+
+/* ===========================
+   ASK A QUESTION
+=========================== */
+
+.ask-question-box{
+  margin: 1.2rem auto 0;
+  padding: 1.4rem;
+  border-radius: 22px;
+  border: 1px solid rgba(255,255,255,.10);
+  background:
+    radial-gradient(900px 220px at 50% 0%,
+      rgba(255,255,255,0.06),
+      rgba(255,255,255,0.00) 60%),
+    linear-gradient(to bottom,
+      rgba(255,255,255,0.04),
+      rgba(0,0,0,0.30));
+  backdrop-filter: blur(14px);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.55);
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1.05fr 1.2fr;
+  gap: 1.4rem;
+  align-items: stretch;
+}
+
+.ask-question-copy{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: .35rem .25rem;
+}
+
+.ask-question-kicker{
+  display: inline-flex;
+  align-self: flex-start;
+  margin-bottom: .7rem;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.82);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.ask-question-copy h3{
+  margin: 0 0 .55rem;
+  font-size: 1.65rem;
+  font-weight: 900;
+  color: rgba(255,255,255,.95);
+  letter-spacing: .02em;
+}
+
+.ask-question-copy p{
+  margin: 0 0 .7rem;
+  color: rgba(255,255,255,.76);
+  line-height: 1.65;
+}
+
+.ask-question-note{
+  color: rgba(255,255,255,.58);
+  font-size: .95rem;
+}
+
+.ask-question-form{
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.03);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: .95rem;
+}
+
+.ask-question-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .9rem;
+}
+
+.ask-question-input,
+.ask-question-textarea{
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(255,255,255,.05);
+  color: rgba(255,255,255,.92);
+  padding: 14px 16px;
+  outline: none;
+  font: inherit;
+  transition: border-color .22s ease, background .22s ease, box-shadow .22s ease;
+}
+
+.ask-question-input::placeholder,
+.ask-question-textarea::placeholder{
+  color: rgba(255,255,255,.48);
+}
+
+.ask-question-input:focus,
+.ask-question-textarea:focus{
+  border-color: rgba(255,255,255,.28);
+  background: rgba(255,255,255,.07);
+  box-shadow: 0 0 0 4px rgba(255,255,255,.04);
+}
+
+.ask-question-textarea{
+  min-height: 150px;
+  resize: vertical;
+}
+
+.ask-question-actions{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.ask-question-submit{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 22px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.75);
+  background: transparent;
+  color: rgba(255,255,255,.92);
+  font-size: .92rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: all .22s ease;
+}
+
+.ask-question-submit:hover{
+  background: #fff;
+  color: #000;
+}
+
+.ask-question-meta{
+  margin: 0;
+  flex: 1;
+  min-width: 260px;
+  color: rgba(255,255,255,.52);
+  font-size: .88rem;
+  line-height: 1.5;
+  text-align: right;
+}
+
+@media (max-width: 980px){
+  .ask-question-box{
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px){
+  .ask-question-box{
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .ask-question-grid{
+    grid-template-columns: 1fr;
+  }
+
+  .ask-question-copy h3{
+    font-size: 1.4rem;
+  }
+
+  .ask-question-actions{
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .ask-question-submit{
+    width: 100%;
+  }
+
+  .ask-question-meta{
+    min-width: 0;
+    text-align: left;
+  }
 }
 
 /* ── Badge specifika Pick a Question ── */
