@@ -28,11 +28,17 @@
   <!-- HERO + REGISTRATION FORM -->
   <section id="registration-hero" class="main fullscreen fade-up registration-hero">
     <div class="inner center registration-section">
-      <img
-        src="/assets/1920x1080DCKS_transparent.png"
-        alt="Decks &amp; Stories Logo"
-        class="logo registration-logo"
-      />
+      <picture>
+        <source srcset="/assets/1920x1080DCKS_transparent.webp" type="image/webp">
+        <img
+          src="/assets/1920x1080DCKS_transparent.webp"
+          alt="Decks &amp; Stories Logo"
+          class="logo registration-logo"
+          width="480" height="270"
+          loading="eager"
+          decoding="async"
+        >
+      </picture>
 
       <h1 class="registration-title">
         <span class="registration-title-top">Decks &amp; Stories presents</span>
@@ -66,16 +72,25 @@
       <section class="sponsors-section">
         <div class="sponsors">
           <div class="sponsor-logo-wrap">
-            <img src="/assets/balansas_white_300x300.png" alt="Balansas">
+            <picture>
+              <source srcset="/assets/balansas_white_300x300.webp" type="image/webp">
+              <img src="/assets/balansas_white_300x300.png" alt="Balansas" loading="lazy" width="300" height="300" decoding="async">
+            </picture>
           </div>
           <div class="sponsor-logo-wrap">
-            <img src="/assets/cult_300x300.png" alt="Cult">
+            <picture>
+              <source srcset="/assets/cult_300x300.webp" type="image/webp">
+              <img src="/assets/cult_300x300.webp" alt="Cult" loading="lazy" width="300" height="300" decoding="async">
+            </picture>
           </div>
           <div class="sponsor-logo-wrap">
-            <img src="/assets/bronx.png" alt="Bronx">
+            <picture>
+              <source srcset="/assets/bronx.webp" type="image/webp">
+              <img src="/assets/bronx.png" alt="Bronx" loading="lazy" width="300" height="300" decoding="async">
+            </picture>
           </div>
           <div class="sponsor-logo-wrap">
-            <img src="/assets/proevents_500x300.png" alt="Proevents">
+            <img src="/assets/proevents_500x300.png" alt="Proevents" loading="lazy" width="500" height="300" decoding="async">
           </div>
         </div>
       </section>

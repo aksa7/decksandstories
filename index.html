@@ -17,18 +17,19 @@
   <meta property="og:url" content="https://decksandstories.com/" />
   <meta property="og:title" content="Decks&Stories — International DJ Mixes & Human Stories" />
   <meta property="og:description" content="A community-driven electronic music storytelling platform: international DJ mixes, emerging artists, and real stories behind the sound." />
-  <meta property="og:image" content="https://decksandstories.com/assets/og-image.png" />
+  <meta property="og:image" content="https://decksandstories.com/assets/og-image.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@decksandstories" />
   <meta name="twitter:title" content="Decks&Stories — International DJ Mixes & Human Stories" />
   <meta name="twitter:description" content="International DJ mixes from around the world, plus the story behind each set. An independent global electronic music platform." />
-  <meta name="twitter:image" content="https://decksandstories.com/assets/og-image.png" />
+  <meta name="twitter:image" content="https://decksandstories.com/assets/og-image.webp" />
 
   <!-- Performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="image" href="assets/1920x1080DCKS_transparent.webp" type="image/webp" fetchpriority="high" />
 
   <!-- FAVICONS -->
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon-180x180.png" />
@@ -40,9 +41,11 @@
   <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
 
   <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css" />
-  <link rel="stylesheet" href="gallery.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.7.1/css/lightgallery-bundle.min.css" /></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600;700;800&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@300;400;600;700;800&display=swap" /></noscript>
 
   <!-- Structured Data: WebSite -->
   <script type="application/ld+json">
@@ -148,7 +151,16 @@
   <!-- Hero -->
   <section id="intro" class="main fullscreen fade-up">
     <div class="inner center">
-      <img src="assets/1920x1080DCKS_transparent.png" alt="Decks&Stories — global electronic music platform logo" class="logo"/>
+      <picture>
+        <source srcset="assets/1920x1080DCKS_transparent.webp" type="image/webp">
+        <img src="assets/1920x1080DCKS_transparent.webp"
+             alt="Decks&Stories — global electronic music platform logo"
+             class="logo"
+             width="480" height="270"
+             loading="eager"
+             fetchpriority="high"
+             decoding="sync">
+      </picture>
 
       <!-- Single, strong H1 for SEO -->
       <h1 class="biggerText">International DJ mixes from around the world — where music reveals identity.</h1>
@@ -171,7 +183,10 @@
     </nav>
     <div class="ade-collab-note">
       <a href="https://www.instagram.com/decksandstories/" target="_blank" rel="noopener" class="ade-collab-link">
-        <img src="assets/adeLogo.png" alt="ADE logo" class="ade-collab-logo" loading="lazy">
+        <picture>
+          <source srcset="assets/adeLogo.webp" type="image/webp">
+          <img src="assets/adeLogo.webp" alt="ADE logo" class="ade-collab-logo" loading="lazy" width="512" height="512" decoding="async">
+        </picture>
         <span>Are you coming to ADE? Reach out for a possible collaboration!</span>
       </a>
 </div>
@@ -192,22 +207,34 @@
 
         <a href="https://www.instagram.com/cult_lt/" target="_blank" rel="noopener"
            aria-label="CULT on Instagram" class="trust-logo-link">
-          <img src="assets/cult_300x300.png" alt="CULT" loading="lazy">
+          <picture>
+            <source srcset="assets/cult_300x300.webp" type="image/webp">
+            <img src="assets/cult_300x300.webp" alt="CULT" loading="lazy" width="300" height="300" decoding="async">
+          </picture>
         </a>
 
         <a href="https://www.instagram.com/teile.life/" target="_blank" rel="noopener"
            aria-label="TEILE on Instagram" class="trust-logo-link">
-          <img src="assets/teileLogo.png" alt="TEILE" loading="lazy">
+          <picture>
+            <source srcset="assets/teileLogo.webp" type="image/webp">
+            <img src="assets/teileLogo.webp" alt="TEILE" loading="lazy" width="535" height="466" decoding="async">
+          </picture>
         </a>
 
         <a href="https://www.instagram.com/beskarbookings/" target="_blank" rel="noopener"
            aria-label="beskar on Instagram" class="trust-logo-link">
-          <img class="logo-beskar" src="assets/beskarLogo.png" alt="beskar" loading="lazy">
+          <picture>
+            <source srcset="assets/beskarLogo.webp" type="image/webp">
+            <img class="logo-beskar" src="assets/beskarLogo.webp" alt="beskar" loading="lazy" width="300" height="100" decoding="async">
+          </picture>
         </a>
 
                 <a href="https://www.instagram.com/runemarkmusic/" target="_blank" rel="noopener"
            aria-label="runemarkmusic on Instagram" class="trust-logo-link">
-          <img class="logo-runemark" src="assets/runemark.png" alt="runemark" loading="lazy">
+          <picture>
+            <source srcset="assets/runemark.webp" type="image/webp">
+            <img class="logo-runemark" src="assets/runemark.webp" alt="runemark" loading="lazy" width="320" height="320" decoding="async">
+          </picture>
         </a>
       </div>
 
@@ -290,7 +317,53 @@
       </header>
 
       <div class="media-grid">
-                       <article class="media-card" data-url="https://www.youtube.com/watch?v=R8ZzdJcHDnI">
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=fSIlJ7JL6sA">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/fSIlJ7JL6sA/hqdefault.jpg" alt="International DJ mix episode 59 — Judoc" loading="lazy">
+          </div>
+          <div class="media-body">
+            <div class="media-head-row">
+              <h3 class="media-title">Judoc</h3>
+              <div class="media-badge">Episode #59</div>
+            </div>
+            <p class="media-text">Since the late ‘90s, JUDOC has evolved from a vinyl purist into a versatile producer and DJ whose sound seamlessly flows between house, minimal, and UKG. </p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=fSIlJ7JL6sA" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=tJ2kjdVrbGI">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/tJ2kjdVrbGI/hqdefault.jpg" alt="International DJ mix episode 58 — major K" loading="lazy">
+          </div>
+          <div class="media-body">
+            <div class="media-head-row">
+              <h3 class="media-title">major K</h3>
+              <div class="media-badge">Episode #58</div>
+            </div>
+            <p class="media-text">Melodic & progressive techno DJ set by major K, recorded live in Amsterdam. A groovy, high-energy mix with strong momentum from the first tracks to the last. </p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=1v6rZrHOr6U" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+        
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=1v6rZrHOr6U">
+          <div class="media-thumb">
+            <img src="https://i.ytimg.com/vi/1v6rZrHOr6U/hqdefault.jpg" alt="International DJ mix episode 57 — SYMBIOTICA" loading="lazy">
+          </div>
+          <div class="media-body">
+            <div class="media-head-row">
+              <h3 class="media-title">SYMBIOTICA</h3>
+              <div class="media-badge">Episode #57</div>
+            </div>
+            <p class="media-text">Playing high‑energy hardgroove and hypnotic techno, she focuses on rhythm, movement, and the physical connection between sound and people. </p>
+            <div class="media-cta">
+              <a class="media-btn" href="https://www.youtube.com/watch?v=1v6rZrHOr6U" target="_blank" rel="noopener">Watch Episode</a>
+            </div>
+          </div>
+        </article>
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=R8ZzdJcHDnI">
           <div class="media-thumb">
             <img src="https://i.ytimg.com/vi/R8ZzdJcHDnI/hqdefault.jpg" alt="International DJ mix episode 53 — EGWU" loading="lazy">
           </div>
@@ -335,51 +408,6 @@
             </div>
           </div>
         </article>
-        <article class="media-card" data-url="https://www.youtube.com/watch?v=cf2QUryVJcA">
-          <div class="media-thumb">Y6w8-dX-z_M
-            <img src="https://i.ytimg.com/vi/cf2QUryVJcA/hqdefault.jpg" alt="International DJ mix episode 53 — EGWU" loading="lazy">
-          </div>
-          <div class="media-body">
-            <div class="media-head-row">
-              <h3 class="media-title">EGWU</h3>
-              <div class="media-badge">Episode #53</div>
-            </div>
-            <p class="media-text">  By day, he is a history teacher. By night, he brings that energy to the dancefloor - sharing rhythm, movement, and connection.</p>
-            <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=cf2QUryVJcA" target="_blank" rel="noopener">Watch Episode</a>
-            </div>
-          </div>
-        </article>
-        <article class="media-card" data-url="https://www.youtube.com/watch?v=_GgJTANHpqw">
-          <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/_GgJTANHpqw/hqdefault.jpg" alt="International DJ mix episode 52 — SIGMA PR" loading="lazy">
-          </div>
-          <div class="media-body">
-            <div class="media-head-row">
-              <h3 class="media-title">SIGMA PR</h3>
-              <div class="media-badge">Episode #52</div>
-            </div>
-            <p class="media-text">Active since 1993, Sigma Pr (Stergios Tsilios) is a key figure in Greek electronic music, earning respect through long collaborations and evolution behind the decks.</p>
-            <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=_GgJTANHpqw" target="_blank" rel="noopener">Watch Episode</a>
-            </div>
-          </div>
-        </article>
-                <article class="media-card" data-url="https://www.youtube.com/watch?v=bM4mt7jjB_4">
-          <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/bM4mt7jjB_4/hqdefault.jpg" alt="International DJ mix episode 51 — TOMASH GHZ" loading="lazy">
-          </div>
-          <div class="media-body">
-            <div class="media-head-row">
-              <h3 class="media-title">TOMASH GHZ</h3>
-              <div class="media-badge">Episode #51</div>
-            </div>
-            <p class="media-text">DIY-minded artist moving from punk/metal basslines to house and minimal at Klubd Nicosia, building synths, drum machines, and live tools in Europe’s underground.</p>
-            <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=bM4mt7jjB_4" target="_blank" rel="noopener">Watch Episode</a>
-            </div>
-          </div>
-        </article>
       </div>
 
       <div class="view-more-container">
@@ -397,93 +425,93 @@
       </header>
 
       <div class="media-grid">
-                <article class="media-card" data-url="https://www.youtube.com/watch?v=JmwNhi8D2lc">
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=Sfb6ZfUzRm8">
           <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/JmwNhi8D2lc/hqdefault.jpg" alt="Studio Session #38 — Tomash Ghz" loading="lazy">
+            <img src="https://i.ytimg.com/vi/Sfb6ZfUzRm8/hqdefault.jpg" alt="Studio Session #55 — Phase Line B2B ISSA" loading="lazy">
           </div>
           <div class="media-body">
             <div class="media-head-row">
-              <h3 class="media-title">The Sweet Spot</h3>
-              <div class="media-badge">Studio Session #51</div>
+              <h3 class="media-title">DIMDMT B2B VOSY</h3>
+              <div class="media-badge">Studio Session #58</div>
             </div>
-            <p class="media-text">This Danish-Lithuanian duo explores the space between fun and darkness, blending quirky grooves with deeper, late-night energy. </p>
+            <p class="media-text">Their first B2B focused on high-tempo, hard-hitting tracks; this time, they slow things down to deliver a high-intensity set built on tension, depth, and driving energy.</p>
             <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=JmwNhi8D2lc" target="_blank" rel="noopener">Watch Session</a>
+              <a class="media-btn" href="https://www.youtube.com/watch?v=Sfb6ZfUzRm8" target="_blank" rel="noopener">Watch Session</a>
             </div>
           </div>
         </article>
-                <article class="media-card" data-url="https://www.youtube.com/watch?v=GMhuurwP-4c">
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=28VHeVLDaGA">
           <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/GMhuurwP-4c/hqdefault.jpg" alt="Studio Session #38 — Tomash Ghz" loading="lazy">
+            <img src="https://i.ytimg.com/vi/28VHeVLDaGA/hqdefault.jpg" alt="Studio Session #57 — Garino" loading="lazy">
           </div>
           <div class="media-body">
             <div class="media-head-row">
-              <h3 class="media-title">Kayka</h3>
-              <div class="media-badge">Studio Session #50</div>
+              <h3 class="media-title">Garino</h3>
+              <div class="media-badge">Studio Session #57</div>
             </div>
-            <p class="media-text">Meet Kayka - a young DJ and producer from Lithuania who discovered his passion for music at just 11 years old, when he first stepped behind the decks.</p>
+            <p class="media-text">His sets feel like personal reflections — shaped by daily experiences, surroundings, and the people he meets along the way.</p>
             <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=GMhuurwP-4c" target="_blank" rel="noopener">Watch Session</a>
+              <a class="media-btn" href="https://www.youtube.com/watch?v=28VHeVLDaGA" target="_blank" rel="noopener">Watch Session</a>
             </div>
           </div>
         </article>
-        <article class="media-card" data-url="https://www.youtube.com/watch?v=GMhuurwP-4c">
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=zSgUSR45lLQ">
           <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/W52IOZ5G7oc/hqdefault.jpg" alt="Studio Session #38 — Tomash Ghz" loading="lazy">
+            <img src="https://i.ytimg.com/vi/zSgUSR45lLQ/hqdefault.jpg" alt="Studio Session #56 — Driule XL" loading="lazy">
           </div>
           <div class="media-body">
             <div class="media-head-row">
-              <h3 class="media-title">Bernótas</h3>
-              <div class="media-badge">Studio Session #49</div>
+              <h3 class="media-title">Driule XL</h3>
+              <div class="media-badge">Studio Session #56</div>
             </div>
-            <p class="media-text">Moving between minimal, electro, and driving techno with subtle touches of house, his sets focus on rhythm, movement, and the feeling of the dancefloor.</p>
+            <p class="media-text">As a Space Ibiza 2024 resident and radio show host, he continues to refine his craft both on stage and on air. </p>
             <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=W52IOZ5G7oc" target="_blank" rel="noopener">Watch Session</a>
+              <a class="media-btn" href="https://www.youtube.com/watch?v=zSgUSR45lLQ" target="_blank" rel="noopener">Watch Session</a>
             </div>
           </div>
         </article>
-        <article class="media-card" data-url="https://www.youtube.com/watch?v=9buP76HuZk8">
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=mJCfDoL9qm0">
           <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/9buP76HuZk8/hqdefault.jpg" alt="Studio Session #38 — Tomash Ghz" loading="lazy">
+            <img src="https://i.ytimg.com/vi/mJCfDoL9qm0/hqdefault.jpg" alt="Studio Session #55 — Phase Line B2B ISSA" loading="lazy">
           </div>
           <div class="media-body">
             <div class="media-head-row">
-              <h3 class="media-title">Fundamental B2B Guzdzi</h3>
-              <div class="media-badge">Studio Session #48</div>
+              <h3 class="media-title">Phase Line B2B ISSA</h3>
+              <div class="media-badge">Studio Session #55</div>
             </div>
-            <p class="media-text">This Studio Session brings a B2B from two young talents who found each other through nightlife and quickly turned shared nights and house parties into a real friendship.</p>
+            <p class="media-text">ISSA and Phase Line are Lithuania-based DJs and producers, both part of the Copenhagen-based Pure Echo collective, with Phase Line also representing Fosfor.</p>
             <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=9buP76HuZk8" target="_blank" rel="noopener">Watch Session</a>
+              <a class="media-btn" href="https://www.youtube.com/watch?v=mJCfDoL9qm0" target="_blank" rel="noopener">Watch Session</a>
             </div>
           </div>
         </article>
-        <article class="media-card" data-url="https://www.youtube.com/watch?v=x34psPPHmKg">
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=iVMZr2mS-Xw">
           <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/x34psPPHmKg/hqdefault.jpg" alt="Studio Session #47 — Vlad Starque" loading="lazy">
+            <img src="https://i.ytimg.com/vi/iVMZr2mS-Xw/hqdefault.jpg" alt="Studio Session #54 — Egwu" loading="lazy">
           </div>
           <div class="media-body">
             <div class="media-head-row">
-              <h3 class="media-title">Vlad Starque</h3>
-              <div class="media-badge">Studio Session #47</div>
+              <h3 class="media-title">Egwu</h3>
+              <div class="media-badge">Studio Session #54</div>
             </div>
-            <p class="media-text">Vlad Starque is a Vilnius-based DJ, producer, radio host, and label manager whose journey has taken him to 12 countries, sharing his vision of melodic and groovy house & techno. </p>
+            <p class="media-text">By day a history teacher, by night performing as Egwu — meaning “to dance,” an open invitation shaped by raw, instinctive energy. </p>
             <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=x34psPPHmKg" target="_blank" rel="noopener">Watch Session</a>
+              <a class="media-btn" href="https://www.youtube.com/watch?v=iVMZr2mS-Xw" target="_blank" rel="noopener">Watch Session</a>
             </div>
           </div>
         </article>
-        <article class="media-card" data-url="https://www.youtube.com/watch?v=qZAltbMk_P0">
+        <article class="media-card" data-url="https://www.youtube.com/watch?v=c-zv0GiXtVo">
           <div class="media-thumb">
-            <img src="https://i.ytimg.com/vi/qZAltbMk_P0/hqdefault.jpg" alt="Studio Session #38 — Tomash Ghz" loading="lazy">
+            <img src="https://i.ytimg.com/vi/c-zv0GiXtVo/hqdefault.jpg" alt="Studio Session #53 — Armis" loading="lazy">
           </div>
           <div class="media-body">
             <div class="media-head-row">
-              <h3 class="media-title">CYKØZZE</h3>
-              <div class="media-badge">Studio Session #46</div>
+              <h3 class="media-title">Armis</h3>
+              <div class="media-badge">Studio Session #53</div>
             </div>
-            <p class="media-text">Behind the decks, he switches off the mind and follows instinct, guiding listeners through an emotional journey where every feeling is amplified.</p>
+            <p class="media-text">A versatile DJ who moves freely between genres, never limiting himself to one sound. While house remains close to his core, his sets go beyond boundaries. </p>
             <div class="media-cta">
-              <a class="media-btn" href="https://www.youtube.com/watch?v=qZAltbMk_P0" target="_blank" rel="noopener">Watch Session</a>
+              <a class="media-btn" href="https://www.youtube.com/watch?v=c-zv0GiXtVo" target="_blank" rel="noopener">Watch Session</a>
             </div>
           </div>
         </article>
@@ -499,10 +527,70 @@
       <p>We’re bringing the community closer – after the music stops, we keep the conversation going. Honest answers, real vibes, no filters. Questions are picked randomly from the vaze by the artist and answered.</p>
     </header>
     <div class="media-grid">
+      <article class="media-card" data-url="https://www.instagram.com/p/DXHcN_YET1R/">
+        <div class="media-thumb">
+          <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
+          <picture>
+            <source srcset="assets/pickaquestion/IMG_1317.webp" type="image/webp">
+            <img src="assets/pickaquestion/IMG_1317.webp" alt="Pick a Question — Garino" loading="lazy" width="400" height="400" decoding="async">
+          </picture>
+        </div>
+        <div class="media-body">
+          <div class="media-head-row">
+            <h3 class="media-title">Garino</h3>
+            <!-- <div class="media-badge">Pick a Question</div> -->
+          </div>
+          <p class="media-text">A Vilnius-based artist whose sound moves between raw grooves, analog textures, and personal moods shaped by everyday life.</p>
+          <div class="media-cta">
+            <a class="media-btn" href="https://www.instagram.com/p/DXHcN_YET1R/" target="_blank" rel="noopener">Watch on Instagram</a>
+          </div>
+        </div>
+      </article>
+      <article class="media-card" data-url="https://www.instagram.com/p/DW_RhtCDvVY/">
+        <div class="media-thumb">
+          <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
+          <picture>
+            <source srcset="assets/pickaquestion/judocPhoto.webp" type="image/webp">
+            <img src="assets/pickaquestion/judocPhoto.webp" alt="Pick a Question — major K" loading="lazy" width="400" height="400" decoding="async">
+          </picture>
+        </div>
+        <div class="media-body">
+          <div class="media-head-row">
+            <h3 class="media-title">Judoc</h3>
+            <!-- <div class="media-badge">Pick a Question</div> -->
+          </div>
+          <p class="media-text">Dutch electronic music selector who shaped his sound from late '90s vinyl beginnings to stages like Danceboulevard.</p>
+          <div class="media-cta">
+            <a class="media-btn" href="https://www.instagram.com/p/DW_RhtCDvVY/" target="_blank" rel="noopener">Watch on Instagram</a>
+          </div>
+        </div>
+      </article>
+      <article class="media-card" data-url="https://www.instagram.com/p/DWwV4FEjvPP/">
+        <div class="media-thumb">
+          <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
+          <picture>
+            <source srcset="assets/pickaquestion/judocPhoto.webp" type="image/webp">
+            <img src="assets/pickaquestion/judocPhoto.webp" alt="Pick a Question — major K" loading="lazy" width="400" height="400" decoding="async">
+          </picture>
+        </div>
+        <div class="media-body">
+          <div class="media-head-row">
+            <h3 class="media-title">major K</h3>
+            <!-- <div class="media-badge">Pick a Question</div> -->
+          </div>
+          <p class="media-text">A Belgian electronic music architect who shaped dance culture from Studio Brussel's Dance Charts to an empire of three labels and a DJ Agency.</p>
+          <div class="media-cta">
+            <a class="media-btn" href="https://www.instagram.com/p/DWwV4FEjvPP/" target="_blank" rel="noopener">Watch on Instagram</a>
+          </div>
+        </div>
+      </article>
       <article class="media-card" data-url="https://www.instagram.com/p/DWEmr9YBIt9/">
         <div class="media-thumb">
           <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
-          <img src="assets/pickaquestion/thesweetspo.PNG" alt="Pick a Question — The Sweet Spot" loading="lazy">
+          <picture>
+            <source srcset="assets/pickaquestion/thesweetspo.webp" type="image/webp">
+            <img src="assets/pickaquestion/thesweetspo.webp" alt="Pick a Question — The Sweet Spot" loading="lazy" width="400" height="400" decoding="async">
+          </picture>
         </div>
         <div class="media-body">
           <div class="media-head-row">
@@ -518,7 +606,10 @@
       <article class="media-card" data-url="https://www.instagram.com/p/DVylJ6dF0IA/">
         <div class="media-thumb">
           <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
-          <img src="assets/pickaquestion/bernotas.PNG" alt="Pick a Question — Vlad Starque" loading="lazy">
+          <picture>
+            <source srcset="assets/pickaquestion/bernotas.webp" type="image/webp">
+            <img src="assets/pickaquestion/bernotas.webp" alt="Pick a Question — Vlad Starque" loading="lazy" width="400" height="400" decoding="async">
+          </picture>
         </div>
         <div class="media-body">
           <div class="media-head-row">
@@ -534,7 +625,10 @@
             <article class="media-card" data-url="https://www.instagram.com/p/DVgjoEKl65h/">
         <div class="media-thumb">
           <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
-          <img src="assets/pickaquestion/vladstarque.PNG" alt="Pick a Question — Vlad Starque" loading="lazy">
+          <picture>
+            <source srcset="assets/pickaquestion/vladstarque.webp" type="image/webp">
+            <img src="assets/pickaquestion/vladstarque.webp" alt="Pick a Question — Vlad Starque" loading="lazy" width="400" height="400" decoding="async">
+          </picture>
         </div>
         <div class="media-body">
           <div class="media-head-row">
@@ -547,56 +641,7 @@
           </div>
         </div>
       </article>
-      <article class="media-card" data-url="https://www.instagram.com/p/DVbYJopDnNO/">
-        <div class="media-thumb">
-          <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
-          <img src="assets/pickaquestion/cykozze.PNG" alt="Pick a Question — cykozze" loading="lazy">
-        </div>
-        <div class="media-body">
-          <div class="media-head-row">
-            <h3 class="media-title">CYKØZZE</h3>
-            <!-- <div class="media-badge">Pick a Question</div> -->
-          </div>
-          <p class="media-text">This time we’re joined by CYKØZZE — a DJ who keeps it simple and lets the set speak.</p>
-          <div class="media-cta">
-            <a class="media-btn" href="https://www.instagram.com/p/DVbYJopDnNO/" target="_blank" rel="noopener">Watch on Instagram</a>
-          </div>
-        </div>
-      </article>
-     
-      <article class="media-card" data-url="https://www.instagram.com/p/DVJYUgxDFa3/">
-        <div class="media-thumb">
-          <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
-          <img src="assets/pickaquestion/gusis.png" alt="Pick a Question — Maksas & Très Sticky" loading="lazy">
-        </div>
-        <div class="media-body">
-          <div class="media-head-row">
-            <h3 class="media-title">Maksas & Très Sticky</h3>
-            <!-- <div class="media-badge">Pick a Question</div> -->
-          </div>
-          <p class="media-text">This time we’re joined by Maksas & Très Sticky — a B2B rooted in real friendship and a shared love for warm disco.</p>
-          <div class="media-cta">
-            <a class="media-btn" href="https://www.instagram.com/p/DVJYUgxDFa3/" target="_blank" rel="noopener">Watch on Instagram</a>
-          </div>
-        </div>
-      </article>
-      <!-- LDR:K -->
-      <article class="media-card" data-url="https://www.instagram.com/p/DU8ftQPjEPz/">
-        <div class="media-thumb">
-          <!-- Įkelk savo cover/thumbnail čia, pvz. iš Reelo pirma kadro -->
-          <img src="assets/pickaquestion/ldrk.png" alt="Pick a Question — LDR:K" loading="lazy">
-        </div>
-        <div class="media-body">
-          <div class="media-head-row">
-            <h3 class="media-title">LDR:K</h3>
-            <!-- <div class="media-badge">Pick a Question</div> -->
-          </div>
-          <p class="media-text">Turkish-born DJ & producer based in Lithuania for 10 years – from Vilnius venues to Thailand, Italy, Turkey. Real talk after the set.</p>
-          <div class="media-cta">
-            <a class="media-btn" href="https://www.instagram.com/p/DU8ftQPjEPz/" target="_blank" rel="noopener">Watch on Instagram</a>
-          </div>
-        </div>
-      </article>
+      
       
       <!-- Jei ateity bus daugiau – kopijuok article bloką ir keisk -->
       
@@ -671,18 +716,78 @@
       <div class="gallery-column utopija">
         <h3>Decks&Stories moments</h3>
         <div id="utopija-gallery" class="gallery-grid">
-          <a href="gallery/utopija/DSC06413.JPG"><img src="gallery/utopija/DSC06413.JPG" alt="Decks&Stories event photo" loading="lazy"></a>
-          <a href="gallery/utopija/DSC06522.JPG"><img src="gallery/utopija/DSC06522.JPG" alt="Decks&Stories event photo" loading="lazy"></a>
-          <a href="gallery/teamPhoto.jpeg"><img src="gallery/teamPhoto.jpeg" alt="Decks&Stories team photo at TEILE" loading="lazy"></a>
-          <a href="gallery/vancoAksendo.jpeg"><img src="gallery/vancoAksendo.jpeg" alt="AKSENDO & VANCO at ADE 2025" loading="lazy"></a>
-          <a href="gallery/IMG_7775.jpeg"><img src="gallery/IMG_7775.jpeg" alt="ADE 2025 photo" loading="lazy"></a>
-          <a href="gallery/IMG_7778.jpeg"><img src="gallery/IMG_7778.jpeg" alt="ADE 2025 photo" loading="lazy"></a>
-          <a href="gallery/vilboUnfazed.JPG"><img src="gallery/vilboUnfazed.JPG" alt="VILBØ x unfazed in Madrid" loading="lazy"></a>
-          <a href="gallery/decksAdamTen.jpg"><img src="gallery/decksAdamTen.jpg" alt="VILBØ, H€rm4 with Adam Ten in Madrid" loading="lazy"></a>
-          <a href="gallery/vilboDJKay.JPG"><img src="gallery/vilboDJKay.JPG" alt="VILBØ with DJ Kay at ADE 2025" loading="lazy"></a>
-          <a href="gallery/messagetotheWorld.JPG"><img src="gallery/messagetotheWorld.JPG" alt="Decks&Stories interview moment: message to the people" loading="lazy"></a>
-          <a href="gallery/dcks.PNG"><img src="gallery/dcks.PNG" alt="Decks&Stories Sunday Sessions moment" loading="lazy"></a>
-          <a href="gallery/dcksbatai.jpg"><img src="gallery/dcksbatai.jpg" alt="Utopija x Decks&Stories photo" loading="lazy"></a>
+          <a href="gallery/kultura.webp">
+            <picture>
+              <source srcset="gallery/kultura.webp" type="image/webp">
+              <img src="gallery/kultura.webp" alt="Decks&Stories event photo" loading="lazy" width="800" height="1067" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/decksandstoriesAndBeskarBookings.webp">
+            <picture>
+              <source srcset="gallery/decksandstoriesAndBeskarBookings.webp" type="image/webp">
+              <img src="gallery/decksandstoriesAndBeskarBookings.webp" alt="Decks&Stories event photo" loading="lazy" width="800" height="1067" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/teamPhoto.webp">
+            <picture>
+              <source srcset="gallery/teamPhoto.webp" type="image/webp">
+              <img src="gallery/teamPhoto.webp" alt="Decks&Stories team photo at TEILE" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/vancoAksendo.webp">
+            <picture>
+              <source srcset="gallery/vancoAksendo.webp" type="image/webp">
+              <img src="gallery/vancoAksendo.webp" alt="AKSENDO & VANCO at ADE 2025" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/IMG_7775.webp">
+            <picture>
+              <source srcset="gallery/IMG_7775.webp" type="image/webp">
+              <img src="gallery/IMG_7775.webp" alt="ADE 2025 photo" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/IMG_7778.webp">
+            <picture>
+              <source srcset="gallery/IMG_7778.webp" type="image/webp">
+              <img src="gallery/IMG_7778.webp" alt="ADE 2025 photo" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/vilboUnfazed.webp">
+            <picture>
+              <source srcset="gallery/vilboUnfazed.webp" type="image/webp">
+              <img src="gallery/vilboUnfazed.webp" alt="VILBØ x unfazed in Madrid" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/decksAdamTen.webp">
+            <picture>
+              <source srcset="gallery/decksAdamTen.webp" type="image/webp">
+              <img src="gallery/decksAdamTen.webp" alt="VILBØ, H€rm4 with Adam Ten in Madrid" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/vilboDJKay.webp">
+            <picture>
+              <source srcset="gallery/vilboDJKay.webp" type="image/webp">
+              <img src="gallery/vilboDJKay.webp" alt="VILBØ with DJ Kay at ADE 2025" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/messagetotheWorld.webp">
+            <picture>
+              <source srcset="gallery/messagetotheWorld.webp" type="image/webp">
+              <img src="gallery/messagetotheWorld.webp" alt="Decks&Stories interview moment: message to the people" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/dcks.webp">
+            <picture>
+              <source srcset="gallery/dcks.webp" type="image/webp">
+              <img src="gallery/dcks.webp" alt="Decks&Stories Sunday Sessions moment" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
+          <a href="gallery/dcksbatai.webp">
+            <picture>
+              <source srcset="gallery/dcksbatai.webp" type="image/webp">
+              <img src="gallery/dcksbatai.webp" alt="Utopija x Decks&Stories photo" loading="lazy" width="1200" height="800" decoding="async">
+            </picture>
+          </a>
         </div>
       </div>
     </div>
@@ -707,16 +812,28 @@
 <!-- Social Dock Bar -->
 <div class="social-fixed-bar">
   <a href="https://www.facebook.com/profile.php?id=61575745327452" target="_blank" rel="noopener" aria-label="Facebook">
-    <img src="assets/fbLogo_500x500.png" alt="Facebook">
+    <picture>
+      <source srcset="assets/fbLogo_500x500.webp" type="image/webp">
+      <img src="assets/fbLogo_500x500.webp" alt="Facebook" loading="lazy" width="500" height="500" decoding="async">
+    </picture>
   </a>
   <a href="https://www.instagram.com/decksandstories/" target="_blank" rel="noopener" aria-label="Instagram">
-    <img src="assets/instagram_500x500.png" alt="Instagram">
+    <picture>
+      <source srcset="assets/instagram_500x500.webp" type="image/webp">
+      <img src="assets/instagram_500x500.webp" alt="Instagram" loading="lazy" width="500" height="500" decoding="async">
+    </picture>
   </a>
   <a href="https://buymeacoffee.com/decksandstories" target="_blank" rel="noopener" aria-label="Buy Me a Coffee">
-    <img src="assets/buymeacoffee_500x500.png" alt="Buy Me a Coffee">
+    <picture>
+      <source srcset="assets/buymeacoffee_500x500.webp" type="image/webp">
+      <img src="assets/buymeacoffee_500x500.webp" alt="Buy Me a Coffee" loading="lazy" width="500" height="500" decoding="async">
+    </picture>
   </a>
   <a href="https://www.youtube.com/@decksandstories" target="_blank" rel="noopener" aria-label="YouTube">
-    <img src="assets/youtube_500x500.png" alt="YouTube">
+    <picture>
+      <source srcset="assets/youtube_500x500.webp" type="image/webp">
+      <img src="assets/youtube_500x500.webp" alt="YouTube" loading="lazy" width="500" height="500" decoding="async">
+    </picture>
   </a>
 </div>
 <!-- Newsletter Bottom Box -->

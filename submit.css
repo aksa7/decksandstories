@@ -10,7 +10,7 @@ body.submit-page {
   color: #ffffff;
 
   background:
-    url("assets/herovisual.png") center top / cover no-repeat fixed;
+    url("assets/herovisual.webp") center top / cover no-repeat fixed;
 }
 
 html, body {
@@ -159,10 +159,11 @@ body.submit-page section.main {
 }
 
 .submit-logo {
-  max-width: 260px;
-  margin-bottom: 1rem;
-  width: 100%;
   max-width: 480px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
 }
 
 .submit-title {

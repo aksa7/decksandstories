@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Primary SEO -->
-  <title>Submit a DJ Mix & Story — Decks&Stories (International DJ Mix Series)</title>
+  <title>Submit your DJ Mix with a story — Decks&Stories (International DJ Mix Series)</title>
   <meta name="description" content="Submit your 60-minute DJ mix + story for an international DJ mix series, send unreleased demo tracks, or propose an event. Decks&Stories is an independent global electronic music storytelling platform." />
   <link rel="canonical" href="https://decksandstories.com/submit/" />
 
@@ -17,14 +17,14 @@
   <meta property="og:url" content="https://decksandstories.com/submit/" />
   <meta property="og:title" content="Submit a DJ Mix & Story — Decks&Stories" />
   <meta property="og:description" content="Send your 60-minute mix + story for our international DJ mixes series, share unreleased demo tracks, or propose an event / venue." />
-  <meta property="og:image" content="https://decksandstories.com/assets/og-image.png" />
+  <meta property="og:image" content="https://decksandstories.com/assets/submit-og-image.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@decksandstories" />
   <meta name="twitter:title" content="Submit a DJ Mix & Story — Decks&Stories" />
   <meta name="twitter:description" content="International DJ mixes from around the world — submit your mix + story, demos, or event idea to an independent electronic music platform." />
-  <meta name="twitter:image" content="https://decksandstories.com/assets/og-image.png" />
+  <meta name="twitter:image" content="https://decksandstories.com/assets/submit-og-image.webp" />
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -77,11 +77,18 @@
   <!-- HERO -->
   <section id="submit-hero" class="main fullscreen fade-up submit-hero">
     <div class="inner center">
-      <img
-        src="/assets/1920x1080DCKS_transparent.png"
-        alt="Decks&Stories logo — international DJ mixes and human stories"
-        class="logo submit-logo"
-      />
+      <picture>
+        <source srcset="/assets/1920x1080DCKS_transparent.webp" type="image/webp">
+        <img
+          src="/assets/1920x1080DCKS_transparent.webp"
+          alt="Decks&Stories logo — international DJ mixes and human stories"
+          class="logo submit-logo"
+          width="480" height="270"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        >
+      </picture>
 
       <h1 class="submit-title">What is your message to the world?</h1>
       <p class="submit-subtitle">
@@ -525,7 +532,10 @@
     <a href="#" class="story-modal-backdrop" aria-label="Close letter example"></a>
     <div class="story-modal-content">
       <a href="#" class="story-modal-close" aria-label="Close">&times;</a>
-      <img src="/assets/letterExample.jpg" alt="Example of a guest mix story letter" loading="lazy" />
+      <picture>
+        <source srcset="/assets/letterExample.webp" type="image/webp">
+        <img src="/assets/letterExample.jpg" alt="Example of a guest mix story letter" loading="lazy" width="1200" height="800" decoding="async">
+      </picture>
     </div>
   </div>
 
@@ -534,7 +544,10 @@
     <a href="#" class="story-modal-backdrop" aria-label="Close photo example"></a>
     <div class="story-modal-content">
       <a href="#" class="story-modal-close" aria-label="Close">&times;</a>
-      <img src="/assets/photoExample.jpg" alt="Example of a promo photo for Decks&Stories" loading="lazy" />
+      <picture>
+        <source srcset="/assets/photoExample.webp" type="image/webp">
+        <img src="/assets/photoExample.jpg" alt="Example of a promo photo for Decks&Stories" loading="lazy" width="1200" height="800" decoding="async">
+      </picture>
     </div>
   </div>
 
