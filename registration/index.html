@@ -3,10 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Decks &amp; Stories – Open Decks | Registration</title>
 
-  <meta name="description" content="Register for the Decks & Stories – Open Decks DJ contest in Vilnius. Fill in the form, share your up to 30-minute mix and introduce yourself. Partners: Bronx Club Vintage, Bronx Pool Club, Balansas, Proevents, Cult.">
-  <link rel="canonical" href="https://decksandstories.com/registration" />
+  <!-- Primary SEO -->
+  <title>Play at ADE — DJ Registration | Decks&Stories</title>
+  <meta name="description" content="We're looking for DJs to play at Amsterdam Dance Event (ADE). Register with Decks&Stories — send your DJ name, experience and SoundCloud, and tell us your story." />
+  <link rel="canonical" href="https://decksandstories.com/registration/" />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Decks&Stories" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://decksandstories.com/registration/" />
+  <meta property="og:title" content="Play at ADE — DJ Registration | Decks&Stories" />
+  <meta property="og:description" content="We're looking for DJs to play at Amsterdam Dance Event. Register with Decks&Stories and tell us your sound and your story." />
+  <meta property="og:image" content="https://decksandstories.com/assets/submit-og-image.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@decksandstories" />
+  <meta name="twitter:title" content="Play at ADE — DJ Registration | Decks&Stories" />
+  <meta name="twitter:description" content="We're looking for DJs to play at Amsterdam Dance Event. Register with Decks&Stories — send your sound and your story." />
+  <meta name="twitter:image" content="https://decksandstories.com/assets/submit-og-image.webp" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "ADE DJ Registration — Decks&Stories",
+    "url": "https://decksandstories.com/registration/",
+    "inLanguage": "en",
+    "description": "Registration page for DJs who want to play at Amsterdam Dance Event with Decks&Stories.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Decks&Stories",
+      "url": "https://decksandstories.com/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Decks&Stories",
+    "url": "https://decksandstories.com/",
+    "logo": "https://decksandstories.com/assets/1920x1080DCKS.png",
+    "sameAs": [
+      "https://www.facebook.com/decksandstories",
+      "https://www.instagram.com/decksandstories/",
+      "https://www.youtube.com/@decksandstories"
+    ],
+    "description": "An independent global electronic music storytelling platform sharing international DJ mixes and the human stories behind each set."
+  }
+  </script>
 
   <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180x180.png">
@@ -17,316 +68,213 @@
   <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon-256x256.png">
   <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
 
-  <!-- Global styles -->
   <link rel="stylesheet" href="/styles.css" />
-  <!-- Registration page styles -->
-  <link rel="stylesheet" href="/registration.css" />
+  <link rel="stylesheet" href="/submit.css" />
 </head>
 
-<body class="is-preload registration-page">
+<body class="is-preload submit-page registration-page">
 
-  <!-- HERO + REGISTRATION FORM -->
-  <section id="registration-hero" class="main fullscreen fade-up registration-hero">
-    <div class="inner center registration-section">
+  <!-- HERO -->
+  <section id="reg-hero" class="main fullscreen fade-up submit-hero">
+    <div class="inner center">
       <picture>
         <source srcset="/assets/1920x1080DCKS_transparent.webp" type="image/webp">
         <img
           src="/assets/1920x1080DCKS_transparent.webp"
-          alt="Decks &amp; Stories Logo"
-          class="logo registration-logo"
-          width="480" height="270"
+          alt="Decks&Stories logo — international DJ mixes and human stories"
+          class="logo submit-logo"
           loading="eager"
+          fetchpriority="high"
           decoding="async"
         >
       </picture>
 
-      <h1 class="registration-title">
-        <span class="registration-title-top">Decks &amp; Stories presents</span>
-        <span class="registration-title-main">OPEN DECKS</span>
-        <span class="registration-title-tagline">Vilnius · DJ showcase &amp; contest</span>
-      </h1>
-
-      <p class="registration-subtitle">
-        Open call for DJs in Vilnius.<br>
-        Fill in the form, share your <strong>up to 30-minute mix</strong> and tell us who you are.
+      <h1 class="submit-title">Want to play at ADE?</h1>
+      <p class="submit-subtitle">
+        We're looking for DJs to play with us at <strong>Amsterdam Dance Event</strong>.<br>
+        Send us your sound, your story — and let's make it happen.
       </p>
 
-      <!-- Partners -->
-      <div class="partners-row">
-        <span class="partners-label">Partners:</span>
-        <div class="partners-list">
-          <span>Bronx Club Vintage</span>
-          <span>Bronx Pool Club</span>
-          <span>Balansas</span>
-          <span>Proevents.lt</span>
-          <span>Cult</span>
+      <div class="submit-cta-row">
+        <a href="#registration" class="scrolly submit-cta active">
+          Register Now
+        </a>
+      </div>
+
+      <p class="submit-small-note">
+        <strong>Your story means the most.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works" class="main fade-in alt">
+    <div class="submit-section">
+      <h2>How It Works</h2>
+
+      <div class="submit-steps">
+        <div class="submit-step-card">
+          <span class="step-number">01</span>
+          <h3>Register</h3>
+          <p>
+            Fill in a <strong>short form</strong> — your DJ name, experience and a <strong>SoundCloud link</strong> so we can hear you.
+          </p>
         </div>
-      </div>
 
-      <!-- Event info pills -->
-      <div class="event-pill-row">
-        <span class="event-pill">Event: December 11</span>
-        <span class="event-pill">Time: 18:00–00:00</span>
-        <span class="event-pill">Location: Konstitucijos pr. 12, Vilnius</span>
-      </div>
-      <section class="sponsors-section">
-        <div class="sponsors">
-          <div class="sponsor-logo-wrap">
-            <picture>
-              <source srcset="/assets/balansas_white_300x300.webp" type="image/webp">
-              <img src="/assets/balansas_white_300x300.png" alt="Balansas" loading="lazy" width="300" height="300" decoding="async">
-            </picture>
-          </div>
-          <div class="sponsor-logo-wrap">
-            <picture>
-              <source srcset="/assets/cult_300x300.webp" type="image/webp">
-              <img src="/assets/cult_300x300.webp" alt="Cult" loading="lazy" width="300" height="300" decoding="async">
-            </picture>
-          </div>
-          <div class="sponsor-logo-wrap">
-            <picture>
-              <source srcset="/assets/bronx.webp" type="image/webp">
-              <img src="/assets/bronx.png" alt="Bronx" loading="lazy" width="300" height="300" decoding="async">
-            </picture>
-          </div>
-          <div class="sponsor-logo-wrap">
-            <img src="/assets/proevents_500x300.png" alt="Proevents" loading="lazy" width="500" height="300" decoding="async">
-          </div>
+        <div class="submit-step-card">
+          <span class="step-number">02</span>
+          <h3>We listen</h3>
+          <p>
+            We go through every DJ — focusing on <strong>sound</strong>, <strong>energy</strong> and the story behind it.
+          </p>
         </div>
-      </section>
 
-      <!-- Registration form -->
-      <div class="registration-form-wrapper">
-        <form
-          id="open-decks-form"
-          class="registration-form"
-          action="https://formspree.io/f/myzqjekv"
-          method="POST"
-        >
-          <input type="hidden" name="form-type" value="open-decks-registration">
-          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you">
-
-          <div class="form-card">
-            <h2>Open Decks registration</h2>
-            <p class="form-intro">
-              This is the <strong>first stage</strong> of the contest and happens online.
-              Registration is open until <strong>December 7, 13:00</strong>. From all submissions,
-              <strong>5 DJs</strong> will be selected to play live at the event.
-            </p>
-
-            <div class="form-grid">
-              <!-- First & last name -->
-              <div class="field-group">
-                <label for="full-name" class="field-label">First &amp; last name*</label>
-                <input
-                  type="text"
-                  id="full-name"
-                  name="full-name"
-                  class="field-input"
-                  required
-                  placeholder="Your full name"
-                >
-              </div>
-
-              <!-- Artist / DJ name -->
-              <div class="field-group">
-                <label for="artist-name" class="field-label">Artist / DJ name</label>
-                <input
-                  type="text"
-                  id="artist-name"
-                  name="artist-name"
-                  class="field-input"
-                  placeholder="If different from your real name"
-                >
-              </div>
-
-              <!-- Instagram mandatory -->
-              <div class="field-group">
-                <label for="instagram" class="field-label">Instagram / Social*</label>
-                <input
-                  type="text"
-                  id="instagram"
-                  name="instagram"
-                  class="field-input"
-                  required
-                  placeholder="@username or profile link"
-                >
-              </div>
-
-              <!-- Email -->
-              <div class="field-group">
-                <label for="email" class="field-label">Email*</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  class="field-input"
-                  required
-                  placeholder="your@email.com"
-                >
-              </div>
-
-              <!-- Age -->
-              <div class="field-group">
-                <label for="age" class="field-label">How old are you?*</label>
-                <input
-                  type="number"
-                  id="age"
-                  name="age"
-                  class="field-input"
-                  min="16"
-                  max="99"
-                  required
-                  placeholder="E.g. 23"
-                >
-              </div>
-
-              <!-- City / country -->
-              <div class="field-group">
-                <label for="city" class="field-label">City &amp; country</label>
-                <input
-                  type="text"
-                  id="city"
-                  name="city"
-                  class="field-input"
-                  placeholder="Vilnius, Lithuania"
-                >
-              </div>
-
-              <!-- What do you play -->
-              <div class="field-group field-full">
-                <label for="what-you-play" class="field-label">What do you play? (genres / vibe)</label>
-                <input
-                  type="text"
-                  id="what-you-play"
-                  name="what-you-play"
-                  class="field-input"
-                  placeholder="Techno, house, breaks, experimental..."
-                >
-              </div>
-
-              <!-- Mix link -->
-              <div class="field-group field-full">
-                <label for="mix-link" class="field-label">Mix link (up to 30 minutes)*</label>
-                <input
-                  type="url"
-                  id="mix-link"
-                  name="mix-link"
-                  class="field-input"
-                  required
-                  placeholder="Private SoundCloud, Google Drive, Dropbox, WeTransfer, etc."
-                >
-              </div>
-
-              <!-- About you (100 words) -->
-              <div class="field-group field-full">
-                <label for="about" class="field-label">Short intro about you (max 100 words)*</label>
-                <textarea
-                  id="about"
-                  name="about"
-                  class="field-textarea"
-                  required
-                  placeholder="Who are you as a person and as a DJ? Where does your sound come from? Tell us your story in up to 100 words."
-                ></textarea>
-              </div>
-
-              <!-- Message to the people -->
-              <div class="field-group field-full">
-                <label for="message" class="field-label">What is your message to the people?*</label>
-                <textarea
-                  id="message"
-                  name="message"
-                  class="field-textarea"
-                  required
-                  placeholder="Write a short message to the people who will listen to your set (1–3 sentences)."
-                ></textarea>
-              </div>
-            </div>
-
-            <!-- Consents -->
-            <div class="form-consent">
-              <label class="checkbox-row">
-                <input type="checkbox" name="mix-rules" required>
-                <span>I confirm my mix is no longer than 30 minutes and I have the right to use all tracks in this set.</span>
-              </label>
-
-              <label class="checkbox-row">
-                <input type="checkbox" name="can-play-live" required>
-                <span>If selected, I can play live at the Open Decks event in Vilnius on December 11.</span>
-              </label>
-
-              <label class="checkbox-row">
-                <input type="checkbox" name="media-consent" required>
-                <span>I agree that Decks &amp; Stories may film and photograph my performance and publish this content on YouTube, Instagram and other channels.</span>
-              </label>
-            </div>
-
-            <button type="submit" class="formSubmit">Submit registration</button>
-
-            <p class="form-footnote">
-              Registration is open until <strong>December 7, 13:00</strong>.
-              Selected DJs will be contacted personally via email and social media.
-            </p>
-          </div>
-        </form>
-      </div>
-
-      <div class="back-to-top-center">
-        <a href="#open-decks-info" class="scrolly">Learn more about the contest ↓</a>
+        <div class="submit-step-card">
+          <span class="step-number">03</span>
+          <h3>We connect</h3>
+          <p>
+            If you're a fit, we reach out personally about <strong>playing at ADE</strong> with the Decks&Stories community.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- OPEN DECKS CONTEST INFO -->
-<section id="open-decks-info" class="main fade-in">
-  <div class="registration-section event-info">
-    <h2>What is Decks &amp; Stories: Open Decks?</h2>
-    <p>
-      <strong>Open Decks</strong> is a DJ showcase and contest in Vilnius.
-      You register online, we listen to your mix, select a few DJs for the event,
-      record the sets and share them online so the community can discover you.
-    </p>
-    <h3>How it works</h3>
-    <ol class="event-steps">
-      <li>
-        <strong>Stage 1 – Online registration (until December 7)</strong><br>
-        Fill in the registration form, write a short intro about yourself,
-        share your social links and an <strong>up to 30-minute mix</strong>.
-        We listen to every submission and select <strong>5 DJs</strong> that best fit
-        the sound and energy of the event.
-      </li>
-        <li>
-        <strong>Stage 2 – DJ selection & live event in Vilnius (December 11)</strong><br>
-        We will review all submissions and you will receive a response by
-        <strong>December 9</strong>. The selected DJs will play their sets live on
-        <strong>December 11, 18:00–00:00, Konstitucijos pr. 12, Vilnius</strong>.
-        All performances are recorded by the Decks &amp; Stories team.
-      </li>
+  <!-- REGISTRATION FORM -->
+  <section id="registration" class="main fade-up">
+    <div class="inner boxed submit-section">
+      <header class="major">
+        <h2>DJ Registration — ADE</h2>
+        <p>
+          Want to play at <strong>Amsterdam Dance Event</strong>?<br>
+          Tell us who you are and let us hear your sound.
+        </p>
+      </header>
 
+      <div class="submit-forms">
 
-      <li>
-        <strong>Stage 3 – Release on YouTube &amp; Instagram (December 16)</strong><br>
-        The recorded sets are released as a series on the Decks &amp; Stories
-        <strong>YouTube channel</strong>. On Instagram, each DJ gets a separate post
-        with performance clips and tags for the partners. All posts go live at the same time.
-      </li>
+        <form
+          id="ade-form"
+          class="submit-form active"
+          action="https://formspree.io/f/mrevjprk"
+          method="POST"
+        >
+          <input type="hidden" name="form-type" value="ade-registration">
+          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you">
 
-      <li>
-        <strong>Stage 4 – Community voting (until December 20, 18:00)</strong><br>
-        Voting happens on Instagram. The community supports their favorite DJ by liking the posts.
-        The contest winner is the DJ whose post receives the most likes before
-        <strong>December 20, 18:00</strong>
-      </li>
-    </ol>
+          <div class="form-card">
+            <h2 id="ade-submit">Play at ADE — Registration</h2>
 
-    <div class="back-to-top-center">
-      <a href="#registration-hero" class="scrolly">↑ Back to registration form</a>
+            <p class="form-intro">
+              We're looking for DJs to play with us at <strong>ADE</strong>.<br>
+              Keep it simple and honest — the more we feel <em>you</em>, the better.
+            </p>
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="reg-name" class="field-label">Name*</label>
+                <input type="text" id="reg-name" name="name" class="field-input" required placeholder="Your real name">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-djname" class="field-label">DJ name*</label>
+                <input type="text" id="reg-djname" name="dj-name" class="field-input" required placeholder="Your artist / DJ alias">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-age" class="field-label">Age*</label>
+                <input type="number" id="reg-age" name="age" class="field-input" required min="16" max="99" placeholder="e.g. 24">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-email" class="field-label">Email*</label>
+                <input type="email" id="reg-email" name="email" class="field-input" required>
+              </div>
+
+              <div class="field-group">
+                <label for="reg-location" class="field-label">City & country*</label>
+                <input type="text" id="reg-location" name="location" class="field-input" required placeholder="Kaunas, Lithuania">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-instagram" class="field-label">Instagram / Social</label>
+                <input type="text" id="reg-instagram" name="instagram" class="field-input" placeholder="@username or profile link">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-experience" class="field-label">Experience*</label>
+                <input type="text" id="reg-experience" name="experience" class="field-input" required placeholder="e.g. 3 years, clubs & festivals in LT">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-genre" class="field-label">Genres / style</label>
+                <input type="text" id="reg-genre" name="genre" class="field-input" placeholder="Tech house, indie dance, house, disco...">
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-soundcloud" class="field-label">SoundCloud link*</label>
+                <input type="url" id="reg-soundcloud" name="soundcloud" class="field-input" required placeholder="https://soundcloud.com/your-profile">
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-describe" class="field-label">How would you describe yourself as an artist?*</label>
+                <textarea id="reg-describe" name="describe" class="field-textarea" required placeholder="A few honest sentences about your sound, your vibe, what makes you you."></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-why" class="field-label">Why do you want to play at ADE?</label>
+                <textarea id="reg-why" name="why-ade" class="field-textarea" placeholder="What ADE means to you and why this is the moment."></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-availability" class="field-label">Can you travel to Amsterdam for ADE (October)?*</label>
+                <input type="text" id="reg-availability" name="availability" class="field-input" required placeholder="Yes / Maybe — anything we should know about availability">
+              </div>
+            </div>
+
+            <div class="form-consent">
+              <label class="checkbox-row">
+                <input type="checkbox" name="info-accurate" required>
+                <span>I confirm the information above is accurate and the SoundCloud link is mine.</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="contact-consent" required>
+                <span>I agree that Decks & Stories may contact me about playing at ADE.</span>
+              </label>
+
+              <!-- NEWSLETTER OPT-IN (optional) -->
+              <!-- <label class="checkbox-row">
+                <input type="checkbox" name="newsletter_optin" value="yes">
+                <span>Send me new episodes & updates by email (optional).</span>
+              </label> -->
+            </div>
+
+            <button type="submit" class="formSubmit">Send Registration</button>
+
+            <p class="form-footnote">
+              We try to respond to every DJ — if we feel you fit the movement, we'll reach out personally.
+            </p>
+          </div>
+        </form>
+
+      </div>
     </div>
-  </div>
-</section>
+  </section>
 
+  <!-- LOOKING AHEAD -->
+  <section id="future-labels" class="main fade-in">
+    <div class="submit-section">
+      <h2>Looking ahead</h2>
+      <p>
+        Decks &amp; Stories is built on collaboration, not competition. Playing at ADE
+        is just the start — the people we meet today can grow into mixes, releases and
+        nights across new cities and communities.
+      </p>
 
-  <!-- Shared JS (smooth scroll etc.) -->
+      <p><strong>You mean more than you imagine.</strong></p>
+    </div>
+  </section>
+
   <script src="/script.js"></script>
 </body>
 </html>
