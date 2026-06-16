@@ -70,6 +70,24 @@
 
   <link rel="stylesheet" href="/styles.css" />
   <link rel="stylesheet" href="/submit.css" />
+
+  <!-- Registration page tweaks -->
+  <style>
+    /* Inline ADE logo replacing the word "ADE" in headings */
+    .ade-logo-inline{
+      display:inline-block;
+      height:0.92em;
+      width:auto;
+      vertical-align:-0.12em;
+      margin:0 .1em;
+    }
+
+    /* How It Works removed -> pull the registration block up */
+    #registration{ padding-top:1.5rem; }
+    @media (max-width:640px){
+      #registration{ padding-top:1.1rem; }
+    }
+  </style>
 </head>
 
 <body class="is-preload submit-page registration-page">
@@ -89,7 +107,7 @@
         >
       </picture>
 
-      <h1 class="submit-title">Want to play at ADE?</h1>
+      <h1 class="submit-title">Join us at <img src="/assets/adeLogo.webp" alt="ADE" class="ade-logo-inline" decoding="async"></h1>
       <p class="submit-subtitle">
         We're looking for DJs to play with us at <strong>Amsterdam Dance Event</strong>.<br>
         Send us your sound, your story — and let's make it happen.
@@ -107,44 +125,11 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
-  <section id="how-it-works" class="main fade-in alt">
-    <div class="submit-section">
-      <h2>How It Works</h2>
-
-      <div class="submit-steps">
-        <div class="submit-step-card">
-          <span class="step-number">01</span>
-          <h3>Register</h3>
-          <p>
-            Fill in a <strong>short form</strong> — your DJ name, experience and a <strong>SoundCloud link</strong> so we can hear you.
-          </p>
-        </div>
-
-        <div class="submit-step-card">
-          <span class="step-number">02</span>
-          <h3>We listen</h3>
-          <p>
-            We go through every DJ — focusing on <strong>sound</strong>, <strong>energy</strong> and the story behind it.
-          </p>
-        </div>
-
-        <div class="submit-step-card">
-          <span class="step-number">03</span>
-          <h3>We connect</h3>
-          <p>
-            If you're a fit, we reach out personally about <strong>playing at ADE</strong> with the Decks&Stories community.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- REGISTRATION FORM -->
   <section id="registration" class="main fade-up">
     <div class="inner boxed submit-section">
       <header class="major">
-        <h2>DJ Registration — ADE</h2>
+        <h2>DJ Registration</h2>
         <p>
           Want to play at <strong>Amsterdam Dance Event</strong>?<br>
           Tell us who you are and let us hear your sound.
@@ -163,7 +148,7 @@
           <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you">
 
           <div class="form-card">
-            <h2 id="ade-submit">Play at ADE — Registration</h2>
+            <h2 id="ade-submit">Registration</h2>
 
             <p class="form-intro">
               We're looking for DJs to play with us at <strong>ADE</strong>.<br>
@@ -212,8 +197,8 @@
               </div>
 
               <div class="field-group field-full">
-                <label for="reg-soundcloud" class="field-label">SoundCloud link*</label>
-                <input type="url" id="reg-soundcloud" name="soundcloud" class="field-input" required placeholder="https://soundcloud.com/your-profile">
+                <label for="reg-soundcloud" class="field-label">Link to your mix*</label>
+                <input type="url" id="reg-soundcloud" name="soundcloud" class="field-input" required placeholder="https://soundcloud.com/your-mix">
               </div>
 
               <div class="field-group field-full">
@@ -227,7 +212,7 @@
               </div>
 
               <div class="field-group field-full">
-                <label for="reg-availability" class="field-label">Can you travel to Amsterdam for ADE (October)?*</label>
+                <label for="reg-availability" class="field-label">Can you travel to Amsterdam for ADE (2026.10.21 - 2026.10.25)?*</label>
                 <input type="text" id="reg-availability" name="availability" class="field-input" required placeholder="Yes / Maybe — anything we should know about availability">
               </div>
             </div>
@@ -243,10 +228,10 @@
               </label>
 
               <!-- NEWSLETTER OPT-IN (optional) -->
-              <!-- <label class="checkbox-row">
+              <label class="checkbox-row">
                 <input type="checkbox" name="newsletter_optin" value="yes">
                 <span>Send me new episodes & updates by email (optional).</span>
-              </label> -->
+              </label>
             </div>
 
             <button type="submit" class="formSubmit">Send Registration</button>
