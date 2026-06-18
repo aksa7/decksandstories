@@ -7,14 +7,14 @@
   <!-- Primary SEO -->
   <title>Play at ADE — DJ Registration | Decks&Stories</title>
   <meta name="description" content="We're looking for DJs to play at Amsterdam Dance Event (ADE). Register with Decks&Stories — send your DJ name, experience and SoundCloud, and tell us your story." />
-  <link rel="canonical" href="https://decksandstories.com/registration/" />
+  <link rel="canonical" href="https://decksandstories.com/ade2026/" />
 
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Decks&Stories" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://decksandstories.com/registration/" />
+  <meta property="og:url" content="https://decksandstories.com/ade2026>
   <meta property="og:title" content="Play at ADE — DJ Registration | Decks&Stories" />
   <meta property="og:description" content="We're looking for DJs to play at Amsterdam Dance Event. Register with Decks&Stories and tell us your sound and your story." />
   <meta property="og:image" content="https://decksandstories.com/assets/submit-og-image.webp" />
@@ -106,8 +106,8 @@
           decoding="async"
         >
       </picture>
-
-      <h1 class="submit-title">Join us at <img src="/assets/adeLogo.webp" alt="ADE" class="ade-logo-inline" decoding="async"></h1>
+<!-- <img src="/assets/adeLogo.webp" alt="ADE" class="ade-logo-inline" decoding="async"> -->
+      <h1 class="submit-title">Join us at Amsterdam Dance Event</h1>
       <p class="submit-subtitle">
         We're looking for DJs to play with us at <strong>Amsterdam Dance Event</strong>.<br>
         Send us your sound, your story — and let's make it happen.
@@ -131,7 +131,6 @@
       <header class="major">
         <h2>DJ Registration</h2>
         <p>
-          Want to play at <strong>Amsterdam Dance Event</strong>?<br>
           Tell us who you are and let us hear your sound.
         </p>
       </header>
@@ -151,7 +150,7 @@
             <h2 id="ade-submit">Registration</h2>
 
             <p class="form-intro">
-              We're looking for DJs to play with us at <strong>ADE</strong>.<br>
+              We're looking for DJs to play with us at <strong>Amsterdam Dance Event</strong>.<br>
               Keep it simple and honest — the more we feel <em>you</em>, the better.
             </p>
 
