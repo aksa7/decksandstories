@@ -1,1 +1,61 @@
-/* Design tokens (crimson-matte) — filled in F2. */
+/* ============================================================
+   Design tokens — CRIMSON MATTE (v2.1, locked)
+   Cinematic, deep, matte — not neon. Red burns pointwise.
+   ============================================================ */
+:root {
+  /* --- Surfaces --- */
+  --bg-0: #060404;          /* deepest, near-black with a red undertone */
+  --bg-1: #0c0607;          /* section background */
+  --bg-2: #140a0c;          /* raised card surface */
+
+  /* --- Ink --- */
+  --ink: #ece8e8;           /* warm white (not pure #fff — matte) */
+  --ink-soft: rgba(236, 232, 232, 0.55);
+  --ink-faint: rgba(236, 232, 232, 0.34);
+
+  /* --- Brand red --- */
+  --red: #b3121b;           /* deep crimson (brand core) */
+  --red-deep: #7a0c12;      /* darker, background red */
+  --crimson-hi: #d42630;    /* accent — use SPARINGLY (CTA, active) */
+
+  /* --- Lines & effects --- */
+  --line: rgba(255, 255, 255, 0.07);
+  --line-red: rgba(179, 18, 27, 0.35);
+  --vignette: radial-gradient(120% 90% at 50% 0%, transparent 40%, rgba(0, 0, 0, 0.65) 100%);
+  --red-radial: radial-gradient(80% 60% at 50% -10%, rgba(122, 12, 18, 0.35) 0%, transparent 60%);
+
+  /* --- Radii --- */
+  --radius: 14px;
+  --radius-sm: 8px;
+  --radius-pill: 999px;
+
+  /* --- Type --- */
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+
+  /* fluid type scale (clamp: min, preferred, max) */
+  --fs-hero: clamp(2.4rem, 6vw, 5rem);
+  --fs-h2: clamp(1.7rem, 3.5vw, 2.9rem);
+  --fs-h3: clamp(1.1rem, 1.6vw, 1.35rem);
+  --fs-lead: clamp(1.05rem, 1.6vw, 1.25rem);
+  --fs-body: 1rem;
+  --fs-small: 0.85rem;
+
+  --lh-tight: 1.05;
+  --lh-snug: 1.25;
+  --lh-body: 1.6;
+  --tracking-tight: -0.02em;
+  --tracking-wide: 0.14em;
+
+  /* --- Layout --- */
+  --maxw: 1200px;
+  --gutter: clamp(1.1rem, 4vw, 2.5rem);
+  --section-y: clamp(4rem, 10vw, 8rem);
+
+  /* --- Motion --- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.5s;
+  --z-bar: 60;
+  --z-nav: 50;
+  --z-toast: 70;
+}

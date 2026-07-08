@@ -1,0 +1,82 @@
+/* ---------- Hero ---------- */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-block: clamp(3rem, 8vh, 6rem);
+}
+.hero-logo {
+  width: min(78vw, 620px);
+  height: auto;
+  margin-inline: auto;
+  margin-bottom: clamp(1rem, 3vw, 2rem);
+}
+.hero h1 {
+  font-size: var(--fs-hero);
+  max-width: 16ch;
+  margin-inline: auto;
+}
+.hero-subcopy {
+  margin: 1.4rem auto 0;
+  max-width: 52ch;
+  font-size: var(--fs-lead);
+}
+
+/* Primary nav under hero */
+#hero-nav {
+  margin-top: clamp(2rem, 5vw, 3.2rem);
+}
+#hero-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.4rem 0.6rem;
+}
+#hero-nav a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  transition: color var(--dur) var(--ease-out), border-color var(--dur) var(--ease-out), background-color var(--dur) var(--ease-out);
+}
+#hero-nav a:hover {
+  color: var(--ink);
+  border-color: var(--line-red);
+  background: rgba(179, 18, 27, 0.08);
+}
+
+/* ADE collab note */
+.ade-note {
+  margin-top: 1.6rem;
+  font-size: var(--fs-small);
+  color: var(--ink-faint);
+}
+.ade-note a {
+  border-bottom: 1px solid var(--line-red);
+  padding-bottom: 2px;
+  transition: color var(--dur) var(--ease-out);
+}
+.ade-note a:hover {
+  color: var(--crimson-hi);
+}
+
+/* ---------- About ---------- */
+.about {
+  max-width: 68ch;
+}
+.about p {
+  margin-top: 1rem;
+  font-size: var(--fs-lead);
+}
+
+/* view-more button row */
+.view-more {
+  margin-top: clamp(2rem, 4vw, 3rem);
+  text-align: center;
+}

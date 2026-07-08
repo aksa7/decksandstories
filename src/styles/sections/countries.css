@@ -1,0 +1,58 @@
+/* ---------- Trust strip ---------- */
+.trust-title {
+  font-size: var(--fs-small);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  text-align: center;
+  margin-bottom: 1.4rem;
+}
+.trust-logos {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1.4rem, 4vw, 3rem);
+}
+.trust-logo img {
+  height: clamp(28px, 4vw, 44px);
+  width: auto;
+  opacity: 0.7;
+  filter: grayscale(1);
+  transition: opacity var(--dur) var(--ease-out), filter var(--dur) var(--ease-out);
+}
+.trust-logo:hover img {
+  opacity: 1;
+  filter: grayscale(0);
+}
+
+/* ---------- Countries ---------- */
+.countries-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.5rem;
+}
+.country-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  background: var(--bg-1);
+}
+.country-pill .flag {
+  font-size: 1rem;
+  line-height: 1;
+}
+.countries-footnote {
+  margin-top: 1.6rem;
+  font-size: var(--fs-lead);
+  color: var(--ink-soft);
+}
+.countries-footnote strong {
+  color: var(--crimson-hi);
+}
