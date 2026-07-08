@@ -3,50 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Thank You – Decks & Stories</title>
+  <title>Thank You — Decks&Stories</title>
+  <meta name="description" content="Thank you for sending your music to Decks&Stories. We listen to every submission and will get back to you if it's a good fit." />
+  <meta name="robots" content="noindex, follow" />
 
-  <meta name="description" content="Thank you for sending your music to Decks & Stories. We listen to every submission and will get back to you if it's a good fit.">
+  <link rel="preload" href="/fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta name="theme-color" content="#060404" />
 
-  <!-- Favicons (tie patys kaip kituose puslapiuose) -->
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180x180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
-  <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64x64.png">
-  <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon-256x256.png">
-  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
-
-  <link rel="stylesheet" href="/styles.css" />
-  <link rel="stylesheet" href="/submit.css" />
+  <script type="module" src="/src/thank-you.js"></script>
 </head>
-<body class="is-preload submit-page">
+<body class="submit-page">
+  <header id="thank-you" class="submit-hero submit-wrap">
+    <picture>
+      <source type="image/avif" srcset="/img/1920x1080DCKS_transparent-480.avif 480w, /img/1920x1080DCKS_transparent-800.avif 800w" sizes="(max-width: 700px) 60vw, 260px">
+      <source type="image/webp" srcset="/img/1920x1080DCKS_transparent-480.webp 480w, /img/1920x1080DCKS_transparent-800.webp 800w" sizes="(max-width: 700px) 60vw, 260px">
+      <img class="submit-logo" src="/img/1920x1080DCKS_transparent.webp" alt="Decks&Stories logo" width="260" height="146" loading="eager" fetchpriority="high" decoding="async">
+    </picture>
 
-  <section id="thank-you" class="main fullscreen fade-up submit-hero">
-    <div class="inner center thank-you-inner">
-      <picture>
-        <source srcset="/assets/1920x1080DCKS_transparent.webp" type="image/webp">
-        <img src="/assets/1920x1080DCKS_transparent.webp" alt="Decks and Stories Logo" class="logo submit-logo" width="480" height="270" loading="eager" fetchpriority="high" decoding="async">
-      </picture>
-      <h1 class="submit-title">Thank you for your submission.</h1>
-      <h1 class="submit-subtitle">Your music and story have reached us.</h1>
+    <h1 class="submit-title">Thank you for your submission.</h1>
+    <p class="submit-subtitle">Your music and story have reached us. We carefully listen to every mix, demo and event idea. If your submission feels like a natural part of the Decks&Stories journey, we will get in touch with you personally.</p>
+    <p class="submit-small-note"><strong>Keep creating, keep searching, keep sharing your sound with the world.</strong></p>
 
-      <p class="submit-subtitle">
-        We carefully listen to every mix, demo and event idea.
-        If your submission feels like a natural part of the Decks &amp; Stories journey,
-        we will get in touch with you personally.
-      </p>
-
-      <p class="submit-small-note">
-        In the meantime, keep creating, keep searching, keep sharing your sound with the world.
-      </p>
-
-      <div class="submit-cta-row" style="margin-top: 1.5rem;">
-        <a href="/submit/" class="submit-cta active">Send another submission</a>
-        <a href="/index.html" class="submit-cta">Back to homepage</a>
-      </div>
+    <div class="submit-cta-row">
+      <a href="/submit/" class="submit-cta active">Send another submission</a>
+      <a href="/" class="submit-cta">Back to homepage</a>
     </div>
-  </section>
-
-  <script src="/script.js"></script>
+  </header>
 </body>
 </html>

@@ -73,37 +73,76 @@ export function createVinyl(canvas, { logoSrc } = {}) {
     if (!running) drawScene();
   }
 
-  // Paint the static disc + grooves + rim into the offscreen canvas once.
+  // Paint the static disc + grooves + rim + glossy reflection into the offscreen
+  // canvas once (cached — free per frame). This is where most of the realism lives.
   function buildBase() {
-    baseCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    baseCtx.clearRect(0, 0, size, size);
-    baseCtx.save();
-    baseCtx.translate(c, c);
+    const g = baseCtx;
+    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+    g.clearRect(0, 0, size, size);
+    g.save();
+    g.translate(c, c);
 
-    const disc = baseCtx.createRadialGradient(0, 0, R * 0.08, 0, 0, R);
-    disc.addColorStop(0, "#151013");
-    disc.addColorStop(0.55, "#0a0708");
-    disc.addColorStop(1, "#050303");
-    baseCtx.beginPath();
-    baseCtx.arc(0, 0, R, 0, TAU);
-    baseCtx.fillStyle = disc;
-    baseCtx.fill();
+    // Deep, slightly cool vinyl body with a soft warm core.
+    const disc = g.createRadialGradient(0, 0, R * 0.06, 0, 0, R);
+    disc.addColorStop(0, "#17121a");
+    disc.addColorStop(0.5, "#0b0809");
+    disc.addColorStop(0.88, "#060405");
+    disc.addColorStop(1, "#020202");
+    g.beginPath();
+    g.arc(0, 0, R, 0, TAU);
+    g.fillStyle = disc;
+    g.fill();
 
-    for (let i = 0; i < grooveCount; i++) {
-      const r = lerp(R * 0.34, R * 0.985, i / grooveCount);
-      baseCtx.beginPath();
-      baseCtx.arc(0, 0, r, 0, TAU);
-      baseCtx.strokeStyle = i % 6 === 0 ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.028)";
-      baseCtx.lineWidth = 1;
-      baseCtx.stroke();
+    const ring = (r, color, w) => {
+      g.beginPath();
+      g.arc(0, 0, r, 0, TAU);
+      g.strokeStyle = color;
+      g.lineWidth = w;
+      g.stroke();
+    };
+
+    // Grooves grouped into "track bands" separated by brighter lead-in rings
+    // and small smooth gaps — like a real pressed record.
+    const inner = R * 0.335;
+    const outer = R * 0.985;
+    const pitch = Math.max(1.5, (outer - inner) / (small ? 40 : 92));
+    const bandEvery = small ? 6 : 9;
+    let i = 0;
+    for (let r = inner; r <= outer; i++) {
+      if (i % bandEvery === 0) {
+        ring(r, "rgba(255,255,255,0.11)", 1.3); // track separator (catches light)
+        r += pitch * 1.9; // smooth gap between tracks
+      } else {
+        const a = 0.022 + (i % 2) * 0.02;
+        ring(r, `rgba(226,224,230,${a})`, 1);
+        r += pitch;
+      }
     }
 
-    baseCtx.beginPath();
-    baseCtx.arc(0, 0, R, 0, TAU);
-    baseCtx.strokeStyle = "rgba(255,255,255,0.08)";
-    baseCtx.lineWidth = 1.5;
-    baseCtx.stroke();
-    baseCtx.restore();
+    // Outer rim + a bright bevel highlight on the top-left edge.
+    ring(R, "rgba(255,255,255,0.07)", 1.4);
+    g.beginPath();
+    g.arc(0, 0, R - 0.6, Math.PI * 1.05, Math.PI * 1.7);
+    g.strokeStyle = "rgba(255,255,255,0.22)";
+    g.lineWidth = 1.6;
+    g.stroke();
+
+    // Static glossy reflection from a top-left light — fixed to the viewer, so it
+    // belongs in the cached base (it does not rotate with the record).
+    g.save();
+    g.beginPath();
+    g.arc(0, 0, outer, 0, TAU);
+    g.clip();
+    const gloss = g.createRadialGradient(-R * 0.4, -R * 0.52, R * 0.04, -R * 0.25, -R * 0.32, R * 1.25);
+    gloss.addColorStop(0, "rgba(255,255,255,0.12)");
+    gloss.addColorStop(0.4, "rgba(255,255,255,0.035)");
+    gloss.addColorStop(1, "rgba(255,255,255,0)");
+    g.globalCompositeOperation = "screen";
+    g.fillStyle = gloss;
+    g.fillRect(-R, -R, R * 2, R * 2);
+    g.restore();
+
+    g.restore();
   }
 
   function buildGradients() {
@@ -112,13 +151,14 @@ export function createVinyl(canvas, { logoSrc } = {}) {
     labelGrad.addColorStop(0.7, "#b3121b");
     labelGrad.addColorStop(1, "#7a0c12");
     if (typeof ctx.createConicGradient === "function") {
+      // Two opposing specular glints that sweep as the record spins.
       sheenGrad = ctx.createConicGradient(0, 0, 0);
       sheenGrad.addColorStop(0.0, "rgba(255,255,255,0)");
-      sheenGrad.addColorStop(0.06, "rgba(255,255,255,0.5)");
-      sheenGrad.addColorStop(0.14, "rgba(255,255,255,0)");
+      sheenGrad.addColorStop(0.04, "rgba(255,255,255,0.65)");
+      sheenGrad.addColorStop(0.09, "rgba(255,255,255,0)");
       sheenGrad.addColorStop(0.5, "rgba(255,255,255,0)");
-      sheenGrad.addColorStop(0.56, "rgba(255,255,255,0.32)");
-      sheenGrad.addColorStop(0.64, "rgba(255,255,255,0)");
+      sheenGrad.addColorStop(0.54, "rgba(255,255,255,0.4)");
+      sheenGrad.addColorStop(0.59, "rgba(255,255,255,0)");
       sheenGrad.addColorStop(1, "rgba(255,255,255,0)");
     }
   }
@@ -137,12 +177,18 @@ export function createVinyl(canvas, { logoSrc } = {}) {
     drawLogo();
     ctx.restore();
 
-    // Spindle hole
+    // Spindle: a faint bearing ring around a small dark hole.
+    const hole = Math.max(2, R * 0.016);
     ctx.beginPath();
-    ctx.arc(0, 0, Math.max(2, R * 0.016), 0, TAU);
-    ctx.fillStyle = "#020202";
+    ctx.arc(0, 0, hole * 2.3, 0, TAU);
+    ctx.strokeStyle = "rgba(255,255,255,0.09)";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, hole, 0, TAU);
+    ctx.fillStyle = "#010101";
     ctx.fill();
-    ctx.strokeStyle = "rgba(255,255,255,0.12)";
+    ctx.strokeStyle = "rgba(255,255,255,0.16)";
     ctx.lineWidth = 1;
     ctx.stroke();
 
@@ -168,8 +214,19 @@ export function createVinyl(canvas, { logoSrc } = {}) {
     ctx.arc(0, 0, labelR, 0, TAU);
     ctx.fillStyle = labelGrad;
     ctx.fill();
-    ctx.strokeStyle = "rgba(0,0,0,0.45)";
+    // Paper-label depth: dark edge + a lighter inner ring + a fine inner circle.
+    ctx.strokeStyle = "rgba(0,0,0,0.5)";
     ctx.lineWidth = 1.5;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, labelR * 0.9, 0, TAU);
+    ctx.strokeStyle = "rgba(255,255,255,0.14)";
+    ctx.lineWidth = 1;
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(0, 0, labelR * 0.42, 0, TAU);
+    ctx.strokeStyle = "rgba(0,0,0,0.22)";
+    ctx.lineWidth = 1;
     ctx.stroke();
   }
 
