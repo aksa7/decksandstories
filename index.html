@@ -104,11 +104,14 @@
 <body>
   <!-- HERO -->
   <header id="intro" class="hero wrap">
-    <picture>
-      <source type="image/avif" srcset="/img/1920x1080DCKS_transparent-480.avif 480w, /img/1920x1080DCKS_transparent-800.avif 800w, /img/1920x1080DCKS_transparent-1200.avif 1200w" sizes="(max-width: 700px) 78vw, 620px">
-      <source type="image/webp" srcset="/img/1920x1080DCKS_transparent-480.webp 480w, /img/1920x1080DCKS_transparent-800.webp 800w, /img/1920x1080DCKS_transparent-1200.webp 1200w" sizes="(max-width: 700px) 78vw, 620px">
-      <img class="hero-logo" src="/img/1920x1080DCKS_transparent.webp" alt="Decks&Stories — global electronic music platform logo" width="620" height="349" loading="eager" fetchpriority="high" decoding="sync">
-    </picture>
+    <div class="vinyl-stage" aria-label="Decks&Stories vinyl">
+      <canvas class="vinyl-canvas" role="img" aria-label="Decks&Stories logo on a spinning vinyl record"></canvas>
+      <picture>
+        <source type="image/avif" srcset="/img/1920x1080DCKS_transparent-480.avif 480w, /img/1920x1080DCKS_transparent-800.avif 800w" sizes="(max-width: 700px) 40vw, 250px">
+        <source type="image/webp" srcset="/img/1920x1080DCKS_transparent-480.webp 480w, /img/1920x1080DCKS_transparent-800.webp 800w" sizes="(max-width: 700px) 40vw, 250px">
+        <img class="vinyl-fallback" src="/img/1920x1080DCKS_transparent.webp" alt="Decks&Stories — global electronic music platform logo" width="620" height="349" loading="eager" fetchpriority="high" decoding="sync">
+      </picture>
+    </div>
 
     <h1>International DJ mixes from around the world — where music reveals identity.</h1>
     <p class="hero-subcopy">A community-driven electronic music storytelling platform where every DJ mix comes with a story — built on collaboration, not competition.</p>
