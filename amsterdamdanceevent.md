@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Play at Amsterdam Dance Event — DJ Registration | Decks&Stories</title>
+  <meta name="description" content="We're looking for DJs to play at Amsterdam Dance Event. Register with Decks&Stories — send your DJ name, experience and SoundCloud, and tell us your story." />
+  <link rel="canonical" href="https://decksandstories.com/amsterdamdanceevent/" />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Decks&Stories" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://decksandstories.com/amsterdamdanceevent" />
+  <meta property="og:title" content="Play at Amsterdam Dance Event — DJ Registration | Decks&Stories" />
+  <meta property="og:description" content="We're looking for DJs to play at Amsterdam Dance Event. Register with Decks&Stories and tell us your sound and your story." />
+  <meta property="og:image" content="https://decksandstories.com/assets/submit-og-image.webp" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@decksandstories" />
+  <meta name="twitter:title" content="Play at Amsterdam Dance Event — DJ Registration | Decks&Stories" />
+  <meta name="twitter:description" content="We're looking for DJs to play at Amsterdam Dance Event. Register with Decks&Stories — send your sound and your story." />
+  <meta name="twitter:image" content="https://decksandstories.com/assets/submit-og-image.webp" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Amsterdam Dance Event DJ Registration — Decks&Stories",
+    "url": "https://decksandstories.com/registration/",
+    "inLanguage": "en",
+    "description": "Registration page for DJs who want to play at Amsterdam Dance Event with Decks&Stories.",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Decks&Stories",
+      "url": "https://decksandstories.com/"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Decks&Stories",
+    "url": "https://decksandstories.com/",
+    "logo": "https://decksandstories.com/assets/1920x1080DCKS.png",
+    "sameAs": [
+      "https://www.facebook.com/decksandstories",
+      "https://www.instagram.com/decksandstories/",
+      "https://www.youtube.com/@decksandstories"
+    ],
+    "description": "An independent global electronic music storytelling platform sharing international DJ mixes and the human stories behind each set."
+  }
+  </script>
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/assets/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="256x256" href="/assets/favicon-256x256.png">
+  <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="stylesheet" href="/submit.css" />
+</head>
+
+<body class="is-preload submit-page registration-page">
+
+  <!-- HERO -->
+  <section id="reg-hero" class="main fullscreen fade-up submit-hero">
+    <div class="inner center">
+      <picture>
+        <source srcset="/assets/1920x1080DCKS_transparent.webp" type="image/webp">
+        <img
+          src="/assets/1920x1080DCKS_transparent.webp"
+          alt="Decks&Stories logo — international DJ mixes and human stories"
+          class="logo submit-logo"
+          loading="eager"
+          fetchpriority="high"
+          decoding="async"
+        >
+      </picture>
+      <h1 class="submit-title">Join us at Amsterdam Dance Event</h1>
+      <p class="submit-subtitle">
+        We're looking for DJs to play with us at <strong>Amsterdam Dance Event</strong>.<br>
+        Send us your sound, your story - and let's make it happen.
+      </p>
+
+      <div class="submit-cta-row">
+        <a href="#registration" class="scrolly submit-cta active">
+          Register Now
+        </a>
+      </div>
+
+      <p class="submit-small-note">
+        <strong>Your story means the most.</strong>
+      </p>
+    </div>
+  </section>
+
+  <!-- REGISTRATION FORM -->
+  <section id="registration" class="main fade-up">
+    <div class="inner boxed submit-section">
+      <header class="major">
+        <h2>DJ Registration</h2>
+        <p>
+          Tell us who you are and let us hear your sound.
+        </p>
+      </header>
+
+      <div class="submit-forms">
+
+        <form
+          id="ade-form"
+          class="submit-form active"
+          action="https://formspree.io/f/mrevjprk"
+          method="POST"
+        >
+          <input type="hidden" name="form-type" value="ade-registration">
+          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank_you/">
+
+          <div class="form-card">
+
+            <div class="form-grid">
+              <div class="field-group">
+                <label for="reg-name" class="field-label">Name*</label>
+                <input type="text" id="reg-name" name="name" class="field-input" required placeholder="Your real name">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-djname" class="field-label">DJ name*</label>
+                <input type="text" id="reg-djname" name="dj-name" class="field-input" required placeholder="Your artist / DJ alias">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-age" class="field-label">Age*</label>
+                <input type="number" id="reg-age" name="age" class="field-input" required min="16" max="99" placeholder="e.g. 24">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-email" class="field-label">Email*</label>
+                <input type="email" id="reg-email" name="email" class="field-input" required>
+              </div>
+
+              <div class="field-group">
+                <label for="reg-location" class="field-label">City & country*</label>
+                <input type="text" id="reg-location" name="location" class="field-input" required placeholder="Kaunas, Lithuania">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-instagram" class="field-label">Instagram / Social</label>
+                <input type="text" id="reg-instagram" name="instagram" class="field-input" placeholder="@username or profile link">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-experience" class="field-label">Experience*</label>
+                <input type="text" id="reg-experience" name="experience" class="field-input" required placeholder="e.g. 3 years, clubs & festivals in LT">
+              </div>
+
+              <div class="field-group">
+                <label for="reg-genre" class="field-label">Genres / style</label>
+                <input type="text" id="reg-genre" name="genre" class="field-input" placeholder="Tech house, indie dance, house, disco...">
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-soundcloud" class="field-label">Link to your mix*</label>
+                <input type="url" id="reg-soundcloud" name="soundcloud" class="field-input" required placeholder="https://soundcloud.com/your-mix">
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-describe" class="field-label">How would you describe yourself as an artist?*</label>
+                <textarea id="reg-describe" name="describe" class="field-textarea" required placeholder="A few honest sentences about your sound, your vibe, what makes you you."></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-why" class="field-label">Why do you want to play at Amsterdam Dance Event?</label>
+                <textarea id="reg-why" name="why-ade" class="field-textarea" placeholder="What Amsterdam Dance Event means to you and why this is the moment."></textarea>
+              </div>
+
+              <div class="field-group field-full">
+                <label for="reg-availability" class="field-label">Can you travel to Amsterdam for Amsterdam Dance Event (2026.10.21 - 2026.10.25)?*</label>
+                <input type="text" id="reg-availability" name="availability" class="field-input" required placeholder="Yes / Maybe — anything we should know about availability">
+              </div>
+            </div>
+
+            <div class="form-consent">
+              <label class="checkbox-row">
+                <input type="checkbox" name="info-accurate" required>
+                <span>I confirm the information above is accurate and the SoundCloud link is mine.</span>
+              </label>
+              <label class="checkbox-row">
+                <input type="checkbox" name="contact-consent" required>
+                <span>I agree that Decks & Stories may contact me about playing at Amsterdam Dance Event.</span>
+              </label>
+
+              <!-- NEWSLETTER OPT-IN (optional) -->
+              <label class="checkbox-row">
+                <input type="checkbox" name="newsletter_optin" value="yes">
+                <span>Send me new episodes & updates by email (optional).</span>
+              </label>
+            </div>
+
+            <button type="submit" class="formSubmit">Send Registration</button>
+
+            <p class="form-footnote">
+              We try to respond to every DJ — if we feel you fit the movement, we'll reach out personally.
+            </p>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKING AHEAD -->
+  <section id="future-labels" class="main fade-in">
+    <div class="submit-section">
+      <h2>Looking ahead</h2>
+      <p>
+        Decks &amp; Stories is built on collaboration, not competition. Playing at Amsterdam Dance Event
+        is just the start — the people we meet today can grow into mixes, releases and
+        nights across new cities and communities.
+      </p>
+
+      <p><strong>You mean more than you imagine.</strong></p>
+    </div>
+  </section>
+
+  <script src="/script.js"></script>
+</body>
+</html>

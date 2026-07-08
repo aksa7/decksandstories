@@ -1,0 +1,21 @@
+{
+  "name": "decksandstories",
+  "version": "2.0.0",
+  "description": "decksandstories.com v2 — crimson-matte vinyl experience",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "images": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "animejs": "^4.0.2"
+  },
+  "devDependencies": {
+    "vite": "^6.0.0",
+    "sharp": "^0.33.5",
+    "glob": "^11.0.0"
+  }
+}
