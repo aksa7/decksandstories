@@ -37,8 +37,9 @@ function picture({ base, widths, alt, w, h, sizes = "100vw", eager = false, clas
 }
 
 // Simple single-image logo (tiny assets — no srcset needed).
-function logo(base, alt) {
-  return `<img src="${IMG}/${base}.webp" alt="${esc(alt)}" loading="lazy" decoding="async">`;
+function logo(base, alt, w, h) {
+  const dims = w && h ? ` width="${w}" height="${h}"` : "";
+  return `<img src="${IMG}/${base}.webp" alt="${esc(alt)}"${dims} loading="lazy" decoding="async">`;
 }
 
 const PLAY_ICON =
@@ -112,6 +113,8 @@ export function renderContent() {
           `<a class="trust-logo" href="${t.url}" target="_blank" rel="noopener" aria-label="${esc(t.alt)}">${logo(
             t.base,
             t.alt,
+            t.w,
+            t.h,
           )}</a>`,
       )
       .join(""),
@@ -149,6 +152,8 @@ export function renderContent() {
           `<a href="${s.url}" target="_blank" rel="noopener" aria-label="${esc(s.label)}">${logo(
             s.base,
             s.label,
+            s.w,
+            s.h,
           )}</a>`,
       )
       .join(""),

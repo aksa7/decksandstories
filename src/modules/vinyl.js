@@ -48,55 +48,88 @@ export function createVinyl(canvas, { logoSrc } = {}) {
     logo.src = logoSrc;
   }
 
+  // Offscreen cache of the static disc + grooves (the expensive part) and
+  // gradients built once per resize, so each frame only paints the cheap
+  // rotating overlay — keeps the loop off the main thread (low TBT).
+  const baseCanvas = document.createElement("canvas");
+  const baseCtx = baseCanvas.getContext("2d");
+  let labelGrad = null;
+  let sheenGrad = null;
+
   // --- Sizing ---
   function resize() {
     const rect = canvas.getBoundingClientRect();
     const css = Math.max(1, Math.min(rect.width, rect.height));
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     size = css;
-    canvas.width = Math.round(css * dpr);
-    canvas.height = Math.round(css * dpr);
+    canvas.width = baseCanvas.width = Math.round(css * dpr);
+    canvas.height = baseCanvas.height = Math.round(css * dpr);
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     c = css / 2;
     R = css / 2 - 2;
     labelR = R * 0.3;
+    buildBase();
+    buildGradients();
     if (!running) drawScene();
   }
 
-  // --- Drawing ---
-  function drawScene() {
-    ctx.clearRect(0, 0, size, size);
-    ctx.save();
-    ctx.translate(c, c);
+  // Paint the static disc + grooves + rim into the offscreen canvas once.
+  function buildBase() {
+    baseCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    baseCtx.clearRect(0, 0, size, size);
+    baseCtx.save();
+    baseCtx.translate(c, c);
 
-    // Base disc
-    const disc = ctx.createRadialGradient(0, 0, R * 0.08, 0, 0, R);
+    const disc = baseCtx.createRadialGradient(0, 0, R * 0.08, 0, 0, R);
     disc.addColorStop(0, "#151013");
     disc.addColorStop(0.55, "#0a0708");
     disc.addColorStop(1, "#050303");
-    ctx.beginPath();
-    ctx.arc(0, 0, R, 0, TAU);
-    ctx.fillStyle = disc;
-    ctx.fill();
+    baseCtx.beginPath();
+    baseCtx.arc(0, 0, R, 0, TAU);
+    baseCtx.fillStyle = disc;
+    baseCtx.fill();
 
-    // Grooves (rotationally symmetric — static)
     for (let i = 0; i < grooveCount; i++) {
       const r = lerp(R * 0.34, R * 0.985, i / grooveCount);
-      ctx.beginPath();
-      ctx.arc(0, 0, r, 0, TAU);
-      ctx.strokeStyle = i % 6 === 0 ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.028)";
-      ctx.lineWidth = 1;
-      ctx.stroke();
+      baseCtx.beginPath();
+      baseCtx.arc(0, 0, r, 0, TAU);
+      baseCtx.strokeStyle = i % 6 === 0 ? "rgba(255,255,255,0.06)" : "rgba(255,255,255,0.028)";
+      baseCtx.lineWidth = 1;
+      baseCtx.stroke();
     }
 
-    // Outer rim
-    ctx.beginPath();
-    ctx.arc(0, 0, R, 0, TAU);
-    ctx.strokeStyle = "rgba(255,255,255,0.08)";
-    ctx.lineWidth = 1.5;
-    ctx.stroke();
+    baseCtx.beginPath();
+    baseCtx.arc(0, 0, R, 0, TAU);
+    baseCtx.strokeStyle = "rgba(255,255,255,0.08)";
+    baseCtx.lineWidth = 1.5;
+    baseCtx.stroke();
+    baseCtx.restore();
+  }
 
-    // Rotating group: sheen + label + logo
+  function buildGradients() {
+    labelGrad = ctx.createRadialGradient(0, 0, labelR * 0.1, 0, 0, labelR);
+    labelGrad.addColorStop(0, "#d42630");
+    labelGrad.addColorStop(0.7, "#b3121b");
+    labelGrad.addColorStop(1, "#7a0c12");
+    if (typeof ctx.createConicGradient === "function") {
+      sheenGrad = ctx.createConicGradient(0, 0, 0);
+      sheenGrad.addColorStop(0.0, "rgba(255,255,255,0)");
+      sheenGrad.addColorStop(0.06, "rgba(255,255,255,0.5)");
+      sheenGrad.addColorStop(0.14, "rgba(255,255,255,0)");
+      sheenGrad.addColorStop(0.5, "rgba(255,255,255,0)");
+      sheenGrad.addColorStop(0.56, "rgba(255,255,255,0.32)");
+      sheenGrad.addColorStop(0.64, "rgba(255,255,255,0)");
+      sheenGrad.addColorStop(1, "rgba(255,255,255,0)");
+    }
+  }
+
+  // --- Drawing (per frame: blit cached base + cheap rotating overlay) ---
+  function drawScene() {
+    ctx.clearRect(0, 0, size, size);
+    ctx.drawImage(baseCanvas, 0, 0, size, size);
+    ctx.save();
+    ctx.translate(c, c);
+
     ctx.save();
     ctx.rotate(angle);
     drawSheen();
@@ -113,41 +146,27 @@ export function createVinyl(canvas, { logoSrc } = {}) {
     ctx.lineWidth = 1;
     ctx.stroke();
 
-    // Pulses (red waveform ripples out of the grooves)
     drawPulses();
-
     ctx.restore();
   }
 
   function drawSheen() {
-    if (typeof ctx.createConicGradient !== "function") return;
-    const sheen = ctx.createConicGradient(0, 0, 0);
-    sheen.addColorStop(0.0, "rgba(255,255,255,0)");
-    sheen.addColorStop(0.06, "rgba(255,255,255,0.5)");
-    sheen.addColorStop(0.14, "rgba(255,255,255,0)");
-    sheen.addColorStop(0.5, "rgba(255,255,255,0)");
-    sheen.addColorStop(0.56, "rgba(255,255,255,0.32)");
-    sheen.addColorStop(0.64, "rgba(255,255,255,0)");
-    sheen.addColorStop(1, "rgba(255,255,255,0)");
+    if (!sheenGrad) return;
     ctx.save();
     ctx.globalCompositeOperation = "screen";
     ctx.globalAlpha = 0.12;
     ctx.beginPath();
     ctx.arc(0, 0, R, 0, TAU);
     ctx.arc(0, 0, labelR, 0, TAU, true); // hole
-    ctx.fillStyle = sheen;
+    ctx.fillStyle = sheenGrad;
     ctx.fill();
     ctx.restore();
   }
 
   function drawLabel() {
-    const lab = ctx.createRadialGradient(0, 0, labelR * 0.1, 0, 0, labelR);
-    lab.addColorStop(0, "#d42630");
-    lab.addColorStop(0.7, "#b3121b");
-    lab.addColorStop(1, "#7a0c12");
     ctx.beginPath();
     ctx.arc(0, 0, labelR, 0, TAU);
-    ctx.fillStyle = lab;
+    ctx.fillStyle = labelGrad;
     ctx.fill();
     ctx.strokeStyle = "rgba(0,0,0,0.45)";
     ctx.lineWidth = 1.5;

@@ -1,0 +1,16 @@
+# Cloudflare Pages cache headers.
+# Vite emits content-hashed files in /assets → safe to cache forever.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Self-hosted font — stable filename, cache long.
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Optimized images — stable names; cache 30 days (rebuild if content changes).
+/img/*
+  Cache-Control: public, max-age=2592000
+
+# HTML is always revalidated so deploys go live immediately.
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate

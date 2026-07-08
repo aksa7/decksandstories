@@ -15,11 +15,11 @@ export const nav = [
 
 // Brands / partners shown in the "Who trusts us" strip.
 export const trustLogos = [
-  { base: "sun365logo", alt: "SUN365", url: "https://www.instagram.com/sun365juices/" },
-  { base: "cult_300x300", alt: "CULT", url: "https://www.instagram.com/cult_lt/" },
-  { base: "teileLogo", alt: "TEILE", url: "https://www.instagram.com/teile.life/" },
-  { base: "beskarLogo", alt: "beskar", url: "https://www.instagram.com/beskarbookings/" },
-  { base: "runemark", alt: "runemark", url: "https://www.instagram.com/runemarkmusic/" },
+  { base: "sun365logo", alt: "SUN365", url: "https://www.instagram.com/sun365juices/", w: 341, h: 376 },
+  { base: "cult_300x300", alt: "CULT", url: "https://www.instagram.com/cult_lt/", w: 300, h: 300 },
+  { base: "teileLogo", alt: "TEILE", url: "https://www.instagram.com/teile.life/", w: 480, h: 418 },
+  { base: "beskarLogo", alt: "beskar", url: "https://www.instagram.com/beskarbookings/", w: 1200, h: 400 },
+  { base: "runemark", alt: "runemark", url: "https://www.instagram.com/runemarkmusic/", w: 320, h: 320 },
 ];
 
 export const countriesStat = { featured: 26, total: 195 };
@@ -101,8 +101,8 @@ export const gallery = [
 ];
 
 export const socials = [
-  { base: "fbLogo_500x500", label: "Facebook", url: "https://www.facebook.com/profile.php?id=61575745327452" },
-  { base: "instagram_500x500", label: "Instagram", url: "https://www.instagram.com/decksandstories/" },
-  { base: "buymeacoffee_500x500", label: "Buy Me a Coffee", url: "https://buymeacoffee.com/decksandstories" },
-  { base: "youtube_500x500", label: "YouTube", url: "https://www.youtube.com/@decksandstories" },
+  { base: "fbLogo_500x500", label: "Facebook", url: "https://www.facebook.com/profile.php?id=61575745327452", w: 480, h: 480 },
+  { base: "instagram_500x500", label: "Instagram", url: "https://www.instagram.com/decksandstories/", w: 480, h: 480 },
+  { base: "buymeacoffee_500x500", label: "Buy Me a Coffee", url: "https://buymeacoffee.com/decksandstories", w: 480, h: 480 },
+  { base: "youtube_500x500", label: "YouTube", url: "https://www.youtube.com/@decksandstories", w: 480, h: 480 },
 ];
