@@ -12,18 +12,22 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  gap: clamp(1.4rem, 4vw, 3rem);
+  gap: clamp(2rem, 6vw, 5rem);
+}
+.trust-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 .trust-logo img {
-  height: clamp(28px, 4vw, 44px);
+  height: clamp(52px, 8vw, 86px);
   width: auto;
-  opacity: 0.7;
-  filter: grayscale(1);
-  transition: opacity var(--dur) var(--ease-out), filter var(--dur) var(--ease-out);
+  opacity: 0.92;
+  transition: opacity var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
 }
 .trust-logo:hover img {
   opacity: 1;
-  filter: grayscale(0);
+  transform: scale(1.08);
 }
 
 /* ---------- Countries ---------- */

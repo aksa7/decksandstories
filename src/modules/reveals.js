@@ -44,7 +44,7 @@ export function initCounters() {
       ([entry]) => {
         if (!entry.isIntersecting) return;
         io.disconnect();
-        countUp(el, to, 1300);
+        countUp(el, to, 3400);
       },
       { threshold: 1 },
     );
@@ -56,7 +56,8 @@ function countUp(el, to, dur) {
   const t0 = performance.now();
   function step(now) {
     const p = Math.min(1, (now - t0) / dur);
-    const eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
+    // easeInOutCubic — deliberate, dramatic count
+    const eased = p < 0.5 ? 4 * p * p * p : 1 - Math.pow(-2 * p + 2, 3) / 2;
     el.textContent = String(Math.round(eased * to));
     if (p < 1) requestAnimationFrame(step);
   }

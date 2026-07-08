@@ -56,8 +56,13 @@
   overflow: hidden;
   background: #000;
 }
+/* Pick-a-Question posters: crop to the "pick a question with" band —
+   hide the template name at the bottom and the cut logo at the top. */
 .card[data-url*="instagram"] .card-thumb {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 3 / 2;
+}
+.card[data-url*="instagram"] .card-thumb img {
+  object-position: center 47%;
 }
 .card-thumb img,
 .card-thumb picture {

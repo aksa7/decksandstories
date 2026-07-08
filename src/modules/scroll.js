@@ -20,12 +20,13 @@ export async function initScrollExperience(vinyl) {
   document.querySelectorAll(".section").forEach((section) => {
     const items = section.querySelectorAll("[data-reveal]");
     if (!items.length) return;
-    utils.set(items, { opacity: 0, translateY: 46 });
+    utils.set(items, { opacity: 0, translateY: 48, scale: 0.965 });
     animate(items, {
       opacity: [0, 1],
-      translateY: [46, 0],
-      duration: 620,
-      delay: stagger(90),
+      translateY: [48, 0],
+      scale: [0.965, 1],
+      duration: 640,
+      delay: stagger(95),
       ease: "outCubic",
       autoplay: onScroll({
         target: section,
@@ -71,22 +72,6 @@ export async function initScrollExperience(vinyl) {
     { threshold: 0.25 },
   );
   document.querySelectorAll(".section").forEach((s) => pulseIO.observe(s));
-
-  // --- 4) Tonearm lowers onto the record past the hero ---
-  const arm = document.querySelector(".tonearm");
-  const hero = document.querySelector(".hero");
-  if (arm && hero) {
-    animate(arm, {
-      rotate: [-32, 4],
-      ease: "inOutSine",
-      autoplay: onScroll({
-        target: hero,
-        enter: { target: "top", container: "top" },
-        leave: { target: "bottom", container: "top" },
-        sync: true,
-      }),
-    });
-  }
 
   return {
     destroy() {
