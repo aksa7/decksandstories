@@ -41,16 +41,19 @@ function logo(base, alt) {
   return `<img src="${IMG}/${base}.webp" alt="${esc(alt)}" loading="lazy" decoding="async">`;
 }
 
+const PLAY_ICON =
+  '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>';
+
 function mediaCard({ title, number, ytId, text }, kind) {
   const url = `https://www.youtube.com/watch?v=${ytId}`;
-  // NOTE: i.ytimg thumbnail is a temporary source — F6 replaces it with a local
-  // optimized facade thumb so the page makes zero YouTube requests on load.
-  const thumb = `https://i.ytimg.com/vi/${ytId}/hqdefault.jpg`;
   const badge = kind === "episode" ? `Episode #${number}` : `Studio Session #${number}`;
   const cta = kind === "episode" ? "Watch Episode" : "Watch Session";
-  return `<article class="card" data-url="${url}">
+  // YouTube FACADE: local optimized thumbnail + play button. The iframe is only
+  // inserted on click (see ytFacade.js) — zero YouTube requests until then.
+  return `<article class="card" data-yt="${ytId}">
       <div class="card-thumb">
-        <img src="${thumb}" alt="${esc(`${badge} — ${title}`)}" width="480" height="360" loading="lazy" decoding="async">
+        ${picture({ base: `yt-${ytId}`, widths: [480, 800], alt: `${badge} — ${title}`, w: 800, h: 450, sizes: "(max-width: 700px) 100vw, 33vw" })}
+        <button class="card-play" type="button" aria-label="Play ${esc(title)}">${PLAY_ICON}</button>
       </div>
       <div class="card-body">
         <div class="card-head">
