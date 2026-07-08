@@ -79,8 +79,8 @@ function pickCard({ title, base, url, text }) {
     </article>`;
 }
 
-function galleryItem({ base, widths, alt, w, h }) {
-  return `<a class="gallery-item" href="${IMG}/${base}.webp" aria-label="${esc(alt)}">
+function galleryItem({ base, widths, alt, w, h }, i) {
+  return `<a class="gallery-item" href="${IMG}/${base}.webp" data-gallery-index="${i}" aria-label="View: ${esc(alt)}">
       ${picture({ base, widths, alt, w, h, sizes: "(max-width: 700px) 50vw, 25vw" })}
     </a>`;
 }

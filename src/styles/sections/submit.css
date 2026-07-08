@@ -1,0 +1,317 @@
+/* ============================================================
+   submit.css — v2 crimson-matte styling for the submit page forms.
+   Reuses tokens.css + base.css; self-contained (no cards.css dependency).
+   ============================================================ */
+
+.submit-wrap {
+  width: min(100% - 2 * var(--gutter), 920px);
+  margin-inline: auto;
+}
+
+/* ---------- Hero ---------- */
+.submit-hero {
+  min-height: 72svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-block: clamp(3rem, 8vh, 6rem);
+  position: relative;
+  z-index: 2;
+}
+.submit-logo {
+  width: min(60vw, 260px);
+  height: auto;
+  margin: 0 auto clamp(1rem, 3vw, 1.8rem);
+}
+.submit-title {
+  font-size: var(--fs-hero);
+  max-width: 16ch;
+  margin-inline: auto;
+}
+.submit-subtitle {
+  margin: 1.3rem auto 0;
+  max-width: 52ch;
+  font-size: var(--fs-lead);
+}
+.submit-small-note {
+  margin-top: 1.4rem;
+  color: var(--crimson-hi);
+}
+
+/* ---------- Buttons (hero CTAs + submit) ---------- */
+.submit-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: clamp(1.6rem, 4vw, 2.4rem);
+}
+.submit-cta,
+.submit-tab {
+  display: inline-block;
+  padding: 0.65rem 1.3rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  background: transparent;
+  cursor: pointer;
+  transition: color 0.4s var(--ease-out), border-color 0.4s var(--ease-out), background 0.4s var(--ease-out);
+}
+.submit-cta:hover,
+.submit-tab:hover {
+  color: var(--ink);
+  border-color: var(--line-red);
+}
+.submit-cta.active,
+.submit-tab.active {
+  color: var(--ink);
+  border-color: var(--crimson-hi);
+  background: linear-gradient(180deg, rgba(179, 18, 27, 0.28), rgba(122, 12, 18, 0.14));
+}
+
+/* ---------- Sections ---------- */
+.submit-section {
+  position: relative;
+  z-index: 2;
+  padding-block: var(--section-y);
+}
+.submit-section > h2,
+.submit-section .major {
+  max-width: 62ch;
+  margin-bottom: clamp(1.6rem, 4vw, 2.6rem);
+}
+.submit-section .major p {
+  margin-top: 0.9rem;
+  font-size: var(--fs-lead);
+}
+.band-alt {
+  background: var(--bg-1);
+  border-block: 1px solid var(--line);
+}
+
+/* ---------- How it works ---------- */
+.submit-steps {
+  display: grid;
+  gap: clamp(1rem, 2.5vw, 1.6rem);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.submit-step-card {
+  padding: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-2);
+}
+.submit-step-card .step-number {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--crimson-hi);
+  font-weight: 700;
+}
+.submit-step-card h3 {
+  margin: 0.5rem 0 0.6rem;
+}
+
+/* ---------- Tabs + forms ---------- */
+.submit-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.6rem;
+}
+.submit-form {
+  display: none;
+}
+.submit-form.active {
+  display: block;
+}
+.form-card {
+  padding: clamp(1.3rem, 3vw, 2.2rem);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-1);
+}
+.form-card > h2 {
+  margin-bottom: 1rem;
+}
+.form-intro {
+  margin-bottom: 1rem;
+}
+.guidelines-link,
+.photo-example-link,
+.story-example-link {
+  color: var(--crimson-hi);
+  border-bottom: 1px solid var(--line-red);
+}
+
+/* ---------- Fields ---------- */
+.form-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.field-full {
+  grid-column: 1 / -1;
+}
+.field-label {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+.field-label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.field-input,
+.field-textarea,
+.story-answer,
+.quiz-answer {
+  width: 100%;
+  padding: 0.7rem 0.85rem;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  color: var(--ink);
+  transition: border-color 0.3s var(--ease-out);
+}
+.field-input::placeholder,
+.field-textarea::placeholder,
+.story-answer::placeholder,
+.quiz-answer::placeholder {
+  color: var(--ink-faint);
+}
+.field-input:focus,
+.field-textarea:focus,
+.story-answer:focus,
+.quiz-answer:focus {
+  outline: none;
+  border-color: var(--line-red);
+}
+.field-textarea,
+.story-answer {
+  resize: vertical;
+  min-height: 90px;
+}
+
+/* Story / quiz rows */
+.story-block,
+.quiz-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  margin-top: 0.4rem;
+}
+.story-row,
+.quiz-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.story-question,
+.quiz-question {
+  font-size: var(--fs-small);
+  color: var(--ink);
+}
+.story-sep,
+.quiz-sep {
+  display: none;
+}
+
+/* Consent checkboxes */
+.form-consent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin: 1.4rem 0;
+}
+.checkbox-row {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+.checkbox-row input {
+  margin-top: 0.2rem;
+  accent-color: var(--red);
+  flex-shrink: 0;
+}
+
+/* Submit button + footnote */
+.formSubmit {
+  padding: 0.8rem 1.7rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  color: var(--ink);
+  cursor: pointer;
+  background: linear-gradient(180deg, var(--red), var(--red-deep));
+  transition: background 0.35s var(--ease-out);
+}
+.formSubmit:hover {
+  background: linear-gradient(180deg, var(--crimson-hi), var(--red));
+}
+.form-footnote {
+  margin-top: 1rem;
+  font-size: var(--fs-small);
+  color: var(--ink-faint);
+}
+
+@media (max-width: 620px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------- Example modals (CSS :target) ---------- */
+.story-modal {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-toast);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(1rem, 4vw, 3rem);
+}
+.story-modal:target {
+  display: flex;
+}
+.story-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 2, 2, 0.9);
+  backdrop-filter: blur(6px);
+}
+.story-modal-content {
+  position: relative;
+  z-index: 1;
+  max-width: min(92vw, 900px);
+}
+.story-modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 82vh;
+  object-fit: contain;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+}
+.story-modal-close {
+  position: absolute;
+  top: -1.2rem;
+  right: -0.4rem;
+  font-size: 2rem;
+  color: var(--ink);
+}

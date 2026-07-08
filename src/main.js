@@ -14,10 +14,12 @@ import { initInteractions } from "./modules/interactions.js";
 import { createVinyl } from "./modules/vinyl.js";
 import { tagReveals } from "./modules/reveals.js";
 import { initYtFacade } from "./modules/ytFacade.js";
+import { initGallery } from "./modules/gallery.js";
 
 renderContent();
 initInteractions();
 initYtFacade();
+initGallery();
 
 // Tag reveal targets synchronously so their hidden initial state applies
 // before first paint (no flash-of-content), before the tier driver loads.
