@@ -22,7 +22,7 @@ export const trustLogos = [
   { base: "runemark", alt: "runemark", url: "https://www.instagram.com/runemarkmusic/", w: 320, h: 320 },
 ];
 
-export const countriesStat = { featured: 26, total: 195 };
+export const countriesStat = { featured: 28, total: 195 };
 
 export const countries = [
   { name: "Lithuania", flag: "🇱🇹", iso2: "LT" },
@@ -51,6 +51,8 @@ export const countries = [
   { name: "Georgia", flag: "🇬🇪", iso2: "GE" },
   { name: "Belgium", flag: "🇧🇪", iso2: "BE" },
   { name: "Taiwan", flag: "🇹🇼", iso2: "TW" },
+  { name: "South Africa", flag: "🇿🇦", iso2: "ZA" },
+  { name: "Tunisia", flag: "🇹🇳", iso2: "TN" },
 ];
 
 // Episodes: full DJ-mix episodes. thumb = YouTube thumbnail (swapped to a
