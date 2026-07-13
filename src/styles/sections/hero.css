@@ -1,0 +1,18 @@
+/* ---------- Hero logo (replaces vinyl centerpiece) ---------- */
+.hero-logo-wrap {
+  width: min(76vw, 400px);
+  margin: 0 auto;
+  flex-shrink: 0;
+  transform: translateY(clamp(-0.75rem, -2vh, -1.25rem));
+}
+@media (max-width: 700px) {
+  .hero-logo-wrap {
+    width: min(80vw, 340px);
+  }
+}
+.hero-logo-wrap picture,
+.hero-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}

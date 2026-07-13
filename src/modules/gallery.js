@@ -54,9 +54,10 @@ function build() {
 
 function render() {
   const item = gallery[idx];
+  const fallbackW = item.widths[item.widths.length - 1];
   overlay.querySelector(".lb-avif").srcset = srcset(item.base, item.widths, "avif");
   overlay.querySelector(".lb-webp").srcset = srcset(item.base, item.widths, "webp");
-  imgEl.src = `${IMG}/${item.base}.webp`;
+  imgEl.src = `${IMG}/${item.base}-${fallbackW}.webp`;
   imgEl.alt = item.alt;
   imgEl.width = item.w;
   imgEl.height = item.h;

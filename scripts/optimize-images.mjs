@@ -22,7 +22,7 @@ const SKIP = /(^|\/)(favicon|apple-touch-icon|web-app-manifest)/i;
 const SKIP_EXT = /\.(svg|ico|pdf)$/i;
 
 // LCP / hero images get a tighter budget.
-const HERO = new Set(['1920x1080DCKS_transparent', '1920x1080DCKS', 'herovisual']);
+const HERO = new Set(['1920x1080DCKS_transparent', 'herovisual']);
 const CAP_HERO = 150 * 1024;
 const CAP_DEFAULT = 250 * 1024;
 

@@ -16,7 +16,7 @@ export const nav = [
 // Brands / partners shown in the "Who trusts us" strip.
 export const trustLogos = [
   { base: "sun365logo", alt: "SUN365", url: "https://www.instagram.com/sun365juices/", w: 341, h: 376 },
-  { base: "cult_300x300", alt: "CULT", url: "https://www.instagram.com/cult_lt/", w: 300, h: 300 },
+  { base: "proeventsLogo", alt: "proevents", url: "https://proevents.lt/", w: 493, h: 81 },
   { base: "teileLogo", alt: "TEILE", url: "https://www.instagram.com/teile.life/", w: 480, h: 418 },
   { base: "beskarLogo", alt: "beskar", url: "https://www.instagram.com/beskarbookings/", w: 1200, h: 400 },
   { base: "runemark", alt: "runemark", url: "https://www.instagram.com/runemarkmusic/", w: 320, h: 320 },
@@ -56,22 +56,22 @@ export const countries = [
 // Episodes: full DJ-mix episodes. thumb = YouTube thumbnail (swapped to a
 // local optimized facade thumb in F6).
 export const episodes = [
-  { title: "MATERIUM", number: 68, ytId: "pYmWIkTUFa0", text: "Materium is the union of Eli Dante and Franz Naya, a couple whose shared passion for electronic music evolved into a creative partnership." },
-  { title: "ANTO909", number: 67, ytId: "JLx1DEkDBFc", text: "What started as a childhood passion eventually evolved into DJing and music production, giving him an outlet to share his perspective through rhythm and groove." },
-  { title: "SEBASTIAN BLANCO", number: 66, ytId: "gVrqrsQn73I", text: "He doesn’t try to tell people what to feel. He simply plays what feels right in the moment and lets everything unfold naturally." },
-  { title: "JuanPE", number: 65, ytId: "1mhmr6pW93c", text: "Moving between deep grooves, hypnotic atmospheres, and perfectly timed melodic moments, his sets evolve slowly, giving the dancefloor space to breathe." },
-  { title: "TOMNOISE", number: 64, ytId: "dBaTPnSDvxM", text: "Born in Poland and now based in Germany, he’s developed a sound shaped by deep afterhours sessions and hypnotic underground culture." },
-  { title: "BALANDMENAS", number: 63, ytId: "Cc76n7vGXAY", text: "His sets are driven by groove, emotion, and the instinct to give everything back to the people in front of him." },
+  { title: "MALIKETH", genre: "Schranz / Hardcore", number: 72, ytId: "cOiLrjFn4ak", text: "MALIKETH brings a relentless, high-powered Schranz and hardcore mix built for raw intensity and pure dancefloor energy." },
+  { title: "MABERO", genre: "Deep House / Soulful / Afro House", number: 71, ytId: "Od-InSY8vRM", text: "DJ MABERO delivers soulful, uplifting house built on rhythm, warmth and pure connection." },
+  { title: "LIL BOO", genre: "Deep House / Afro House", number: 70, ytId: "cmfvOi8Po0E", text: "Every performance is built around human connection - blending deep grooves with powerful energy behind the decks." },
+  { title: "PLAYHOUSE", genre: "Deep House / Afro House", number: 69, ytId: "XipxxnANzPw", text: "Play House bridges raw minimalist deep house with intense afro and latin rhythms, focusing on direct sonic connection over commercial fluff." },
+  { title: "MATERIUM", genre: "Melodic Techno / Indie Dance", number: 68, ytId: "pYmWIkTUFa0", text: "Materium is the union of Eli Dante and Franz Naya, a couple whose shared passion for electronic music evolved into a creative partnership." },
+  { title: "ANTO909", genre: "Minimal / Techno", number: 67, ytId: "JLx1DEkDBFc", text: "What started as a childhood passion eventually evolved into DJing and music production, giving him an outlet to share his perspective through rhythm and groove." },
 ];
 
 // Studio Sessions: in-studio sets recorded in Kaunas.
 export const sessions = [
-  { title: "Krisas", number: 69, ytId: "_1XBZdIJdoQ", text: "His sound moves through trance, progressive, tech house, and acid, balancing euphoric energy with hypnotic flow." },
-  { title: "Profesorius", number: 68, ytId: "KYu_41dKqk0", text: "Profesorius is a producer and DJ driven by groove, rhythm, and the desire to create memorable moments through music." },
-  { title: "VILBØ", number: 67, ytId: "giPVUShUgyI", text: "VILBØ is the person that every Studio Sessions guest has met, but this time, it's his turn to step behind the decks and share his story through music." },
-  { title: "Alaburda", number: 66, ytId: "WZ52JwmNLj0", text: "From school dances to clubs and venues like Auditorija, Elastica, Opium, and cornèrcafe, his journey has been shaped by years behind the decks." },
-  { title: "Domeika", number: 65, ytId: "PIxQ41b1Rbw", text: "Guided fully by instinct, his sets move through whatever feels right in the moment, creating journeys that feel personal and alive." },
-  { title: "Auremas", number: 64, ytId: "9euVCRQ2J4g", text: "Auremas is a name already well recognized in the nightlife scene — a house music enthusiast, and someone who naturally brings positive energy wherever he plays." },
+  { title: "Izxrrxx", genre: "Industrial Hardcore", number: 75, ytId: "uNdVgCILYMk", text: "Industrial hardcore, hardgroove, schranz and trance with a raw emotional core - intensity, movement and uncompromising energy." },
+  { title: "Balandmenas", genre: "House & Disco", number: 74, ytId: "0AshTruBrQ4", text: "House, groove and harder sounds with a feel-good pulse - a set built around energy, emotion and making people move." },
+  { title: "Shimva", genre: "Electronic", number: 73, ytId: "d4HiY7aYT_Y", text: "Energetic, dynamic sets built around feeling rather than genre - moving through different shades of electronic music." },
+  { title: "Eitutis", genre: "House / Trance", number: 72, ytId: "49Ofs8lWuUs", text: "A tribute to early 2000s house and trance - filled with warm, familiar sounds and timeless energy." },
+  { title: "Fand", genre: "Trance / Hard House", number: 71, ytId: "tELowRwyWI0", text: "Happy trance, groovy hard house, and indie dance - music as an invitation to simply feel it, dance it, and stay with FAND." },
+  { title: "Ambroza", genre: "House", number: 70, ytId: "cp-6zavN7Dc", text: "Guided by instinct rather than genre - sets that feel honest and personal, built from tracks worth sharing." },
 ];
 
 // Pick a Question: Instagram community-answer clips.
@@ -81,7 +81,7 @@ export const pickAQuestion = [
   { title: "Profesorius", base: "pickaquestionas", url: "https://www.instagram.com/p/DZKwJFsOTUq/", text: "Known for his groove-driven sound, emotional touch, and ability to create a journey that keeps people locked in from the first track to the last." },
   { title: "Auremas", base: "pickaquestionas", url: "https://www.instagram.com/p/DYUrgNpOeiU/", text: "He is known for his uplifting house selections, bright energy behind the decks, and ability to turn every set into a feel-good experience." },
   { title: "Garino", base: "pickaquestionas", url: "https://www.instagram.com/p/DXHcN_YET1R/", text: "A Vilnius-based artist whose sound moves between raw grooves, analog textures, and personal moods shaped by everyday life." },
-  { title: "Judoc", base: "judocPhoto", url: "https://www.instagram.com/p/DW_RhtCDvVY/", text: "Dutch electronic music selector who shaped his sound from late '90s vinyl beginnings to stages like Danceboulevard." },
+  { title: "Judoc", base: "pickaquestionas", url: "https://www.instagram.com/p/DW_RhtCDvVY/", text: "Dutch electronic music selector who shaped his sound from late '90s vinyl beginnings to stages like Danceboulevard." },
 ];
 
 // Gallery: local optimized images. `widths` lists which srcset variants exist.

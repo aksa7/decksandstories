@@ -26,3 +26,18 @@
   }
 }
 
+/* ---------- Typewriter reveal ---------- */
+[data-typewriter].is-typing::after {
+  content: "▌";
+  margin-left: 1px;
+  color: var(--crimson-hi);
+  animation: typewriter-caret 0.75s step-end infinite;
+}
+@keyframes typewriter-caret {
+  50% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-typewriter].is-typing::after {
+    display: none;
+  }
+}

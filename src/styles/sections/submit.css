@@ -8,6 +8,30 @@
   margin-inline: auto;
 }
 
+/* ---------- Back link (fixed top-left) ---------- */
+.submit-back {
+  position: fixed;
+  top: clamp(0.75rem, 2.5vw, 1.2rem);
+  left: clamp(0.75rem, 2.5vw, 1.2rem);
+  z-index: var(--z-nav);
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  background: rgba(6, 4, 4, 0.78);
+  backdrop-filter: blur(8px);
+  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out), background 0.35s var(--ease-out);
+}
+.submit-back:hover {
+  color: #fff;
+  border-color: var(--line-red);
+  background: rgba(179, 18, 27, 0.18);
+}
+
 /* ---------- Hero ---------- */
 .submit-hero {
   min-height: 72svh;
@@ -21,7 +45,7 @@
   z-index: 2;
 }
 .submit-logo {
-  width: min(60vw, 260px);
+  width: min(72vw, 360px);
   height: auto;
   margin: 0 auto clamp(1rem, 3vw, 1.8rem);
 }

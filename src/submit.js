@@ -1,7 +1,9 @@
-// decksandstories.com v2 — submit page entry.
+// decksandstories.com v2 - submit page entry.
 import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/sections/submit.css";
+import "./styles/sections/reveal.css";
+import { initRevealsLite } from "./modules/reveals.js";
 
 const tabs = document.querySelectorAll(".submit-tab");
 const forms = document.querySelectorAll(".submit-form");
@@ -39,7 +41,7 @@ if (forms.length) {
       .map((el) => {
         const q = el.dataset.question || "";
         const a = (el.value || "").trim();
-        return a || itemSel === ".quiz-answer" ? `${q} – ${a}` : "";
+        return a || itemSel === ".quiz-answer" ? `${q} - ${a}` : "";
       })
       .filter(Boolean)
       .join(joiner);
@@ -82,3 +84,5 @@ if (forms.length) {
     });
   });
 }
+
+initRevealsLite();

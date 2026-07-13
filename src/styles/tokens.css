@@ -30,8 +30,8 @@
   --radius-pill: 999px;
 
   /* --- Type --- */
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-body: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "League Spartan", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Helvetica Now Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
 
   /* fluid type scale (clamp: min, preferred, max) */
   --fs-hero: clamp(2.4rem, 6vw, 5rem);
