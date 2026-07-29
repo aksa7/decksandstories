@@ -102,7 +102,7 @@
 .submit-section {
   position: relative;
   z-index: 2;
-  padding-block: var(--section-y);
+  padding-block: 1.5rem;
 }
 .submit-section > h2,
 .submit-section .major {
