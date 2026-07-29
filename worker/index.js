@@ -89,13 +89,16 @@ export default {
       "event-venue": "Thanks for sharing your idea with us. We go through every proposal that comes in, and if it feels like the right fit, we'll reach out to talk it through.",
     }[type] || "Thanks for your submission. We'll be in touch soon.";
   
-    // Plain, personal-looking format — no dark "card" styling, reads like a real email.
     return `
-    <div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#222;max-width:560px;">
-      <p>Hey ${escapeHtml(name)},</p>
-      <p>${body}</p>
-      <p style="color:#555;">Your story means the most to us.</p>
-      <p>Talk soon,<br>Decks &amp; Stories</p>
+    <div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.65;color:#2a2a2a;max-width:520px;">
+      <p style="margin:0 0 4px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#B3121B;font-weight:bold;">Decks &amp; Stories</p>
+      <div style="border-top:2px solid #B3121B;width:32px;margin:0 0 22px;"></div>
+  
+      <p style="margin:0 0 16px;">Hey ${escapeHtml(name)},</p>
+      <p style="margin:0 0 16px;">${body}</p>
+      <p style="margin:0 0 22px;color:#6b6b6b;font-style:italic;">Your story means the most to us.</p>
+  
+      <p style="margin:0;">Talk soon,<br>Decks &amp; Stories</p>
     </div>`;
   }
   
