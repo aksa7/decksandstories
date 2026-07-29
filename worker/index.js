@@ -14,7 +14,7 @@ export default {
     if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.OWNER_EMAIL) {
       return json({ ok: false, error: "missing_env_vars" }, 500);
     }
-
+  
     let data;
     try {
       const fd = await request.formData();
@@ -40,6 +40,7 @@ export default {
         to: email,
         subject: thankYouSubject(type),
         html: thankYouHtml(type, name),
+        replyTo: env.OWNER_EMAIL,
       });
   
       return json({ ok: true });
@@ -48,14 +49,20 @@ export default {
     }
   }
   
-  async function sendEmail(env, { to, subject, html }) {
+  async function sendEmail(env, { to, subject, html, replyTo }) {
     const res = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ from: env.FROM_EMAIL, to, subject, html }),
+      body: JSON.stringify({
+        from: env.FROM_EMAIL,
+        to,
+        subject,
+        html,
+        ...(replyTo ? { reply_to: replyTo } : {}),
+      }),
     });
     if (!res.ok) {
       const errBody = await res.text().catch(() => "");
@@ -82,15 +89,13 @@ export default {
       "event-venue": "Thanks for sharing your idea with us. We go through every proposal that comes in, and if it feels like the right fit, we'll reach out to talk it through.",
     }[type] || "Thanks for your submission. We'll be in touch soon.";
   
+    // Plain, personal-looking format — no dark "card" styling, reads like a real email.
     return `
-    <div style="background:#060404;padding:40px 20px;font-family:Helvetica,Arial,sans-serif;">
-      <div style="max-width:520px;margin:0 auto;background:#0c0607;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:36px 32px;">
-        <p style="color:#B3121B;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin:0 0 18px;">Decks &amp; Stories</p>
-        <h1 style="color:#ece8e8;font-size:22px;margin:0 0 16px;">Hey ${escapeHtml(name)},</h1>
-        <p style="color:rgba(236,232,232,.75);font-size:15px;line-height:1.6;margin:0 0 20px;">${body}</p>
-        <p style="color:rgba(236,232,232,.6);font-size:14px;line-height:1.6;font-style:italic;margin:0 0 24px;">Your story means the most to us.</p>
-        <p style="color:rgba(236,232,232,.55);font-size:13px;line-height:1.6;margin:0;">Talk soon,<br>Decks &amp; Stories</p>
-      </div>
+    <div style="font-family:Helvetica,Arial,sans-serif;font-size:15px;line-height:1.6;color:#222;max-width:560px;">
+      <p>Hey ${escapeHtml(name)},</p>
+      <p>${body}</p>
+      <p style="color:#555;">Your story means the most to us.</p>
+      <p>Talk soon,<br>Decks &amp; Stories</p>
     </div>`;
   }
   
