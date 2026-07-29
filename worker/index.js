@@ -62,26 +62,27 @@ export default {
   
   function thankYouSubject(type) {
     return {
-      "mix-episode": "We received your mix — thank you 🎧",
-      "demo-track": "We received your demo — thank you 🎵",
-      "event-venue": "We received your event idea — thank you",
-    }[type] || "Thank you for your submission";
+      "mix-episode": "We got your mix, thank you!",
+      "demo-track": "We got your track, thank you!",
+      "event-venue": "Thanks for the event idea, we'll get back to you soon!",
+    }[type] || "Thanks for your submission!";
   }
   
   function thankYouHtml(type, name) {
     const body = {
-      "mix-episode": "Thank you for sharing your 60-minute mix and your story with us. We listen to and read every single submission — your sound and your words matter to us. If your story fits the movement, we'll reach out personally.",
-      "demo-track": "Thank you for sending us your track. We go through every demo carefully. If it clicks with our curation, we'll get in touch to discuss next steps.",
-      "event-venue": "Thank you for sharing your event idea with us. We'll review it and reach out if it feels like a good fit.",
-    }[type] || "Thank you for your submission. We'll be in touch soon.";
+      "mix-episode": "Thanks so much for sending your mix and taking the time to write your story. We listen to every submission the whole way through, no skipping, and we read every word too. If it feels like the right fit for us, we'll reach out to you personally.",
+      "demo-track": "Thanks for sending over your track. We listen to every demo that comes in from start to finish before deciding anything. If it clicks with what we're building here, we'll be in touch to talk next steps.",
+      "event-venue": "Thanks for sharing your idea with us. We go through every proposal that comes in, and if it feels like the right fit, we'll reach out to talk it through.",
+    }[type] || "Thanks for your submission. We'll be in touch soon.";
   
     return `
     <div style="background:#060404;padding:40px 20px;font-family:Helvetica,Arial,sans-serif;">
       <div style="max-width:520px;margin:0 auto;background:#0c0607;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:36px 32px;">
         <p style="color:#B3121B;font-size:12px;letter-spacing:2px;text-transform:uppercase;margin:0 0 18px;">Decks &amp; Stories</p>
         <h1 style="color:#ece8e8;font-size:22px;margin:0 0 16px;">Hey ${escapeHtml(name)},</h1>
-        <p style="color:rgba(236,232,232,.75);font-size:15px;line-height:1.6;margin:0 0 16px;">${body}</p>
-        <p style="color:rgba(236,232,232,.55);font-size:13px;line-height:1.6;margin:24px 0 0;">— The Decks &amp; Stories team</p>
+        <p style="color:rgba(236,232,232,.75);font-size:15px;line-height:1.6;margin:0 0 20px;">${body}</p>
+        <p style="color:rgba(236,232,232,.6);font-size:14px;line-height:1.6;font-style:italic;margin:0 0 24px;">Your story means the most to us.</p>
+        <p style="color:rgba(236,232,232,.55);font-size:13px;line-height:1.6;margin:0;">Talk soon,<br>Decks &amp; Stories</p>
       </div>
     </div>`;
   }
