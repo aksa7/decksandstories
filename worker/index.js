@@ -11,6 +11,10 @@ export default {
   };
   
   async function handleSubmit(request, env) {
+    if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.OWNER_EMAIL) {
+      return json({ ok: false, error: "missing_env_vars" }, 500);
+    }
+
     let data;
     try {
       const fd = await request.formData();
@@ -40,7 +44,7 @@ export default {
   
       return json({ ok: true });
     } catch (err) {
-      return json({ ok: false, error: "send_failed" }, 502);
+      return json({ ok: false, error: String(err.message || err) }, 502);
     }
   }
   
@@ -53,7 +57,10 @@ export default {
       },
       body: JSON.stringify({ from: env.FROM_EMAIL, to, subject, html }),
     });
-    if (!res.ok) throw new Error(`Resend error: ${res.status}`);
+    if (!res.ok) {
+      const errBody = await res.text().catch(() => "");
+      throw new Error(`Resend ${res.status}: ${errBody}`);
+    }
   }
   
   function labelFor(type) {
