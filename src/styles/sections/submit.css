@@ -228,6 +228,36 @@
   resize: vertical;
   min-height: 90px;
 }
+.field-callout {
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--line-red);
+  border-left: 3px solid var(--crimson-hi);
+  border-radius: var(--radius-sm);
+  background: rgba(179, 18, 27, 0.12);
+  color: var(--ink);
+  font-size: var(--fs-small);
+  line-height: 1.5;
+}
+.field-callout p {
+  margin: 0 0 0.45rem;
+}
+.field-callout ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+.field-callout li {
+  margin: 0.15rem 0;
+  color: var(--ink-soft);
+}
+.field-textarea.is-invalid {
+  border-color: var(--crimson-hi);
+}
+.field-error {
+  margin: 0;
+  color: var(--crimson-hi);
+  font-size: var(--fs-small);
+  font-weight: 600;
+}
 
 /* Story / quiz rows */
 .story-block,

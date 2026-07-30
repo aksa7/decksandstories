@@ -50,9 +50,36 @@ if (forms.length) {
   const NEWSLETTER = "https://formspree.io/f/mlglprvj";
   const redirectUrl = "https://decksandstories.com/thank-you";
 
+  const BLOCKED_LINK_RE = /soundcloud\.com|mixcloud\.com|on\.soundcloud\.com|youtube\.com|youtu\.be|open\.spotify\.com|spotify\.link/i;
+
+  function validateMixLinks(form) {
+    if (form.id !== "mix-form") return true;
+    const field = form.querySelector("#photo-links");
+    const errorEl = form.querySelector("#photo-links-error");
+    if (!field) return true;
+
+    const value = (field.value || "").trim();
+    const blocked = BLOCKED_LINK_RE.test(value);
+    field.classList.toggle("is-invalid", blocked);
+    if (errorEl) errorEl.hidden = !blocked;
+    if (blocked) {
+      field.focus();
+      field.scrollIntoView({ behavior: "smooth", block: "center" });
+      return false;
+    }
+    return true;
+  }
+
   forms.forEach((form) => {
+    const mixLinks = form.querySelector("#photo-links");
+    if (mixLinks) {
+      mixLinks.addEventListener("input", () => validateMixLinks(form));
+    }
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
+      if (!validateMixLinks(form)) return;
+
       buildHidden(form, "#story-letter", ".story-answer", "\n\n");
       buildHidden(form, "#quiz", ".quiz-answer", "\n");
 

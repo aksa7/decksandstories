@@ -160,7 +160,17 @@
                   <label for="photo-links" class="field-label">Mix and Photos Link*</label>
                   <a href="#photo-example-modal" class="photo-example-link">See photo example</a>
                 </div>
-                <textarea id="photo-links" name="photo-links" class="field-textarea" required placeholder="WeTransfer / Transfernow link (.wav or .mp3). Name file: Decks&Stories mix – [Your DJ Name]. Paste links to at least 4 promo photos (you can send up to 10)."></textarea>
+                <div class="field-callout" role="note">
+                  <p><strong>No SoundCloud / Mixcloud / YouTube links.</strong> We need a downloadable file, not a stream.</p>
+                  <ul>
+                    <li>Use <strong>WeTransfer</strong> or <strong>Transfernow</strong> only</li>
+                    <li>File format: <strong>.wav</strong> or <strong>.mp3</strong></li>
+                    <li>File name: <strong>Decks&amp;Stories mix – [Your DJ Name]</strong></li>
+                    <li>Also paste links to <strong>at least 4 promo photos</strong> (up to 10)</li>
+                  </ul>
+                </div>
+                <textarea id="photo-links" name="photo-links" class="field-textarea" required placeholder="Paste your WeTransfer / Transfernow download link here (+ photo links). Do NOT paste SoundCloud."></textarea>
+                <p class="field-error" id="photo-links-error" hidden>SoundCloud / streaming links are not accepted. Please upload your mix via WeTransfer or Transfernow and paste that download link instead.</p>
               </div>
               <div class="field-group field-full">
                 <div class="field-label-row">
@@ -199,6 +209,7 @@
 
             <div class="form-consent">
               <label class="checkbox-row"><input type="checkbox" name="mix-length" required><span>My mix is at least 60 minutes long and contains no unreleased tracks (unless my own).</span></label>
+              <label class="checkbox-row"><input type="checkbox" name="file-transfer-confirm" required><span>My mix link is a <strong>WeTransfer / Transfernow</strong> download link — <strong>not</strong> SoundCloud, Mixcloud, YouTube, or any streaming platform.</span></label>
               <label class="checkbox-row"><input type="checkbox" name="promo-photos" required><span>I will provide at least 4 promo photos (up to 10) for the episode.</span></label>
               <label class="checkbox-row"><input type="checkbox" name="ig-collab" required><span>I agree to participate in the mandatory Instagram collab post (Facebook/IG stories optional).</span></label>
               <label class="checkbox-row"><input type="checkbox" name="rights-confirm" required><span>I have the right to use all tracks in this mix.</span></label>
