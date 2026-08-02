@@ -84,27 +84,26 @@ function thankYouSubject(type) {
   }[type] || "Thanks for your submission!";
 }
 
-function thankYouBody(type) {
+function thankYouBody(type, name) {
   return {
-    "mix-episode": "Thanks so much for sending your mix and taking the time to write your story. We listen to every submission the whole way through, no skipping, and we read every word too. If it feels like the right fit for us, we'll reach out to you personally.",
-    "demo-track": "Thanks for sending over your track. We listen to every demo that comes in from start to finish before deciding anything. If it clicks with what we're building here, we'll be in touch to talk next steps.",
-    "event-venue": "Thanks for sharing your idea with us. We go through every proposal that comes in, and if it feels like the right fit, we'll reach out to talk it through.",
-  }[type] || "Thanks for your submission. We'll be in touch soon.";
+    "mix-episode": `Thank you for trusting us with your mix and your story, ${name}. That's not a small thing to send out into the world, and we don't take it lightly. We'll spend real time with it, and if it feels like a fit, you'll be hearing from us personally soon.\n\nWhatever happens next, you're already part of what we're building here.`,
+    "demo-track": `Thank you for sharing your track with us, ${name}. Sending out music you've worked on takes guts, and we respect that. We'll give it a proper listen, and if it clicks with what we're building, we'll reach out to talk next steps.\n\nEither way, glad to have you in this community.`,
+    "event-venue": `Thank you for thinking of us with this idea, ${name}. We'll go through it properly, and if it feels like the right fit, we'll get back to you to talk it through.\n\nAppreciate you wanting to build something with us.`,
+  }[type] || `Thank you for reaching out, ${name}. We'll be in touch soon.`;
 }
 
 function thankYouHtml(type, name) {
-  const body = thankYouBody(type);
+  const body = thankYouBody(type, name);
+  const paragraphs = body.split("\n\n").map(p => `<p>${escapeHtml(p)}</p>`).join("\n");
   return `<div style="font-family:Arial,sans-serif;font-size:14px;line-height:1.6;color:#000000;">
-<p>Hey ${escapeHtml(name)},</p>
-<p>${escapeHtml(body)}</p>
-<p>Your story means the most to us.</p>
+${paragraphs}
 <p>Talk soon,<br>Decks &amp; Stories</p>
 </div>`;
 }
 
 function thankYouText(type, name) {
-  const body = thankYouBody(type);
-  return `Hey ${name},\n\n${body}\n\nYour story means the most to us.\n\nTalk soon,\nDecks & Stories`;
+  const body = thankYouBody(type, name);
+  return `${body}\n\nTalk soon,\nDecks & Stories`;
 }
 
 function internalNotificationHtml(type, data) {
