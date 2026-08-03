@@ -10,6 +10,20 @@ export default {
   },
 };
 
+function looksLikeSpam(data) {
+  // Honeypot: real users never fill this, bots often do
+  if ((data.website || "").trim() !== "") return true;
+
+  // Fields that should be plain names/places should never contain a URL
+  const suspectFields = ["artist", "contact-name", "location", "born-in", "instagram", "genre"];
+  for (const field of suspectFields) {
+    const v = (data[field] || "");
+    if (/https?:\/\//i.test(v)) return true;
+  }
+
+  return false;
+}
+
 async function handleSubmit(request, env) {
   if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.OWNER_EMAIL) {
     return json({ ok: false, error: "missing_env_vars" }, 500);
@@ -21,6 +35,10 @@ async function handleSubmit(request, env) {
     data = Object.fromEntries(fd.entries());
   } catch {
     return json({ ok: false, error: "bad_request" }, 400);
+  }
+
+  if (looksLikeSpam(data)) {
+    return json({ ok: true });
   }
 
   const email = (data.email || "").trim();
