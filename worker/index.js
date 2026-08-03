@@ -24,6 +24,21 @@ function looksLikeSpam(data) {
   return false;
 }
 
+async function notifyTelegram(env, type, data) {
+  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return;
+  const text = `New ${labelFor(type)} submission\n\n` +
+    Object.entries(data).map(([k, v]) => `${k}: ${String(v).slice(0, 300)}`).join("\n");
+  try {
+    await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text: text.slice(0, 4000) }),
+    });
+  } catch (e) {
+    console.error("Telegram notify failed:", e.message);
+  }
+}
+
 async function handleSubmit(request, env) {
   if (!env.RESEND_API_KEY || !env.FROM_EMAIL || !env.OWNER_EMAIL) {
     return json({ ok: false, error: "missing_env_vars" }, 500);
@@ -48,11 +63,19 @@ async function handleSubmit(request, env) {
   const name = data.artist || data["contact-name"] || "there";
 
   try {
-    await sendEmail(env, {
-      to: env.OWNER_EMAIL,
-      subject: `New ${labelFor(type)} submission — ${name}`,
-      html: internalNotificationHtml(type, data),
-    });
+    try {
+      await notifyTelegram(env, type, data);
+    } catch {}
+
+    try {
+      await sendEmail(env, {
+        to: env.OWNER_EMAIL,
+        subject: `New ${labelFor(type)} submission — ${name}`,
+        html: internalNotificationHtml(type, data),
+      });
+    } catch (err) {
+      console.error("Owner email failed:", err.message);
+    }
 
     await sendEmail(env, {
       to: email,
