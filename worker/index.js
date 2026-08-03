@@ -77,13 +77,17 @@ async function handleSubmit(request, env) {
       console.error("Owner email failed:", err.message);
     }
 
-    await sendEmail(env, {
-      to: email,
-      subject: thankYouSubject(type),
-      html: thankYouHtml(type, name),
-      text: thankYouText(type, name),
-      replyTo: env.OWNER_EMAIL,
-    });
+    try {
+      await sendEmail(env, {
+        to: email,
+        subject: thankYouSubject(type),
+        html: thankYouHtml(type, name),
+        text: thankYouText(type, name),
+        replyTo: env.OWNER_EMAIL,
+      });
+    } catch (err) {
+      console.error("Thank-you email failed:", err.message);
+    }
 
     return json({ ok: true });
   } catch (err) {

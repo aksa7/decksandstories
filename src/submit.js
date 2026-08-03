@@ -70,6 +70,21 @@ if (forms.length) {
     return true;
   }
 
+  function showSubmitNotice(form) {
+    const btn = form.querySelector(".formSubmit");
+    if (!btn) return;
+    let notice = form.querySelector(".form-submit-notice");
+    if (!notice) {
+      notice = document.createElement("p");
+      notice.className = "form-submit-notice";
+      btn.before(notice);
+    }
+    notice.textContent =
+      "Your submission was received, but we couldn't send a confirmation email right now. We've got your info either way — no need to resubmit.";
+    notice.hidden = false;
+    notice.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
   forms.forEach((form) => {
     const mixLinks = form.querySelector("#photo-links");
     if (mixLinks) {
@@ -103,10 +118,10 @@ if (forms.length) {
         if (res.ok) {
           window.location.href = redirectUrl;
         } else {
-          alert("Something went wrong while submitting the form. Please try again or contact us directly.");
+          showSubmitNotice(form);
         }
       } catch {
-        alert("Network error. Please try again later.");
+        showSubmitNotice(form);
       }
     });
   });
