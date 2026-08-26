@@ -355,6 +355,13 @@
   opacity: 0.95;
   transform: translate(-50%, -100%) translateY(-8px);
 }
+.map-float-nick.is-below {
+  transform: translate(-50%, 0) translateY(2px);
+}
+.map-float-nick.is-below.is-show {
+  opacity: 0.95;
+  transform: translate(-50%, 0) translateY(10px);
+}
 .map-float-nick-artist {
   font-size: 0.78rem;
   font-weight: 700;

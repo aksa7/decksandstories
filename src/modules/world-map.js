@@ -17,6 +17,25 @@ void CLUSTER_BOX;
 
 const finePointer = () => matchMedia("(hover: hover) and (pointer: fine)").matches;
 const reduceMotion = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
+const isMobile = () => matchMedia("(max-width: 620px)").matches;
+
+const CONTAINER_PAD = 10;
+const PIN_LABEL_OFFSET = 9;
+
+/** Shift a viewport rect inward when it overflows container edges. */
+function clampRectToContainer(rect, containerRect, pad) {
+  const minX = containerRect.left + pad;
+  const maxX = containerRect.right - pad;
+  const minY = containerRect.top + pad;
+  const maxY = containerRect.bottom - pad;
+  let dx = 0;
+  let dy = 0;
+  if (rect.left < minX) dx = minX - rect.left;
+  else if (rect.right > maxX) dx = maxX - rect.right;
+  if (rect.top < minY) dy = minY - rect.top;
+  else if (rect.bottom > maxY) dy = maxY - rect.bottom;
+  return { dx, dy };
+}
 
 function esc(s) {
   return String(s ?? "").replace(/[&<>"']/g, (c) =>
@@ -51,13 +70,16 @@ export function initWorldMap() {
 
   let activePin = null;
   let floatTimer = 0;
+  let floatHideTimer = 0;
   let floatEl = null;
+  let floatShowing = false;
+  let sheetOpen = false;
   let resizeTimer = 0;
 
   buildMainMap();
   wireChrome();
 
-  if (finePointer() && !reduceMotion()) startFloatingNicks();
+  if (!reduceMotion()) startFloatingNicks();
 
   function meta(iso2) {
     return byIso[iso2];
@@ -144,12 +166,22 @@ export function initWorldMap() {
 
   function positionTooltip(target) {
     if (!target) return;
-    const r = target.getBoundingClientRect();
+    const anchor = target.getBoundingClientRect();
     const pad = 12;
-    let x = r.left + r.width / 2;
-    x = Math.max(pad + 90, Math.min(window.innerWidth - pad - 90, x));
+    const viewport = { left: 0, top: 0, right: window.innerWidth, bottom: window.innerHeight };
+
+    let x = anchor.left + anchor.width / 2;
     tooltip.style.left = `${x}px`;
-    tooltip.style.top = `${Math.max(pad, r.top)}px`;
+    tooltip.style.top = `${anchor.top}px`;
+
+    let { dx, dy } = clampRectToContainer(tooltip.getBoundingClientRect(), viewport, pad);
+    if (dx || dy) {
+      x += dx;
+      tooltip.style.left = `${x}px`;
+      tooltip.style.top = `${Math.max(pad, anchor.top + dy)}px`;
+      ({ dx } = clampRectToContainer(tooltip.getBoundingClientRect(), viewport, pad));
+      if (dx) tooltip.style.left = `${x + dx}px`;
+    }
   }
 
   function openSheetCountry(m) {
@@ -186,6 +218,8 @@ export function initWorldMap() {
   }
 
   function openSheet() {
+    sheetOpen = true;
+    stopFloatingNicks();
     sheet.hidden = false;
     requestAnimationFrame(() => sheet.classList.add("is-open"));
     document.documentElement.classList.add("map-sheet-open");
@@ -195,13 +229,18 @@ export function initWorldMap() {
     if (!sheet) return;
     sheet.classList.remove("is-open");
     document.documentElement.classList.remove("map-sheet-open");
-    const done = () => {
+    const finish = () => {
       sheet.hidden = true;
+      sheetOpen = false;
+      resumeFloatingNicks();
+    };
+    const done = () => {
       sheet.removeEventListener("transitionend", done);
+      finish();
     };
     sheet.addEventListener("transitionend", done);
     setTimeout(() => {
-      if (!sheet.classList.contains("is-open")) sheet.hidden = true;
+      if (!sheet.classList.contains("is-open")) finish();
     }, 400);
   }
 
@@ -235,39 +274,124 @@ export function initWorldMap() {
   }
 
   /** Soft ambient: DJ nick + country fade in near random featured pins. */
-  function startFloatingNicks() {
+  function ensureFloatEl() {
+    if (floatEl) return floatEl;
     floatEl = document.createElement("div");
     floatEl.className = "map-float-nick";
     floatEl.setAttribute("aria-hidden", "true");
     floatEl.innerHTML =
       '<span class="map-float-nick-artist"></span><span class="map-float-nick-country"></span>';
     shell.appendChild(floatEl);
+    return floatEl;
+  }
 
-    const artistEl = floatEl.querySelector(".map-float-nick-artist");
-    const countryEl = floatEl.querySelector(".map-float-nick-country");
+  function stopFloatingNicks() {
+    clearTimeout(floatTimer);
+    clearTimeout(floatHideTimer);
+    floatTimer = 0;
+    floatHideTimer = 0;
+    floatShowing = false;
+    floatEl?.classList.remove("is-show", "is-below");
+  }
 
-    const cycle = () => {
-      if (!featured.length || document.hidden) {
-        floatTimer = window.setTimeout(cycle, 1400);
-        return;
+  function resumeFloatingNicks() {
+    if (reduceMotion() || sheetOpen || document.hidden) return;
+    scheduleFloatCycle(700);
+  }
+
+  function positionFloatNick(g) {
+    const el = ensureFloatEl();
+    const shellRect = shell.getBoundingClientRect();
+    const svgRect = svg.getBoundingClientRect();
+    const dotX = svgRect.left - shellRect.left + (g.cx / VIEW_W) * svgRect.width;
+    const dotY = svgRect.top - shellRect.top + (g.cy / VIEW_H) * svgRect.height;
+    const pad = CONTAINER_PAD;
+
+    el.classList.remove("is-below");
+    el.style.visibility = "hidden";
+
+    // Default: label above pin (anchor = bottom-center via translate -100%).
+    el.style.left = `${dotX}px`;
+    el.style.top = `${dotY - PIN_LABEL_OFFSET}px`;
+
+    const labelH = el.offsetHeight;
+    const predictedTop = dotY - PIN_LABEL_OFFSET - labelH;
+    const flipBelow = predictedTop < pad;
+
+    if (flipBelow) {
+      el.classList.add("is-below");
+      el.style.top = `${dotY + PIN_LABEL_OFFSET}px`;
+    }
+
+    el.style.visibility = "";
+
+    let rect = el.getBoundingClientRect();
+    let { dx, dy } = clampRectToContainer(rect, shellRect, pad);
+    if (dx || dy) {
+      const curLeft = parseFloat(el.style.left) || dotX;
+      const curTop = parseFloat(el.style.top) || dotY;
+      el.style.left = `${curLeft + dx}px`;
+      el.style.top = `${curTop + dy}px`;
+      rect = el.getBoundingClientRect();
+      ({ dx, dy } = clampRectToContainer(rect, shellRect, pad));
+      if (dx || dy) {
+        el.style.left = `${parseFloat(el.style.left) + dx}px`;
+        el.style.top = `${parseFloat(el.style.top) + dy}px`;
       }
-      const g = featured[Math.floor(Math.random() * featured.length)];
-      const m = meta(g.iso2);
-      const svgRect = svg.getBoundingClientRect();
-      const shellRect = shell.getBoundingClientRect();
-      // Offset ~9px above the pin center (screen px), from stable cx/cy — not pulse rect.
-      const x = svgRect.left - shellRect.left + (g.cx / VIEW_W) * svgRect.width;
-      const y = svgRect.top - shellRect.top + (g.cy / VIEW_H) * svgRect.height - 9;
-      artistEl.textContent = artistsLabel(m);
-      countryEl.textContent = m.name;
-      floatEl.style.left = `${x}px`;
-      floatEl.style.top = `${y}px`;
-      floatEl.classList.add("is-show");
-      window.setTimeout(() => floatEl.classList.remove("is-show"), 1100);
-      // ~3× faster than previous ~3800–6200ms cycle
-      floatTimer = window.setTimeout(cycle, 1200 + Math.random() * 700);
-    };
-    floatTimer = window.setTimeout(cycle, 700);
+    }
+  }
+
+  function scheduleFloatCycle(delayMs) {
+    clearTimeout(floatTimer);
+    floatTimer = window.setTimeout(runFloatCycle, delayMs);
+  }
+
+  function runFloatCycle() {
+    floatTimer = 0;
+    if (sheetOpen || document.hidden || !featured.length || reduceMotion()) return;
+    // Mobile: never stack — wait until the previous label finished hiding.
+    if (isMobile() && floatShowing) {
+      scheduleFloatCycle(400);
+      return;
+    }
+
+    const g = featured[Math.floor(Math.random() * featured.length)];
+    const m = meta(g.iso2);
+    const el = ensureFloatEl();
+    const artistEl = el.querySelector(".map-float-nick-artist");
+    const countryEl = el.querySelector(".map-float-nick-country");
+
+    artistEl.textContent = artistsLabel(m);
+    countryEl.textContent = m.name;
+
+    if (sheetOpen) return;
+
+    positionFloatNick(g);
+
+    if (sheetOpen) return;
+
+    floatShowing = true;
+    el.classList.add("is-show");
+
+    const showMs = 1100;
+    clearTimeout(floatHideTimer);
+    floatHideTimer = window.setTimeout(() => {
+      floatHideTimer = 0;
+      el.classList.remove("is-show");
+      floatShowing = false;
+      if (!sheetOpen && !document.hidden && !reduceMotion()) {
+        scheduleFloatCycle(1200 + Math.random() * 700);
+      }
+    }, showMs);
+  }
+
+  function startFloatingNicks() {
+    ensureFloatEl();
+    scheduleFloatCycle(700);
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) stopFloatingNicks();
+      else resumeFloatingNicks();
+    });
   }
 }
 
