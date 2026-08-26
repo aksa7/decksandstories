@@ -119,10 +119,35 @@
         <h2>DJ mixes and stories featured worldwide</h2>
         <p>Real people, real places - the international DJ mix series is growing with every episode.</p>
       </div>
-      <div class="countries-grid" data-grid="countries" aria-label="Countries featured"></div>
-      <p class="countries-footnote" data-countries-stat></p>
+
+      <div class="map-shell" data-world-map>
+        <svg class="world-map-svg" viewBox="0 0 980 480" role="img" aria-label="World map showing countries featured in the Decks and Stories DJ mix series"></svg>
+        <div class="map-footer">
+          <p class="countries-footnote" data-countries-stat></p>
+          <div class="map-footer-actions">
+            <p class="map-hint">Hover a marker on desktop · tap on mobile</p>
+            <button type="button" class="map-see-all" data-map-see-all>See all 31 countries</button>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
+
+  <div class="map-sheet" id="map-sheet" hidden>
+    <div class="map-sheet-backdrop" tabindex="-1"></div>
+    <div class="map-sheet-panel" role="dialog" aria-modal="true" aria-labelledby="map-sheet-title">
+      <div class="map-sheet-head">
+        <h3 class="map-sheet-title" id="map-sheet-title"></h3>
+        <button type="button" class="map-sheet-close" aria-label="Close">×</button>
+      </div>
+      <div class="map-sheet-body"></div>
+    </div>
+  </div>
+
+  <div class="map-tooltip" id="map-tooltip" aria-hidden="true">
+    <div class="map-tooltip-country"></div>
+    <div class="map-tooltip-artists"></div>
+  </div>
 
   <!-- ABOUT -->
   <section id="about" class="section band">

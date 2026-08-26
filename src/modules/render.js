@@ -7,7 +7,6 @@
 import {
   nav,
   trustLogos,
-  countries,
   countriesStat,
   episodes,
   sessions,
@@ -128,16 +127,7 @@ export function renderContent() {
       .join(""),
   );
 
-  // Countries pills + stat footnote
-  fill(
-    "[data-grid=countries]",
-    countries
-      .map(
-        (c) =>
-          `<span class="country-pill"><span class="flag">${c.flag}</span><span>${esc(c.name)}</span></span>`,
-      )
-      .join(""),
-  );
+  // Countries featured count — map module owns the visual; keep [data-count-to] for reveals.js
   fill(
     "[data-countries-stat]",
     `Already featured: <strong><span data-count-to="${countriesStat.featured}">${countriesStat.featured}</span>/${countriesStat.total}</strong> countries and counting.`,

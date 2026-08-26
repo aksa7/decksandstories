@@ -22,58 +22,61 @@ export const trustLogos = [
   { base: "runemark", alt: "runemark", url: "https://www.instagram.com/runemarkmusic/", w: 320, h: 320 },
 ];
 
-export const countriesStat = { featured: 28, total: 195 };
-
 export const countries = [
-  { name: "Lithuania", flag: "🇱🇹", iso2: "LT" },
-  { name: "USA", flag: "🇺🇸", iso2: "US" },
-  { name: "Zimbabwe", flag: "🇿🇼", iso2: "ZW" },
-  { name: "Italy", flag: "🇮🇹", iso2: "IT" },
-  { name: "France", flag: "🇫🇷", iso2: "FR" },
-  { name: "Canada", flag: "🇨🇦", iso2: "CA" },
-  { name: "Brazil", flag: "🇧🇷", iso2: "BR" },
-  { name: "Mexico", flag: "🇲🇽", iso2: "MX" },
-  { name: "Sweden", flag: "🇸🇪", iso2: "SE" },
-  { name: "Denmark", flag: "🇩🇰", iso2: "DK" },
-  { name: "Netherlands", flag: "🇳🇱", iso2: "NL" },
-  { name: "Germany", flag: "🇩🇪", iso2: "DE" },
-  { name: "Greece", flag: "🇬🇷", iso2: "GR" },
-  { name: "Morocco", flag: "🇲🇦", iso2: "MA" },
-  { name: "Syria", flag: "🇸🇾", iso2: "SY" },
-  { name: "England", flag: "🇬🇧", iso2: "GB" },
-  { name: "Nigeria", flag: "🇳🇬", iso2: "NG" },
-  { name: "Spain", flag: "🇪🇸", iso2: "ES" },
-  { name: "Israel", flag: "🇮🇱", iso2: "IL" },
-  { name: "Turkey", flag: "🇹🇷", iso2: "TR" },
-  { name: "Pakistan", flag: "🇵🇰", iso2: "PK" },
-  { name: "Lebanon", flag: "🇱🇧", iso2: "LB" },
-  { name: "Argentina", flag: "🇦🇷", iso2: "AR" },
-  { name: "Georgia", flag: "🇬🇪", iso2: "GE" },
-  { name: "Belgium", flag: "🇧🇪", iso2: "BE" },
-  { name: "Taiwan", flag: "🇹🇼", iso2: "TW" },
-  { name: "South Africa", flag: "🇿🇦", iso2: "ZA" },
-  { name: "Tunisia", flag: "🇹🇳", iso2: "TN" },
+  { name: "USA", flag: "🇺🇸", iso2: "US", artists: ["DJ Rees"] },
+  { name: "Zimbabwe", flag: "🇿🇼", iso2: "ZW", artists: ["Jay"] },
+  { name: "Italy", flag: "🇮🇹", iso2: "IT", artists: ["Vincenzo Facino"] },
+  { name: "Lithuania", flag: "🇱🇹", iso2: "LT", artists: ["Herma"] },
+  { name: "Denmark", flag: "🇩🇰", iso2: "DK", artists: ["Rigbass"] },
+  { name: "Netherlands", flag: "🇳🇱", iso2: "NL", artists: ["Bassbrewer"] },
+  { name: "Germany", flag: "🇩🇪", iso2: "DE", artists: ["Mzungu Music"] },
+  { name: "Mexico", flag: "🇲🇽", iso2: "MX", artists: ["Raffa Miller"] },
+  { name: "France", flag: "🇫🇷", iso2: "FR", artists: ["Milo"] },
+  { name: "Greece", flag: "🇬🇷", iso2: "GR", artists: ["Azem"] },
+  { name: "Morocco", flag: "🇲🇦", iso2: "MA", artists: ["Mixxo"] },
+  { name: "Canada", flag: "🇨🇦", iso2: "CA", artists: ["Cody Garth"] },
+  { name: "Sweden", flag: "🇸🇪", iso2: "SE", artists: ["Raj El Rey"] },
+  { name: "Brazil", flag: "🇧🇷", iso2: "BR", artists: ["Tainara Bunn"] },
+  { name: "Syria", flag: "🇸🇾", iso2: "SY", artists: ["Richi"] },
+  { name: "England", flag: "🏴", iso2: "GB", artists: ["Psyberfunk"] },
+  { name: "Nigeria", flag: "🇳🇬", iso2: "NG", artists: ["Pizzle"] },
+  { name: "Spain", flag: "🇪🇸", iso2: "ES", artists: ["Enry Castelo"] },
+  { name: "Israel", flag: "🇮🇱", iso2: "IL", artists: ["Niva"] },
+  { name: "Turkey", flag: "🇹🇷", iso2: "TR", artists: ["Ldrk"] },
+  { name: "Pakistan", flag: "🇵🇰", iso2: "PK", artists: ["Raffay"] },
+  { name: "Lebanon", flag: "🇱🇧", iso2: "LB", artists: ["James"] },
+  { name: "Belgium", flag: "🇧🇪", iso2: "BE", artists: ["Kevin Major K"] },
+  { name: "Argentina", flag: "🇦🇷", iso2: "AR", artists: ["Sebastian Blanco"] },
+  { name: "Georgia", flag: "🇬🇪", iso2: "GE", artists: ["Anto9o9"] },
+  { name: "Taiwan", flag: "🇹🇼", iso2: "TW", artists: ["Krisas"] },
+  { name: "Tunisia", flag: "🇹🇳", iso2: "TN", artists: ["Playhouse"] },
+  { name: "South Africa", flag: "🇿🇦", iso2: "ZA", artists: ["Dj Mabero"] },
+  { name: "Norway", flag: "🇳🇴", iso2: "NO", artists: ["Cr0w4y"] },
+  { name: "Austria", flag: "🇦🇹", iso2: "AT", artists: ["Nikø Nøx"] },
+  { name: "Venezuela", flag: "🇻🇪", iso2: "VE", artists: ["Izxrrxx"] },
 ];
+
+export const countriesStat = { featured: countries.length, total: 195 };
 
 // Episodes: full DJ-mix episodes. thumb = YouTube thumbnail (swapped to a
 // local optimized facade thumb in F6).
 export const episodes = [
-  { title: "MALIKETH", genre: "Schranz / Hardcore", number: 72, ytId: "cOiLrjFn4ak", text: "MALIKETH brings a relentless, high-powered Schranz and hardcore mix built for raw intensity and pure dancefloor energy." },
-  { title: "MABERO", genre: "Deep House / Soulful / Afro House", number: 71, ytId: "Od-InSY8vRM", text: "DJ MABERO delivers soulful, uplifting house built on rhythm, warmth and pure connection." },
-  { title: "LIL BOO", genre: "Deep House / Afro House", number: 70, ytId: "cmfvOi8Po0E", text: "Every performance is built around human connection - blending deep grooves with powerful energy behind the decks." },
-  { title: "PLAYHOUSE", genre: "Deep House / Afro House", number: 69, ytId: "XipxxnANzPw", text: "Play House bridges raw minimalist deep house with intense afro and latin rhythms, focusing on direct sonic connection over commercial fluff." },
-  { title: "MATERIUM", genre: "Melodic Techno / Indie Dance", number: 68, ytId: "pYmWIkTUFa0", text: "Materium is the union of Eli Dante and Franz Naya, a couple whose shared passion for electronic music evolved into a creative partnership." },
-  { title: "ANTO909", genre: "Minimal / Techno", number: 67, ytId: "JLx1DEkDBFc", text: "What started as a childhood passion eventually evolved into DJing and music production, giving him an outlet to share his perspective through rhythm and groove." },
+  { title: "NUIT BLANCHE", genre: "Hard Techno", number: 78, ytId: "Aefbm9BLmds", text: "Dark, raw hard techno from Paris — high-energy underground rhythms built to take over the room." },
+  { title: "CR0W4Y", genre: "Progressive / Indie House", number: 77, ytId: "a_00qO7WGjI", text: "Raw progressive and indie house from Norway — underground grooves with deep atmosphere and real drive." },
+  { title: "Nikø Nøx", genre: "Peak-Time / Hard Techno", number: 76, ytId: "uvTwCcGTdIU", text: "Relentless peak-time and hard techno from Vienna — raw energy built straight for the dancefloor." },
+  { title: "JPSC", genre: "House / Trance", number: 75, ytId: "ZA0CM7Hmx-U", text: "High-energy house and trance at 130–135 BPM — driving grooves with melodic, euphoric builds." },
+  { title: "AURELIJANO", genre: "Melodic Techno / Progressive House", number: 74, ytId: "KN5tW1YNhpE", text: "Immersive melodic techno and progressive house — atmospheric storytelling that lands in the heart." },
+  { title: "TRAYSIEE", genre: "Electronic / Progressive House", number: 73, ytId: "rIYYC7oHM0U", text: "Warm progressive and deep house from Vilnius — patient digging and a journey built on real connection." },
 ];
 
 // Studio Sessions: in-studio sets recorded in Kaunas.
 export const sessions = [
-  { title: "Izxrrxx", genre: "Industrial Hardcore", number: 75, ytId: "uNdVgCILYMk", text: "Industrial hardcore, hardgroove, schranz and trance with a raw emotional core - intensity, movement and uncompromising energy." },
-  { title: "Balandmenas", genre: "House & Disco", number: 74, ytId: "0AshTruBrQ4", text: "House, groove and harder sounds with a feel-good pulse - a set built around energy, emotion and making people move." },
-  { title: "Shimva", genre: "Electronic", number: 73, ytId: "d4HiY7aYT_Y", text: "Energetic, dynamic sets built around feeling rather than genre - moving through different shades of electronic music." },
-  { title: "Eitutis", genre: "House / Trance", number: 72, ytId: "49Ofs8lWuUs", text: "A tribute to early 2000s house and trance - filled with warm, familiar sounds and timeless energy." },
-  { title: "Fand", genre: "Trance / Hard House", number: 71, ytId: "tELowRwyWI0", text: "Happy trance, groovy hard house, and indie dance - music as an invitation to simply feel it, dance it, and stay with FAND." },
-  { title: "Ambroza", genre: "House", number: 70, ytId: "cp-6zavN7Dc", text: "Guided by instinct rather than genre - sets that feel honest and personal, built from tracks worth sharing." },
+  { title: "Boy From Suburbs", genre: "Organic / Hypnotic", number: 84, ytId: "xwyaBcyROGg", text: "Organic, hypnotic electronics meet Afro house energy — grooves built for the club and the sunrise." },
+  { title: "Kdun Albaz", genre: "Organic Afro / Melodic Techno", number: 83, ytId: "VEe9dQvlBAM", text: "Organic Afro house and melodic techno with a warm hypnotic pulse — deep grooves and open feeling." },
+  { title: "Martin Pleašes B2B Eldar", genre: "Groovy House", number: 82, ytId: "BuyU5AOh4C8", text: "Upbeat B2B house with groovy basslines and playful twists — energy that lifts the room track by track." },
+  { title: "Cats House", genre: "Melodic Techno / Progressive", number: 81, ytId: "01EthOkb8hA", text: "Melodic techno and progressive house with cinematic depth — hypnotic grooves and emotional tension." },
+  { title: "Topuma", genre: "Groove Driven House", number: 80, ytId: "ltucCQZumqE", text: "Groove-driven house with rhythm and growing confidence — a second studio chapter led by instinct." },
+  { title: "Agnnn", genre: "House / Electronic", number: 79, ytId: "cW1hsb7jY1Y", text: "Warm house grooves and memorable melodies — a personal set shaped by connection, movement and love." },
 ];
 
 // Pick a Question: Instagram community-answer clips.

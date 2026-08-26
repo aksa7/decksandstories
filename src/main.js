@@ -14,8 +14,10 @@ import { initInteractions } from "./modules/interactions.js";
 import { initMobileNav } from "./modules/nav.js";
 import { tagReveals } from "./modules/reveals.js";
 import { initGallery } from "./modules/gallery.js";
+import { initWorldMap } from "./modules/world-map.js";
 
 renderContent();
+initWorldMap();
 initInteractions();
 initMobileNav();
 initGallery();

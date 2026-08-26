@@ -68,33 +68,312 @@
   width: auto;
 }
 
-/* ---------- Countries ---------- */
-.countries-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.55rem;
-  margin-top: 0.5rem;
-}
-.country-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  font-size: var(--fs-small);
-  color: var(--ink-soft);
-  background: var(--bg-1);
-}
-.country-pill .flag {
-  font-size: 1rem;
-  line-height: 1;
-}
+/* ---------- Countries / world map ---------- */
 .countries-footnote {
-  margin-top: 1.6rem;
+  margin: 0;
   font-size: var(--fs-lead);
   color: var(--ink-soft);
 }
 .countries-footnote strong {
   color: var(--crimson-hi);
+}
+
+.map-shell {
+  position: relative;
+  margin-top: 0.5rem;
+  padding: clamp(0.75rem, 2vw, 1.1rem) clamp(0.75rem, 2vw, 1.1rem) 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(ellipse at 50% 28%, rgba(122, 12, 18, 0.22) 0%, transparent 55%),
+    var(--bg-1);
+  overflow: hidden;
+}
+.world-map-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.map-land {
+  fill: #18151a;
+  stroke: rgba(255, 255, 255, 0.06);
+  stroke-width: 0.5;
+}
+.map-land.is-featured {
+  fill: #241016;
+  stroke: var(--red);
+  stroke-width: 0.7;
+}
+.map-pin {
+  cursor: pointer;
+  outline: none;
+}
+.map-pulse,
+.map-dot {
+  pointer-events: none;
+}
+.map-dot {
+  fill: var(--crimson-hi);
+  stroke: var(--bg-0);
+  stroke-width: 1;
+}
+.map-pulse {
+  fill: none;
+  stroke: var(--red);
+  stroke-width: 1;
+  opacity: 0.7;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation: map-pulse 2.4s ease-out infinite;
+}
+.map-hit {
+  cursor: pointer;
+}
+.map-pin:hover .map-dot,
+.map-pin.is-active .map-dot {
+  fill: #fff;
+}
+@keyframes map-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.65;
+  }
+  100% {
+    transform: scale(3.4);
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-pulse {
+    animation: none;
+    display: none;
+  }
+}
+
+.map-footer {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  margin-top: 0.85rem;
+  padding: 0 0.15rem 0.35rem;
+}
+.map-footer-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.65rem 1rem;
+}
+.map-hint {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--ink-faint);
+}
+.map-see-all {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--crimson-hi);
+  font: inherit;
+  font-size: var(--fs-small);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+  text-decoration-color: var(--line-red);
+}
+.map-see-all:hover,
+.map-see-all:focus-visible {
+  color: #fff;
+  text-decoration-color: var(--crimson-hi);
+}
+
+/* Desktop floating tooltip */
+.map-tooltip {
+  position: fixed;
+  z-index: var(--z-toast);
+  max-width: 220px;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-left: 2px solid var(--crimson-hi);
+  border-radius: var(--radius-sm);
+  background: #151317;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -100%) translateY(-10px);
+  transition: opacity 0.12s var(--ease-out);
+}
+.map-tooltip.is-show {
+  opacity: 1;
+}
+.map-tooltip-country {
+  margin-bottom: 0.15rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.map-tooltip-artists {
+  font-weight: 600;
+  color: #fff;
+  font-size: var(--fs-small);
+  line-height: 1.4;
+}
+
+/* Sheet / roster */
+.map-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-toast) + 5);
+  pointer-events: none;
+}
+.map-sheet.is-open {
+  pointer-events: auto;
+}
+.map-sheet[hidden] {
+  display: none !important;
+}
+.map-sheet-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 4, 4, 0.62);
+  opacity: 0;
+  transition: opacity 0.28s var(--ease-out);
+}
+.map-sheet.is-open .map-sheet-backdrop {
+  opacity: 1;
+}
+.map-sheet-panel {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: min(78vh, 640px);
+  padding: 1rem 1.1rem 1.35rem;
+  border: 1px solid var(--line);
+  border-bottom: none;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--bg-1);
+  transform: translateY(100%);
+  transition: transform 0.32s var(--ease-out);
+  overflow: auto;
+}
+.map-sheet.is-open .map-sheet-panel {
+  transform: translateY(0);
+}
+.map-sheet-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.map-sheet-title {
+  margin: 0;
+  font-size: var(--fs-h3);
+  color: var(--ink);
+}
+.map-sheet-close {
+  border: none;
+  background: transparent;
+  color: var(--ink-soft);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0.1rem 0.25rem;
+}
+.map-sheet-artists {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+}
+
+.map-roster {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px 16px;
+  max-height: 60vh;
+  overflow-y: auto;
+}
+.map-roster-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 8px 10px;
+  border-left: 2px solid transparent;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+.map-roster-item:hover,
+.map-roster-item:focus-visible {
+  border-left-color: var(--crimson-hi);
+  background: color-mix(in srgb, var(--red) 8%, transparent);
+}
+.map-roster-flag {
+  font-size: 18px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.map-roster-text {
+  min-width: 0;
+}
+.map-roster-name {
+  display: block;
+  font-weight: 600;
+  color: var(--ink);
+  font-size: var(--fs-small);
+}
+.map-roster-artist {
+  display: block;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+/* Ambient floating DJ nick (desktop only, created in JS) */
+.map-float-nick {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(212, 38, 48, 0.35);
+  border-radius: var(--radius-sm);
+  background: rgba(12, 6, 7, 0.9);
+  color: var(--ink);
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -100%) translateY(-2px);
+  transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
+  white-space: nowrap;
+}
+.map-float-nick.is-show {
+  opacity: 0.95;
+  transform: translate(-50%, -100%) translateY(-8px);
+}
+.map-float-nick-artist {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+.map-float-nick-country {
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+html.map-sheet-open {
+  overflow: hidden;
+}
+
+@media (max-width: 620px) {
+  .map-hint {
+    display: none;
+  }
 }
