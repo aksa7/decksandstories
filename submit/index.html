@@ -6,7 +6,7 @@
 
   <!-- Primary SEO -->
   <title>Submit your DJ Mix with a story - Decks&Stories (International DJ Mix Series)</title>
-  <meta name="description" content="Submit your 60-minute DJ mix + story for an international DJ mix series, send unreleased demo tracks, or propose an event. Decks&Stories is an independent global electronic music storytelling platform." />
+  <meta name="description" content="Submit your 60-minute DJ mix + story for an international DJ mix series or propose an event. Decks&Stories is an independent global electronic music storytelling platform." />
   <link rel="canonical" href="https://decksandstories.com/submit/" />
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Decks&Stories" />
@@ -15,14 +15,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://decksandstories.com/submit/" />
   <meta property="og:title" content="Submit a DJ Mix & Story - Decks&Stories" />
-  <meta property="og:description" content="Send your 60-minute mix + story for our international DJ mixes series, share unreleased demo tracks, or propose an event / venue." />
+  <meta property="og:description" content="Send your 60-minute mix + story for our international DJ mixes series or propose an event / venue." />
   <meta property="og:image" content="https://decksandstories.com/img/submit-og-image-1200.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@decksandstories" />
   <meta name="twitter:title" content="Submit a DJ Mix & Story - Decks&Stories" />
-  <meta name="twitter:description" content="International DJ mixes from around the world - submit your mix + story, demos, or event idea to an independent electronic music platform." />
+  <meta name="twitter:description" content="International DJ mixes from around the world - submit your mix + story or event idea to an independent electronic music platform." />
   <meta name="twitter:image" content="https://decksandstories.com/img/submit-og-image-1200.webp" />
 
   <!-- Performance -->
@@ -45,7 +45,7 @@
     "name": "Submit - Decks&Stories",
     "url": "https://decksandstories.com/submit/",
     "inLanguage": "en",
-    "description": "Submission page for Decks&Stories: international DJ mixes with stories, unreleased demo tracks, and event / venue proposals.",
+    "description": "Submission page for Decks&Stories: international DJ mixes with stories and event / venue proposals.",
     "isPartOf": { "@type": "WebSite", "name": "Decks&Stories", "url": "https://decksandstories.com/" }
   }
   </script>
@@ -66,11 +66,10 @@
     </picture>
 
     <h1 class="submit-title">What is your message to the world?</h1>
-    <p class="submit-subtitle">Send us your <strong>60-minute mix + story</strong> for a digital episode, or share your <strong>unreleased tracks</strong> for demo consideration.</p>
+    <p class="submit-subtitle">Send us your <strong>60-minute mix + story</strong> for a digital episode, or propose an <strong>event idea</strong>.</p>
 
     <div class="submit-cta-row">
       <a href="#submissions" class="submit-cta active" data-target="mix-form">Submit a Mix Episode</a>
-      <a href="#submissions" class="submit-cta" data-target="demo-form">Submit a Demo Track</a>
       <a href="#submissions" class="submit-cta" data-target="event-form">Submit an Event</a>
     </div>
 
@@ -85,7 +84,7 @@
         <div class="submit-step-card">
           <span class="step-number">01</span>
           <h3>Share your sound</h3>
-          <p>Send a <strong>60 min mix</strong> (for our international DJ mix series) or an <strong>unreleased demo</strong> that reflects who you are.</p>
+          <p>Send a <strong>60 min mix</strong> for our international DJ mix series that reflects who you are.</p>
         </div>
         <div class="submit-step-card">
           <span class="step-number">02</span>
@@ -105,13 +104,12 @@
   <section id="submissions" class="section">
     <div class="submit-wrap submit-section">
       <header class="major">
-        <h2>Submit Your Mix, Demo or Event</h2>
-        <p>One hub for <strong>DJ mix + story episodes</strong>, <strong>demo tracks</strong> and <strong>event ideas</strong>. Choose what you want to send us.</p>
+        <h2>Submit Your Mix or Event</h2>
+        <p>One hub for <strong>DJ mix + story episodes</strong> and <strong>event ideas</strong>. Choose what you want to send us.</p>
       </header>
 
       <div class="submit-switch">
         <button class="submit-tab active" data-target="mix-form">Mix Episode</button>
-        <button class="submit-tab" data-target="demo-form">Demo Track</button>
         <button class="submit-tab" data-target="event-form">Event / Venue</button>
       </div>
 
@@ -222,58 +220,6 @@
 
             <button type="submit" class="formSubmit">Send Mix Episode</button>
             <p class="form-footnote">We try to respond to every submission - if we feel your story fits the movement, we’ll contact you personally.</p>
-          </div>
-        </form>
-
-        <!-- DEMO FORM -->
-        <form id="demo-form" class="submit-form" action="/api/submit" method="POST">
-          <input type="text" name="website" id="website-demo" class="hp-field" tabindex="-1" autocomplete="off">
-          <input type="hidden" name="form-type" value="demo-track">
-          <input type="hidden" name="_redirect" value="https://decksandstories.com/thank-you">
-          <div class="form-card">
-            <h2 id="demo-submit">Demo / Unreleased Track Submission</h2>
-            <p class="form-intro">Share your <strong>unreleased originals, edits or remixes</strong>. Please use <strong>streamable/downloadable links</strong> (no direct file uploads).</p>
-            <div class="form-grid">
-              <div class="field-group">
-                <label for="demo-artist" class="field-label">Artist Name*</label>
-                <input type="text" id="demo-artist" name="artist" class="field-input" required>
-              </div>
-              <div class="field-group">
-                <label for="demo-email" class="field-label">Email*</label>
-                <input type="email" id="demo-email" name="email" class="field-input" required>
-              </div>
-              <div class="field-group">
-                <label for="demo-instagram" class="field-label">Instagram / Social</label>
-                <input type="text" id="demo-instagram" name="instagram" class="field-input" placeholder="@username or profile link">
-              </div>
-              <div class="field-group">
-                <label for="demo-project" class="field-label">Project / label (optional)</label>
-                <input type="text" id="demo-project" name="project-label" class="field-input" placeholder="Label name / crew / collective">
-              </div>
-              <div class="field-group field-full">
-                <label for="demo-track-title" class="field-label">Track title*</label>
-                <input type="text" id="demo-track-title" name="track-title" class="field-input" required>
-              </div>
-              <div class="field-group field-full">
-                <label for="demo-link" class="field-label">Demo link*</label>
-                <input type="url" id="demo-link" name="demo-link" class="field-input" required placeholder="Private SoundCloud, Google Drive, Dropbox, WeTransfer, etc.">
-              </div>
-              <div class="field-group field-full">
-                <label for="demo-genre" class="field-label">Genre / vibe</label>
-                <input type="text" id="demo-genre" name="genre" class="field-input" placeholder="Melodic techno, deep house, breaks, experimental...">
-              </div>
-              <div class="field-group field-full">
-                <label for="demo-notes" class="field-label">Anything we should know?</label>
-                <textarea id="demo-notes" name="notes" class="field-textarea" placeholder="Is this part of an EP? Unsigned? Ready for release? Still in progress?"></textarea>
-              </div>
-            </div>
-            <div class="form-consent">
-              <label class="checkbox-row"><input type="checkbox" name="demo-rights" required><span>I confirm I am the creator / rights holder of this demo.</span></label>
-              <label class="checkbox-row"><input type="checkbox" name="demo-share" required><span>I agree that Decks & Stories may review this demo and consider it for future opportunities.</span></label>
-              <label class="checkbox-row"><input type="checkbox" name="newsletter_optin" value="yes"><span>Send me new episodes & updates by email (optional).</span></label>
-            </div>
-            <button type="submit" class="formSubmit">Send Demo</button>
-            <p class="form-footnote">If your track clicks with our curation, we’ll get in touch and discuss the next steps.</p>
           </div>
         </form>
 

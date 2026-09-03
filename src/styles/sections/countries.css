@@ -67,6 +67,11 @@
   height: clamp(30px, 4.8vw, 30px);
   width: auto;
 }
+/* whatstheid: wide mark (~4:1) — scale to match other logos visually */
+.trust-logo--whatstheid img {
+  height: clamp(32px, 5.2vw, 48px);
+  width: auto;
+}
 
 /* ---------- Countries / world map ---------- */
 .countries-footnote {
@@ -74,6 +79,8 @@
   font-size: var(--fs-lead);
   color: var(--ink-soft);
 }
+
+
 .countries-footnote strong {
   color: var(--crimson-hi);
 }

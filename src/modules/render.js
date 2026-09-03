@@ -115,7 +115,9 @@ export function renderContent() {
               ? " trust-logo--sun365"
               : t.base === "proeventsLogo"
                 ? " trust-logo--proevents"
-                : ""
+                : t.base === "whatstheid-logo-bg"
+                  ? " trust-logo--whatstheid"
+                  : ""
           }" href="${t.url}" target="_blank" rel="noopener" aria-label="${esc(t.alt)}">${logo(
             t.base,
             t.alt,

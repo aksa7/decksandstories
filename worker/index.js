@@ -118,13 +118,12 @@ async function sendEmail(env, { to, subject, html, text, replyTo }) {
 }
 
 function labelFor(type) {
-  return { "mix-episode": "Mix Episode", "demo-track": "Demo Track", "event-venue": "Event / Venue" }[type] || type;
+  return { "mix-episode": "Mix Episode", "event-venue": "Event / Venue" }[type] || type;
 }
 
 function thankYouSubject(type) {
   return {
     "mix-episode": "We got your mix, thank you!",
-    "demo-track": "We got your track, thank you!",
     "event-venue": "Thanks for the event idea, we'll get back to you soon!",
   }[type] || "Thanks for your submission!";
 }
@@ -132,7 +131,6 @@ function thankYouSubject(type) {
 function thankYouBody(type, name) {
   return {
     "mix-episode": `Thank you for trusting us with your mix and your story, ${name}. That's not a small thing to send out into the world, and we don't take it lightly. We'll spend real time with it, and if it feels like a fit, you'll be hearing from us personally soon.\n\nWhatever happens next, you're already part of what we're building here.`,
-    "demo-track": `Thank you for sharing your track with us, ${name}. Sending out music you've worked on takes guts, and we respect that. We'll give it a proper listen, and if it clicks with what we're building, we'll reach out to talk next steps.\n\nEither way, glad to have you in this community.`,
     "event-venue": `Thank you for thinking of us with this idea, ${name}. We'll go through it properly, and if it feels like the right fit, we'll get back to you to talk it through.\n\nAppreciate you wanting to build something with us.`,
   }[type] || `Thank you for reaching out, ${name}. We'll be in touch soon.`;
 }
