@@ -1,6 +1,23 @@
+const ALLOWED_ORIGINS = new Set([
+  "https://decksandstories.com",
+  "https://www.decksandstories.com",
+]);
+
+const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    if (url.pathname === "/api/newsletter-subscribe") {
+      if (request.method === "OPTIONS") {
+        return corsPreflight(request);
+      }
+      if (request.method === "POST") {
+        return handleNewsletterSubscribe(request, env);
+      }
+      return json({ ok: false, error: "method_not_allowed" }, 405);
+    }
 
     if (url.pathname === "/api/submit" && request.method === "POST") {
       return handleSubmit(request, env);
@@ -37,6 +54,101 @@ async function notifyTelegram(env, type, data) {
   } catch (e) {
     console.error("Telegram notify failed:", e.message);
   }
+}
+
+async function handleNewsletterSubscribe(request, env) {
+  const origin = request.headers.get("Origin") || "";
+  if (origin && !ALLOWED_ORIGINS.has(origin)) {
+    return corsJson({ ok: false, error: "origin_not_allowed" }, 403, origin);
+  }
+
+  if (!env.RESEND_API_KEY || !env.RESEND_SEGMENT_ID) {
+    return corsJson({ ok: false, error: "missing_env_vars" }, 500, origin);
+  }
+
+  let email = "";
+  try {
+    const ct = request.headers.get("Content-Type") || "";
+    if (ct.includes("application/json")) {
+      const body = await request.json();
+      email = String(body?.email || "").trim();
+    } else {
+      const fd = await request.formData();
+      email = String(fd.get("email") || "").trim();
+    }
+  } catch {
+    return corsJson({ ok: false, error: "bad_request" }, 400, origin);
+  }
+
+  if (!email || !EMAIL_RE.test(email) || email.length > 254) {
+    return corsJson({ ok: false, error: "invalid_email" }, 400, origin);
+  }
+
+  try {
+    const createRes = await fetch("https://api.resend.com/contacts", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email, unsubscribed: false }),
+    });
+
+    // ok or "already exists" both allow continuing — other errors fail for the user
+    if (!createRes.ok) {
+      const errBody = await createRes.text().catch(() => "");
+      const alreadyExists = /already exists|contact_already_exists|duplicate/i.test(errBody);
+      if (!alreadyExists) {
+        console.error("Resend create contact failed:", createRes.status, errBody);
+        return corsJson({ ok: false, error: "resend_failed" }, 502, origin);
+      }
+    }
+
+    // Segment assignment is a separate API call (POST /contacts does not accept segments)
+    const segRes = await fetch(
+      `https://api.resend.com/contacts/${encodeURIComponent(email)}/segments/${env.RESEND_SEGMENT_ID}`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${env.RESEND_API_KEY}` },
+      },
+    );
+    if (!segRes.ok) {
+      const segErr = await segRes.text().catch(() => "");
+      console.error("Resend add-to-segment failed:", segRes.status, segErr);
+      return corsJson({ ok: false, error: "resend_failed" }, 502, origin);
+    }
+
+    return corsJson({ ok: true }, 200, origin);
+  } catch (err) {
+    console.error("Newsletter subscribe failed:", err.message || err);
+    return corsJson({ ok: false, error: "resend_failed" }, 502, origin);
+  }
+}
+
+function corsHeaders(origin) {
+  const allow = ALLOWED_ORIGINS.has(origin) ? origin : "https://decksandstories.com";
+  return {
+    "Access-Control-Allow-Origin": allow,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Accept",
+    "Access-Control-Max-Age": "86400",
+    Vary: "Origin",
+  };
+}
+
+function corsPreflight(request) {
+  const origin = request.headers.get("Origin") || "";
+  if (origin && !ALLOWED_ORIGINS.has(origin)) {
+    return new Response(null, { status: 403 });
+  }
+  return new Response(null, { status: 204, headers: corsHeaders(origin) });
+}
+
+function corsJson(obj, status, origin) {
+  return new Response(JSON.stringify(obj), {
+    status,
+    headers: { "Content-Type": "application/json", ...corsHeaders(origin || "") },
+  });
 }
 
 async function handleSubmit(request, env) {

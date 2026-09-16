@@ -30,11 +30,13 @@ function initClickableCards() {
   });
 }
 
-// Newsletter toast — shows once per session after 35% scroll; Formspree submit.
+// Newsletter toast — shows once per session after 35% scroll.
+// Dual-write: Resend Contacts via Worker + Formspree backup (temporary).
 function initNewsletterToast() {
   const toast = document.getElementById("nl-toast");
   if (!toast) return;
 
+  const NEWSLETTER_API = "/api/newsletter-subscribe";
   const FORMSPREE = "https://formspree.io/f/mlglprvj";
   const KEY_JOINED = "ds_nl_joined";
   const KEY_HIDE_UNTIL = "ds_nl_hide_until";
@@ -87,12 +89,39 @@ function initNewsletterToast() {
     if (!val) return;
     msg.textContent = "Joining...";
     try {
-      const body = new FormData();
-      body.append("email", val);
-      body.append("source", "index-toast");
-      body.append("page", location.pathname);
-      const res = await fetch(FORMSPREE, { method: "POST", headers: { Accept: "application/json" }, body });
-      if (res.ok) {
+      const formspreeBody = new FormData();
+      formspreeBody.append("email", val);
+      formspreeBody.append("source", "index-toast");
+      formspreeBody.append("page", location.pathname);
+
+      const results = await Promise.allSettled([
+        fetch(NEWSLETTER_API, {
+          method: "POST",
+          headers: { Accept: "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify({ email: val }),
+        }),
+        fetch(FORMSPREE, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: formspreeBody,
+        }),
+      ]);
+
+      const anyOk = await Promise.all(
+        results.map(async (r) => {
+          if (r.status !== "fulfilled" || !r.value) return false;
+          if (!r.value.ok) return false;
+          try {
+            const data = await r.value.clone().json();
+            // Worker returns { ok: true }; Formspree returns its own shape — both count if HTTP ok.
+            return data?.ok !== false;
+          } catch {
+            return true;
+          }
+        }),
+      ).then((flags) => flags.some(Boolean));
+
+      if (anyOk) {
         msg.textContent = "You’re in. See you in the next episode 👀";
         localStorage.setItem(KEY_JOINED, "1");
         localStorage.setItem(KEY_HIDE_UNTIL, String(now() + daysMs(365)));

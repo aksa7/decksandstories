@@ -47,7 +47,8 @@ if (forms.length) {
       .join(joiner);
   };
 
-  const NEWSLETTER = "https://formspree.io/f/mlglprvj";
+  const NEWSLETTER_API = "/api/newsletter-subscribe";
+  const FORMSPREE = "https://formspree.io/f/mlglprvj";
   const redirectUrl = "https://decksandstories.com/thank-you";
 
   const BLOCKED_LINK_RE = /soundcloud\.com|mixcloud\.com|on\.soundcloud\.com|youtube\.com|youtu\.be|open\.spotify\.com|spotify\.link/i;
@@ -98,15 +99,29 @@ if (forms.length) {
       buildHidden(form, "#story-letter", ".story-answer", "\n\n");
       buildHidden(form, "#quiz", ".quiz-answer", "\n");
 
-      // Optional newsletter opt-in → separate Formspree endpoint (fire-and-forget).
+      // Optional newsletter opt-in → Resend Contacts + Formspree backup (fire-and-forget).
       const opt = form.querySelector("#newsletter-optin, input[name='newsletter_optin']");
       const emailEl = form.querySelector("input[type='email']");
       if (opt?.checked && emailEl?.value.trim()) {
+        const emailVal = emailEl.value.trim();
         const p = new FormData();
-        p.append("email", emailEl.value.trim());
+        p.append("email", emailVal);
         p.append("source", `submit-optin-${form.id}`);
         p.append("page", location.pathname);
-        fetch(NEWSLETTER, { method: "POST", headers: { Accept: "application/json" }, body: p, keepalive: true }).catch(() => {});
+        Promise.allSettled([
+          fetch(NEWSLETTER_API, {
+            method: "POST",
+            headers: { Accept: "application/json", "Content-Type": "application/json" },
+            body: JSON.stringify({ email: emailVal }),
+            keepalive: true,
+          }),
+          fetch(FORMSPREE, {
+            method: "POST",
+            headers: { Accept: "application/json" },
+            body: p,
+            keepalive: true,
+          }),
+        ]).catch(() => {});
       }
 
       try {
