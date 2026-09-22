@@ -1,8 +1,8 @@
-// decksandstories.com v2 — thank-you page entry (reuses submit styling).
+// Shared entry for /privacy/ and /cookies/
 import "./styles/tokens.css";
 import "./styles/base.css";
-import "./styles/sections/submit.css";
 import "./styles/sections/cookie-consent.css";
+import "./styles/sections/legal.css";
 import { initCookieConsent } from "./modules/cookie-consent.js";
 
 initCookieConsent();

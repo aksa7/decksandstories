@@ -1,0 +1,78 @@
+/* Legal / policy pages */
+.legal-page {
+  background: var(--bg-0);
+  color: var(--ink);
+  min-height: 100vh;
+}
+.legal-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: clamp(2rem, 6vw, 3.5rem) var(--gutter) 3rem;
+}
+.legal-back {
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  color: var(--ink-soft);
+  text-decoration: none;
+  font-size: var(--fs-small);
+}
+.legal-back:hover {
+  color: var(--crimson-hi);
+}
+.legal-page h1 {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  line-height: var(--lh-snug);
+}
+.legal-meta {
+  margin: 0 0 2rem;
+  color: var(--ink-faint);
+  font-size: var(--fs-small);
+}
+.legal-page h2 {
+  margin: 2rem 0 0.65rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+.legal-page p,
+.legal-page li {
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--ink-soft);
+}
+.legal-page ul {
+  margin: 0.4rem 0 0;
+  padding-left: 1.2rem;
+}
+.legal-page a {
+  color: var(--crimson-hi);
+}
+.legal-table-wrap {
+  overflow-x: auto;
+  margin-top: 0.75rem;
+}
+.legal-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-small);
+}
+.legal-table th,
+.legal-table td {
+  border: 1px solid var(--line);
+  padding: 0.65rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  color: var(--ink-soft);
+}
+.legal-table th {
+  background: var(--bg-2);
+  color: var(--ink);
+  font-weight: 600;
+}
+.legal-table code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  color: var(--crimson-hi);
+}

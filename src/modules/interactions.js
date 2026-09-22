@@ -6,6 +6,8 @@
 // facade + custom lightbox).
 // ============================================================
 
+import { getCookieConsent } from "./cookie-consent.js";
+
 // Smooth scroll for in-page nav links (delegated).
 function initSmoothScroll() {
   document.addEventListener("click", (e) => {
@@ -32,6 +34,8 @@ function initClickableCards() {
 
 // Newsletter toast — shows once per session after 35% scroll.
 // Dual-write: Resend Contacts via Worker + Formspree backup (temporary).
+// Held back while the cookie banner is visible so the two never overlap
+// (desktop + mobile).
 function initNewsletterToast() {
   const toast = document.getElementById("nl-toast");
   if (!toast) return;
@@ -52,6 +56,7 @@ function initNewsletterToast() {
     return until && now() < until;
   };
   const shownThisSession = () => sessionStorage.getItem(KEY_SESSION) === "1";
+  const consentReady = () => !!getCookieConsent();
 
   const open = () => {
     toast.classList.add("is-open");
@@ -65,16 +70,29 @@ function initNewsletterToast() {
 
   if (joined() || hiddenByTime() || shownThisSession()) return;
 
+  let scrollReady = false;
+
+  const tryOpen = () => {
+    if (!scrollReady || !consentReady()) return;
+    if (joined() || hiddenByTime() || shownThisSession()) return;
+    sessionStorage.setItem(KEY_SESSION, "1");
+    open();
+    window.removeEventListener("scroll", onScroll);
+    window.removeEventListener("ds:cookie-consent", tryOpen);
+  };
+
   const onScroll = () => {
     const doc = document.documentElement;
     const max = Math.max(1, doc.scrollHeight - doc.clientHeight);
     if ((doc.scrollTop || 0) / max >= SHOW_AT) {
-      sessionStorage.setItem(KEY_SESSION, "1");
-      open();
-      window.removeEventListener("scroll", onScroll);
+      scrollReady = true;
+      tryOpen();
+      // Keep listening only if blocked by missing consent — toast may open later.
+      if (consentReady()) window.removeEventListener("scroll", onScroll);
     }
   };
   window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("ds:cookie-consent", tryOpen);
 
   toast.querySelector(".nl-toast-close")?.addEventListener("click", close);
 

@@ -16,6 +16,8 @@ export default defineConfig({
         main: resolve(root, 'index.html'),
         submit: resolve(root, 'submit/index.html'),
         thankyou: resolve(root, 'thank-you/index.html'),
+        privacy: resolve(root, 'privacy/index.html'),
+        cookies: resolve(root, 'cookies/index.html'),
       },
     },
   },

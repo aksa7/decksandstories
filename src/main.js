@@ -8,6 +8,7 @@ import "./styles/sections/countries.css";
 import "./styles/sections/gallery.css";
 import "./styles/sections/blocks.css";
 import "./styles/sections/reveal.css";
+import "./styles/sections/cookie-consent.css";
 
 import { renderContent } from "./modules/render.js";
 import { initInteractions } from "./modules/interactions.js";
@@ -15,12 +16,14 @@ import { initMobileNav } from "./modules/nav.js";
 import { tagReveals } from "./modules/reveals.js";
 import { initGallery } from "./modules/gallery.js";
 import { initWorldMap } from "./modules/world-map.js";
+import { initCookieConsent } from "./modules/cookie-consent.js";
 
 renderContent();
 initWorldMap();
 initInteractions();
 initMobileNav();
 initGallery();
+initCookieConsent();
 
 tagReveals();
 

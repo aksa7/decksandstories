@@ -3,7 +3,9 @@ import "./styles/tokens.css";
 import "./styles/base.css";
 import "./styles/sections/submit.css";
 import "./styles/sections/reveal.css";
+import "./styles/sections/cookie-consent.css";
 import { initRevealsLite } from "./modules/reveals.js";
+import { initCookieConsent } from "./modules/cookie-consent.js";
 
 const tabs = document.querySelectorAll(".submit-tab");
 const forms = document.querySelectorAll(".submit-form");
@@ -143,3 +145,4 @@ if (forms.length) {
 }
 
 initRevealsLite();
+initCookieConsent();
