@@ -1,36 +1,3 @@
-<!--
-  Decks&Stories — weekly newsletter HTML for Resend Broadcasts.
-
-  Copy rendered HTML into Resend Broadcast editor manually before
-  each Friday send — placeholders {{...}} pakeisti realiu turiniu
-  prieš kopijuojant.
-
-  Placeholders:
-    {{WEEK_INTRO}}       — intro under "This week"
-    {{MIX_THUMB}}        — International Mix thumbnail (delete thumb <tr> if teaser / no art yet)
-    {{MIX_TITLE}}        — International Mix title
-    {{MIX_URL}}          — Mix / YouTube CTA URL
-    {{MIX_TEXT}}         — optional body under title (delete <p> if unused)
-    {{MIX_CTA}}          — Mix button label (default: Watch)
-    {{SESSION_THUMB}}    — Studio Session thumbnail (delete whole Session block if none)
-    {{SESSION_TITLE}}    — Studio Session title
-    {{SESSION_TEXT}}     — optional body (delete <p> if unused)
-    {{SESSION_URL}}      — Studio Session YouTube URL
-    {{SESSION_CTA}}      — Session button label (default: Watch)
-    {{IG_URL}}           — Instagram Pick a Question post URL (delete whole Pick block if unused)
-    {{EVENT_EYEBROW}}    — Event Spotlight label (e.g. ADE 2026)
-    {{EVENT_TITLE}}      — Event Spotlight title
-    {{EVENT_TEXT}}       — Event Spotlight body
-    {{EVENT_CTA}}        — Event button label
-    {{EVENT_URL}}        — Event CTA URL (delete whole Event block if unused)
-    {{PARTNER_EYEBROW}}  — Partner Spotlight label (e.g. NEW PARTNER)
-    {{PARTNER_TITLE}}    — Partner Spotlight title
-    {{PARTNER_TEXT}}     — Partner Spotlight body
-    {{PARTNER_CTA}}      — Partner button label
-    {{PARTNER_URL}}      — Partner CTA URL (delete whole Partner block if unused)
-
-  Do NOT remove {{{RESEND_UNSUBSCRIBE_URL}}} — Resend injects the unsubscribe link.
--->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +15,7 @@
           <!-- 1. Header -->
           <tr>
             <td align="center" style="padding:32px 24px 16px 24px;background-color:#0c0607;">
-              <img src="https://decksandstories.com/img/dcks-logo-email.png" width="220" alt="Decks&amp;Stories" style="display:block;width:220px;max-width:70%;height:auto;border:0;outline:none;text-decoration:none;">
+              <img src="https://decksandstories.com/img/1920x1080DCKS_transparent-800.webp" width="220" alt="Decks&amp;Stories" style="display:block;width:220px;max-width:70%;height:auto;border:0;outline:none;text-decoration:none;">
               <p style="margin:16px 0 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;letter-spacing:0.12em;text-transform:uppercase;color:#d42630;">
                 Decks &amp; Stories
               </p>
@@ -62,38 +29,31 @@
                 This week
               </h1>
               <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.55;color:#c8b8ba;">
-                {{WEEK_INTRO}}
+                A new Studio Session just dropped, we're heading to Amsterdam for ADE, and we've teamed up with a tool that solves every "what's that track" moment. Friday's mix is coming. Here's everything else first.
               </p>
             </td>
           </tr>
 
-          <!-- 3. International Mix -->
+          <!-- 3. International Mix (teaser — no thumbnail) -->
           <tr>
             <td style="padding:0 28px 28px 28px;background-color:#0c0607;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#140a0c;border:1px solid #3a151a;">
                 <tr>
-                  <td style="padding:0;">
-                    <a href="{{MIX_URL}}" target="_blank" style="text-decoration:none;">
-                      <img src="{{MIX_THUMB}}" width="544" alt="{{MIX_TITLE}}" style="display:block;width:100%;max-width:544px;height:auto;border:0;outline:none;">
-                    </a>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="padding:18px 20px 22px 20px;">
+                  <td style="padding:20px;">
                     <p style="margin:0 0 6px 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#d42630;">
                       International Mix
                     </p>
                     <p style="margin:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:1.35;color:#ffffff;font-weight:700;">
-                      {{MIX_TITLE}}
+                      Dropping Friday
                     </p>
                     <p style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#c8b8ba;">
-                      {{MIX_TEXT}}
+                      This week's mix goes live Friday. Subscribe on YouTube so you don't miss it.
                     </p>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" bgcolor="#b3121b" style="background-color:#b3121b;">
-                          <a href="{{MIX_URL}}" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
-                            {{MIX_CTA}}
+                          <a href="https://www.youtube.com/@decksandstories" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
+                            Subscribe on YouTube
                           </a>
                         </td>
                       </tr>
@@ -104,14 +64,14 @@
             </td>
           </tr>
 
-          <!-- 4. Studio Session — delete this whole table row if none this week -->
+          <!-- 4. Studio Session -->
           <tr>
             <td style="padding:0 28px 28px 28px;background-color:#0c0607;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#140a0c;border:1px solid #3a151a;">
                 <tr>
                   <td style="padding:0;">
-                    <a href="{{SESSION_URL}}" target="_blank" style="text-decoration:none;">
-                      <img src="{{SESSION_THUMB}}" width="544" alt="{{SESSION_TITLE}}" style="display:block;width:100%;max-width:544px;height:auto;border:0;outline:none;">
+                    <a href="https://youtu.be/Xj2MeJSk1cY" target="_blank" style="text-decoration:none;">
+                      <img src="https://img.youtube.com/vi/Xj2MeJSk1cY/maxresdefault.jpg" width="544" alt="ISSA - Trance / House / Ghettotech" style="display:block;width:100%;max-width:544px;height:auto;border:0;outline:none;">
                     </a>
                   </td>
                 </tr>
@@ -121,16 +81,16 @@
                       Studio Session
                     </p>
                     <p style="margin:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:1.35;color:#ffffff;font-weight:700;">
-                      {{SESSION_TITLE}}
+                      ISSA - Trance / House / Ghettotech
                     </p>
                     <p style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#c8b8ba;">
-                      {{SESSION_TEXT}}
+                      No fixed genre, no predictable direction. ISSA steps into the Decks&amp;Stories studio moving freely between trance, house and ghettotech, following instinct over expectation. Catch her live on September 25, an event by Miražai 1936 at daina.live.
                     </p>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" bgcolor="#b3121b" style="background-color:#b3121b;">
-                          <a href="{{SESSION_URL}}" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
-                            {{SESSION_CTA}}
+                          <a href="https://youtu.be/Xj2MeJSk1cY" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
+                            Watch the session
                           </a>
                         </td>
                       </tr>
@@ -141,26 +101,26 @@
             </td>
           </tr>
 
-          <!-- 5. Event Spotlight — delete this whole table row if unused -->
+          <!-- 5. Event Spotlight -->
           <tr>
             <td style="padding:0 28px 28px 28px;background-color:#0c0607;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#140a0c;border:1px solid #3a151a;">
                 <tr>
                   <td style="padding:20px;">
                     <p style="margin:0 0 6px 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#d42630;">
-                      {{EVENT_EYEBROW}}
+                      ADE 2026
                     </p>
                     <p style="margin:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:1.35;color:#ffffff;font-weight:700;">
-                      {{EVENT_TITLE}}
+                      ZU HAUSE - Amsterdam Dance Event
                     </p>
                     <p style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#c8b8ba;">
-                      {{EVENT_TEXT}}
+                      We're joining forces with Beskar Bookings for a night of house music in Amsterdam. October 22, CREA Music Hall. International lineup including Aksendo, Herma and more. Only 100 presale tickets.
                     </p>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" bgcolor="#b3121b" style="background-color:#b3121b;">
-                          <a href="{{EVENT_URL}}" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
-                            {{EVENT_CTA}}
+                          <a href="http://zuhause-ade.beskarbookings.com/" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
+                            Get tickets
                           </a>
                         </td>
                       </tr>
@@ -171,26 +131,26 @@
             </td>
           </tr>
 
-          <!-- 6. Partner Spotlight — delete this whole table row if unused -->
+          <!-- 6. Partner Spotlight -->
           <tr>
             <td style="padding:0 28px 28px 28px;background-color:#0c0607;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#140a0c;border:1px solid #3a151a;">
                 <tr>
                   <td style="padding:20px;">
                     <p style="margin:0 0 6px 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#d42630;">
-                      {{PARTNER_EYEBROW}}
+                      New Partner
                     </p>
                     <p style="margin:0 0 10px 0;font-family:Arial,Helvetica,sans-serif;font-size:18px;line-height:1.35;color:#ffffff;font-weight:700;">
-                      {{PARTNER_TITLE}}
+                      WhatsTheID
                     </p>
                     <p style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#c8b8ba;">
-                      {{PARTNER_TEXT}}
+                      Ever caught an unreal ID in one of our mixes and had no idea what it was? WhatsTheID solves that. Paste any YouTube DJ set and get the full tracklist back, every track ID, timestamped, with links to listen. We've teamed up with them, so look out for their weekly picks pulled from our Studio Sessions.
                     </p>
                     <table role="presentation" cellpadding="0" cellspacing="0" border="0">
                       <tr>
                         <td align="center" bgcolor="#b3121b" style="background-color:#b3121b;">
-                          <a href="{{PARTNER_URL}}" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
-                            {{PARTNER_CTA}}
+                          <a href="https://whatstheid.com" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
+                            Try WhatsTheID
                           </a>
                         </td>
                       </tr>
@@ -201,34 +161,7 @@
             </td>
           </tr>
 
-          <!-- 7. Pick a Question — delete this whole table row if unused -->
-          <tr>
-            <td style="padding:0 28px 28px 28px;background-color:#0c0607;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color:#140a0c;border:1px solid #3a151a;">
-                <tr>
-                  <td style="padding:20px;">
-                    <p style="margin:0 0 6px 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#d42630;">
-                      Pick a Question
-                    </p>
-                    <p style="margin:0 0 16px 0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#c8b8ba;">
-                      This week’s question is live on Instagram — drop your answer there.
-                    </p>
-                    <table role="presentation" cellpadding="0" cellspacing="0" border="0">
-                      <tr>
-                        <td align="center" bgcolor="#b3121b" style="background-color:#b3121b;">
-                          <a href="{{IG_URL}}" target="_blank" style="display:inline-block;padding:12px 22px;font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;color:#ffffff;text-decoration:none;background-color:#b3121b;">
-                            Answer on Instagram
-                          </a>
-                        </td>
-                      </tr>
-                    </table>
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <!-- 8. Power Hit Radio — fixed -->
+          <!-- 7. Power Hit Radio — fixed -->
           <tr>
             <td style="padding:0 28px 28px 28px;background-color:#0c0607;">
               <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.5;color:#ffffff;text-align:center;">
@@ -237,7 +170,7 @@
             </td>
           </tr>
 
-          <!-- 9. Submit CTA -->
+          <!-- 8. Submit CTA -->
           <tr>
             <td align="center" style="padding:8px 28px 36px 28px;background-color:#0c0607;">
               <table role="presentation" cellpadding="0" cellspacing="0" border="0">
@@ -252,7 +185,7 @@
             </td>
           </tr>
 
-          <!-- 10. Footer + unsubscribe -->
+          <!-- 9. Footer + unsubscribe -->
           <tr>
             <td align="center" style="padding:20px 28px 28px 28px;background-color:#060404;border-top:1px solid #2a1216;">
               <p style="margin:0 0 8px 0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:1.5;color:#8a7376;">
