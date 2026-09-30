@@ -127,7 +127,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(5rem, 14vh, 7rem) var(--gutter) clamp(2rem, 6vh, 3rem);
+  padding: clamp(5rem, 14vh, 7rem) var(--gutter) clamp(4.5rem, 10vh, 5.5rem);
   opacity: 0;
   transform: translateY(12px);
   transition: opacity 0.4s var(--ease-out), transform 0.4s var(--ease-out);
@@ -161,6 +161,37 @@
 .mobile-nav a:focus-visible {
   border-color: var(--crimson-hi);
   background: rgba(179, 18, 27, 0.2);
+}
+.mobile-nav-contact {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
+  margin: 0;
+  text-align: center;
+  font-size: var(--fs-small);
+  line-height: 1.45;
+  color: var(--ink-soft);
+}
+.mobile-nav-contact a {
+  display: inline;
+  width: auto;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  font-size: inherit;
+  font-weight: 600;
+  letter-spacing: 0;
+  color: var(--crimson-hi);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.mobile-nav-contact a:hover,
+.mobile-nav-contact a:focus-visible {
+  border: none;
+  background: none;
+  color: #fff;
 }
 html.nav-open {
   overflow: hidden;
