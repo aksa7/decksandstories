@@ -1,0 +1,300 @@
+/* ============================================================
+   thepuzzle.css — ADE QR landing (mobile-first, brand-aligned)
+   ============================================================ */
+
+.puzzle-page {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Top bar ---------- */
+.puzzle-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem var(--gutter);
+  pointer-events: none;
+}
+.puzzle-top-home,
+.puzzle-ig {
+  pointer-events: auto;
+}
+.puzzle-top-home {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  background: rgba(6, 4, 4, 0.78);
+  backdrop-filter: blur(8px);
+  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out), background 0.35s var(--ease-out);
+}
+.puzzle-top-home:hover {
+  color: #fff;
+  border-color: var(--line-red);
+  background: rgba(179, 18, 27, 0.18);
+}
+
+.puzzle-ig {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.55rem;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  color: var(--ink);
+  background: rgba(6, 4, 4, 0.78);
+  backdrop-filter: blur(8px);
+  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out), background 0.35s var(--ease-out);
+}
+.puzzle-ig:hover,
+.puzzle-ig:focus-visible {
+  color: #fff;
+  border-color: var(--crimson-hi);
+  background: rgba(179, 18, 27, 0.22);
+}
+.puzzle-ig svg {
+  display: block;
+  flex-shrink: 0;
+}
+
+/* ---------- Hero ---------- */
+.puzzle-hero {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(4.25rem, 10vh, 5.5rem);
+  padding-bottom: clamp(1.6rem, 4vh, 2.4rem);
+}
+.puzzle-logo {
+  width: min(48vw, 220px);
+  height: auto;
+  margin: 0 auto 0.65rem;
+}
+.puzzle-eyebrow {
+  margin: 0 0 0.45rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--crimson-hi);
+}
+.puzzle-hero h1 {
+  font-size: clamp(1.95rem, 8.2vw, 4.2rem);
+  max-width: 12ch;
+  margin: 0 auto;
+}
+.puzzle-lead {
+  margin: 0.9rem auto 0;
+  max-width: 36rem;
+  display: grid;
+  gap: 0.55rem;
+}
+.puzzle-lead p {
+  margin: 0;
+  font-size: clamp(0.95rem, 2.3vw, 1.12rem);
+  line-height: 1.5;
+}
+.puzzle-lead strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+/* ---------- Sections ---------- */
+.puzzle-section {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(2.4rem, 6vw, 4.5rem);
+}
+.puzzle-section .section-head {
+  margin-bottom: clamp(1.2rem, 3vw, 2rem);
+}
+.puzzle-section .section-head h2 {
+  font-size: clamp(1.35rem, 3.2vw, 2rem);
+  letter-spacing: 0.04em;
+}
+
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  border-top: 1px solid var(--line);
+}
+.puzzle-item {
+  padding: 1.15rem 0 1.25rem;
+  border-bottom: 1px solid var(--line);
+}
+.puzzle-item h3 {
+  margin: 0 0 0.35rem;
+  font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+  color: var(--ink);
+}
+.puzzle-item p {
+  margin: 0;
+  max-width: 42ch;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.puzzle-item--fit h3 {
+  color: var(--crimson-hi);
+}
+
+/* ---------- Benefits ---------- */
+.puzzle-get {
+  max-width: 40rem;
+}
+.puzzle-benefits {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid var(--line);
+}
+.puzzle-benefits li {
+  position: relative;
+  padding: 0.95rem 0 0.95rem 1.15rem;
+  border-bottom: 1px solid var(--line);
+  font-size: clamp(1rem, 2.2vw, 1.15rem);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+.puzzle-benefits li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.35rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 1px;
+  background: var(--crimson-hi);
+  transform: rotate(45deg);
+}
+
+/* ---------- Final CTA ---------- */
+.puzzle-cta-block {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(2.8rem, 7vw, 5rem) clamp(3rem, 8vw, 5.5rem);
+  text-align: center;
+}
+.puzzle-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+.puzzle-cta-inner h2 {
+  margin: 0;
+  max-width: 16ch;
+  font-size: clamp(1.7rem, 5vw, 2.8rem);
+}
+.puzzle-cta-inner .cta-row {
+  justify-content: center;
+  margin-top: 0.25rem;
+}
+.puzzle-cta-inner .btn {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem 1.55rem;
+}
+.puzzle-ig--cta {
+  margin-top: 0.35rem;
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 1.1rem;
+  color: var(--ink-soft);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Desktop ---------- */
+@media (min-width: 768px) {
+  .puzzle-grid {
+    grid-template-columns: 1fr 1fr;
+    column-gap: clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .puzzle-item {
+    padding-block: 1.4rem;
+  }
+  .puzzle-grid--fit .puzzle-item:nth-child(odd) {
+    border-right: 1px solid var(--line);
+    padding-right: clamp(1rem, 2vw, 1.5rem);
+  }
+  .puzzle-grid--fit .puzzle-item:nth-child(even) {
+    padding-left: clamp(1rem, 2vw, 1.5rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .puzzle-hero {
+    padding-top: clamp(5.5rem, 10vh, 7rem);
+    padding-bottom: clamp(2.5rem, 5vh, 3.5rem);
+  }
+  .puzzle-logo {
+    width: min(22vw, 300px);
+  }
+  .puzzle-lead {
+    max-width: 42rem;
+  }
+  .puzzle-section {
+    padding-block: clamp(3rem, 5vw, 4.75rem);
+  }
+  .puzzle-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    column-gap: 0;
+  }
+  .puzzle-item {
+    padding: 1.5rem 1.1rem 1.6rem;
+    border-right: 1px solid var(--line);
+  }
+  .puzzle-item:last-child {
+    border-right: none;
+  }
+  .puzzle-item p {
+    font-size: 0.92rem;
+  }
+  .puzzle-grid--fit {
+    grid-template-columns: 1fr 1fr;
+  }
+  .puzzle-grid--fit .puzzle-item {
+    border-right: none;
+    padding: 1.4rem 0;
+  }
+  .puzzle-grid--fit .puzzle-item:nth-child(odd) {
+    border-right: 1px solid var(--line);
+    padding-right: 1.75rem;
+  }
+  .puzzle-grid--fit .puzzle-item:nth-child(even) {
+    padding-left: 1.75rem;
+  }
+  .puzzle-benefits {
+    max-width: 36rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .puzzle-top-home,
+  .puzzle-ig,
+  .btn {
+    transition: none;
+  }
+}

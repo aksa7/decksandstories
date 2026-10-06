@@ -18,6 +18,7 @@ export default defineConfig({
         thankyou: resolve(root, 'thank-you/index.html'),
         privacy: resolve(root, 'privacy/index.html'),
         cookies: resolve(root, 'cookies/index.html'),
+        thepuzzle: resolve(root, 'thepuzzle/index.html'),
       },
     },
   },
