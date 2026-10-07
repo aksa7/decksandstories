@@ -42,17 +42,19 @@ function looksLikeSpam(data) {
 }
 
 async function notifyTelegram(env, type, data) {
-  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) return;
+  if (!env.TELEGRAM_BOT_TOKEN || !env.TELEGRAM_CHAT_ID) {
+    throw new Error("missing_telegram_env");
+  }
   const text = `New ${labelFor(type)} submission\n\n` +
     Object.entries(data).map(([k, v]) => `${k}: ${String(v).slice(0, 300)}`).join("\n");
-  try {
-    await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text: text.slice(0, 4000) }),
-    });
-  } catch (e) {
-    console.error("Telegram notify failed:", e.message);
+  const res = await fetch(`https://api.telegram.org/bot${env.TELEGRAM_BOT_TOKEN}/sendMessage`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ chat_id: env.TELEGRAM_CHAT_ID, text: text.slice(0, 4000) }),
+  });
+  if (!res.ok) {
+    const errBody = await res.text().catch(() => "");
+    throw new Error(`Telegram ${res.status}: ${errBody}`);
   }
 }
 
@@ -175,20 +177,33 @@ async function handleSubmit(request, env) {
   const name = data.artist || data["contact-name"] || "there";
 
   try {
-    try {
-      await notifyTelegram(env, type, data);
-    } catch {}
-
-    try {
-      await sendEmail(env, {
+    // Telegram + owner Resend run in parallel; neither blocks the other.
+    const settled = await Promise.allSettled([
+      notifyTelegram(env, type, data),
+      sendEmail(env, {
         to: env.OWNER_EMAIL,
         subject: `New ${labelFor(type)} submission — ${name}`,
         html: internalNotificationHtml(type, data),
-      });
-    } catch (err) {
-      console.error("Owner email failed:", err.message);
+      }),
+    ]);
+
+    const telegramOk = settled[0].status === "fulfilled";
+    const resendOk = settled[1].status === "fulfilled";
+
+    if (!telegramOk) {
+      const reason = settled[0].reason;
+      console.error("telegram failed:", reason?.message || String(reason));
+    }
+    if (!resendOk) {
+      const reason = settled[1].reason;
+      console.error("resend failed:", reason?.message || String(reason));
     }
 
+    if (!telegramOk && !resendOk) {
+      return json({ ok: false, error: "delivery_failed" }, 502);
+    }
+
+    // Thank-you to submitter is best-effort and never blocks capture success.
     try {
       await sendEmail(env, {
         to: email,
@@ -198,11 +213,12 @@ async function handleSubmit(request, env) {
         replyTo: env.OWNER_EMAIL,
       });
     } catch (err) {
-      console.error("Thank-you email failed:", err.message);
+      console.error("resend failed:", err.message || String(err));
     }
 
     return json({ ok: true });
   } catch (err) {
+    console.error("submit failed:", err.message || String(err));
     return json({ ok: false, error: String(err.message || err) }, 502);
   }
 }

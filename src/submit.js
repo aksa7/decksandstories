@@ -73,7 +73,7 @@ if (forms.length) {
     return true;
   }
 
-  function showSubmitNotice(form) {
+  function showSubmitError(form) {
     const btn = form.querySelector(".formSubmit");
     if (!btn) return;
     let notice = form.querySelector(".form-submit-notice");
@@ -83,7 +83,7 @@ if (forms.length) {
       btn.before(notice);
     }
     notice.textContent =
-      "Your submission was received, but we couldn't send a confirmation email right now. We've got your info either way — no need to resubmit.";
+      "Something went wrong. Please try again or email decksandstories@gmail.com";
     notice.hidden = false;
     notice.scrollIntoView({ behavior: "smooth", block: "center" });
   }
@@ -132,13 +132,19 @@ if (forms.length) {
           body: new FormData(form),
           headers: { Accept: "application/json" },
         });
-        if (res.ok) {
+        let body = null;
+        try {
+          body = await res.json();
+        } catch {
+          body = null;
+        }
+        if (res.ok && body?.ok === true) {
           window.location.href = redirectUrl;
         } else {
-          showSubmitNotice(form);
+          showSubmitError(form);
         }
       } catch {
-        showSubmitNotice(form);
+        showSubmitError(form);
       }
     });
   });
