@@ -54,6 +54,32 @@ if (forms.length) {
   const redirectUrl = "https://decksandstories.com/thank-you";
 
   const BLOCKED_LINK_RE = /soundcloud\.com|mixcloud\.com|on\.soundcloud\.com|youtube\.com|youtu\.be|open\.spotify\.com|spotify\.link/i;
+  const NO_LINKS_FIELDS = ["artist", "contact-name", "location", "born-in", "genre"];
+  const IG_HANDLE_RE = /^[A-Za-z0-9._]{1,30}$/;
+  const IG_URL_RE = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/([^/?#]+)/i;
+
+  function normalizeInstagram(raw) {
+    let v = String(raw || "").trim();
+    if (!v) return { ok: true, value: "" };
+
+    const urlMatch = v.match(IG_URL_RE);
+    if (urlMatch) {
+      v = urlMatch[1];
+      const reserved = new Set([
+        "p", "reel", "reels", "stories", "tv", "explore", "accounts", "direct", "share",
+      ]);
+      if (reserved.has(v.toLowerCase())) {
+        return { ok: false, value: "" };
+      }
+    }
+    if (v.startsWith("@")) v = v.slice(1);
+    v = v.trim();
+
+    if (!IG_HANDLE_RE.test(v)) {
+      return { ok: false, value: "" };
+    }
+    return { ok: true, value: v };
+  }
 
   function validateMixLinks(form) {
     if (form.id !== "mix-form") return true;
@@ -66,6 +92,7 @@ if (forms.length) {
     field.classList.toggle("is-invalid", blocked);
     if (errorEl) errorEl.hidden = !blocked;
     if (blocked) {
+      console.warn("submit rejected: blocked_mix_links", { field: "photo-links" });
       field.focus();
       field.scrollIntoView({ behavior: "smooth", block: "center" });
       return false;
@@ -73,7 +100,41 @@ if (forms.length) {
     return true;
   }
 
-  function showSubmitError(form) {
+  function validateNoLinksFields(form) {
+    for (const name of NO_LINKS_FIELDS) {
+      const el = form.querySelector(`[name="${name}"]`);
+      if (!el) continue;
+      if (/https?:\/\//i.test(String(el.value || ""))) {
+        console.warn("submit rejected: links_not_allowed", { field: name });
+        el.classList.add("is-invalid");
+        el.focus();
+        el.scrollIntoView({ behavior: "smooth", block: "center" });
+        showSubmitError(form, `Please remove links from the ${name} field`);
+        return false;
+      }
+      el.classList.remove("is-invalid");
+    }
+    return true;
+  }
+
+  function normalizeAndValidateInstagram(form) {
+    const el = form.querySelector('[name="instagram"]');
+    if (!el) return true;
+    const ig = normalizeInstagram(el.value);
+    if (!ig.ok) {
+      console.warn("submit rejected: invalid_instagram", { field: "instagram" });
+      el.classList.add("is-invalid");
+      el.focus();
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      showSubmitError(form, "Please enter a valid Instagram username (not a post or reel link).");
+      return false;
+    }
+    el.value = ig.value;
+    el.classList.remove("is-invalid");
+    return true;
+  }
+
+  function showSubmitError(form, message) {
     const btn = form.querySelector(".formSubmit");
     if (!btn) return;
     let notice = form.querySelector(".form-submit-notice");
@@ -83,9 +144,20 @@ if (forms.length) {
       btn.before(notice);
     }
     notice.textContent =
+      message ||
       "Something went wrong. Please try again or email decksandstories@gmail.com";
     notice.hidden = false;
     notice.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  function messageForSubmitError(body) {
+    if (body?.error === "links_not_allowed" && body.field) {
+      return `Please remove links from the ${body.field} field`;
+    }
+    if (body?.error === "invalid_instagram") {
+      return "Please enter a valid Instagram username (not a post or reel link).";
+    }
+    return null;
   }
 
   forms.forEach((form) => {
@@ -97,6 +169,8 @@ if (forms.length) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
       if (!validateMixLinks(form)) return;
+      if (!validateNoLinksFields(form)) return;
+      if (!normalizeAndValidateInstagram(form)) return;
 
       buildHidden(form, "#story-letter", ".story-answer", "\n\n");
       buildHidden(form, "#quiz", ".quiz-answer", "\n");
@@ -141,7 +215,10 @@ if (forms.length) {
         if (res.ok && body?.ok === true) {
           window.location.href = redirectUrl;
         } else {
-          showSubmitError(form);
+          if (body?.error === "links_not_allowed" || body?.error === "invalid_instagram") {
+            console.warn("submit rejected:", body.error, { field: body.field || "instagram" });
+          }
+          showSubmitError(form, messageForSubmitError(body));
         }
       } catch {
         showSubmitError(form);

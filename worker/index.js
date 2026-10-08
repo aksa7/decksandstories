@@ -28,17 +28,44 @@ export default {
 };
 
 function looksLikeSpam(data) {
-  // Honeypot: real users never fill this, bots often do
-  if ((data.website || "").trim() !== "") return true;
+  // Honeypot only: real users never fill this, bots often do
+  return (data.website || "").trim() !== "";
+}
 
-  // Fields that should be plain names/places should never contain a URL
-  const suspectFields = ["artist", "contact-name", "location", "born-in", "instagram", "genre"];
-  for (const field of suspectFields) {
-    const v = (data[field] || "");
-    if (/https?:\/\//i.test(v)) return true;
+const NO_LINKS_FIELDS = ["artist", "contact-name", "location", "born-in", "genre"];
+const IG_HANDLE_RE = /^[A-Za-z0-9._]{1,30}$/;
+const IG_URL_RE = /^(?:https?:\/\/)?(?:www\.)?instagram\.com\/([^/?#]+)/i;
+
+/** Extract Instagram handle from raw @user / profile URL / plain handle. */
+function normalizeInstagram(raw) {
+  let v = String(raw || "").trim();
+  if (!v) return { ok: true, value: "" };
+
+  const urlMatch = v.match(IG_URL_RE);
+  if (urlMatch) {
+    v = urlMatch[1];
+    const reserved = new Set([
+      "p", "reel", "reels", "stories", "tv", "explore", "accounts", "direct", "share",
+    ]);
+    if (reserved.has(v.toLowerCase())) {
+      return { ok: false, value: "" };
+    }
   }
+  if (v.startsWith("@")) v = v.slice(1);
+  v = v.trim();
 
-  return false;
+  if (!IG_HANDLE_RE.test(v)) {
+    return { ok: false, value: "" };
+  }
+  return { ok: true, value: v };
+}
+
+function findLinksNotAllowedField(data) {
+  for (const field of NO_LINKS_FIELDS) {
+    if (!(field in data)) continue;
+    if (/https?:\/\//i.test(String(data[field] || ""))) return field;
+  }
+  return null;
 }
 
 async function notifyTelegram(env, type, data) {
@@ -167,7 +194,23 @@ async function handleSubmit(request, env) {
   }
 
   if (looksLikeSpam(data)) {
+    console.warn("submit rejected: honeypot", { field: "website" });
     return json({ ok: true });
+  }
+
+  const linkField = findLinksNotAllowedField(data);
+  if (linkField) {
+    console.warn("submit rejected: links_not_allowed", { field: linkField });
+    return json({ ok: false, error: "links_not_allowed", field: linkField }, 400);
+  }
+
+  if ("instagram" in data) {
+    const ig = normalizeInstagram(data.instagram);
+    if (!ig.ok) {
+      console.warn("submit rejected: invalid_instagram", { field: "instagram" });
+      return json({ ok: false, error: "invalid_instagram" }, 400);
+    }
+    data.instagram = ig.value;
   }
 
   const email = (data.email || "").trim();
