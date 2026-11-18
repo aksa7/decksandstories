@@ -1,0 +1,348 @@
+/* ============================================================
+   merch.css — /merch Limited Collection (mobile-first)
+   Front of the tee by default; hover (mouse) or tap shows the back.
+   ============================================================ */
+
+.merch-page {
+  position: relative;
+  z-index: 2;
+}
+
+/* ---------- Top bar ---------- */
+.merch-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem var(--gutter);
+  pointer-events: none;
+}
+.merch-top-home,
+.merch-ig {
+  pointer-events: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--ink);
+  background: rgba(6, 4, 4, 0.78);
+  backdrop-filter: blur(8px);
+  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out), background 0.35s var(--ease-out);
+}
+.merch-top-home {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.merch-ig {
+  min-width: 44px;
+  padding: 0.55rem;
+  border-radius: 50%;
+}
+.merch-top-home:hover,
+.merch-ig:hover,
+.merch-ig:focus-visible {
+  color: #fff;
+  border-color: var(--crimson-hi);
+  background: rgba(179, 18, 27, 0.22);
+}
+
+/* ---------- Hero ---------- */
+.merch-hero {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-top: clamp(4.5rem, 11vh, 6rem);
+  padding-bottom: clamp(1.8rem, 4vh, 2.6rem);
+}
+.merch-logo {
+  width: min(42vw, 200px);
+  height: auto;
+  margin: 0 auto 0.75rem;
+}
+.merch-eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--crimson-hi);
+}
+.merch-hero h1 {
+  margin: 0 auto;
+  max-width: 11ch;
+  font-size: clamp(2.2rem, 9vw, 4.6rem);
+}
+.merch-lead {
+  margin: 1rem auto 0;
+  max-width: 34rem;
+  font-size: clamp(0.98rem, 2.3vw, 1.15rem);
+  line-height: 1.5;
+}
+.merch-hero-cta {
+  margin-top: 1.4rem;
+}
+.merch-hero-cta .btn,
+.merch-cta-inner .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.85rem 1.55rem;
+}
+
+/* ---------- Collection ---------- */
+.merch-section {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(1.5rem, 4vw, 3rem) clamp(2.5rem, 6vw, 4.5rem);
+}
+.merch-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.4rem 1.5rem;
+  margin-bottom: clamp(1.1rem, 2.5vw, 1.8rem);
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+.merch-section-head h2 {
+  font-size: clamp(1.25rem, 3vw, 1.8rem);
+  letter-spacing: 0.04em;
+}
+.merch-hint {
+  margin: 0;
+  font-size: var(--fs-small);
+  color: var(--ink-faint);
+}
+.merch-hint-hover {
+  display: none;
+}
+@media (hover: hover) and (pointer: fine) {
+  .merch-hint-hover {
+    display: inline;
+  }
+  .merch-hint-touch {
+    display: none;
+  }
+}
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.4rem, 4vw, 2rem) clamp(0.7rem, 2.5vw, 1.4rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+@media (min-width: 1024px) {
+  .merch-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* ---------- Card ---------- */
+.merch-flip,
+.merch-secret {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 760 / 1024;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg-2);
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease-out), transform var(--dur) var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+.merch-face {
+  position: absolute;
+  inset: 0;
+}
+.merch-face img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-out);
+}
+.merch-face--back {
+  opacity: 0;
+  transition: opacity 0.55s var(--ease-out);
+}
+
+/* Bottom shade so the Front/Back chip stays legible on white tees. */
+.merch-flip::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(6, 4, 4, 0.55), transparent);
+  pointer-events: none;
+}
+
+/* Back state: tapped / clicked (all devices) */
+.merch-flip[aria-pressed="true"] .merch-face--back {
+  opacity: 1;
+}
+.merch-flip[aria-pressed="true"] {
+  border-color: var(--line-red);
+}
+
+/* Back state: hover, only for real mouse pointers (avoids sticky :hover on phones) */
+@media (hover: hover) and (pointer: fine) {
+  .merch-flip:hover .merch-face--back {
+    opacity: 1;
+  }
+  .merch-flip:hover,
+  .merch-secret:hover {
+    border-color: var(--line-red);
+    transform: translateY(-2px);
+  }
+  .merch-flip:hover img {
+    transform: scale(1.035);
+  }
+}
+
+/* Tags on the image */
+.merch-tag,
+.merch-side {
+  position: absolute;
+  z-index: 2;
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  line-height: 1;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(6px);
+}
+.merch-tag {
+  top: 0.6rem;
+  left: 0.6rem;
+  padding: 0.38rem 0.6rem;
+  color: #fff;
+  background: rgba(179, 18, 27, 0.82);
+}
+.merch-side {
+  left: 0.6rem;
+  bottom: 0.6rem;
+  display: inline-flex;
+  padding: 0.38rem 0.6rem;
+  color: var(--ink);
+  background: rgba(6, 4, 4, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+}
+.merch-side-back {
+  display: none;
+}
+.merch-flip[aria-pressed="true"] .merch-side-front {
+  display: none;
+}
+.merch-flip[aria-pressed="true"] .merch-side-back {
+  display: inline;
+}
+@media (hover: hover) and (pointer: fine) {
+  .merch-flip:hover .merch-side-front {
+    display: none;
+  }
+  .merch-flip:hover .merch-side-back {
+    display: inline;
+  }
+}
+
+.merch-meta {
+  padding-top: 0.7rem;
+}
+.merch-name {
+  font-size: clamp(0.92rem, 2.4vw, 1.08rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.merch-color {
+  margin-top: 0.2rem;
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+
+/* ---------- Secret tile ---------- */
+.merch-secret {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  text-align: center;
+  background:
+    radial-gradient(80% 60% at 50% 35%, rgba(179, 18, 27, 0.3), transparent 70%),
+    var(--bg-1);
+  border-style: dashed;
+  border-color: var(--line-red);
+}
+.merch-secret-mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(3.5rem, 12vw, 6rem);
+  line-height: 1;
+  color: var(--crimson-hi);
+}
+.merch-secret-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(0.95rem, 2.4vw, 1.15rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
+.merch-secret-text {
+  font-size: var(--fs-small);
+  color: var(--ink-soft);
+}
+
+/* ---------- CTA ---------- */
+.merch-cta-block {
+  position: relative;
+  z-index: 2;
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(3rem, 8vw, 5.5rem);
+  text-align: center;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line);
+}
+.merch-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.merch-cta-inner h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 5vw, 2.8rem);
+}
+.merch-cta-text {
+  margin-top: 0.8rem;
+  max-width: 34rem;
+}
+.merch-cta-inner .cta-row {
+  justify-content: center;
+  margin-top: 1.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .merch-face--back,
+  .merch-face img,
+  .merch-flip,
+  .merch-secret {
+    transition: none;
+  }
+}

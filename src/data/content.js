@@ -5,12 +5,9 @@
 // ============================================================
 
 export const nav = [
-  { href: "#about", label: "About" },
-  { href: "#episodes", label: "Episodes" },
-  { href: "#studio", label: "Studio Sessions" },
-  { href: "#pick-question", label: "Pick a Question" },
-  { href: "#gallery", label: "Gallery" },
-  { href: "submit/", label: "Submit", external: true },
+  { href: "submit/", label: "Submit your Mix", external: true },
+  { href: "merch/", label: "Merch", external: true },
+  { href: "thepuzzle/", label: "The Puzzle", external: true },
 ];
 
 // Brands / partners shown in the "Who trusts us" strip.
@@ -62,22 +59,22 @@ export const countriesStat = { featured: countries.length, total: 195 };
 // Episodes: full DJ-mix episodes. thumb = YouTube thumbnail (swapped to a
 // local optimized facade thumb in F6).
 export const episodes = [
-  { title: "Bayl", genre: "Trance / Electro / Psy", number: 84, ytId: "9gE254In0ZI", text: "Dystopian trance, electro and psy from Kuala Lumpur - distorted melodies with a human edge." },
-  { title: "KeremCan", genre: "Deep / Organic / Hypnotic", number: 83, ytId: "kbrVX5ZvzJ8", text: "Deep organic grooves from Norway - a percussionist's path into soulful bass and calm rhythm." },
-  { title: "(V)Vilches", genre: "House / Electro / Techno", number: 82, ytId: "VnWQL_ndKxc", text: "House, electro and techno from Cali to Madrid - music made to get friends dancing together." },
-  { title: "Marshall", genre: "House / Deep House / Minimal", number: 81, ytId: "RyumIuAk2aE", text: "Warm deep house from Venezuela to Buenos Aires - soulful grooves built on connection and community." },
-  { title: "FRISSON", genre: "House / Tech House / Indie Dance", number: 80, ytId: "x-5-l_7orKM", text: "High-energy house and tech house from Baku to Vilnius - rhythmic drive with effortless flow." },
-  { title: "Bobo", genre: "Tech House / Melodic House", number: 79, ytId: "sQhPT9uqi2o", text: "Groovy, hypnotic house from Marrakech - warm late-night energy shaped across cultures." },
+  { title: "DJVLDX", genre: "House / Afro House", number: 90, ytId: "Qu_ECx0iQWs", text: "House and afro house from Hunedoara, Romania - an unexpected start behind the decks that found its own groove." },
+  { title: "LOODEWIJK", genre: "House / Deep House", number: 89, ytId: "MRKqIgCX9Eg", text: "Soulful house and deep digging from Utrecht - overlooked '90s records given another chance on the floor." },
+  { title: "QUANTICO", genre: "House / Tech House / Indie Dance", number: 88, ytId: "n-O_1MGwNzI", text: "Groovy, melodic house from Kaunas - selections built on connection, with unreleased IDs in the mix." },
+  { title: "GREGOOZ", genre: "Disco / House / Soul", number: 87, ytId: "Mf5XDXPjZaM", text: "Disco, soulful house and classics from Paris - groove and memory that keep the floor moving for hours." },
+  { title: "BERT BICEP", genre: "UK Garage / House / Tech House", number: 86, ytId: "HtIPsuL1Tls", text: "UK garage energy from Amsterdam - bedroom practice turned into rolling grooves ready for a wider room." },
+  { title: "IVESONCE", genre: "Disco / Funk / Soul", number: 85, ytId: "iQ-1HTXzp8c", text: "Disco, funk and soul from Nijmegen - hip-hop roots meeting Kaytranada-inspired blends across genres." },
 ];
 
 // Studio Sessions: in-studio sets recorded in Kaunas.
 export const sessions = [
-  { title: "Marzu", genre: "Tech House / Minimal / House", number: 89, ytId: "uRevEsuGzjE", text: "Deep minimal and tech house with heavy low-end - grooves refined through years of digging." },
-  { title: "ISSA", genre: "Trance / House / Ghettotech", number: 88, ytId: "Xj2MeJSk1cY", text: "No fixed genre, free movement between trance, house and ghettotech - instinct over expectation." },
-  { title: "Paul Josef", genre: "Indie Dance / House / Nu Disco", number: 87, ytId: "CR0HbJKhzNo", text: "Bouncy house, indie dance and nu disco from Dubai - percussion-first grooves with retro bounce." },
-  { title: "Dubinn", genre: "Liquid Drum and Bass", number: 86, ytId: "GI_zXrsZeqg", text: "Liquid D&B and jungle from Barcelona - soulful rollers with deep underground warmth." },
-  { title: "Lucky Luke", genre: "Speed Garage / Deep Tech", number: 85, ytId: "f3dNFGyvoAs", text: "UK-driven speed garage and deep tech - unreleased IDs and club energy built to bounce." },
-  { title: "Boy From Suburbs", genre: "Organic / Hypnotic", number: 84, ytId: "xwyaBcyROGg", text: "Organic, hypnotic electronics meet Afro house energy - grooves built for the club and the sunrise." },
+  { title: "Ąnis", genre: "Deep / Dubby / Minimal", number: 97, ytId: "vbe1FvkZUBs", text: "Deep, dubby and slightly melancholic four-deck layering - a slow-build session he calls Deep Autumn Shenanigans." },
+  { title: "aksendo", genre: "Minimal / Groovy House", number: 96, ytId: "Cp7i5hqdhGI", text: "Minimal and underground house with a twist - six CDJs in the room, only the first and sixth allowed." },
+  { title: "Mantas T", genre: "Adult Modern Techno", number: 95, ytId: "4GfQCjgT3Wk", text: "Detroit-rooted modern techno from Cologne and Lithuania - constant sound revolt shaped by decades of digging." },
+  { title: "Ged Jurga", genre: "New York House / Acid / Breaks", number: 94, ytId: "RWfxp4G7hJM", text: "Chicago grit, New York soul and obscure vinyl heat - warm basslines that slowly loosen the room." },
+  { title: "Stein Ego", genre: "Progressive / Tech House", number: 93, ytId: "4vkmuBoxOwE", text: "Progressive and tech house from Vilnius - the first two tracks set the direction, everything after is the story." },
+  { title: "Vėjas", genre: "Hardgroove", number: 92, ytId: "PbD0k_qsaM0", text: "Dark, physical hardgroove from a young Lithuanian selector - restless rhythm built as a journey, not a straight line." },
 ];
 
 // Pick a Question: Instagram community-answer clips.
