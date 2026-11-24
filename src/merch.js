@@ -56,7 +56,10 @@ function card(item, i) {
         </button>
         <div class="merch-meta">
           <h3 class="merch-name">${esc(item.name)}</h3>
-          <p class="merch-color">${esc(item.color)}</p>
+          <div class="merch-meta-row">
+            <p class="merch-color">${esc(item.color)}</p>
+            <button class="merch-size-btn" type="button" aria-haspopup="dialog" aria-controls="size-guide" data-item="${esc(label)}">Size guide</button>
+          </div>
         </div>
       </article>
     </li>`;
@@ -96,7 +99,31 @@ function initFlips() {
   });
 }
 
+// One shared size guide (S / M / L) for every tee.
+function initSizeGuide() {
+  const dialog = document.getElementById("size-guide");
+  if (!dialog || typeof dialog.showModal !== "function") return;
+  const itemLine = dialog.querySelector("[data-size-guide-item]");
+
+  const close = () => dialog.close();
+  dialog.addEventListener("close", () => document.documentElement.classList.remove("size-guide-open"));
+  dialog.querySelector("[data-size-guide-close]")?.addEventListener("click", close);
+  // Click on the dimmed backdrop (outside the panel) closes it.
+  dialog.addEventListener("click", (e) => {
+    if (e.target === dialog) close();
+  });
+
+  document.querySelectorAll(".merch-size-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (itemLine) itemLine.textContent = btn.dataset.item || "";
+      document.documentElement.classList.add("size-guide-open");
+      dialog.showModal();
+    });
+  });
+}
+
 renderGrid();
 initFlips();
+initSizeGuide();
 tagReveals();
 initRevealsLite();
