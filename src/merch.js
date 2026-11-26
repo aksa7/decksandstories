@@ -17,7 +17,7 @@ const MERCH_ITEMS = [
   { slug: "identity-black", name: "Where Music Reveals Identity", color: "Black" },
   { slug: "identity-white", name: "Where Music Reveals Identity", color: "White" },
   { slug: "no-song-requests-black", name: "No Song Requests", color: "Black" },
-  { slug: "no-song-requests-pink", name: "No Song Requests", color: "Pink" },
+  { slug: "no-song-requests-white", name: "No Song Requests", color: "White" },
   { slug: "dance-now-black", name: "Dance Now, Think Later", color: "Black" },
   { slug: "dance-now-white", name: "Dance Now, Think Later", color: "White" },
   { slug: "music-answer-white", name: "Music Is The Answer", color: "White" },
